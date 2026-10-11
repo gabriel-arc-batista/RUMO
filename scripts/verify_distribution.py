@@ -56,7 +56,7 @@ def await_main(process):
         if process.poll() is not None:
             raise AssertionError(f"Executable exited with {process.returncode}")
         matches = [
-            (h, t) for h, t in windows(process.pid) if t.startswith("RUMO •")
+            (h, t) for h, t in windows(process.pid) if t.startswith("Rumo — Estudos •")
         ]
         if matches:
             return matches[0][0], round(time.perf_counter() - start, 2)
@@ -100,7 +100,9 @@ try:
     processes.append(second)
     time.sleep(0.8)
     assert not [
-        title for _, title in windows(second.pid) if title.startswith("RUMO •")
+        title
+        for _, title in windows(second.pid)
+        if title.startswith("Rumo — Estudos •")
     ], "Second counting instance was opened"
     for h, t in windows(second.pid):
         user32.PostMessageW(h, 0x0010, 0, 0)

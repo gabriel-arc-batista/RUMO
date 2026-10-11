@@ -6,7 +6,7 @@ Entrega Windows x64. A implementação usa Tk/SQLite para reduzir RAM. A base pe
 
 | Seção do briefing | Implementação | Verificação |
 |---|---|---|
-| 1. Objetivo | RUMO desktop, português, local, foco BACEN | Executável real e GUI |
+| 1. Objetivo | Rumo — Estudos desktop, português, local, foco BACEN | Executável real e GUI |
 | 2. Arquitetura | SQLite em dados do usuário, migrações 1→2→3, transações, instância única, pacote sem Python externo | Build, reinício, migração, instância duplicada |
 | 3. Referências | Dez imagens lidas; estrutura própria sem ativos da plataforma | Revisão visual das imagens e screenshots |
 | 4. Navegação e cores | Nove seções, menu recolhível, relógio inferior direito, temas completo claro/escuro/sistema, preto/dourado, formulários e confirmações com tema | Todas as telas em 1366×768 e 1000×650; formulários reais |

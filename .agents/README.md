@@ -1,6 +1,6 @@
 # Contexto para continuidade
 
-Versão preparada: **1.4.1**, em 11/10/2026. Python 3.13, Tk 8.6, SQLite esquema 3. Plataforma executada: Windows 11 x64. O projeto principal é BACEN 2024, TI; também existe Economia e Finanças.
+Versão preparada: **1.4.2**, em 11/10/2026. Python 3.13, Tk 8.6, SQLite esquema 3. Plataforma executada: Windows 11 x64. O projeto principal é BACEN 2024, TI; também existe Economia e Finanças.
 
 ## Produto e decisões aceitas
 
@@ -21,3 +21,7 @@ A revisão de segurança 1.4.1 separou backups, protegeu retenção, CSV e links
 - `SECURITY.md`: superfície de ataque e invariantes.
 - `RELEASE.md`: conta pessoal, build e publicação.
 - `ROADMAP.md`: expansão sem regressões.
+
+## Marca e compatibilidade 1.4.2
+
+A marca pública é **Rumo — Estudos**. Preserve os identificadores técnicos legados `RUMO`, o AppId do instalador, os caminhos de dados, o formato de backup e `RUMO_DATA`: a mudança de nome atualiza a instalação existente. O repositório pessoal continua `RUMO`. Downloads novos usam prefixo `Rumo-`; atalhos antigos são substituídos pelo instalador.

@@ -1,4 +1,4 @@
-# RUMO — orientação para agentes
+# Rumo — Estudos — orientação para agentes
 
 Antes de alterar o projeto, leia `.agents/README.md`, `.agents/ARCHITECTURE.md`, `.agents/SECURITY.md` e `.agents/TESTING.md`. Para publicar ou empacotar, leia `.agents/RELEASE.md`.
 

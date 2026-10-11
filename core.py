@@ -103,7 +103,7 @@ class Store:
         if version > 3:
             self.db.close()
             raise ValueError(
-                "A base foi criada por uma versão mais nova do RUMO. Atualize o aplicativo."
+                "A base foi criada por uma versão mais nova do Rumo — Estudos. Atualize o aplicativo."
             )
         self.db.execute("PRAGMA trusted_schema=OFF")
         self.db.execute("PRAGMA foreign_keys=ON")

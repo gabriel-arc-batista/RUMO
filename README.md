@@ -1,4 +1,4 @@
-# RUMO
+# Rumo — Estudos
 
 Aplicativo desktop de estudos para Windows, local e offline, com interface nativa em português, SQLite, tema preto e dourado e sem navegador embutido. Não exige instalar Python ou Node para usar o executável.
 
@@ -6,7 +6,7 @@ Aplicativo desktop de estudos para Windows, local e offline, com interface nativ
 
 Baixe o instalador ou o ZIP portátil em [Releases](https://github.com/gabriel-arc-batista/RUMO/releases). Os arquivos de `dist/` são gerados pelo build e não ficam no Git.
 
-- **Instalação:** abra `dist/RUMO-Instalar-Windows.exe`. O instalador é por usuário e cria atalho no menu Iniciar.
+- **Instalação:** abra `dist/Rumo-Instalar-Windows.exe`. O instalador é por usuário e cria atalho no menu Iniciar.
 - **Portátil:** abra `dist/RUMO/RUMO.exe`. Mantenha a pasta `_internal` junto do executável. Copiar apenas o EXE não funciona.
 - O ZIP portátil pode ser extraído em qualquer pasta. Os dados ficam em `%LOCALAPPDATA%\RUMO`, separados do programa e preservados ao atualizar/desinstalar.
 
@@ -89,3 +89,7 @@ Código formatado com Black; validação de backups extraída para `backups.py` 
 Orientações para continuidade: [AGENTS.md](AGENTS.md) e [.agents/README.md](.agents/README.md). Resultado e limites da revisão: [SECURITY_REVIEW.md](SECURITY_REVIEW.md). Dados pessoais, relatórios locais, `.env` e builds ficam fora do Git. Binários são distribuídos pela página de Releases.
 
 Backups JSON até 20 MB, SQLite até 100 MB e até 100 mil registros. O destino importado é ignorado na restauração. A retenção preserva backups antigos sem o novo prefixo; estes podem ser administrados manualmente. O instalador é por usuário e ainda não tem assinatura digital.
+
+## Nome atualizado na versão 1.4.2
+
+O aplicativo passou a se chamar **Rumo — Estudos**. A atualização mantém estudos, configurações e backups e substitui o atalho antigo. Os nomes internos de arquivos e pastas permanecem para compatibilidade com instalações anteriores.

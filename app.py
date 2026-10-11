@@ -523,7 +523,7 @@ class App:
 
             create_starter_cycle(self.store, self.plan)
             self.store.set_pref("create_guided_cycle", False)
-        self.root.title("RUMO • Estudos locais")
+        self.root.title("Rumo — Estudos • Estudos locais")
         left = top = 0
         available_width = root.winfo_screenwidth()
         available_height = root.winfo_screenheight()
@@ -824,7 +824,7 @@ class App:
         self.sidebar.pack_propagate(False)
         ttk.Label(
             self.sidebar,
-            text="RUMO",
+            text="rumo",
             font=("Inter", 16, "bold"),
             foreground=self.motion.palette["accent"],
         ).pack(anchor="w", padx=16, pady=(14, 4))
@@ -3044,7 +3044,7 @@ class App:
         tracking = self.root.bind("<Configure>", position_backdrop, add="+")
         win = tk.Toplevel(self.root)
         self.clock_win = win
-        win.title("Modo foco • RUMO")
+        win.title("Modo foco • Rumo — Estudos")
         win.geometry("720x680")
         win.minsize(600, 640)
         win.configure(bg=self.bg)
@@ -4675,7 +4675,7 @@ class App:
         path = filedialog.asksaveasfilename(
             defaultextension=".json",
             initialfile=f"RUMO-{self.today()}.json",
-            filetypes=[("Backup RUMO", "*.json")],
+            filetypes=[("Backup Rumo — Estudos", "*.json")],
             parent=self.root,
         )
         if path:
@@ -4688,7 +4688,8 @@ class App:
                 "Finalize ou descarte o rascunho antes de restaurar outro backup."
             )
         path = filedialog.askopenfilename(
-            filetypes=[("Backup RUMO", "*.json *.sqlite3 *.db")], parent=self.root
+            filetypes=[("Backup Rumo — Estudos", "*.json *.sqlite3 *.db")],
+            parent=self.root,
         )
         if not path:
             return
@@ -4782,7 +4783,7 @@ def main():
         root = tk.Tk()
         root.withdraw()
         messagebox.showinfo(
-            "RUMO", "O aplicativo já está aberto. Use a janela existente."
+            "Rumo — Estudos", "O aplicativo já está aberto. Use a janela existente."
         )
         root.destroy()
         return

@@ -31,7 +31,7 @@ if sys.argv[1] == "prepare":
     backup = (
         data_dir()
         / "backups"
-        / ("pre-v1.4.1-" + datetime.now().strftime("%Y%m%d-%H%M%S") + ".sqlite3")
+        / ("pre-v1.4.2-" + datetime.now().strftime("%Y%m%d-%H%M%S") + ".sqlite3")
     )
     backup.parent.mkdir(exist_ok=True)
     source = reader(database)
@@ -93,7 +93,7 @@ else:
         for p in files
     )
     report = {
-        "version": "1.4.1",
+        "version": "1.4.2",
         "installed_executable": str(installed / "RUMO.exe"),
         "matches_build": True,
         "all_existing_study_records_preserved": True,
