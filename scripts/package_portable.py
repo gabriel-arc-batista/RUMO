@@ -43,7 +43,7 @@ for package in ["tzdata", "pyinstaller"]:
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source, target)
 if sys.platform == "win32":
-    output = project / "dist/Rumo-Windows-Portatil.zip"
+    output = project / "dist/RUMO-Windows-Portatil.zip"
     with zipfile.ZipFile(
         output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6
     ) as archive:

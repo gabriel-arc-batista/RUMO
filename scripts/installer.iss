@@ -1,16 +1,17 @@
 [Setup]
 AppId={{96028A65-51CB-4DA7-B623-512B6896BA09}
-AppName=Rumo Estudos
-AppVersion=1.4.2
-AppPublisher=Rumo Estudos Local
+AppName=RUMO Estudos
+AppVersion=1.4.3
+AppPublisher=RUMO Estudos Local
 SetupIconFile=..\assets\RUMO.ico
 DefaultDirName={localappdata}\Programs\RUMO
-DefaultGroupName=Rumo Estudos
+UsePreviousAppDir=no
+DefaultGroupName=RUMO Estudos
 PrivilegesRequired=lowest
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 OutputDir=..\dist
-OutputBaseFilename=Rumo-Instalar-Windows
+OutputBaseFilename=RUMO-Instalar-Windows
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
@@ -33,13 +34,9 @@ Source: "..\CHECKLIST.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\THIRD_PARTY.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\FONTES.md"; DestDir: "{app}"; Flags: ignoreversion
 
-[InstallDelete]
-Type: files; Name: "{autodesktop}\RUMO.lnk"
-Type: files; Name: "{userprograms}\RUMO\RUMO.lnk"
-
 [Icons]
-Name: "{group}\Rumo Estudos"; Filename: "{app}\RUMO.exe"; IconFilename: "{app}\_internal\assets\RUMO.ico"
-Name: "{autodesktop}\Rumo Estudos"; Filename: "{app}\RUMO.exe"; IconFilename: "{app}\_internal\assets\RUMO.ico"; Tasks: desktopicon
+Name: "{group}\RUMO Estudos"; Filename: "{app}\RUMO.exe"; IconFilename: "{app}\_internal\assets\RUMO.ico"
+Name: "{autodesktop}\RUMO Estudos"; Filename: "{app}\RUMO.exe"; IconFilename: "{app}\_internal\assets\RUMO.ico"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\RUMO.exe"; Description: "Abrir Rumo Estudos"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\RUMO.exe"; Description: "Abrir RUMO Estudos"; Flags: nowait postinstall skipifsilent

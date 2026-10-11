@@ -58,8 +58,6 @@ if os.name == "nt":
 else:
     import tarfile
 
-    with tarfile.open(
-        project / "dist/RUMO-linux-portatil.tar.gz", "w:gz"
-    ) as archive:
+    with tarfile.open(project / "dist/RUMO-linux-portatil.tar.gz", "w:gz") as archive:
         archive.add(project / "dist/RUMO", arcname="RUMO")
     print("Linux portable bundle built; launch RUMO/RUMO.")

@@ -14,3 +14,5 @@ Entradas externas: JSON/SQLite de backup, importação de edital, nomes/observa�
 - Instalador: por usuário, sem administrador, sem tarefa de startup; não apagar os dados ao desinstalar.
 
 O instalador ainda não tem assinatura Authenticode. Hashes de release identificam os arquivos; não substituem assinatura nem auditoria externa. Não enviar o programa ou dados a VirusTotal/serviços de terceiros sem autorização.
+
+A marca do JSON é um rótulo de 1–64 caracteres, não uma barreira de segurança. Versão, tabelas, campos, relações, limites e preferências continuam integralmente validados. A migração da base recusa links simbólicos, bloqueia a instalação anterior e publica a cópia sem sobrescrever o destino; nunca apaga a origem.

@@ -2,7 +2,7 @@
 
 Pesquisa e revisão: 10/10/2026. O aplicativo continua nativo em Tk/SQLite; as referências orientam a composição, sem copiar marcas, imagens ou componentes proprietários.
 
-| Referência de design | Aplicação no Rumo — Estudos |
+| Referência de design | Aplicação no RUMO — Estudos |
 |---|---|
 | [Estudei — tutoriais oficiais](https://wp.estudei.com.br/tutoriais/) | Indicadores de estudo, constância, progresso por matéria, organização do foco e relógio circular. |
 | [Linear — apresentação do novo design](https://linear.app/now/how-we-redesigned-the-linear-ui) | Hierarquia de fundo, superfícies e campos; navegação lateral; alinhamento; redução de ruído e listas com separadores discretos. |

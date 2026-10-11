@@ -13,7 +13,8 @@ from security import validate_preferences, validate_relationships
 def validate_backup(path, schema, tables):
     data = read_backup(Path(path), tables)
     if (
-        data.get("format") != "RUMO"
+        not isinstance(data.get("format"), str)
+        or not 1 <= len(data["format"]) <= 64
         or data.get("version") not in [1, 2, 3]
         or set(data.get("tables", {})) != set(tables)
     ):

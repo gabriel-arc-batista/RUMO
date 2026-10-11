@@ -61,12 +61,14 @@ def uid():
 
 def data_dir():
     override = os.environ.get("RUMO_DATA")
-    return (
-        Path(override)
-        if override
-        else Path(os.environ.get("LOCALAPPDATA", Path.home() / ".local/share"))
-        / "RUMO"
-    )
+    if override:
+        return Path(override)
+    base = Path(os.environ.get("LOCALAPPDATA", Path.home() / ".local/share"))
+    target = base / "RUMO"
+    from storage import migrate_existing_data
+
+    migrate_existing_data(base, target, SCHEMA, TABLES)
+    return target
 
 
 def duration(seconds):
@@ -103,7 +105,7 @@ class Store:
         if version > 3:
             self.db.close()
             raise ValueError(
-                "A base foi criada por uma versão mais nova do Rumo — Estudos. Atualize o aplicativo."
+                "A base foi criada por uma versão mais nova do RUMO — Estudos. Atualize o aplicativo."
             )
         self.db.execute("PRAGMA trusted_schema=OFF")
         self.db.execute("PRAGMA foreign_keys=ON")
@@ -804,9 +806,7 @@ class Store:
         today = self.today().isoformat()
         if not force and list(folder.glob(f"RUMO-{today}-*.sqlite3")):
             return
-        target = (
-            folder / f'RUMO-{today}-{datetime.now().strftime("%H%M%S%f")}.sqlite3'
-        )
+        target = folder / f'RUMO-{today}-{datetime.now().strftime("%H%M%S%f")}.sqlite3'
         dest = sqlite3.connect(target)
         try:
             self.db.backup(dest)

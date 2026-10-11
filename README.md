@@ -1,6 +1,6 @@
-# Rumo — Estudos
+# RUMO — Estudos
 
-Organize sua preparação para concursos, provas e outros objetivos de aprendizagem. O Rumo é um aplicativo desktop em português que reúne planos, ciclos, assuntos, sessões de foco e acompanhamento de progresso.
+Organize sua preparação para concursos, provas e outros objetivos de aprendizagem. O RUMO é um aplicativo desktop em português que reúne planos, ciclos, assuntos, sessões de foco e acompanhamento de progresso.
 
 Funciona localmente, sem conta, assinatura ou conexão obrigatória com a internet. A interface nativa usa Python, Tk e SQLite, com foco em baixo consumo de memória.
 
@@ -22,12 +22,12 @@ Baixe os arquivos na página de [Releases](https://github.com/gabriel-arc-batist
 
 | Opção | Como usar |
 | --- | --- |
-| Instalador | Execute `Rumo-Instalar-Windows.exe`. A instalação é por usuário, sem necessidade de administrador. Há opção de criar atalho na área de trabalho. |
-| Portátil | Extraia `Rumo-Windows-Portatil.zip` e abra `RUMO/RUMO.exe`. Mantenha a pasta `_internal` junto do executável. |
+| Instalador | Execute `RUMO-Instalar-Windows.exe`. A instalação é por usuário, sem necessidade de administrador. Há opção de criar atalho na área de trabalho. |
+| Portátil | Extraia `RUMO-Windows-Portatil.zip` e abra `RUMO/RUMO.exe`. Mantenha a pasta `_internal` junto do executável. |
 
-Não é necessário instalar Python para usar esses pacotes. Os nomes internos `RUMO` permanecem por compatibilidade com versões anteriores.
+Não é necessário instalar Python para usar esses pacotes. Executável, pasta de instalação, ícones, backups novos e configuração de dados usam a marca `RUMO`.
 
-Os dados ficam em `%LOCALAPPDATA%\RUMO`, separados dos arquivos do programa. Atualizar ou desinstalar o aplicativo preserva essa pasta.
+Os dados ficam em `%LOCALAPPDATA%\RUMO`, separados dos arquivos do programa. Atualizar ou desinstalar o aplicativo preserva essa pasta. Na primeira abertura, uma base anterior é identificada pelo esquema e copiada de forma consistente, sem apagar o original. Feche a instalação anterior antes de abrir a nova. Backups JSON e SQLite das versões 1, 2 e 3 continuam sendo validados e aceitos independentemente do rótulo de marca.
 
 O instalador ainda não possui assinatura digital. Os arquivos `SHA256SUMS.txt` das releases permitem conferir os hashes dos downloads.
 
@@ -110,6 +110,6 @@ Sugestões de melhoria devem descrever o problema, o comportamento esperado e, q
 
 ## Licença e status open source
 
-O código próprio do Rumo ainda não tem uma licença de uso e redistribuição definida. Portanto, o projeto ainda não é apresentado como open source. Torná-lo público, por si só, não concede essas permissões; é necessário adotar uma licença apropriada. Consulte a [orientação do GitHub sobre licenças](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) e a [definição da Open Source Initiative](https://opensource.org/osd).
+O código próprio do RUMO ainda não tem uma licença de uso e redistribuição definida. Portanto, o projeto ainda não é apresentado como open source. Torná-lo público, por si só, não concede essas permissões; é necessário adotar uma licença apropriada. Consulte a [orientação do GitHub sobre licenças](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) e a [definição da Open Source Initiative](https://opensource.org/osd).
 
 As dependências, fontes e demais materiais de terceiros mantêm seus próprios termos e atribuições, descritos em [THIRD_PARTY.md](THIRD_PARTY.md) e [FONTES.md](FONTES.md).

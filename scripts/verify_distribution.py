@@ -17,9 +17,7 @@ from core import Store
 from window_capture import capture_window
 
 project = Path(__file__).resolve().parents[1]
-executable = (
-    Path(sys.argv[1]) if len(sys.argv) > 1 else project / "dist/RUMO/RUMO.exe"
-)
+executable = Path(sys.argv[1]) if len(sys.argv) > 1 else project / "dist/RUMO/RUMO.exe"
 output = project / "validation"
 output.mkdir(exist_ok=True)
 user32 = ctypes.windll.user32
@@ -56,7 +54,7 @@ def await_main(process):
         if process.poll() is not None:
             raise AssertionError(f"Executable exited with {process.returncode}")
         matches = [
-            (h, t) for h, t in windows(process.pid) if t.startswith("Rumo — Estudos •")
+            (h, t) for h, t in windows(process.pid) if t.startswith("RUMO — Estudos •")
         ]
         if matches:
             return matches[0][0], round(time.perf_counter() - start, 2)
@@ -102,7 +100,7 @@ try:
     assert not [
         title
         for _, title in windows(second.pid)
-        if title.startswith("Rumo — Estudos •")
+        if title.startswith("RUMO — Estudos •")
     ], "Second counting instance was opened"
     for h, t in windows(second.pid):
         user32.PostMessageW(h, 0x0010, 0, 0)

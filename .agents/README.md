@@ -1,6 +1,6 @@
 # Contexto para continuidade
 
-Versão preparada: **1.4.2**, em 11/10/2026. Python 3.13, Tk 8.6, SQLite esquema 3. Plataforma executada: Windows 11 x64. O produto atende concursos e objetivos de aprendizagem em geral. Os planos BACEN 2024 incluídos são referências iniciais, não uma restrição do aplicativo.
+Versão preparada: **1.4.3**, em 11/10/2026. Python 3.13, Tk 8.6, SQLite esquema 3. Plataforma executada: Windows 11 x64. O produto atende concursos e objetivos de aprendizagem em geral. Os planos BACEN 2024 incluídos são referências iniciais, não uma restrição do aplicativo.
 
 ## Produto e decisões aceitas
 
@@ -22,9 +22,9 @@ A revisão de segurança 1.4.1 separou backups, protegeu retenção, CSV e links
 - `RELEASE.md`: conta pessoal, build e publicação.
 - `ROADMAP.md`: expansão sem regressões.
 
-## Marca e compatibilidade 1.4.2
+## Marca e compatibilidade 1.4.3
 
-A marca pública é **Rumo — Estudos**. Preserve os identificadores técnicos legados `RUMO`, o AppId do instalador, os caminhos de dados, o formato de backup e `RUMO_DATA`: a mudança de nome atualiza a instalação existente. O repositório pessoal é `RUMO`. Downloads novos usam prefixo `Rumo-`; atalhos antigos são substituídos pelo instalador.
+Todos os identificadores atuais usam RUMO: executável, instalação, ícones, AppUserModelID, variável RUMO_DATA e formato exportado. Preserve o AppId UUID do instalador para manter a identidade da atualização. O repositório pessoal é RUMO. A primeira abertura identifica bases anteriores por esquema, copia com a API de backup SQLite sob bloqueio e preserva a origem. Se houver várias bases candidatas, recusa escolher uma silenciosamente. RUMO_DATA evita a descoberta automática. Backups JSON v1/v2/v3 são aceitos por estrutura e validação integral, sem depender do antigo rótulo de marca.
 
 ## Apresentação e licença
 

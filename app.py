@@ -523,7 +523,7 @@ class App:
 
             create_starter_cycle(self.store, self.plan)
             self.store.set_pref("create_guided_cycle", False)
-        self.root.title("Rumo — Estudos • Estudos locais")
+        self.root.title("RUMO — Estudos • Estudos locais")
         left = top = 0
         available_width = root.winfo_screenwidth()
         available_height = root.winfo_screenheight()
@@ -1466,7 +1466,12 @@ class App:
             else:
                 self.note("Organize suas matérias em um ciclo flexível.")
                 self.toolbar(
-                    [("Criar RUMO", lambda: self.navigate("Ciclo de estudos"))]
+                    [
+                        (
+                            "Criar ciclo de estudos",
+                            lambda: self.navigate("Ciclo de estudos"),
+                        )
+                    ]
                 )
             pending = self.store.one(
                 "SELECT COUNT(*) n FROM reviews r JOIN topics t ON t.id=r.topic_id JOIN subjects s ON s.id=t.subject_id WHERE s.plan_id=? AND r.state='Pendente' AND due<=?",
@@ -1806,7 +1811,7 @@ class App:
             "Novo ciclo",
             [("name", "Nome", "entry")],
             save,
-            {"name": "RUMO BACEN"},
+            {"name": "Ciclo BACEN"},
         )
 
     def generate_cycle(self):
@@ -3044,7 +3049,7 @@ class App:
         tracking = self.root.bind("<Configure>", position_backdrop, add="+")
         win = tk.Toplevel(self.root)
         self.clock_win = win
-        win.title("Modo foco • Rumo — Estudos")
+        win.title("Modo foco • RUMO — Estudos")
         win.geometry("720x680")
         win.minsize(600, 640)
         win.configure(bg=self.bg)
@@ -4675,7 +4680,7 @@ class App:
         path = filedialog.asksaveasfilename(
             defaultextension=".json",
             initialfile=f"RUMO-{self.today()}.json",
-            filetypes=[("Backup Rumo — Estudos", "*.json")],
+            filetypes=[("Backup RUMO — Estudos", "*.json")],
             parent=self.root,
         )
         if path:
@@ -4688,7 +4693,7 @@ class App:
                 "Finalize ou descarte o rascunho antes de restaurar outro backup."
             )
         path = filedialog.askopenfilename(
-            filetypes=[("Backup Rumo — Estudos", "*.json *.sqlite3 *.db")],
+            filetypes=[("Backup RUMO — Estudos", "*.json *.sqlite3 *.db")],
             parent=self.root,
         )
         if not path:
@@ -4770,7 +4775,14 @@ def single_instance(folder):
 
 
 def main():
-    folder = data_dir()
+    try:
+        folder = data_dir()
+    except (ValueError, OSError) as error:
+        root = tk.Tk()
+        root.withdraw()
+        messagebox.showerror("RUMO — Estudos", str(error))
+        root.destroy()
+        return
     folder.mkdir(parents=True, exist_ok=True)
     logging.basicConfig(
         filename=folder / "app.log",
@@ -4783,7 +4795,7 @@ def main():
         root = tk.Tk()
         root.withdraw()
         messagebox.showinfo(
-            "Rumo — Estudos", "O aplicativo já está aberto. Use a janela existente."
+            "RUMO — Estudos", "O aplicativo já está aberto. Use a janela existente."
         )
         root.destroy()
         return

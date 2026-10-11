@@ -19,4 +19,4 @@ GUI só no Windows, execute os scripts **um de cada vez**: `verify_gui.py`, `ver
 
 Não declarar ausência absoluta de bugs. Linux, leitor de tela externo, sandbox/VM isolada e assinatura de código não foram validados. Registre quais verificações realmente executou.
 
-A autenticação usada na primeira publicação não possui escopo `workflow`. O modelo de CI está em `.agents/templates/checks.yml`, sem ativação automática. Para ativar no futuro, obtenha autorização do usuário para habilitar esse escopo e copie o modelo para `.github/workflows/checks.yml`. Até então as verificações são locais; não afirmar CI remota aprovada.
+O workflow manual `.github/workflows/rumo-windows.yml` constrói e verifica os pacotes Windows em dados temporários antes de produzir um artefato. O upload para Releases é feito após conferir o resultado. Não declarar CI remota aprovada antes da conclusão do workflow.

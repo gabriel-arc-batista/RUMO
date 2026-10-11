@@ -3,6 +3,7 @@
 | Módulo | Responsabilidade |
 |---|---|
 | `core.py` | Store, persistência, consultas, validação de sessões e relógio |
+| `storage.py` | Descoberta por esquema, bloqueio e migração aditiva da base anterior |
 | `backups.py` | Leitura e validação de backups em isolamento, sem GUI |
 | `security.py` | Políticas pequenas para links, pastas, CSV, preferências e relações |
 | `app.py` | Aplicação Tk, navegação, formulários e composição das telas |

@@ -8,6 +8,6 @@ Repositório na conta pessoal **gabriel-arc-batista**, a mesma de projetos de si
 4. Validar o EXE isolado, licenças/assets, dependências e malware com ferramenta disponível. Registrar assinatura digital ausente enquanto não houver certificado.
 5. Se atualização local tiver sido solicitada: guardar backup antes, verificar se há relógio ativo, fechar normalmente, instalar silenciosamente com tarefa `desktopicon`, conferir versão e hashes e reabrir. Preservar dados e preferência de tema. Não reiniciar nem matar sessão ativa para facilitar o build.
 6. Commit descritivo, tag semântica `vX.Y.Z`, push para `origin/main` e release no repositório privado. Anexar apenas instalador, ZIP portátil e SHA256SUMS; nunca bancos ou relatórios de caminhos pessoais.
-7. Conferir commit remoto, release, assets e resultado da CI, se ativada. O template está em `.agents/templates/checks.yml`; a publicação inicial não ativou CI por ausência do escopo `workflow`. Não declarar CI aprovada se estiver pendente.
+7. Conferir commit remoto, release, assets e resultado da CI, se ativada. O workflow manual `.github/workflows/rumo-windows.yml` gera pacotes e hashes depois das verificações em Windows. Não declarar CI aprovada se estiver pendente.
 
 Na primeira publicação, a versão final auditada é 1.4.1; não anexar o build 1.4.0 anterior às correções de segurança.

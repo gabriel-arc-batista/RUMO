@@ -26,7 +26,7 @@ startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
 startup.wShowWindow = 0
 installed = subprocess.run(
     [
-        str(project / "dist/Rumo-Instalar-Windows.exe"),
+        str(project / "dist/RUMO-Instalar-Windows.exe"),
         "/VERYSILENT",
         "/SUPPRESSMSGBOXES",
         "/NORESTART",
