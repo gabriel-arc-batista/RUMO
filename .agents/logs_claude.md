@@ -2,14 +2,14 @@
 
 Memória de trabalho do Claude neste projeto. **Leia este arquivo inteiro antes de qualquer tarefa** e atualize-o ao final de cada etapa: seção "Onde paramos", "Histórico" (uma linha por rodada) e "Preferências do usuário" quando ele disser algo novo. Escreva fatos verificados, com data. O usuário não quer reexplicar contexto a cada sessão.
 
-Última atualização: 11/10/2026 14:51.
+Última atualização: 11/10/2026 14:52.
 
 ## 1. O projeto em poucas linhas
 
 - **RUMO — Estudos**: app desktop nativo (Python 3.13 + Tk 8.6 + SQLite), local, offline e em pt-BR, para organizar o estudo de concursos de TI (planos BACEN 2024 inclusos como referência). Produto-alvo: **Windows 11**. O usuário desenvolve e testa no **Linux (Ubuntu 26.04, GNOME/Wayland)**.
 - Núcleo: ciclo de estudos (fila contínua, sem agenda rígida), edital/assuntos, relógio de foco (tempo líquido, pausas não contam), revisões espaçadas, simulados, estatísticas, histórico, metas, backups v1–v5.
 - Camada de **RPG integrada** (motor do Codex): XP por minuto líquido, níveis, moedas, classes (Paladino, Guerreiro, Mago, Cartógrafo, Ladino, Erudito), missões vindas do ciclo, "Hoje está difícil", dificuldades e revanche, masmorras e chefes (simulados), equipamentos **só decorativos**, história em capítulos. Sem multiplayer, sem servidor, sem dinheiro real, sem punição por faltar.
-- Versão integrada: **1.0.0**, esquema SQLite 5. Frontend e motor real integrados; 118 testes e CI Windows aprovados. Release em publicação. Repositório privado `gabriel-arc-batista/RUMO`.
+- Versão publicada: **1.0.0**, tag `v1.0.0`, esquema SQLite 5. Frontend e motor real integrados; 118 testes e CI Windows aprovados. Instalador, ZIP Windows, tar.gz Linux e hashes anexados. Repositório privado `gabriel-arc-batista/RUMO`.
 - Regras permanentes em `AGENTS.md` e `.agents/*.md`: baixa RAM, preservar dados/IDs/backups, não usar o banco pessoal em testes, Black, mudanças pequenas e validadas, nada de Electron/web embutido.
 
 ## 2. Como o usuário quer as coisas
@@ -82,9 +82,11 @@ Memória de trabalho do Claude neste projeto. **Leia este arquivo inteiro antes 
 
 - **11/10/2026 14:51 (Codex)** — Revisão final: corrigidos fonts no Windows, seletores, cache de imagens e edital Linux. 118 testes, fluxos antigos/novos e instalação aprovados; preparando publicação dos pacotes.
 
+- **11/10/2026 14:52 (Codex)** — Release `v1.0.0` publicada, quatro anexos com SHA-256 conferido no GitHub; contexto do Claude preservado e sincronizado. Nenhum banco pessoal usado.
+
 ## 9. Onde paramos / próximos passos
 
-- Estado: integração v1 testada; pacotes Linux e Windows aprovados, hashes conferidos. Publicação de `v1.0.0` em andamento. CI: https://github.com/gabriel-arc-batista/RUMO/actions/runs/38160132817.
+- Estado: release `v1.0.0` publicada e hashes dos quatro anexos conferidos via API. Árvore limpa após registrar este contexto. Release: https://github.com/gabriel-arc-batista/RUMO/releases/tag/v1.0.0. CI: https://github.com/gabriel-arc-batista/RUMO/actions/runs/38160132817.
 - O usuário ainda não avaliou o criador de personagem nem a arte nova: **peça a opinião dele ou espere o feedback**.
 - Pendências conhecidas:
   1. **Etapa 2 do redesign**: recompor as telas antigas (Ciclo, Edital/Matérias, Dificuldades, Revisões, Simulados, Estatísticas, Histórico, Metas, Configurações), tirar rolagens aninhadas e os `HH:MM:SS` em tabelas, ajustar as abas no tema claro.
