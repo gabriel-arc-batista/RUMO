@@ -1,6 +1,6 @@
 # Contexto para continuidade
 
-Versão preparada: **1.4.2**, em 11/10/2026. Python 3.13, Tk 8.6, SQLite esquema 3. Plataforma executada: Windows 11 x64. O projeto principal é BACEN 2024, TI; também existe Economia e Finanças.
+Versão preparada: **1.4.2**, em 11/10/2026. Python 3.13, Tk 8.6, SQLite esquema 3. Plataforma executada: Windows 11 x64. O produto atende concursos e objetivos de aprendizagem em geral. Os planos BACEN 2024 incluídos são referências iniciais, não uma restrição do aplicativo.
 
 ## Produto e decisões aceitas
 
@@ -25,3 +25,7 @@ A revisão de segurança 1.4.1 separou backups, protegeu retenção, CSV e links
 ## Marca e compatibilidade 1.4.2
 
 A marca pública é **Rumo — Estudos**. Preserve os identificadores técnicos legados `RUMO`, o AppId do instalador, os caminhos de dados, o formato de backup e `RUMO_DATA`: a mudança de nome atualiza a instalação existente. O repositório pessoal continua `RUMO`. Downloads novos usam prefixo `Rumo-`; atalhos antigos são substituídos pelo instalador.
+
+## Apresentação e licença
+
+O README apresenta o uso geral e começa pela criação de um plano próprio. Evite personalizar a documentação pública para o concurso do autor. As fontes dos planos incluídos ficam em `FONTES.md`. Repositório privado e código próprio sem licença definida: não anunciar como open source nem mudar visibilidade/licença sem instrução explícita do proprietário.
