@@ -150,6 +150,33 @@ try:
         and store.pref("theme") == "Claro"
     )
     store.db.close()
+    # Exercise first-run migration with the real packaged executable, in isolation.
+    upgrade_base = Path(tmp.name) / "upgrade-data"
+    previous = upgrade_base / "previous-installation"
+    previous.mkdir(parents=True)
+    original = Store(folder / "estudos.sqlite3")
+    import sqlite3
+
+    destination = sqlite3.connect(previous / "estudos.sqlite3")
+    original.db.backup(destination)
+    destination.close()
+    expected = original.snapshot()["tables"]
+    original.db.close()
+    upgrade_env = dict(env, LOCALAPPDATA=str(upgrade_base))
+    upgrade_env.pop("RUMO_DATA", None)
+    upgraded = subprocess.Popen([str(executable)], env=upgrade_env, cwd=tmp.name)
+    processes.append(upgraded)
+    hwnd, _ = await_main(upgraded)
+    close(upgraded, hwnd)
+    migrated = Store(upgrade_base / "RUMO/estudos.sqlite3")
+    assert migrated.stats(pid)["elapsed"] == 2700
+    assert migrated.stats(pid)["rate"] == 75
+    assert migrated.pref("theme") == "Claro"
+    assert migrated.pref("active_plan") == pid
+    migrated.db.close()
+    original = Store(previous / "estudos.sqlite3")
+    assert original.snapshot()["tables"] == expected
+    original.db.close()
     report = {
         "platform": "Windows 11 x64",
         "exe": str(executable),
@@ -159,6 +186,8 @@ try:
         "inet_connections": len(connections),
         "second_instance_blocked": True,
         "restart_persistence": True,
+        "previous_installation_migrated": True,
+        "migration_source_unchanged": True,
         "historical_bacen_plans": 2,
         "historical_topic_entries": 287,
         "guide_topic_entries": 1090,
