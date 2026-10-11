@@ -5,6 +5,9 @@ import math
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from appearance import PREFERENCE as LOOK_PREFERENCE, validate_look
+from theme import THEME_NAMES
+
 MAX_TOPIC_DEPTH = 128
 
 
@@ -41,7 +44,7 @@ def directory_path(value: str | Path) -> Path:
 
 def validate_preferences(rows: list[dict]) -> None:
     choices = {
-        "theme": ("Escuro", "Claro", "Sistema"),
+        "theme": ("Escuro", "Claro", "Sistema", *THEME_NAMES),
         "daily_subjects": (2, 3),
         "review_view": ("Todas", "Hoje", "Próximas", "Atrasadas", "Concluídas"),
         "mock_chart": ("Desempenho", "Pontuação"),
@@ -65,6 +68,10 @@ def validate_preferences(rows: list[dict]) -> None:
         "sound",
         "sidebar_visible",
         "create_guided_cycle",
+        "rpg_show_character",
+        "rpg_effects",
+        "rpg_story",
+        "rpg_reward_notifications",
     }
     for row in rows:
         key, value = row["key"], json.loads(row["value"])
@@ -97,6 +104,8 @@ def validate_preferences(rows: list[dict]) -> None:
             "Avançado",
         ):
             raise ValueError("Nível de desafio inválido no backup.")
+        if key == LOOK_PREFERENCE and not validate_look(value):
+            raise ValueError("Aparência do personagem inválida no backup.")
         if key == "timezone" and value != "Sistema":
             from zoneinfo import ZoneInfo
 

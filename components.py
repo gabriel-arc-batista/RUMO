@@ -2,7 +2,7 @@
 
 import tkinter as tk
 from tkinter import ttk
-from ui import MotionButton, rounded
+from ui import MotionButton, glyph, palette_of, rounded
 
 
 class SearchSelect(ttk.Frame):
@@ -14,20 +14,43 @@ class SearchSelect(ttk.Frame):
         self.values = list(values)
         self.editable = state == "normal"
         self.popup = None
+        p = palette_of(parent)
+        # One bordered field: entry and chevron read as a single control.
+        self.box = tk.Frame(
+            self, bg=p["raised"], highlightthickness=1, highlightbackground=p["border"]
+        )
+        self.box.pack(fill="x")
         self.entry = ttk.Entry(
-            self,
+            self.box,
             textvariable=textvariable,
             state="normal" if self.editable else "readonly",
+            style="Field.TEntry",
         )
         self.entry.pack(side="left", fill="x", expand=True)
         self.button = MotionButton(
-            self, text="⌄", width=3, height=38, command=self.open
+            self.box,
+            icon="chevron-down",
+            text="" if glyph(self, "chevron-down") else "⌄",
+            style="Ghost.TButton",
+            height=34,
+            command=self.open,
         )
-        self.button.pack(side="right", padx=(6, 0))
+        self.button.pack(side="right", padx=(0, 3))
+        for widget in (self.entry, self.button):
+            widget.bind("<FocusIn>", lambda e: self.highlight(True), add="+")
+            widget.bind("<FocusOut>", lambda e: self.highlight(False), add="+")
         if not self.editable:
             self.entry.bind("<Button-1>", lambda e: self.open())
+            self.entry.configure(cursor="hand2")
         self.entry.bind("<Down>", lambda e: self.open())
         self.bind("<Destroy>", self.cleanup, add="+")
+
+    def highlight(self, focused):
+        p = palette_of(self)
+        if self.box.winfo_exists():
+            self.box.configure(
+                highlightbackground=p["accent"] if focused else p["border"]
+            )
 
     def focus_set(self):
         self.entry.focus_set()
@@ -146,8 +169,9 @@ class SearchSelect(ttk.Frame):
         query.trace_add("write", filter_values)
         filter_values()
         motion.reveal(win)
-        win.grab_set()
-        entry.focus_set()
+        from ui import activate_popup
+
+        activate_popup(win, entry)
 
 
 class CompletionBox(MotionButton):

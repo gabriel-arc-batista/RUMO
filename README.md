@@ -16,6 +16,37 @@ Funciona localmente, sem conta, assinatura ou conexão obrigatória com a intern
 - **Personalização:** temas claro e escuro, fonte Inter e animações que podem ser desativadas.
 - **Backup e exportação:** backups automáticos, restauração de JSON/SQLite e exportação de registros em CSV.
 
+## Jornada de estudos
+
+A missão sugerida retoma o próximo bloco, o assunto e sua anotação de onde parou. “Hoje está difícil” permite reduzir o tempo; sessões parciais guardam o restante sem decidir o bloco ou avançar o ciclo.
+
+O RPG usa seus registros reais: um XP por minuto líquido completo e uma moeda virtual por dez XP de cada sessão. Concluir um encontro de revisão ou desafio rende cinco XP de participação. Acertos não multiplicam XP. O nível L exige 100 × L XP para o seguinte. Tempo representa esforço; desempenho observado exige pelo menos 20 questões respondidas em três datas e não comprova domínio.
+
+Descreva dificuldades manualmente, registrando por que errou e o que precisa lembrar. A revanche usa a agenda de revisões existente. Tente lembrar antes de consultar o material e, se quiser, registre “Lembrei”, “Parcial” ou “Não lembrei”. Evidências espaçadas podem sugerir superação; você decide se a dificuldade foi superada. Atrasos e ausências não retiram recompensas.
+
+Masmorras e chefes usam assuntos já estudados e questões do seu material. Chefes registram simulados e resultados por matéria no histórico existente. Não há geração de questões por IA nem catálogo de provas. Moedas compram acessórios com prévia e confirmação. Equipamentos têm atalhos de estudo, sem alterar resultados ou multiplicar XP.
+
+Editar ou excluir um estudo recalcula recompensas. Compras permanecem: se uma correção retirar moedas já gastas, o saldo disponível fica em zero e ganhos futuros compensam a diferença. Capítulos desbloqueados permanecem. Estudos antigos não ganham XP automaticamente: “Importar XP do histórico” apresenta os registros e valores antes da confirmação. Personagem, história, efeitos e avisos de recompensa podem ser ocultados nas preferências.
+
+### Equipamentos e caminhos de classe
+
+Um personagem novo começa no nível 1 com **trapos e uma espada enferrujada**, sem moedas ou experiência fictícias. O inventário tem 38 itens entre roupas, armaduras, armas, montarias e acessórios. Recompensas de evolução são recebidas gratuitamente ao atingir o nível e o marco indicados; acessórios antigos continuam compráveis. Clique no item para ver o propósito, os requisitos, equipar e usar seu atalho.
+
+Os seis caminhos crescem juntos, sem obrigar a escolher uma classe:
+
+| Caminho | Prática que faz evoluir |
+| --- | --- |
+| Paladino | Revisões realizadas, mesmo atrasadas ou com erros. |
+| Guerreiro | Questões respondidas do seu material; erros também contam. |
+| Mago | Tentativas de recordação, contadas uma vez por assunto/data; “Não lembrei” também conta. |
+| Cartógrafo | Assuntos distintos estudados. |
+| Ladino | Dificuldades investigadas em estudos e revanches reais. |
+| Erudito | Assuntos estudados com anotações próprias no caderno ou na sessão. |
+
+Armas preparam questões, revisões ou desafios; armaduras ajudam a preparar revisões e revanches; roupas e botas oferecem foco curto e retomada. A mula libera uma rota de estudo/revisão, o cavalo acrescenta revanche e o grifo acrescenta desafio. As montarias exigem datas de estudo **sem precisar ser consecutivas**. Usar um equipamento prepara uma atividade: o estudo só é registrado após você realizá-lo e salvar a sessão. Os recursos de estudo continuam disponíveis independentemente dos itens.
+
+Recompensas conquistadas permanecem após correções e ausências. Veja níveis, marcos e verificações em [Equipamentos e classes](docs/RUMO_EQUIPMENT.md).
+
 ## Instalação no Windows
 
 Baixe os arquivos na página de [Releases](https://github.com/gabriel-arc-batista/RUMO/releases). O acesso depende da visibilidade do repositório e das permissões da sua conta.
@@ -27,7 +58,7 @@ Baixe os arquivos na página de [Releases](https://github.com/gabriel-arc-batist
 
 Não é necessário instalar Python para usar esses pacotes. Executável, pasta de instalação, ícones, backups novos e configuração de dados usam a marca `RUMO`.
 
-Os dados ficam em `%LOCALAPPDATA%\RUMO`, separados dos arquivos do programa. Atualizar ou desinstalar o aplicativo preserva essa pasta. Na primeira abertura, uma base anterior é identificada pelo esquema e copiada de forma consistente, sem apagar o original. Feche a instalação anterior antes de abrir a nova. Backups JSON e SQLite das versões 1, 2 e 3 continuam sendo validados e aceitos independentemente do rótulo de marca.
+Os dados ficam em `%LOCALAPPDATA%\RUMO`, separados dos arquivos do programa. Atualizar ou desinstalar o aplicativo preserva essa pasta. Na primeira abertura, uma base anterior é identificada pelo esquema e copiada de forma consistente, sem apagar o original. Feche a instalação anterior antes de abrir a nova. Backups JSON e SQLite das versões 1, 2, 3, 4 e 5 continuam sendo validados e aceitos independentemente do rótulo de marca.
 
 O instalador ainda não possui assinatura digital. Os arquivos `SHA256SUMS.txt` das releases permitem conferir os hashes dos downloads.
 
@@ -94,13 +125,15 @@ Enquanto o repositório for privado, o clone exige acesso autorizado. Para teste
 python -m black --check .
 python scripts/check_repository.py
 python -m unittest discover -s tests -v
+python scripts/verify_rpg_gui.py
+python scripts/verify_rpg_dialogs.py
 python scripts/verify_gui.py
 python scripts/build.py
 ```
 
 O build gera o executável e o ZIP em `dist/`. Para gerar também o instalador Windows, disponibilize o compilador Inno Setup conforme [as instruções de release](.agents/RELEASE.md). Execute os testes de interface um de cada vez; eles abrem janelas reais e usam dados isolados.
 
-O executável ficou em aproximadamente 40–65 MB de RAM nas medições locais anteriores. Esse intervalo é uma observação, não um requisito máximo garantido. Linux tem caminho de build, mas ainda não foi validado.
+A versão 1.0.0 integra o frontend, a progressão RPG e a personalização do viajante. As verificações usam bases temporárias e não alteram seu histórico. Veja [a revisão final](docs/RUMO_V1_VALIDATION.md) e [as regras de equipamentos](docs/RUMO_EQUIPMENT.md).
 
 ## Continuidade do projeto
 
@@ -113,3 +146,7 @@ Sugestões de melhoria devem descrever o problema, o comportamento esperado e, q
 O código próprio do RUMO ainda não tem uma licença de uso e redistribuição definida. Portanto, o projeto ainda não é apresentado como open source. Torná-lo público, por si só, não concede essas permissões; é necessário adotar uma licença apropriada. Consulte a [orientação do GitHub sobre licenças](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) e a [definição da Open Source Initiative](https://opensource.org/osd).
 
 As dependências, fontes e demais materiais de terceiros mantêm seus próprios termos e atribuições, descritos em [THIRD_PARTY.md](THIRD_PARTY.md) e [FONTES.md](FONTES.md).
+
+### Pacote Linux
+
+O build nativo gera `dist/RUMO-linux-portatil.tar.gz`. Extraia o arquivo e execute `RUMO/RUMO`; preserve a pasta `_internal` junto ao executável. O banco permanece no diretório de dados do usuário. Para testes isolados, configure `RUMO_DATA` para uma pasta temporária.

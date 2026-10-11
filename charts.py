@@ -4,6 +4,7 @@ import math
 import tkinter as tk
 from ui import rounded
 from core import duration, ratio, percentage
+from theme import compact_duration
 
 
 def question_summary(app, stats):
@@ -220,7 +221,9 @@ def bars(app, rows, metric="elapsed", performance=False):
             if count <= 10 or i % max(1, math.ceil(count / 8)) == 0:
                 label = str(row["label"])
                 label = (
-                    label[5:] if len(label) == 10 and label[4] == "-" else label[-10:]
+                    f"{label[8:10]}/{label[5:7]}"
+                    if len(label) == 10 and label[4] == "-"
+                    else label[-10:]
                 )
                 canvas.create_text(
                     x, 250, text=label, fill=app.muted, font=("Inter", 8)
@@ -229,7 +232,11 @@ def bars(app, rows, metric="elapsed", performance=False):
                 canvas.create_text(
                     x,
                     min(y, baseline) - 12,
-                    text=f"{v:g}",
+                    text=(
+                        compact_duration(v * 3600)
+                        if metric in ["elapsed", "target"]
+                        else f"{v:g}"
+                    ),
                     fill=app.fg,
                     font=("Inter", 8),
                 )

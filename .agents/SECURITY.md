@@ -16,3 +16,7 @@ Entradas externas: JSON/SQLite de backup, importação de edital, nomes/observa�
 O instalador ainda não tem assinatura Authenticode. Hashes de release identificam os arquivos; não substituem assinatura nem auditoria externa. Não enviar o programa ou dados a VirusTotal/serviços de terceiros sem autorização.
 
 A marca do JSON é um rótulo de 1–64 caracteres, não uma barreira de segurança. Versão, tabelas, campos, relações, limites e preferências continuam integralmente validados. A migração da base recusa links simbólicos, bloqueia a instalação anterior e publica a cópia sem sobrescrever o destino; nunca apaga a origem.
+
+Backups RPG v4/v5 exigem fontes únicas e recompensas compatíveis com sessões/revisões/desafios canônicos. Valores de catálogo, preços, slots e relações entre planos/assuntos são validados antes da restauração. Recompensas não são confiadas a números arbitrários do JSON. RPG não introduz serviços externos, pagamentos ou sorteios.
+
+Itens de evolução têm IDs, slots, requisitos e preço zero no catálogo permitido. Backups mantêm aquisições antigas mesmo quando a correção reduz o nível; não inferir fraude só de um item cujo marco atual diminuiu. Atalhos não executam conteúdo externo nem geram registros. As classes não introduzem moedas pagas, sorteios, vantagens nas métricas ou penalidades por ausência.

@@ -2,6 +2,8 @@
 
 Pesquisa e revisão: 10/10/2026. O aplicativo continua nativo em Tk/SQLite; as referências orientam a composição, sem copiar marcas, imagens ou componentes proprietários.
 
+> Reforma visual 2026-10: as referências de design abaixo foram substituídas pelas de `docs/RUMO_DESIGN.md`. A tabela fica como registro histórico da 1.4.0.
+
 | Referência de design | Aplicação no RUMO — Estudos |
 |---|---|
 | [Estudei — tutoriais oficiais](https://wp.estudei.com.br/tutoriais/) | Indicadores de estudo, constância, progresso por matéria, organização do foco e relógio circular. |

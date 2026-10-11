@@ -8,6 +8,9 @@ from pathlib import Path
 project = Path(__file__).resolve().parents[1]
 os.chdir(project)
 subprocess.run([sys.executable, "scripts/prepare_icon.py"], check=True)
+subprocess.run([sys.executable, "scripts/prepare_character.py"], check=True)
+subprocess.run([sys.executable, "scripts/prepare_avatar.py"], check=True)
+subprocess.run([sys.executable, "scripts/prepare_rpg_equipment.py"], check=True)
 subprocess.run([sys.executable, "scripts/prepare_study_guide.py"], check=True)
 subprocess.run([sys.executable, "scripts/prepare_quotes.py"], check=True)
 subprocess.run(

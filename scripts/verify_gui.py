@@ -92,7 +92,7 @@ def click(label, window=root):
 pump()
 snap("inicio-vazio-escuro.png")
 # Open form through the same button used by users, create new entities in form.
-click("Adicionar estudo")
+click("Registrar")
 win = form("Registro de estudo")
 entries = [w for w in descendants(win) if isinstance(w, tk.ttk.Entry)]
 # Use returned form to exercise the callback itself and all data validation.

@@ -56,7 +56,7 @@ class StudyFeaturesTests(unittest.TestCase):
         self.store.db.commit()
         self.store.db.close()
         self.store = Store(self.path)
-        self.assertEqual(self.store.db.execute("PRAGMA user_version").fetchone()[0], 3)
+        self.assertEqual(self.store.db.execute("PRAGMA user_version").fetchone()[0], 5)
         self.assertEqual(self.store.one("SELECT * FROM sessions"), original)
         self.assertEqual(self.store.one("SELECT * FROM topics")["notes"], "")
 

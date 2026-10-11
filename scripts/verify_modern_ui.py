@@ -56,7 +56,7 @@ def button(window, label):
     return next(
         w
         for w in descendants(window)
-        if isinstance(w, MotionButton) and w.text == label
+        if isinstance(w, MotionButton) and label in (w.text, w.icon)
     )
 
 
@@ -103,7 +103,7 @@ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as folder:
     checkbox.invoke()
     pump(root)
     assert checkbox.done
-    button(row, "✎").invoke()
+    button(row, "pencil").invoke()
     pump(root)
     notes = captured[-1]
     text = (

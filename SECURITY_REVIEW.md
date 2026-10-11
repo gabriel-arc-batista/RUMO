@@ -34,3 +34,8 @@ Microsoft Defender: varredura personalizada da pasta `dist/` concluída, proteç
 O banco local e os backups não são criptografados: programas do mesmo usuário do Windows podem ler esses arquivos. O uso normal é offline; links externos abrem apenas por ação do usuário. O produto não contém credencial de GitHub nem usa a autenticação da ferramenta de desenvolvimento.
 
 O instalador ainda **não tem assinatura Authenticode**. Uma verificação antivírus local e hashes ajudam a verificar o artefato, mas não substituem assinatura, análise independente ou testes em VM. Não foram realizados pentest externo, análise de todas as bibliotecas nativas, sandbox/VM ou testes Linux. Resultados locais detalhados permanecem em `validation/`, sem publicação de caminhos pessoais.
+
+
+## Atualização v1 integrada
+
+Veja [a revisão final da versão 1.0.0](docs/RUMO_V1_VALIDATION.md). O relatório acima documenta a versão histórica 1.4.1; a execução Windows atual é registrada separadamente na CI da release.

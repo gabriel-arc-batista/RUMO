@@ -28,12 +28,29 @@ from ui import (
     Motion,
     MotionButton,
     MetricCard,
-    FocusDial,
     Panel,
     ClockButton,
+    Tooltip,
+    Toast,
+    ProgressBar,
     load_fonts,
+    load_image,
+    glyph,
+    ui_font,
     blend,
+    hover_card,
+    Portrait,
 )
+from theme import (
+    THEMES,
+    THEME_NAMES,
+    compact_duration,
+    resolve_theme,
+    theme_palette,
+    DISPLAY,
+    ICON,
+)
+from journey_demo import PreviewJourney
 from syllabus import expand_bacen
 from components import SearchSelect
 
@@ -43,12 +60,64 @@ SECTIONS = [
     "Ciclo de estudos",
     "Edital e assuntos",
     "Revisões",
+    "Simulados",
+    "Jornada",
+    "Metas e conquistas",
     "Estatísticas",
     "Histórico",
-    "Simulados",
-    "Metas e conquistas",
     "Configurações e ajuda",
 ]
+# Section name -> page builder. Names stay stable for scripts and preferences.
+PAGES = {
+    "Início": "page_0",
+    "Ciclo de estudos": "page_1",
+    "Edital e assuntos": "page_2",
+    "Revisões": "page_3",
+    "Estatísticas": "page_4",
+    "Histórico": "page_5",
+    "Simulados": "page_6",
+    "Metas e conquistas": "page_7",
+    "Configurações e ajuda": "page_8",
+    "Jornada": "page_journey",
+}
+NAV = [
+    (
+        "Estudo",
+        [
+            ("Início", "house"),
+            ("Ciclo de estudos", "repeat"),
+            ("Edital e assuntos", "book-open"),
+            ("Revisões", "brain"),
+            ("Simulados", "swords"),
+        ],
+    ),
+    ("Jornada", [("Jornada", "map"), ("Metas e conquistas", "trophy")]),
+    ("Análise", [("Estatísticas", "chart-column"), ("Histórico", "history")]),
+]
+NAV_ICONS = {name: icon for _, items in NAV for name, icon in items}
+NAV_ICONS["Configurações e ajuda"] = "settings"
+NAV_LABELS = {"Configurações e ajuda": "Configurações", "Ciclo de estudos": "Ciclo"}
+SUBTITLES = {
+    "Início": "Seu progresso, um estudo de cada vez.",
+    "Ciclo de estudos": "Uma fila contínua: retome de onde parou, sem agenda rígida.",
+    "Edital e assuntos": "Transforme o conteúdo do edital em um caminho claro.",
+    "Revisões": "Tente lembrar antes de consultar o material.",
+    "Estatísticas": "Veja como seu esforço se transforma em resultado.",
+    "Histórico": "Cada sessão faz parte da sua trajetória.",
+    "Simulados": "Treine, avalie e ajuste sua preparação.",
+    "Jornada": "Seu personagem, suas habilidades e a história que você constrói.",
+    "Metas e conquistas": "Pequenos avanços também merecem ser vistos.",
+    "Configurações e ajuda": "Tudo do seu jeito, salvo neste computador.",
+}
+
+
+def make_journey(store):
+    """Real local progression by default; demo is an explicit isolated preview."""
+    if os.environ.get("RUMO_JOURNEY") == "preview":
+        return PreviewJourney(store)
+    from journey_backend import RPGJourney
+
+    return RPGJourney(store)
 
 
 class Dialogs:
@@ -110,8 +179,9 @@ class Dialogs:
         motion = getattr(parent._root(), "_motion", None)
         if motion:
             motion.reveal(win)
-        win.grab_set()
-        first.focus_set()
+        from ui import activate_popup
+
+        activate_popup(win, first)
         win.wait_window()
         return result[0]
 
@@ -138,63 +208,26 @@ class Dialogs:
 messagebox = Dialogs()
 
 
-class Tooltip:
-    def __init__(self, widget, text):
-        self.widget = widget
-        self.text = text
-        self.pending = None
-        self.popup = None
-        widget.bind("<Enter>", self.enter, add="+")
-        widget.bind("<Leave>", self.leave, add="+")
-        widget.bind("<Destroy>", self.leave, add="+")
-
-    def enter(self, event):
-        self.pending = self.widget.after(450, self.show)
-
-    def show(self):
-        if not self.widget.winfo_exists():
-            return
-        self.popup = tk.Toplevel(self.widget)
-        self.popup.overrideredirect(True)
-        self.popup.configure(bg=messagebox.surface)
-        self.popup.geometry(
-            f"+{self.widget.winfo_rootx()+10}+{self.widget.winfo_rooty()+self.widget.winfo_height()+4}"
-        )
-        tk.Label(
-            self.popup,
-            text=self.text,
-            bg=messagebox.surface,
-            fg=messagebox.fg,
-            padx=10,
-            pady=6,
-            font=("Inter", 10),
-        ).pack()
-
-    def leave(self, event=None):
-        if self.pending:
-            try:
-                self.widget.after_cancel(self.pending)
-            except tk.TclError:
-                pass
-            self.pending = None
-        if self.popup:
-            try:
-                self.popup.destroy()
-            except tk.TclError:
-                pass
-            self.popup = None
-
-
 class Scroll(ttk.Frame):
-    def __init__(self, parent):
-        super().__init__(parent)
+    """Vertical scroll area. The slim bar hides itself when everything fits."""
+
+    def __init__(self, parent, style="TFrame"):
+        super().__init__(parent, style=style)
         self.canvas = tk.Canvas(self, highlightthickness=0)
-        bar = ttk.Scrollbar(self, orient="vertical", command=self.canvas.yview)
-        self.body = ttk.Frame(self.canvas)
+        self.bar = ttk.Scrollbar(
+            self,
+            orient="vertical",
+            command=self.canvas.yview,
+            style="Slim.Vertical.TScrollbar",
+        )
+        self.body = ttk.Frame(self.canvas, style=style)
         self.window = self.canvas.create_window(0, 0, window=self.body, anchor="nw")
-        self.canvas.configure(yscrollcommand=bar.set)
+        self.canvas.configure(yscrollcommand=self.update_bar)
         self.canvas.pack(side="left", fill="both", expand=True)
-        bar.pack(side="right", fill="y")
+        try:
+            self.canvas.configure(bg=ttk.Style(self).lookup(style, "background"))
+        except tk.TclError:
+            pass
         self.body.bind(
             "<Configure>",
             lambda e=None: self.canvas.configure(scrollregion=self.canvas.bbox("all")),
@@ -207,15 +240,30 @@ class Scroll(ttk.Frame):
 
         self.canvas.bind("<Configure>", resize)
         self.canvas.bind("<Enter>", self.bind_wheel)
-        self.canvas.bind(
-            "<Leave>", lambda e=None: self.canvas.unbind_all("<MouseWheel>")
-        )
+        self.canvas.bind("<Leave>", self.unbind_wheel)
+
+    def update_bar(self, first, last):
+        self.bar.set(first, last)
+        needed = float(first) > 0 or float(last) < 1
+        if needed and not self.bar.winfo_ismapped():
+            self.bar.pack(side="right", fill="y", padx=(4, 0), before=self.canvas)
+        elif not needed and self.bar.winfo_ismapped():
+            self.bar.pack_forget()
+
+    def scroll_units(self, amount):
+        if float(self.canvas.yview()[0]) > 0 or float(self.canvas.yview()[1]) < 1:
+            self.canvas.yview_scroll(amount, "units")
 
     def bind_wheel(self, e):
         self.canvas.bind_all(
-            "<MouseWheel>",
-            lambda event: self.canvas.yview_scroll(int(-event.delta / 120), "units"),
+            "<MouseWheel>", lambda event: self.scroll_units(int(-event.delta / 120))
         )
+        self.canvas.bind_all("<Button-4>", lambda event: self.scroll_units(-1))
+        self.canvas.bind_all("<Button-5>", lambda event: self.scroll_units(1))
+
+    def unbind_wheel(self, e=None):
+        for sequence in ["<MouseWheel>", "<Button-4>", "<Button-5>"]:
+            self.canvas.unbind_all(sequence)
 
 
 class Form:
@@ -419,7 +467,9 @@ class Form:
             self.widgets[key] = widget
         footer = ttk.Frame(self.win)
         footer.pack(fill="x", padx=18, pady=12)
-        self.error = ttk.Label(footer, text="", foreground="#E16F87", wraplength=500)
+        self.error = ttk.Label(
+            footer, text="", foreground=app.motion.palette["error"], wraplength=500
+        )
         self.error.pack(side="left", fill="x", expand=True)
         MotionButton(footer, text="Cancelar", command=self.win.destroy).pack(
             side="right", padx=5
@@ -465,6 +515,10 @@ class Form:
 class App:
     def __init__(self, root, store=None):
         self.root = root
+        if os.name != "nt" and root.tk.call("tk", "windowingsystem") == "x11":
+            # XIM/IBus may wait indefinitely when creating an input context.
+            # Native key input and Unicode clipboard remain available locally.
+            root.tk.call("tk", "useinputmethods", False)
         self.store = store or Store()
         self.clock = Clock(self.store)
         self.app_icon = tk.PhotoImage(file=str(ASSETS / "RUMO.png"))
@@ -472,8 +526,11 @@ class App:
         if os.name == "nt":
             root.iconbitmap(str(ASSETS / "RUMO.ico"))
         self.font_family = load_fonts(root, ASSETS)
+        self.assets = ASSETS
         self.motion = Motion(root)
         root._motion = self.motion
+        self.journey = make_journey(self.store)
+        self.focus_context = None
         self.store.set_pref("design_version", "inter-v4")
         self.section = "Início"
         self.filters = {}
@@ -523,7 +580,7 @@ class App:
 
             create_starter_cycle(self.store, self.plan)
             self.store.set_pref("create_guided_cycle", False)
-        self.root.title("RUMO — Estudos • Estudos locais")
+        self.root.title("RUMO — Estudos")
         left = top = 0
         available_width = root.winfo_screenwidth()
         available_height = root.winfo_screenheight()
@@ -538,7 +595,7 @@ class App:
         self.root.geometry(
             f"{min(1280,available_width-32)}x{min(800,available_height-64)}+{left+16}+{top+16}"
         )
-        self.root.minsize(900, 600)
+        self.root.minsize(960, 620)
         self.root.protocol("WM_DELETE_WINDOW", self.close)
         self.root.report_callback_exception = self.callback_error
         self.apply_theme()
@@ -569,8 +626,9 @@ class App:
         messagebox.showerror("Não foi possível concluir", str(value), parent=self.root)
 
     def apply_theme(self):
-        theme = self.store.pref("theme", "Escuro")
-        if theme == "Sistema":
+        preference = self.store.pref("theme", "Escuro")
+        system_dark = True
+        if preference == "Sistema":
             try:
                 import winreg
 
@@ -578,47 +636,70 @@ class App:
                     winreg.HKEY_CURRENT_USER,
                     r"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize",
                 ) as key:
-                    dark = not winreg.QueryValueEx(key, "AppsUseLightTheme")[0]
+                    system_dark = not winreg.QueryValueEx(key, "AppsUseLightTheme")[0]
             except Exception:
-                dark = True
-        else:
-            dark = theme != "Claro"
-        self.bg = "#101113" if dark else "#F3F4F6"
-        self.surface = "#191B1F" if dark else "#FFFFFF"
-        self.fg = "#F0EEE9" if dark else "#242424"
-        self.muted = "#A4A6AD" if dark else "#525866"
-        self.border = "#303238" if dark else "#DCE1E8"
+                system_dark = True
+        self.theme_name = resolve_theme(preference, system_dark)
+        dark = THEMES[self.theme_name]["dark"]
+        p = theme_palette(self.theme_name)
+        self.dark = dark
+        self.bg = p["bg"]
+        self.surface = p["surface"]
+        self.fg = p["fg"]
+        self.muted = p["muted"]
+        self.border = p["border"]
         self.motion.enabled = bool(self.store.pref("animations", True))
-        self.motion.palette = dict(
-            bg=self.bg,
-            surface=self.surface,
-            fg=self.fg,
-            muted=self.muted,
-            hover="#2A2D35" if dark else "#EDF1F7",
-            selected="#25231D" if dark else "#F5EDDB",
-            accent="#D6B467" if dark else "#87651E",
-            border=self.border,
-            success="#75CFA0" if dark else "#287547",
-            error="#DD7979" if dark else "#AC3B47",
-        )
+        self.motion.palette = p
         messagebox.bg = self.bg
-        messagebox.surface = self.surface
+        messagebox.surface = p["raised"]
         messagebox.fg = self.fg
         style = ttk.Style()
         style.theme_use("clam")
+        font = self.font_family
+        # Widgets without an explicit font (entries, text boxes, menus, tk labels)
+        # use Tk's named fonts; on Linux they default to another family.
+        for name, size in [
+            ("TkDefaultFont", 10),
+            ("TkTextFont", 10),
+            ("TkMenuFont", 10),
+            ("TkHeadingFont", 10),
+            ("TkCaptionFont", 10),
+            ("TkSmallCaptionFont", 9),
+            ("TkIconFont", 10),
+            ("TkTooltipFont", 9),
+        ]:
+            try:
+                tkfont.nametofont(name).configure(family=font, size=size)
+            except tk.TclError:
+                pass
         style.configure(
             ".",
             background=self.bg,
             foreground=self.fg,
-            font=("Inter", 9),
+            font=(font, 10),
             bordercolor=self.border,
             lightcolor=self.border,
             darkcolor=self.border,
+            focuscolor=p["accent"],
         )
         style.configure("TFrame", background=self.bg)
         style.configure("Card.TFrame", background=self.surface)
         style.configure("Panel.TFrame", background=self.surface)
         style.configure("Border.TFrame", background=self.border)
+        style.configure("Sidebar.TFrame", background=p["sidebar"])
+        style.configure("Sidebar.TLabel", background=p["sidebar"], foreground=self.fg)
+        style.configure(
+            "SidebarMuted.TLabel",
+            background=p["sidebar"],
+            foreground=p["muted"],
+            font=(font, 9),
+        )
+        style.configure(
+            "SidebarGroup.TLabel",
+            background=p["sidebar"],
+            foreground=p["faint"],
+            font=(font, 8, "bold"),
+        )
         style.configure("Panel.TLabel", background=self.surface, foreground=self.fg)
         style.configure(
             "PanelMuted.TLabel", background=self.surface, foreground=self.muted
@@ -627,272 +708,492 @@ class App:
             "PanelHeading.TLabel",
             background=self.surface,
             foreground=self.fg,
-            font=("Inter", 10, "bold"),
+            font=(font, 12, "bold"),
+        )
+        style.configure(
+            "PanelTitle.TLabel",
+            background=self.surface,
+            foreground=self.fg,
+            font=(font, 18, "bold"),
+        )
+        style.configure(
+            "PanelOverline.TLabel",
+            background=self.surface,
+            foreground=p["accent"],
+            font=(font, 8, "bold"),
+        )
+        style.configure(
+            "PanelDisplay.TLabel",
+            background=self.surface,
+            foreground=self.fg,
+            font=(DISPLAY, 18, "bold"),
         )
         style.configure("TLabel", background=self.bg, foreground=self.fg)
         style.configure("Muted.TLabel", foreground=self.muted)
-        style.configure("Title.TLabel", font=("Inter", 17, "bold"))
-        style.configure("Heading.TLabel", font=("Inter", 11, "bold"))
+        style.configure("Title.TLabel", font=(font, 17, "bold"))
+        style.configure("Heading.TLabel", font=(font, 12, "bold"))
         style.configure("Card.TLabel", background=self.surface, foreground=self.muted)
         style.configure(
             "Value.TLabel",
             background=self.surface,
-            font=("Inter", 22, "bold"),
+            font=(font, 22, "bold"),
             foreground=self.fg,
         )
         style.configure(
             "TButton",
-            background=self.surface,
+            background=p["raised"],
             foreground=self.fg,
             padding=(12, 8),
             borderwidth=1,
         )
         style.map(
             "TButton",
-            background=[("active", self.border)],
-            foreground=[("disabled", self.muted)],
-        )
-        style.configure("Accent.TButton", background="#D6B467", foreground="#FFFFFF")
-        style.map(
-            "Accent.TButton",
-            background=[("active", "#EACB84"), ("disabled", self.border)],
+            background=[("active", p["hover"])],
+            foreground=[("disabled", p["faint"])],
         )
         style.configure(
+            "Accent.TButton", background=p["primary"], foreground=p["primary_ink"]
+        )
+        style.map(
+            "Accent.TButton",
+            background=[("active", p["primary_hover"]), ("disabled", self.border)],
+        )
+        field = p["raised"]
+        style.configure(
             "TEntry",
-            fieldbackground="#22252B" if dark else "#F7F8FA",
+            fieldbackground=field,
             foreground=self.fg,
             insertcolor=self.fg,
-            padding=(12, 10),
+            padding=(12, 9),
             borderwidth=1,
             lightcolor=self.border,
             darkcolor=self.border,
             bordercolor=self.border,
+            selectbackground=p["tint"],
+            selectforeground=self.fg,
+        )
+        style.configure(
+            "Field.TEntry",
+            fieldbackground=field,
+            foreground=self.fg,
+            insertcolor=self.fg,
+            padding=(12, 9),
+            borderwidth=0,
+            lightcolor=field,
+            darkcolor=field,
+            bordercolor=field,
+            selectbackground=p["tint"],
+            selectforeground=self.fg,
+        )
+        style.map(
+            "Field.TEntry",
+            fieldbackground=[("readonly", field)],
+            foreground=[("readonly", self.fg)],
+            bordercolor=[("focus", field)],
+            lightcolor=[("focus", field)],
+            darkcolor=[("focus", field)],
         )
         style.map(
             "TEntry",
-            fieldbackground=[("readonly", "#22252B" if dark else "#F7F8FA")],
+            fieldbackground=[("readonly", field)],
             foreground=[("readonly", self.fg)],
-            bordercolor=[("focus", self.motion.palette["accent"])],
-            lightcolor=[("focus", self.motion.palette["accent"])],
-            darkcolor=[("focus", self.motion.palette["accent"])],
+            bordercolor=[("focus", p["accent"])],
+            lightcolor=[("focus", p["accent"])],
+            darkcolor=[("focus", p["accent"])],
         )
         style.configure("TNotebook", background=self.surface, borderwidth=0)
         style.configure(
             "TNotebook.Tab",
-            background=self.bg,
+            background=self.surface,
             foreground=self.muted,
-            padding=(14, 10),
+            padding=(16, 10),
             borderwidth=0,
+            font=(font, 10),
         )
         style.map(
             "TNotebook.Tab",
-            background=[("selected", self.surface)],
-            foreground=[("selected", self.motion.palette["accent"])],
+            background=[("selected", p["tint"]), ("active", p["hover"])],
+            foreground=[("selected", p["accent"])],
         )
         style.configure(
-            "Panel.TCheckbutton", background=self.surface, foreground=self.fg
+            "Panel.TCheckbutton",
+            background=self.surface,
+            foreground=self.fg,
+            indicatorbackground=field,
+            indicatorforeground=p["accent"],
         )
         style.map("Panel.TCheckbutton", background=[("active", self.surface)])
         style.configure(
             "TCombobox",
-            fieldbackground=self.surface,
-            background=self.surface,
+            fieldbackground=field,
+            background=field,
             foreground=self.fg,
-            padding=6,
-            arrowcolor=self.fg,
+            padding=(10, 7),
+            arrowcolor=self.muted,
+            bordercolor=self.border,
+            lightcolor=self.border,
+            darkcolor=self.border,
         )
         style.map(
             "TCombobox",
-            fieldbackground=[("readonly", self.surface)],
+            fieldbackground=[("readonly", field)],
             foreground=[("readonly", self.fg)],
-            selectbackground=[("readonly", self.surface)],
+            selectbackground=[("readonly", field)],
             selectforeground=[("readonly", self.fg)],
+            bordercolor=[("focus", p["accent"]), ("hover", p["strong"])],
+            arrowcolor=[("hover", p["accent"])],
         )
         style.configure(
             "Treeview",
             background=self.surface,
             fieldbackground=self.surface,
             foreground=self.fg,
-            rowheight=40,
+            rowheight=36,
             borderwidth=0,
+            font=(font, 10),
         )
         style.configure(
             "Treeview.Heading",
             background=self.surface,
             foreground=self.muted,
-            font=("Inter", 9, "bold"),
-            padding=(4, 8),
+            font=(font, 9, "bold"),
+            padding=(6, 8),
             relief="flat",
+            bordercolor=self.border,
         )
         style.map(
             "Treeview",
-            background=[("selected", self.motion.palette["selected"])],
-            foreground=[("selected", self.fg)],
+            background=[("selected", p["selected"])],
+            foreground=[("selected", p["accent"])],
         )
+        style.map("Treeview.Heading", background=[("active", p["hover"])])
         style.configure("TCheckbutton", background=self.bg, foreground=self.fg)
         style.map("TCheckbutton", background=[("active", self.bg)])
         style.configure(
             "Horizontal.TProgressbar",
-            background="#D6B467",
-            troughcolor=self.border,
+            background=p["primary"],
+            troughcolor=p["track"],
             borderwidth=0,
             thickness=6,
+            lightcolor=p["primary"],
+            darkcolor=p["primary"],
         )
-        for name in ["Vertical.TScrollbar", "Horizontal.TScrollbar"]:
+        for orient in ["Vertical", "Horizontal"]:
+            name = orient + ".TScrollbar"
             style.configure(
                 name,
-                background=self.border,
+                background=p["strong"],
                 troughcolor=self.bg,
                 arrowcolor=self.muted,
                 borderwidth=0,
                 arrowsize=11,
+                gripcount=0,
+                lightcolor=p["strong"],
+                darkcolor=p["strong"],
             )
-            style.map(name, background=[("pressed", "#D6B467"), ("active", self.muted)])
-        self.root.configure(bg=self.bg)
-        self.root.option_add("*TCombobox*Listbox.background", self.surface)
-        self.root.option_add("*TCombobox*Listbox.foreground", self.fg)
-        self.root.option_add(
-            "*TCombobox*Listbox.selectBackground", self.motion.palette["selected"]
+            style.map(
+                name, background=[("pressed", p["accent"]), ("active", self.muted)]
+            )
+        # Slim scrollbar for page areas: no arrows, rounded-looking thumb.
+        style.layout(
+            "Slim.Vertical.TScrollbar",
+            [
+                (
+                    "Vertical.Scrollbar.trough",
+                    {
+                        "sticky": "ns",
+                        "children": [
+                            (
+                                "Vertical.Scrollbar.thumb",
+                                {"expand": 1, "sticky": "nswe"},
+                            )
+                        ],
+                    },
+                )
+            ],
         )
+        style.configure(
+            "Slim.Vertical.TScrollbar",
+            background=p["strong"],
+            troughcolor=self.bg,
+            borderwidth=0,
+            width=8,
+            lightcolor=p["strong"],
+            darkcolor=p["strong"],
+        )
+        style.map(
+            "Slim.Vertical.TScrollbar",
+            background=[("pressed", p["accent"]), ("active", p["faint"])],
+        )
+        self.root.configure(bg=self.bg)
+        self.root.option_add("*TCombobox*Listbox.background", p["raised"])
+        self.root.option_add("*TCombobox*Listbox.foreground", self.fg)
+        self.root.option_add("*TCombobox*Listbox.selectBackground", p["selected"])
+        self.root.option_add("*TCombobox*Listbox.selectForeground", p["accent"])
+        self.root.option_add("*TCombobox*Listbox.font", (font, 10))
 
     def build_shell(self):
         for widget in self.root.winfo_children():
             widget.destroy()
         self.clock_win = None
-        header = ttk.Frame(self.root)
-        header.pack(fill="x", padx=18, pady=(12, 8))
-        top = ttk.Frame(header)
-        top.grid(row=0, column=0, sticky="w")
-        actions = ttk.Frame(header)
-        actions.grid(row=0, column=1, sticky="e")
-        header.columnconfigure(1, weight=1)
-        menu_button = MotionButton(top, text="☰", width=3, command=self.toggle_sidebar)
-        menu_button.pack(side="left")
-        Tooltip(menu_button, "Recolher ou abrir o menu lateral")
-        self.plan_var = tk.StringVar()
-        self.plan_combo = ttk.Combobox(
-            top, textvariable=self.plan_var, state="readonly", width=29
-        )
-        self.plan_combo.pack(side="left", padx=8)
-        self.plan_combo.bind("<<ComboboxSelected>>", self.change_plan)
-        MotionButton(
-            actions,
-            text="Adicionar estudo",
-            style="Accent.TButton",
-            command=self.session_form,
-        ).pack(side="right", padx=5)
-        MotionButton(actions, text="Tema", command=self.toggle_theme).pack(
-            side="right", padx=4
-        )
-        MotionButton(actions, text="Avisos", command=self.notifications).pack(
-            side="right", padx=4
-        )
-        MotionButton(
-            actions,
-            text="Ajuda",
-            command=lambda: self.navigate("Configurações e ajuda"),
-        ).pack(side="right", padx=4)
-        layout = [None]
-
-        def reflow_header(event=None):
-            narrow = header.winfo_width() < 980
-            if narrow == layout[0]:
-                return
-            layout[0] = narrow
-            top.grid(row=0, column=0, columnspan=2 if narrow else 1, sticky="w")
-            actions.grid(
-                row=1 if narrow else 0,
-                column=0 if narrow else 1,
-                columnspan=2 if narrow else 1,
-                sticky="e",
-                pady=(5, 0) if narrow else 0,
-            )
-
-        header.bind("<Configure>", reflow_header)
-        header.after_idle(reflow_header)
-        from inspiration import header as quote_header
-
-        self.quote_day = self.today()
-        self.quote_header = (
-            quote_header(self, header, ASSETS / "quotes.json")
-            if self.store.pref("motivation", True)
-            else None
-        )
+        p = self.motion.palette
         self.middle = ttk.Frame(self.root)
         self.middle.pack(fill="both", expand=True)
-        self.sidebar = ttk.Frame(self.middle, width=230)
-        self.sidebar.pack_propagate(False)
-        ttk.Label(
-            self.sidebar,
-            text="rumo",
-            font=("Inter", 16, "bold"),
-            foreground=self.motion.palette["accent"],
-        ).pack(anchor="w", padx=16, pady=(14, 4))
-        ttk.Label(
-            self.sidebar, text="Seu estudo, no seu ritmo", style="Muted.TLabel"
-        ).pack(anchor="w", padx=16, pady=(0, 16))
-        ttk.Label(
-            self.sidebar,
-            text="LOCAL • OFFLINE\nSem conta ou assinatura",
-            style="Muted.TLabel",
-        ).pack(side="bottom", anchor="w", padx=12, pady=18)
-        nav = Scroll(self.sidebar)
-        nav.pack(fill="both", expand=True)
-        nav.canvas.configure(bg=self.bg)
-        self.nav_buttons = {}
-        icons = ["⌂", "↻", "▤", "◷", "▥", "≡", "✎", "◇", "⚙"]
-        for s, icon in zip(SECTIONS, icons):
-            label = "Configurações" if s == "Configurações e ajuda" else s
-            button = MotionButton(
-                nav.body,
-                text=f"{icon}   {label}",
-                style="Nav.TButton",
-                command=lambda name=s: self.navigate(name),
-            )
-            button.pack(fill="x", pady=3, padx=4)
-            self.nav_buttons[s] = button
-            Tooltip(button, s)
+        self.middle.columnconfigure(1, weight=1)
+        self.middle.rowconfigure(1, weight=1)
+        self.build_sidebar()
+        self.build_header()
         self.scroll = Scroll(self.middle)
-        self.scroll.pack(side="left", fill="both", expand=True, padx=20, pady=12)
+        self.scroll.grid(row=1, column=1, sticky="nsew", padx=(28, 6), pady=(0, 8))
         self.scroll.canvas.configure(bg=self.bg)
         self.content = self.scroll.body
         if self.sidebar_visible:
-            self.sidebar.pack(side="left", fill="y", before=self.scroll)
-        bottom = ttk.Frame(self.root)
-        bottom.pack(fill="x", padx=18, pady=9)
-        self.status = ttk.Label(
-            bottom,
-            text=f"Hoje, {self.today():%d/%m/%Y} • Dados salvos neste computador",
-            style="Muted.TLabel",
-        )
-        self.status.pack(side="left")
-        self.floating = ClockButton(bottom, command=self.open_clock)
-        self.floating.pack(side="right")
-        self.clock_tip = Tooltip(
-            self.floating, "Iniciar estudo ou registrar manualmente (Ctrl+R)"
-        )
+            self.sidebar.grid(row=0, column=0, rowspan=2, sticky="ns")
+        self.toast = Toast(self, self.middle, top=76)
         self.root.bind("<Control-n>", lambda e: self.session_form())
         self.root.bind("<Control-r>", lambda e: self.open_clock())
+
+    def build_sidebar(self):
+        p = self.motion.palette
+        self.sidebar = ttk.Frame(self.middle, width=230, style="Sidebar.TFrame")
+        self.sidebar.grid_propagate(False)
+        self.sidebar.pack_propagate(False)
+        brand = ttk.Frame(self.sidebar, style="Sidebar.TFrame")
+        brand.pack(fill="x", padx=20, pady=(22, 2))
+        if glyph(brand, "compass"):
+            ttk.Label(
+                brand,
+                text=glyph(brand, "compass"),
+                font=(ICON, 17),
+                foreground=p["accent"],
+                style="Sidebar.TLabel",
+            ).pack(side="left", padx=(0, 9))
+        ttk.Label(
+            brand, text="RUMO", font=(DISPLAY, 15, "bold"), style="Sidebar.TLabel"
+        ).pack(side="left")
+        ttk.Label(
+            self.sidebar, text="Seu estudo, no seu ritmo", style="SidebarMuted.TLabel"
+        ).pack(anchor="w", padx=20, pady=(0, 14))
+        self.status = ttk.Label(
+            self.sidebar,
+            text="Dados neste computador • offline",
+            style="SidebarMuted.TLabel",
+            font=(self.font_family, 8),
+            wraplength=190,
+        )
+        self.status.pack(side="bottom", anchor="w", padx=20, pady=(4, 16))
+        self.nav_buttons = {}
+        self.nav_button(self.sidebar, "Configurações e ajuda", side="bottom")
+        self.character_slot = ttk.Frame(self.sidebar, style="Sidebar.TFrame")
+        self.character_slot.pack(side="bottom", fill="x", padx=12, pady=(8, 6))
+        nav = Scroll(self.sidebar, style="Sidebar.TFrame")
+        nav.pack(fill="both", expand=True)
+        for group, items in NAV:
+            ttk.Label(nav.body, text=group.upper(), style="SidebarGroup.TLabel").pack(
+                anchor="w", padx=20, pady=(12, 4)
+            )
+            for section, icon in items:
+                self.nav_button(nav.body, section)
+
+    def nav_button(self, parent, section, side="top"):
+        label = NAV_LABELS.get(section, section)
+        button = MotionButton(
+            parent,
+            text=label,
+            icon=NAV_ICONS[section],
+            style="Nav.TButton",
+            height=38,
+            command=lambda name=section: self.navigate(name),
+        )
+        button.pack(side=side, fill="x", padx=10, pady=1)
+        self.nav_buttons[section] = button
+        if label != section:
+            Tooltip(button, section)
+        return button
+
+    def character_look(self):
+        from appearance import PREFERENCE, normalize
+
+        return normalize(self.store.pref(PREFERENCE, {}))
+
+    def customize_character(self):
+        from customizer import open_customizer
+
+        return open_customizer(self)
+
+    def refresh_character_card(self):
+        """Rebuilt on each refresh so level/XP never lag behind saved studies."""
+        for widget in self.character_slot.winfo_children():
+            widget.destroy()
+        if self.store.pref("rpg_show_character", True):
+            self.character_card(self.character_slot).pack(fill="x")
+
+    def character_card(self, parent):
+        p = self.motion.palette
+        hero = self.journey.character(self.plan)
+        card = tk.Frame(
+            parent,
+            bg=p["surface"],
+            highlightthickness=1,
+            highlightbackground=p["border"],
+            cursor="hand2",
+        )
+        avatar = Portrait(card, self, 44, bg=p["surface"])
+        avatar.grid(row=0, column=0, rowspan=3, padx=(10, 10), pady=10)
+        tk.Label(
+            card,
+            text=hero.name,
+            bg=p["surface"],
+            fg=p["fg"],
+            font=(DISPLAY, 10, "bold"),
+            anchor="w",
+        ).grid(row=0, column=1, sticky="sw", pady=(10, 0))
+        tk.Label(
+            card,
+            text=f"Nível {hero.level}"
+            + (" • demonstração" if hero.source == "demo" else ""),
+            bg=p["surface"],
+            fg=p["muted"],
+            font=(self.font_family, 8),
+            anchor="w",
+        ).grid(row=1, column=1, sticky="w")
+        bar = ProgressBar(
+            card,
+            self,
+            hero.xp / hero.xp_next * 100 if hero.xp_next else 0,
+            height=4,
+            bg=p["surface"],
+        )
+        bar.grid(row=2, column=1, sticky="ew", padx=(0, 12), pady=(4, 10))
+        card.columnconfigure(1, weight=1)
+        for widget in [card, *card.winfo_children()]:
+            widget.bind("<Button-1>", lambda e: self.navigate("Jornada"), add="+")
+        hover_card(self, card, p["surface"], p["raised"], p["border"], p["strong"])
+        Tooltip(
+            card,
+            "Abrir Jornada."
+            + (
+                " Nível e experiência são fictícios nesta prévia."
+                if hero.source == "demo"
+                else ""
+            ),
+        )
+        return card
+
+    def build_header(self):
+        p = self.motion.palette
+        header = ttk.Frame(self.middle)
+        header.grid(row=0, column=1, sticky="ew", padx=(28, 28), pady=(18, 14))
+        self.header = header
+        header.columnconfigure(1, weight=1)
+        menu = MotionButton(
+            header,
+            icon="panel-left",
+            style="Ghost.TButton",
+            command=self.toggle_sidebar,
+        )
+        menu.grid(row=0, column=0, sticky="w", padx=(0, 10))
+        Tooltip(menu, "Recolher ou abrir o menu lateral")
+        self.page_title = ttk.Label(header, text="", style="Title.TLabel")
+        self.page_title.grid(row=0, column=1, sticky="w")
+        self.page_subtitle = ttk.Frame(header)
+        self.page_subtitle.grid(row=1, column=1, columnspan=2, sticky="ew", pady=(4, 0))
+        actions = ttk.Frame(header)
+        actions.grid(row=0, column=2, sticky="ne")
+        self.plan_var = tk.StringVar()
+        self.plan_combo = ttk.Combobox(
+            actions, textvariable=self.plan_var, state="readonly", width=26
+        )
+        self.plan_combo.pack(side="left", padx=(0, 8))
+        self.plan_combo.bind("<<ComboboxSelected>>", self.change_plan)
+        Tooltip(self.plan_combo, "Plano de estudos ativo")
+        for icon, tip, command in [
+            ("bell", "Avisos e pendências", self.notifications),
+            (
+                "palette",
+                f"Temas • atual: {self.theme_name}",
+                self.open_themes,
+            ),
+            (
+                "circle-help",
+                "Ajuda e configurações",
+                lambda: self.navigate("Configurações e ajuda"),
+            ),
+        ]:
+            button = MotionButton(
+                actions, icon=icon, style="Ghost.TButton", command=command
+            )
+            button.pack(side="left", padx=1)
+            Tooltip(button, tip)
+        register = MotionButton(
+            actions,
+            text="Registrar",
+            icon="plus",
+            command=self.session_form,
+        )
+        register.pack(side="left", padx=(8, 8))
+        Tooltip(register, "Registrar um estudo feito sem o relógio (Ctrl+N)")
+        self.floating = ClockButton(actions, command=self.open_clock)
+        self.floating.pack(side="left")
+        self.clock_tip = Tooltip(
+            self.floating, "Iniciar estudo com relógio ou retomar o foco (Ctrl+R)"
+        )
+        layout = [None]
+
+        def reflow(event=None):
+            narrow = header.winfo_width() < 1020
+            if narrow == layout[0]:
+                return
+            layout[0] = narrow
+            actions.grid(
+                row=2 if narrow else 0,
+                column=1 if narrow else 2,
+                columnspan=2 if narrow else 1,
+                sticky="w" if narrow else "e",
+                pady=(10, 0) if narrow else 0,
+            )
+
+        header.bind("<Configure>", reflow)
+        header.after_idle(reflow)
+        self.quote_day = self.today()
+        self.quote_header = None
+
+    def set_page_header(self, section):
+        self.page_title.configure(text=section)
+        for widget in self.page_subtitle.winfo_children():
+            widget.destroy()
+        self.quote_header = None
+        if section == "Início" and self.store.pref("motivation", True):
+            from inspiration import inline
+
+            self.quote_header = inline(self, self.page_subtitle, ASSETS / "quotes.json")
+            return
+        ttk.Label(
+            self.page_subtitle, text=SUBTITLES.get(section, ""), style="Muted.TLabel"
+        ).pack(anchor="w")
 
     def toggle_sidebar(self):
         self.sidebar_visible = not self.sidebar_visible
         self.store.set_pref("sidebar_visible", self.sidebar_visible)
         if self.sidebar_visible:
-            self.sidebar.pack(side="left", fill="y", before=self.scroll)
+            self.sidebar.grid(row=0, column=0, rowspan=2, sticky="ns")
             for index, button in enumerate(self.nav_buttons.values()):
                 self.motion.animate(
                     button,
-                    lambda t, b=button: b.paint(blend(self.bg, b.colors()[0], t)),
+                    lambda t, b=button: b.paint(blend(b.surround, b.colors()[0], t)),
                     220 + index * 15,
                 )
         else:
-            self.sidebar.pack_forget()
+            self.sidebar.grid_remove()
+
+    def open_themes(self):
+        from theme_picker import open_theme_picker
+
+        open_theme_picker(self)
 
     def toggle_theme(self):
-        self.store.set_pref(
-            "theme",
-            "Claro" if self.store.pref("theme", "Escuro") != "Claro" else "Escuro",
-        )
+        """Quick switch between the original dark theme and the light one."""
+        self.store.set_pref("theme", "Aurora" if self.dark else "Norte Dourado")
         self.apply_theme()
         self.build_shell()
         self.refresh()
@@ -911,33 +1212,19 @@ class App:
             w.destroy()
         for name, button in self.nav_buttons.items():
             button.select(name == self.section)
-        subtitles = [
-            "Seu progresso, um estudo de cada vez.",
-            "Organize o ritmo e saiba qual é o próximo passo.",
-            "Transforme o conteúdo do edital em um caminho claro.",
-            "Mantenha o que aprendeu por perto.",
-            "Veja como seu esforço se transforma em resultado.",
-            "Cada sessão faz parte da sua trajetória.",
-            "Treine, avalie e ajuste sua preparação.",
-            "Pequenos avanços também merecem ser vistos.",
-            "Tudo do seu jeito, salvo neste computador.",
-        ]
-        title_row = ttk.Frame(self.content)
-        title_row.pack(fill="x", pady=(2, 3))
+        self.set_page_header(self.section)
+        self.refresh_character_card()
         if self.section == "Edital e assuntos":
+            title_row = ttk.Frame(self.content)
+            title_row.pack(fill="x", pady=(0, 4))
             MotionButton(
                 title_row,
                 text="Novo assunto",
+                icon="plus",
                 style="Accent.TButton",
                 command=self.topic_form,
             ).pack(side="right")
-        ttk.Label(title_row, text=self.section, style="Title.TLabel", anchor="w").pack(
-            side="left", fill="x", expand=True
-        )
-        self.note(subtitles[SECTIONS.index(self.section)])
-        if self.section == "Início" and self.store.pref("profile", ""):
-            self.note("Estudos de " + self.store.pref("profile"))
-        getattr(self, "page_" + str(SECTIONS.index(self.section)))()
+        getattr(self, PAGES[self.section])()
         self.scroll.canvas.yview_moveto(0)
 
         def reveal_page(t):
@@ -973,8 +1260,9 @@ class App:
         self.history_offset = 0
         self.refresh()
 
-    def notify(self, text):
-        self.status.configure(text=f"Hoje, {self.today():%d/%m/%Y} • " + text)
+    def notify(self, text, title=None, icon="info", tone="info"):
+        self.status.configure(text=text)
+        self.toast.show(title or "Aviso", text, icon=icon, tone=tone)
         key = (self.status, "clear-notification")
         previous = self.motion.jobs.pop(key, None)
         if previous:
@@ -984,9 +1272,7 @@ class App:
             6000,
             lambda: (
                 self.motion.jobs.pop(key, None),
-                self.status.configure(
-                    text=f"Hoje, {self.today():%d/%m/%Y} • Dados salvos neste computador"
-                ),
+                self.status.configure(text="Dados neste computador • offline"),
             ),
         )
 
@@ -1052,35 +1338,42 @@ class App:
         self.motion.idle(buttons, wrap)
         return row
 
-    def cards(self, items):
-        row = ttk.Frame(self.content)
-        row.pack(fill="x", pady=10)
+    def cards(self, items, parent=None):
+        row = ttk.Frame(parent or self.content)
+        row.pack(fill="x", pady=(0, 14))
         cards = []
-        for i, (title, value, sub) in enumerate(items):
-            row.columnconfigure(i, weight=1)
-            card = MetricCard(row, self, title, value, sub, i)
-            card.grid(row=0, column=i, sticky="nsew", padx=(0, 8))
+        for i, (title, value, sub, *rest) in enumerate(items):
+            row.columnconfigure(i, weight=1, uniform="metric")
+            card = MetricCard(
+                row, self, title, value, sub, i, icon=rest[0] if rest else None
+            )
             cards.append(card)
         previous = [0]
 
         def reflow(event=None):
-            cols = len(cards) if row.winfo_width() > 850 else 2
+            cols = len(cards) if row.winfo_width() > 820 else 2
             if cols == previous[0]:
                 return
             previous[0] = cols
             for i in range(len(cards)):
-                row.columnconfigure(i, weight=1 if i < cols else 0)
+                row.columnconfigure(
+                    i, weight=1 if i < cols else 0, uniform="metric" if i < cols else ""
+                )
             for i, card in enumerate(cards):
+                col = i % cols
                 card.grid(
                     row=i // cols,
-                    column=i % cols,
+                    column=col,
                     sticky="nsew",
-                    padx=(0, 8),
-                    pady=(0, 8),
+                    padx=(0 if col == 0 else 6, 0 if col == cols - 1 else 6),
+                    pady=(0, 0 if i // cols == (len(cards) - 1) // cols else 12),
                 )
 
+        for i, card in enumerate(cards):
+            card.grid(row=0, column=i, sticky="nsew")
         row.bind("<Configure>", reflow)
         self.motion.idle(row, reflow)
+        return row
 
     def heading(self, text):
         ttk.Label(
@@ -1132,7 +1425,7 @@ class App:
             show="headings",
             height=min(height, max(1, len(rows))),
         )
-        header_font = tkfont.Font(tree, family="Inter", size=9, weight="bold")
+        header_font = ui_font(tree, size=9, weight="bold")
         minimums = {}
         for key, title, width in columns:
             minimum = max(50, header_font.measure(title) + 14)
@@ -1191,9 +1484,24 @@ class App:
 
         frame.bind("<Configure>", fit)
         self.motion.idle(frame, fit)
-        tree.tag_configure(
-            "stripe", background="#202227" if self.surface != "#FFFFFF" else "#F7F7F6"
-        )
+        tree.tag_configure("stripe", background=self.motion.palette["raised"])
+        tree.tag_configure("hover", background=self.motion.palette["hover"])
+        hovered = [None]
+
+        def hover_row(event):
+            row = tree.identify_row(event.y)
+            if row == hovered[0]:
+                return
+            for item in [hovered[0], row]:
+                if item and tree.exists(item):
+                    tags = set(tree.item(item, "tags")) - {"hover"}
+                    if item == row:
+                        tags.add("hover")
+                    tree.item(item, tags=tuple(tags))
+            hovered[0] = row
+
+        tree.bind("<Motion>", hover_row, add="+")
+        tree.bind("<Leave>", lambda e: hover_row(type("E", (), {"y": -1})), add="+")
         for index, (rid, values) in enumerate(rows):
             tree.insert(
                 "",
@@ -1239,276 +1547,32 @@ class App:
         return tree.selection()[0]
 
     def page_0(self):
-        from inspiration import render
+        from screen_home import render
 
-        s = self.store.stats(self.plan)
-        p = self.store.progress(self.plan)
-        self.cards(
-            [
-                (
-                    "TEMPO DE ESTUDO",
-                    duration(s["elapsed"]),
-                    f"{s['days']} dias estudados",
-                ),
-                (
-                    "DESEMPENHO",
-                    percentage(s["rate"]),
-                    f"{s['correct']} acertos  /  {s['wrong']} erros",
-                ),
-                (
-                    "PROGRESSO NO EDITAL",
-                    (
-                        f"{p['done']*100/p['total']:.0f}%"
-                        if p["total"]
-                        else "Sem assuntos"
-                    ),
-                    f"{p['done']} de {p['total']} assuntos concluídos",
-                ),
-                ("QUESTÕES RESOLVIDAS", str(s["total"]), f"{s['blank']} em branco"),
-            ]
-        )
-        parent = self.content
-        panel = Panel(parent, self)
-        panel.pack(fill="x", pady=(2, 12))
-        current, best, days = self.store.streak(self.plan)
-        with self.in_panel(panel):
-            head = ttk.Frame(self.content, style="Panel.TFrame")
-            head.pack(fill="x")
-            ttk.Label(
-                head, text="CONSTÂNCIA NOS ESTUDOS", style="PanelHeading.TLabel"
-            ).pack(side="left")
-            for label, step in [("›", 28), ("‹", -28)]:
-                MotionButton(
-                    head,
-                    text=label,
-                    width=2,
-                    height=28,
-                    command=lambda n=step: self.move_streak(n),
-                ).pack(side="right", padx=2)
-            finish = self.today() + timedelta(days=self.streak_offset)
-            begin = finish - timedelta(days=27)
-            self.note(
-                f"Sequência atual: {current} dias  •  Recorde: {best} dias  •  {begin:%d/%m} a {finish:%d/%m}"
+        render(self)
+
+    def page_journey(self):
+        from screen_journey import render
+
+        if self.journey.character(self.plan).source == "real":
+            from rpg_ui import render_tools
+
+            render_tools(self)
+        render(self)
+
+    def start_mission(self, mission, reduced=False):
+        from rpg_ui import start_mission
+
+        if mission.source == "demo":
+            raise ValueError(
+                "Use o perfil real para estudar com uma missão persistida."
             )
-            strip = tk.Canvas(
-                self.content, height=38, bg=self.surface, highlightthickness=0
-            )
-            strip.pack(fill="x", pady=(3, 0))
+        return start_mission(self, mission, reduced)
 
-            def draw_streak(event=None):
-                strip.delete("all")
-                cell = max(10, (strip.winfo_width() - 8) / 28)
-                for i in range(28):
-                    day = begin + timedelta(days=i)
-                    x = 4 + i * cell
-                    item = strip.create_rectangle(
-                        x,
-                        2,
-                        x + cell - 4,
-                        21,
-                        fill="#D6B467" if day in days else self.border,
-                        outline=self.border,
-                    )
-                    strip.create_text(
-                        x + cell / 2 - 2,
-                        31,
-                        text=day.day,
-                        fill=self.muted,
-                        font=("Inter", 7),
-                    )
-                    strip.tag_bind(
-                        item,
-                        "<Button-1>",
-                        lambda e, d=day: (
-                            self.filters.update(
-                                {"from": d.isoformat(), "to": d.isoformat()}
-                            ),
-                            self.navigate("Histórico"),
-                        ),
-                    )
+    def start_challenge(self, challenge):
+        from rpg_ui import start_challenge
 
-            Tooltip(strip, "Clique em um dia para consultar os registros dessa data.")
-            strip.bind("<Configure>", draw_streak)
-            strip.after_idle(draw_streak)
-        columns = ttk.Frame(parent)
-        columns.pack(fill="x")
-        left = ttk.Frame(columns)
-        right = ttk.Frame(columns)
-        columns.columnconfigure(0, weight=3)
-        columns.columnconfigure(1, weight=2)
-        left.grid(row=0, column=0, sticky="nsew", padx=(0, 12))
-        right.grid(row=0, column=1, sticky="nsew")
-        previous = [None]
-
-        def reflow(event=None):
-            narrow = columns.winfo_width() < 940
-            if narrow == previous[0]:
-                return
-            previous[0] = narrow
-            left.grid(
-                row=0,
-                column=0,
-                columnspan=2 if narrow else 1,
-                sticky="nsew",
-                padx=0 if narrow else (0, 12),
-            )
-            right.grid(
-                row=1 if narrow else 0,
-                column=0 if narrow else 1,
-                columnspan=2 if narrow else 1,
-                sticky="nsew",
-                pady=(12, 0) if narrow else 0,
-            )
-
-        columns.bind("<Configure>", reflow)
-        self.motion.idle(columns, reflow)
-        subjects = Panel(left, self)
-        subjects.pack(fill="x")
-        with self.in_panel(subjects):
-            self.heading("Suas matérias")
-            rows = self.store.subject_stats(self.plan)
-            for r in sorted(rows, key=lambda item: (-item["elapsed"], item["name"]))[
-                :5
-            ]:
-                row = ttk.Frame(self.content, style="Panel.TFrame")
-                row.pack(fill="x", pady=(4, 8))
-                MotionButton(
-                    row,
-                    text="›",
-                    width=3,
-                    height=34,
-                    command=lambda sid=r["id"]: self.subject_detail(sid),
-                ).pack(side="right", padx=(8, 0))
-                texts = ttk.Frame(row, style="Panel.TFrame")
-                texts.pack(side="left", fill="x", expand=True)
-                label = ttk.Label(
-                    texts,
-                    text=r["name"],
-                    style="Panel.TLabel",
-                    wraplength=420,
-                    justify="left",
-                )
-                label.pack(fill="x")
-                label.bind(
-                    "<Configure>",
-                    lambda e, w=label: (
-                        w.configure(wraplength=max(100, e.width - 8))
-                        if int(w.cget("wraplength")) != max(100, e.width - 8)
-                        else None
-                    ),
-                )
-                answered = r["correct"] + r["wrong"]
-                rate = percentage(ratio(r["correct"], r["wrong"]))
-                ttk.Label(
-                    texts,
-                    text=f"{duration(r['elapsed'])} de foco  •  "
-                    + (
-                        f"{answered} respondidas  •  {rate} de acertos"
-                        if answered
-                        else "Comece seu primeiro estudo"
-                    ),
-                    style="PanelMuted.TLabel",
-                    font=("Inter", 8),
-                ).pack(anchor="w", pady=(3, 0))
-                tk.Frame(self.content, bg=self.border, height=1).pack(fill="x")
-
-            def all_subjects():
-                mapping = self.subject_map()
-                form = Form(
-                    self,
-                    "Evolução por matéria",
-                    [("subject", "Escolha uma matéria", "choice", list(mapping))],
-                    lambda v: self.subject_detail(mapping[v["subject"]]),
-                    {"subject": next(iter(mapping), "")},
-                )
-                form.refresh_on_submit = False
-                form.save_button.configure(text="Ver evolução")
-
-            self.toolbar([("Ver todas as matérias", all_subjects)])
-        cycle_panel = Panel(left, self)
-        cycle_panel.pack(fill="x", pady=(12, 0))
-        with self.in_panel(cycle_panel):
-            cycle = self.store.current_cycle(self.plan)
-            self.heading("SEU PRÓXIMO ESTUDO")
-            if cycle:
-                blocks = self.store.cycle_blocks(cycle)
-                b = (
-                    blocks[cycle["position"]]
-                    if cycle["position"] < len(blocks)
-                    else None
-                )
-                self.note(f"{cycle['name']} • volta {cycle['lap']}")
-                if b:
-                    self.note(
-                        f"{b['subject']} • {duration(b['elapsed'])} de {duration(b['target'])}"
-                    )
-                    self.toolbar(
-                        [
-                            ("Estudar agora", lambda: self.study_block(b, cycle)),
-                            ("Ver ciclo", lambda: self.navigate("Ciclo de estudos")),
-                        ]
-                    )
-                    next_blocks = []
-                    names = set()
-                    for upcoming in blocks[cycle["position"] :]:
-                        next_blocks.append(upcoming)
-                        names.add(upcoming["subject_id"])
-                        if len(names) >= int(self.store.pref("daily_subjects", 3)):
-                            break
-                    self.note(
-                        "Sugestão flexível: "
-                        + " → ".join(x["subject"] for x in next_blocks)
-                    )
-                else:
-                    self.note(
-                        "Percurso encerrado. Inicie a próxima volta no Ciclo de estudos."
-                    )
-            else:
-                self.note("Organize suas matérias em um ciclo flexível.")
-                self.toolbar(
-                    [
-                        (
-                            "Criar ciclo de estudos",
-                            lambda: self.navigate("Ciclo de estudos"),
-                        )
-                    ]
-                )
-            pending = self.store.one(
-                "SELECT COUNT(*) n FROM reviews r JOIN topics t ON t.id=r.topic_id JOIN subjects s ON s.id=t.subject_id WHERE s.plan_id=? AND r.state='Pendente' AND due<=?",
-                (self.plan, self.today().isoformat()),
-            )["n"]
-            self.toolbar(
-                [
-                    (
-                        f"Revisões para hoje / atrasadas: {pending}",
-                        lambda: self.navigate("Revisões"),
-                    )
-                ]
-            )
-        exam = Panel(right, self)
-        exam.pack(fill="x")
-        with self.in_panel(exam):
-            self.heading("SEU OBJETIVO • BACEN")
-            plan = self.store.one("SELECT * FROM plans WHERE id=?", (self.plan,))
-            self.note(plan["name"])
-            if plan["exam_date"]:
-                self.note(
-                    f"Prova: {plan['exam_date']} • {(date.fromisoformat(plan['exam_date'])-self.today()).days} dias"
-                )
-            else:
-                self.note(
-                    "Referência: edital de 2024.\nData da próxima prova não cadastrada."
-                )
-
-        goals = Panel(right, self)
-        goals.pack(fill="x", pady=12)
-        with self.in_panel(goals):
-            self.goal_bars()
-        weekly = Panel(right, self)
-        weekly.pack(fill="x")
-        with self.in_panel(weekly):
-            self.heading("ESTUDO SEMANAL")
-            self.week_chart()
+        return start_challenge(self, challenge.id)
 
     def week_bounds(self):
         today = self.today()
@@ -1559,17 +1623,19 @@ class App:
                     self.content, value=min(100, value / target * 100) if target else 0
                 ).pack(fill="x", pady=3)
 
-    def week_chart(self):
-        self.toolbar(
-            [
-                ("‹ Semana", lambda: self.move_week(-1)),
-                ("Semana ›", lambda: self.move_week(1)),
-                ("Tempo / Questões", self.toggle_chart),
-            ]
-        )
+    def week_chart(self, controls=True):
+        if controls:
+            self.toolbar(
+                [
+                    ("‹ Semana", lambda: self.move_week(-1)),
+                    ("Semana ›", lambda: self.move_week(1)),
+                    ("Tempo / Questões", self.toggle_chart),
+                ]
+            )
         start, end = self.week_bounds()
         self.note(
-            f"{start:%d/%m/%Y} a {end:%d/%m/%Y} • Barras: "
+            (f"{start:%d/%m/%Y} a {end:%d/%m/%Y} • " if controls else "")
+            + "Barras: "
             + (
                 "horas líquidas"
                 if self.chart_mode == "Tempo"
@@ -2380,8 +2446,13 @@ class App:
             {"area": "Tecnologia da Informação"},
         )
 
-    def open_bacen(self):
-        path = ASSETS / "BACEN-2024-edital-abertura.pdf"
+    def open_bacen(self, filename="BACEN-2024-edital-abertura.pdf"):
+        if filename not in {
+            "BACEN-2024-edital-abertura.pdf",
+            "BACEN-2024-edital-retificado.pdf",
+        }:
+            raise ValueError("Edital desconhecido.")
+        path = ASSETS / filename
         if os.name == "nt":
             os.startfile(path)
         else:
@@ -2419,7 +2490,7 @@ class App:
         MotionButton(
             links,
             text="Abrir edital retificado offline",
-            command=lambda: os.startfile(ASSETS / "BACEN-2024-edital-retificado.pdf"),
+            command=lambda: self.open_bacen("BACEN-2024-edital-retificado.pdf"),
         ).pack(anchor="w", pady=3)
         return form
 
@@ -2606,6 +2677,14 @@ class App:
         initial = dict(initial or {})
         editing = editing or {}
         initial = dict(editing, **initial)
+        from rpg_ui import context_from
+
+        if editing:
+            link = self.store.one(
+                "SELECT recall FROM rpg_links WHERE session_id=?", (editing["id"],)
+            )
+            if link:
+                initial.setdefault("recall", link["recall"])
         subjects = self.subject_map(
             include_archived=bool(editing) or from_clock,
             plan=initial.get("plan_id", self.plan),
@@ -2668,6 +2747,12 @@ class App:
             ("video_text", "Videoaula assistida (HH:MM:SS, opcional)", "entry"),
             ("next_step", "Onde parei / próximo passo", "text"),
             ("notes", "Observações", "text"),
+            (
+                "recall",
+                "Minha lembrança (autoavaliação opcional)",
+                "choice",
+                ["", "Lembrei", "Parcial", "Não lembrei"],
+            ),
             ("theory", "Teoria do assunto finalizada", "bool"),
             ("schedule", "Programar revisões", "bool"),
             ("base", "Data base das revisões", "entry"),
@@ -2858,10 +2943,12 @@ class App:
                     from_clock,
                     v["base"],
                     shift,
+                    context=dict(context_from(initial), recall=v["recall"] or None),
                 )
                 if from_clock:
                     self.clock.state = None
-                self.notify("Estudo salvo • " + duration(values["elapsed"]))
+                    self.focus_context = None
+                self.session_saved(values, v["subject"].strip())
             except Exception:
                 self.store.db.rollback()
                 raise
@@ -2930,6 +3017,33 @@ class App:
             ).grid(row=len(fields) + 3, column=0, columnspan=2, sticky="w")
         return form
 
+    def session_saved(self, values, subject):
+        """Brief confirmation with what was actually recorded."""
+        answered = values["correct"] + values["wrong"]
+        parts = [compact_duration(values["elapsed"])]
+        if subject:
+            parts[0] += " em " + subject
+        if answered:
+            parts.append(f"{answered} questões respondidas")
+        reward = self.journey.reward_for(values, subject)
+        if (
+            reward
+            and reward.source == "real"
+            and reward.xp
+            and self.store.pref("rpg_reward_notifications", True)
+        ):
+            parts.append(f"Recompensa do registro: {reward.xp} XP")
+        unlocked = self.store.rpg.consume_equipment_rewards(values["plan_id"])
+        if unlocked and self.store.pref("rpg_reward_notifications", True):
+            detail = ", ".join(unlocked[:3])
+            if len(unlocked) > 3:
+                detail += f" e mais {len(unlocked)-3}"
+            parts.append("Equipamento conquistado: " + detail)
+        self.status.configure(text="Estudo salvo • " + duration(values["elapsed"]))
+        self.toast.show(
+            "Sessão registrada", " • ".join(parts), "circle-check", "success"
+        )
+
     def clock_setup(self, initial=None):
         if self.clock.state:
             self.open_clock()
@@ -2949,6 +3063,36 @@ class App:
             target = parse_duration(v["target"])
             if v["mode"] == "Timer" and target <= 0:
                 raise ValueError("O timer precisa de duração positiva.")
+            if initial.get("mission_id"):
+                mission = self.store.rpg.mission(initial["mission_id"])
+                if sid != mission["subject_id"] or tid != mission["topic_id"]:
+                    if mission["kind"] != "Estudo":
+                        raise ValueError(
+                            "Mantenha o assunto deste encontro ou revanche."
+                        )
+                    chosen = self.store.rpg.recommended_mission(
+                        initial.get("plan_id", self.plan), tid
+                    )
+                    if (
+                        not chosen
+                        or chosen["block_id"] != mission["block_id"]
+                        or chosen["lap"] != mission["lap"]
+                    ):
+                        raise ValueError("O ciclo mudou; atualize a missão.")
+                    initial.update(self.store.rpg.mission_fields(chosen["id"]))
+                if (
+                    mission["kind"] in ("Encontro", "Revanche")
+                    and v["category"] != "Revisão"
+                ):
+                    raise ValueError("Este encontro deve ser registrado como revisão.")
+            if initial.get("challenge_id"):
+                challenge = self.store.rpg.challenge(initial["challenge_id"])
+                if tid not in {topic["id"] for topic in challenge["topics"]} or v[
+                    "category"
+                ] not in ("Questões", "Revisão"):
+                    raise ValueError(
+                        "Escolha um assunto do desafio e uma atividade de questões ou revisão."
+                    )
             now = self.clock.local_now()
             self.clock.start(
                 dict(
@@ -2998,12 +3142,16 @@ class App:
         form.widgets["subject"].bind("<<ComboboxSelected>>", change)
         shortcuts = ttk.Frame(form.body)
         shortcuts.grid(row=7, column=0, columnspan=2, sticky="w", pady=(10, 0))
+        ttk.Label(shortcuts, text="Duração rápida", style="Muted.TLabel").pack(
+            side="left", padx=(0, 10)
+        )
         for minutes in [15, 25, 45, 60]:
             MotionButton(
                 shortcuts,
                 text=f"{minutes} min",
+                style="Chip.TButton",
                 command=lambda m=minutes: form.vars["target"].set(duration(m * 60)),
-            ).pack(side="left", padx=(0, 8))
+            ).pack(side="left", padx=(0, 6))
         return form
 
     def main_goal_text(self, plan=None):
@@ -3011,9 +3159,7 @@ class App:
             return ""
         goal = self.store.pref("main_goal_" + (plan or self.plan))
         return (
-            "Sua meta • " + goal["name"] + " — " + str(goal["target"])
-            if goal
-            else "Escolha sua meta principal em Metas e conquistas."
+            "Sua meta • " + goal["name"] + " — " + str(goal["target"]) if goal else ""
         )
 
     def guided_cycle(self):
@@ -3030,106 +3176,9 @@ class App:
             return
         if not self.clock.state:
             return self.clock_setup()
-        backdrop = tk.Toplevel(self.root)
-        backdrop.overrideredirect(True)
-        backdrop.configure(bg="#000000")
-        backdrop.attributes("-alpha", 0)
+        from focus import open_focus
 
-        def position_backdrop(event=None):
-            if event is None or event.widget == self.root:
-                backdrop.geometry(
-                    f"{self.root.winfo_width()}x{self.root.winfo_height()}+{self.root.winfo_rootx()}+{self.root.winfo_rooty()}"
-                )
-
-        position_backdrop()
-        backdrop.lift()
-        self.motion.animate(
-            backdrop, lambda t: backdrop.attributes("-alpha", t * 0.65), 320
-        )
-        tracking = self.root.bind("<Configure>", position_backdrop, add="+")
-        win = tk.Toplevel(self.root)
-        self.clock_win = win
-        win.title("Modo foco • RUMO — Estudos")
-        win.geometry("720x680")
-        win.minsize(600, 640)
-        win.configure(bg=self.bg)
-        win.transient(self.root)
-
-        def close_backdrop(event):
-            if event.widget != win:
-                return
-            self.motion.cancel(backdrop)
-            self.root.unbind("<Configure>", tracking)
-            if backdrop.winfo_exists():
-                backdrop.destroy()
-
-        win.bind("<Destroy>", close_backdrop, add="+")
-        backdrop.bind("<Button-1>", lambda e: win.destroy())
-        state = self.clock.state
-        subject = self.store.one(
-            "SELECT name FROM subjects WHERE id=?", (state["subject_id"],)
-        )
-        topic = self.store.one(
-            "SELECT name FROM topics WHERE id=?", (state["topic_id"],)
-        )
-        ttk.Label(win, text=subject["name"], style="Heading.TLabel").pack(pady=(24, 4))
-        ttk.Label(
-            win,
-            text=topic["name"],
-            wraplength=620,
-            style="Muted.TLabel",
-            justify="center",
-        ).pack(pady=4)
-        self.clock_label = FocusDial(win, self)
-        self.clock_label.pack(fill="x", pady=2)
-        self.clock_info = ttk.Label(win, text="", style="Muted.TLabel")
-        self.clock_info.pack(pady=8)
-        self.clock_goal = ttk.Label(
-            win,
-            text=self.main_goal_text(state["plan_id"]),
-            style="Muted.TLabel",
-            font=("Inter", 9, "bold"),
-            wraplength=620,
-            justify="center",
-        )
-        self.clock_goal.pack(pady=(0, 6))
-        row = ttk.Frame(win)
-        row.pack(pady=12)
-        self.pause_button = MotionButton(row, text="Pausar", command=self.toggle_pause)
-        self.pause_button.pack(side="left", padx=8)
-        MotionButton(
-            row,
-            text="Finalizar e registrar",
-            style="Accent.TButton",
-            command=self.finish_clock,
-        ).pack(side="left", padx=8)
-        MotionButton(row, text="Recolher", command=win.destroy).pack(
-            side="left", padx=8
-        )
-        row = ttk.Frame(win)
-        row.pack(pady=8)
-        for n in [1, 5, 15]:
-            MotionButton(
-                row, text=f"+{n} min", command=lambda m=n: self.clock.add(m)
-            ).pack(side="left", padx=7)
-        MotionButton(row, text="Descartar", command=self.discard_clock).pack(
-            side="left", padx=7
-        )
-        MotionButton(
-            row,
-            text="Tela cheia",
-            command=lambda: win.attributes(
-                "-fullscreen", not win.attributes("-fullscreen")
-            ),
-        ).pack(side="left", padx=7)
-        ttk.Label(
-            win,
-            text="Uma sessão de cada vez. Pausas não entram no tempo líquido.",
-            style="Muted.TLabel",
-        ).pack(pady=12)
-        win.bind("<Escape>", lambda e: win.attributes("-fullscreen", False))
-        self.update_clock_ui()
-        self.motion.reveal(win)
+        open_focus(self)
 
     def toggle_pause(self):
         if self.clock.state["running"]:
@@ -3145,6 +3194,7 @@ class App:
             parent=self.clock_win or self.root,
         ):
             self.clock.discard()
+            self.focus_context = None
             if self.clock_win and self.clock_win.winfo_exists():
                 self.clock_win.destroy()
 
@@ -3167,18 +3217,14 @@ class App:
         if self.quote_day != self.today():
             self.quote_day = self.today()
             if self.quote_header and self.quote_header.winfo_exists():
-                parent = self.quote_header.master
-                self.quote_header.destroy()
-                from inspiration import header as quote_header
-
-                self.quote_header = quote_header(self, parent, ASSETS / "quotes.json")
-            self.status.configure(
-                text=f"Hoje, {self.today():%d/%m/%Y} • Dados salvos neste computador"
-            )
+                self.set_page_header(self.section)
         if expired:
             if self.store.pref("notifications", True):
                 self.notify(
-                    "Timer concluído e pausado. Finalize ou acrescente tempo para continuar."
+                    "Finalize para registrar ou acrescente tempo para continuar.",
+                    "Timer concluído e pausado",
+                    "timer",
+                    "accent",
                 )
             if self.store.pref("sound", False):
                 self.root.bell()
@@ -3190,17 +3236,27 @@ class App:
             elapsed = int(state["elapsed"])
             remaining = max(0, state["target"] - elapsed)
             display = remaining if state["mode"] == "Timer" else elapsed
-            self.floating.set_session(True, state["running"])
+            subject = getattr(self, "clock_subject", None)
+            if not subject or subject[0] != state["subject_id"]:
+                row = self.store.one(
+                    "SELECT name FROM subjects WHERE id=?", (state["subject_id"],)
+                )
+                subject = (state["subject_id"], row["name"] if row else "")
+                self.clock_subject = subject
+            self.floating.set_session(
+                True, state["running"], duration(display), subject[1]
+            )
             self.clock_tip.text = f"{duration(display)} · {'Em estudo' if state['running'] else 'Pausado'} — clique para retornar (Ctrl+R)"
             if self.clock_win and self.clock_win.winfo_exists():
                 self.clock_label.configure(text=duration(display))
                 self.clock_info.configure(
-                    text=f"{state['mode']} • líquido {duration(elapsed)} / previsto {duration(state['target'])}"
+                    text=f"{'Timer' if state['mode'] == 'Timer' else 'Cronômetro'} • líquido {duration(elapsed)} de {duration(state['target'])} previstos"
                     + (f"\n{state['notice']}" if state.get("notice") else "")
                 )
                 self.clock_goal.configure(text=self.main_goal_text(state["plan_id"]))
                 self.pause_button.configure(
-                    text="Pausar" if state["running"] else "Retomar"
+                    text="Pausar" if state["running"] else "Retomar",
+                    icon="pause" if state["running"] else "play",
                 )
                 self.clock_label.update_progress(
                     min(100, elapsed / state["target"] * 100) if state["target"] else 0,
@@ -3208,7 +3264,9 @@ class App:
                 )
         else:
             self.floating.set_session(False, False)
-            self.clock_tip.text = "Iniciar estudo ou registrar manualmente (Ctrl+R)"
+            self.clock_tip.text = (
+                "Iniciar estudo com relógio ou retomar o foco (Ctrl+R)"
+            )
 
     def page_3(self):
         self.toolbar(
@@ -3286,14 +3344,8 @@ class App:
             r = chosen()
             if r["state"] != "Pendente":
                 raise ValueError("Esta revisão não está pendente.")
-            v = {
-                "subject_id": r["subject_id"],
-                "topic_id": r["topic_id"],
-                "category": "Revisão",
-                "review_id": r["id"],
-                "material": r["material"] or "",
-                "next_step": r["next_step"] or "",
-            }
+            v = self.store.rpg.review_fields(r["id"])
+            v["material"] = r["material"] or ""
             self.clock_setup(v) if timer else self.session_form(v)
 
         def reschedule():
@@ -4107,6 +4159,16 @@ class App:
         if hour and self.store.pref("time_format", "24h") == "12h":
             hour = datetime.strptime(hour, "%H:%M").strftime("%I:%M %p")
         text = f"{r['day']} {hour}\n{r['subject'] or 'Simulado sem matéria'} → {r['topic'] or r['mock_name']}\n{r['category']}\n\nPretendido: {duration(r['target'])}\nLíquido: {duration(r['elapsed'])}\nAcertos: {r['correct']} • Erros: {r['wrong']} • Brancos: {r['blank']}\nAcertos/respondidas: {percentage(ratio(r['correct'],r['wrong']))}\nAcertos/total: {percentage(ratio(r['correct'],r['wrong'],r['blank'],True))}\n\nMaterial: {r['material']}\nLink: {r['url']}\nPáginas: {r['pages'] if r['pages'] is not None else 'Não informado'}\nVideoaula: {duration(r['video']) if r['video'] is not None else 'Não informado'}\n\nOnde parei: {r['next_step']}\n\nObservações: {r['notes']}"
+        receipts = self.store.rpg.reward_details(r["id"])
+        if receipts:
+            text += "\n\nComo esta recompensa foi calculada:\n" + "\n".join(
+                receipt["explanation"] for receipt in receipts
+            )
+        recall = self.store.one(
+            "SELECT recall FROM rpg_links WHERE session_id=?", (r["id"],)
+        )
+        if recall and recall["recall"]:
+            text += "\n\nMinha autoavaliação de lembrança: " + recall["recall"]
         pauses = json.loads(r.get("pauses", "[]"))
         if pauses:
             text += "\n\nEventos do relógio:\n" + "\n".join(
@@ -4130,6 +4192,13 @@ class App:
         widget.insert("1.0", text)
         widget.configure(state="disabled")
         widget.pack(fill="both", expand=True)
+        from rpg_ui import difficulty_form
+
+        MotionButton(
+            win,
+            text="Registrar dificuldade deste estudo",
+            command=lambda: difficulty_form(self, session=r),
+        ).pack(pady=8)
         if r["url"]:
             MotionButton(
                 win, text="Abrir link", command=lambda: self.open_link(r["url"])
@@ -4441,9 +4510,10 @@ class App:
         groups = [
             (
                 "Aparência e conforto",
-                "Fonte Inter, tema claro suave e animações que você pode reduzir.",
+                "Oito temas com nome, fonte Inter e animações que você pode reduzir.",
                 [
                     ("Ajustar aparência e preferências", self.preferences),
+                    ("Escolher tema", self.open_themes),
                     ("Alternar claro / escuro", self.toggle_theme),
                 ],
             ),
@@ -4562,6 +4632,10 @@ class App:
     def preferences(self):
         defaults = {
             "animations": True,
+            "rpg_show_character": True,
+            "rpg_effects": True,
+            "rpg_story": True,
+            "rpg_reward_notifications": True,
             "theme": "Escuro",
             "daily_subjects": 3,
             "block_minutes": 45,
@@ -4585,6 +4659,8 @@ class App:
         initial = {k: self.store.pref(k, v) for k, v in defaults.items()}
         initial["review_intervals"] = ",".join(map(str, initial["review_intervals"]))
         initial["eligible_days"] = ",".join(map(str, initial["eligible_days"]))
+        if initial["theme"] != "Sistema":
+            initial["theme"] = resolve_theme(initial["theme"])
 
         def save(v):
             for k in [
@@ -4632,6 +4708,10 @@ class App:
             "Preferências locais",
             [
                 ("animations", "Animações suaves", "bool"),
+                ("rpg_show_character", "Exibir personagem", "bool"),
+                ("rpg_effects", "Efeitos decorativos do RPG", "bool"),
+                ("rpg_story", "Exibir história da jornada", "bool"),
+                ("rpg_reward_notifications", "Avisos de recompensa", "bool"),
                 ("show_main_goal", "Lembrar minha meta durante o foco", "bool"),
                 ("focus_minutes", "Duração inicial do foco (minutos)", "entry"),
                 (
@@ -4640,7 +4720,7 @@ class App:
                     "choice",
                     ["Aprendizagem", "Edital"],
                 ),
-                ("theme", "Tema", "choice", ["Escuro", "Claro", "Sistema"]),
+                ("theme", "Tema", "choice", [*THEME_NAMES, "Sistema"]),
                 (
                     "daily_subjects",
                     "Matérias sugeridas por dia (2 ou 3)",
@@ -4807,7 +4887,8 @@ def main():
             ctypes.windll.shcore.SetProcessDpiAwareness(1)
         except Exception:
             pass
-    root = tk.Tk()
+    # className gives WM_CLASS "Rumo"; Linux docks match it to the .desktop icon.
+    root = tk.Tk(className="RUMO")
     App(root)
     root.mainloop()
     lock.close()

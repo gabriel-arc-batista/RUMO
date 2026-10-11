@@ -15,6 +15,14 @@
 | `charts.py` | Gráficos nativos a partir de registros reais |
 | `challenges.py` | Catálogo por nível e cálculo de progresso |
 | `inspiration.py` | Corpus em cache e frase por data |
+| `appearance.py` | Opções, padrão, validação e camadas da aparência do personagem (sem Tk) |
+| `customizer.py` | Janela do criador de personagem com prévia ao vivo |
+| `theme.py` | Tokens de cor/tipo/espaço, contraste e formatação pt-BR |
+| `icons.py` | Mapa gerado dos ícones Lucide (`assets/fonts/RUMO-Icons.ttf`) |
+| `journey.py` | Contratos tipados da Jornada (view models + `JourneyProvider`) |
+| `journey_live.py` | Leituras reais somente leitura para missão, revisões e habilidades |
+| `journey_demo.py` | `PreviewJourney`: prévia com dados de demonstração identificados, sem gravação |
+| `screen_home.py`, `screen_journey.py`, `focus.py` | Telas Início, Jornada e modo foco; recebem só view models |
 | `scripts/` | Preparação de assets, QA, build e instalador |
 
 ## Contratos que não devem mudar silenciosamente
@@ -23,8 +31,20 @@ Store usa SQLite com chaves estrangeiras, WAL e cache de 2 MB. Valores SQL são 
 
 Relógio usa tempo monotônico, checkpoints de cinco segundos e tempo líquido. Recuperação fica pausada; ausência/suspensão não conta. Segmentos repartem tempo entre datas, mas questões permanecem na data atribuída à sessão. Um bloco pode receber estudos parciais; concluir/adicionar tempo não equivale a concluir a teoria.
 
-Esquema 3: backups 1 e 2 migram pausas e observações. Uma restauração é validada numa base temporária antes da transação e preserva o destino local de backups. Não modificar o arquivo SQLite importado.
+Esquema 5: backups 1, 2 e 3 migram pausas, observações e tabelas RPG vazias, sem conceder XP retroativo. A atualização de SQLite antigo cria uma cópia pre-rpg antes da migração aditiva. Uma restauração é validada numa base temporária antes da transação e preserva o destino local de backups. Não modificar o arquivo SQLite importado.
 
 Hierarquia tem matéria consistente, ausência de ciclos e profundidade máxima de 128. A ordem visual não altera IDs, numeração ou textos oficiais. `starter_cycle_<plan>` garante geração idempotente; `create_guided_cycle` é uma ação pontual de instalação autorizada, não um padrão para todas as bases.
 
 Eventos Tk ficam na thread principal. Cancelar callbacks ao destruir widgets. Não criar timers repetidos para hover. No edital, seleção e conclusão atualizam widgets existentes; reconstruir a página deslocava a rolagem e causava o antigo bug de piscar.
+
+## RPG local
+
+`rpg_schema.py` define tabelas adicionais; `rpg.py` opera na conexão e nas transações do Store; `rpg_validation.py` valida backups sem GUI. `journey_backend.py` adapta contratos de apresentação e `rpg_ui.py` oferece formulários nativos. Sessões e resultados de simulados continuam canônicos. Contexto de missão, dificuldade, desafio e lembrança fica em `rpg_links`, nunca em uma segunda sessão.
+
+Recompensas são recalculadas a partir de fontes únicas: um XP por minuto líquido completo, uma moeda por dez XP de cada sessão; encontros e desafios concluídos recebem cinco XP de participação, sem moedas ou bônus por aproveitamento. Nível L exige 100 × L XP para o seguinte. Edições/exclusões corrigem o saldo; compras permanecem e eventual déficit é compensado por ganhos futuros, mantendo saldo disponível não negativo. História desbloqueada permanece. Estudos anteriores só entram após prévia e opção explícita.
+
+Esforço, aproveitamento observado (20 respostas em três datas) e autoavaliação de lembrança são separados. Superação de dificuldade é decisão do usuário; evidência espaçada apenas sugere. Missões parciais não decidem blocos nem avançam o ciclo.
+
+Telas leem a Jornada só por `app.journey` (`app.make_journey`). Selos de demonstração dependem do campo `source`. `Columns`/`Panel(stretch)` fazem a responsividade; em `grid`, sempre informe `padx` e `pady` ao re-posicionar e retire colunas vazias do grupo `uniform`. Decisões visuais: `docs/RUMO_DESIGN.md`; integração: `docs/RUMO_HANDOFF.md`.
+
+Equipamentos de evolução e caminhos ficam em `rpg_progression.py`; contam apenas fontes canônicas inscritas no RPG. Caminhos são derivados e independentes, não classes obrigatórias. Inventário grava aquisições e preço real (zero para recompensas), preservando-as após correções. Migração v4→v5 reconstrói apenas a restrição de slots do inventário, copia todas as linhas e recria o índice de um item equipado por slot, numa transação precedida de backup. Não acrescentar XP, tempo ou questões por usar equipamentos. Avisos de novas recompensas são transitórios, consumidos uma vez pela interface.

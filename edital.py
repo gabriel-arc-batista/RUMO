@@ -310,7 +310,9 @@ def render_edital(app, tooltip, dialogs):
             view["host"].pack_forget()
             if view["bar"]:
                 view["bar"].pack_forget()
-        view["button"].configure(text="▾" if view["open"] else "▸")
+        view["button"].configure(
+            icon="chevron-down" if view["open"] else "chevron-right"
+        )
 
     def activate(topic):
         select(topic)
@@ -378,12 +380,16 @@ def render_edital(app, tooltip, dialogs):
         button = (
             MotionButton(
                 inner,
-                text=(
-                    "·"
+                icon=(
+                    "minus"
                     if filtered_parent
-                    else "▾" if tid in app.edital_expanded else "▸"
+                    else (
+                        "chevron-down"
+                        if tid in app.edital_expanded
+                        else "chevron-right"
+                    )
                 ),
-                width=3,
+                style="Ghost.TButton",
                 height=34,
                 state="disabled" if filtered_parent else "normal",
                 command=lambda: expand(tid),
@@ -403,8 +409,8 @@ def render_edital(app, tooltip, dialogs):
         controls[tid] = button
         notes_button = MotionButton(
             inner,
-            text="✎",
-            width=3,
+            icon="pencil",
+            style="Ghost.TButton",
             height=34,
             command=lambda: app.topic_notes(topic, update_notes),
         )
@@ -415,7 +421,7 @@ def render_edital(app, tooltip, dialogs):
         label = tk.Label(
             text_frame,
             text=topic["name"],
-            font=("Inter", 9),
+            font=("Inter", 10),
             fg=app.fg,
             bg=app.surface,
             anchor="w",
@@ -427,7 +433,7 @@ def render_edital(app, tooltip, dialogs):
         detail = tk.Label(
             text_frame,
             text=detail_text(topic),
-            font=("Inter", 8),
+            font=("Inter", 9),
             fg=app.muted,
             bg=app.surface,
             anchor="w",
@@ -516,8 +522,11 @@ def render_edital(app, tooltip, dialogs):
             head.pack(fill="x")
             arrow = MotionButton(
                 head,
-                text="▾" if term or sid in app.edital_expanded else "▸",
-                width=3,
+                icon=(
+                    "chevron-down"
+                    if term or sid in app.edital_expanded
+                    else "chevron-right"
+                ),
                 command=lambda k=sid: expand(k),
             )
             arrow.pack(side="left", padx=(0, 8))

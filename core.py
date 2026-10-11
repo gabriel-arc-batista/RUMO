@@ -12,6 +12,7 @@ import uuid
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from security import csv_cell
+from rpg_schema import RPG_SCHEMA, RPG_TABLES
 
 COLORS = ["#D6B467", "#B6914A", "#E8CC91", "#A78956", "#F1DEAD", "#786541"]
 TABLES = [
@@ -29,7 +30,7 @@ TABLES = [
     "goals",
     "mock_results",
     "active",
-]
+] + RPG_TABLES
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS preferences(key TEXT PRIMARY KEY,value TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS plans(id TEXT PRIMARY KEY,name TEXT NOT NULL,description TEXT DEFAULT '',exam_date TEXT,archived INTEGER DEFAULT 0);
@@ -52,7 +53,7 @@ CREATE INDEX IF NOT EXISTS ix_topics_subject ON topics(subject_id);
 CREATE INDEX IF NOT EXISTS ix_reviews_due ON reviews(due,state);
 ALTER TABLE sessions ADD COLUMN pauses TEXT NOT NULL DEFAULT '[]';
 PRAGMA user_version=3;
-"""
+""" + RPG_SCHEMA
 
 
 def uid():
@@ -102,7 +103,7 @@ class Store:
         self.db = sqlite3.connect(self.path)
         self.db.row_factory = sqlite3.Row
         version = self.db.execute("PRAGMA user_version").fetchone()[0]
-        if version > 3:
+        if version > 5:
             self.db.close()
             raise ValueError(
                 "A base foi criada por uma versão mais nova do RUMO — Estudos. Atualize o aplicativo."
@@ -128,6 +129,47 @@ class Store:
                         "ALTER TABLE topics ADD COLUMN notes TEXT NOT NULL DEFAULT ''"
                     )
                 self.db.execute("PRAGMA user_version=3")
+
+        if version in (1, 2, 3):
+            # A consistent pre-upgrade copy is retained outside the source tree.
+            backup = self.path.parent / (
+                "pre-rpg-" + datetime.now().strftime("%Y%m%d-%H%M%S%f") + ".sqlite3"
+            )
+            destination = sqlite3.connect(backup)
+            try:
+                self.db.backup(destination)
+            finally:
+                destination.close()
+            try:
+                self.db.executescript("BEGIN IMMEDIATE;" + RPG_SCHEMA + "COMMIT;")
+            except Exception:
+                self.db.rollback()
+                raise
+        if version == 4:
+            from rpg_schema import INVENTORY_V5_MIGRATION
+
+            backup = self.path.parent / (
+                "pre-equipment-"
+                + datetime.now().strftime("%Y%m%d-%H%M%S%f")
+                + ".sqlite3"
+            )
+            destination = sqlite3.connect(backup)
+            try:
+                self.db.backup(destination)
+            finally:
+                destination.close()
+            try:
+                self.db.executescript(
+                    "BEGIN IMMEDIATE;" + INVENTORY_V5_MIGRATION + "COMMIT;"
+                )
+            except Exception:
+                self.db.rollback()
+                self.db.close()
+                raise
+        from rpg import RPGService
+
+        self.rpg = RPGService(self)
+        self.rpg.sync()
 
     def rows(self, sql, args=()):
         return [dict(r) for r in self.db.execute(sql, args)]
@@ -216,8 +258,16 @@ class Store:
                 raise ValueError("Assunto com histórico não pode mudar de matéria.")
 
     def save(self, table, values):
+        old = (
+            self.one("SELECT state FROM reviews WHERE id=?", (values.get("id", ""),))
+            if table == "reviews"
+            else None
+        )
         with self.db:
-            return self.put(table, values)
+            key = self.put(table, values)
+            if table == "reviews":
+                self.rpg.review_changed(key, old["state"] if old else None)
+            return key
 
     def progress(self, plan):
         return self.one(
@@ -295,6 +345,7 @@ class Store:
         finish_active=False,
         base=None,
         shift_pending=True,
+        context=None,
     ):
         v = self.validate_session(values)
         base = date.fromisoformat(base or v["day"])
@@ -367,8 +418,14 @@ class Store:
             self.db.execute("DELETE FROM mock_results WHERE session_id=?", (sid,))
             for r in results:
                 self.put("mock_results", dict(r, session_id=sid))
+            if old and old["review_id"] and old["review_id"] != v.get("review_id"):
+                self.db.execute(
+                    "UPDATE reviews SET state='Pendente',completed_id=NULL WHERE id=? AND completed_id=?",
+                    (old["review_id"], sid),
+                )
             if finish_active:
                 self.db.execute("DELETE FROM active")
+            self.rpg.session_saved(sid, old is None, context)
         return sid
 
     def delete_session(self, sid):
@@ -381,6 +438,7 @@ class Store:
                 "DELETE FROM reviews WHERE origin_id=? AND state='Pendente'", (sid,)
             )
             self.db.execute("DELETE FROM sessions WHERE id=?", (sid,))
+            self.rpg.sync_in_transaction()
 
     def filters(self, plan, f=None):
         f = f or {}
@@ -635,6 +693,7 @@ class Store:
                 "UPDATE cycles SET position=? WHERE id=?",
                 (pending[0] if pending else len(blocks), cycle["id"]),
             )
+            self.rpg.sync_in_transaction()
 
     def generate_cycle(self, plan, block_minutes=45, total_minutes=360):
         subjects = self.rows(
@@ -743,7 +802,7 @@ class Store:
     def snapshot(self):
         return {
             "format": "RUMO",
-            "version": 3,
+            "version": 5,
             "created": datetime.now().isoformat(),
             "tables": {t: self.rows(f"SELECT * FROM {t}") for t in TABLES},
         }
@@ -798,6 +857,7 @@ class Store:
                         f"INSERT INTO {t} ({','.join(keys)}) VALUES({','.join('?' for _ in keys)})",
                         list(row.values()),
                     )
+            self.rpg.sync_in_transaction()
         return data
 
     def auto_backup(self, force=False):

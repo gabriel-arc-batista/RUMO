@@ -1,6 +1,7 @@
 """Package documentation and component notices with the portable runtime."""
 
 import hashlib
+import os
 import shutil
 import sys
 import zipfile
@@ -19,6 +20,10 @@ for name in [
     "SECURITY_REVIEW.md",
 ]:
     shutil.copy2(project / name, bundle / name)
+# Keep README links to progression and validation usable in the portable folder.
+(bundle / "docs").mkdir(exist_ok=True)
+for source in (project / "docs").glob("*.md"):
+    shutil.copy2(source, bundle / "docs" / source.name)
 prefix = Path(sys.base_prefix)
 font_license = project / "assets/fonts/OFL.txt"
 if font_license.exists():
@@ -26,11 +31,32 @@ if font_license.exists():
 inter_license = project / "assets/fonts/LICENSE.txt"
 if inter_license.exists():
     shutil.copy2(inter_license, notices / "Inter-OFL.txt")
-shutil.copy2(prefix / "LICENSE.txt", notices / "Python-LICENSE.txt")
+python_license = prefix / "LICENSE.txt"
+if not python_license.exists():
+    python_license = (
+        prefix
+        / "lib"
+        / f"python{sys.version_info.major}.{sys.version_info.minor}"
+        / "LICENSE.txt"
+    )
+shutil.copy2(python_license, notices / "Python-LICENSE.txt")
+lucide_license = project / "assets/fonts/LUCIDE-LICENSE.txt"
+if lucide_license.exists():
+    shutil.copy2(lucide_license, notices / "Lucide-LICENSE.txt")
 for name in ["tk8.6", "tcl8.6"]:
     source = prefix / "tcl" / name / "license.terms"
     if source.exists():
         shutil.copy2(source, notices / (name + "-license.terms"))
+    elif sys.platform.startswith("linux"):
+        library = os.environ.get(
+            "TK_LIBRARY" if name.startswith("tk") else "TCL_LIBRARY"
+        )
+        if library:
+            source = (
+                Path(library).parents[2] / "share/doc" / ("lib" + name) / "copyright"
+            )
+            if source.is_file():
+                shutil.copy2(source, notices / (name + "-copyright.txt"))
 for package in ["tzdata", "pyinstaller"]:
     dist = distribution(package)
     for entry in dist.files:

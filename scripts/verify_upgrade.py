@@ -13,6 +13,7 @@ from core import data_dir, TABLES
 
 project = Path(__file__).resolve().parents[1]
 out = project / "validation"
+out.mkdir(exist_ok=True)
 baseline = out / "upgrade-baseline.json"
 database = data_dir() / "estudos.sqlite3"
 
@@ -31,15 +32,21 @@ if sys.argv[1] == "prepare":
     backup = (
         data_dir()
         / "backups"
-        / ("pre-v1.4.3-" + datetime.now().strftime("%Y%m%d-%H%M%S") + ".sqlite3")
+        / ("pre-v1.0.0-" + datetime.now().strftime("%Y%m%d-%H%M%S") + ".sqlite3")
     )
     backup.parent.mkdir(exist_ok=True)
     source = reader(database)
     dest = sqlite3.connect(backup)
     source.backup(dest)
     dest.close()
+    existing = {
+        r["name"]
+        for r in source.execute("SELECT name FROM sqlite_master WHERE type='table'")
+    }
     counts = {
-        t: source.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0] for t in TABLES
+        t: source.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0]
+        for t in TABLES
+        if t in existing
     }
     source.close()
     baseline.write_text(
@@ -53,16 +60,23 @@ else:
     new = reader(database)
     preserved = {}
     allowed = {"design_version", "bacen_guide_ids", "bacen_topic_sources"}
-    for table in TABLES:
+    for table in before["counts"]:
+        assert table in TABLES, "Unknown baseline table"
         columns = [r["name"] for r in old.execute(f"PRAGMA table_info({table})")]
-        primary = next(
-            r["name"] for r in old.execute(f"PRAGMA table_info({table})") if r["pk"]
-        )
+        primary = [
+            r["name"]
+            for r in sorted(
+                old.execute(f"PRAGMA table_info({table})"), key=lambda r: r["pk"]
+            )
+            if r["pk"]
+        ]
+        assert primary, (table, "missing primary key")
+        where = " AND ".join(column + "=?" for column in primary)
         count = 0
         for row in old.execute(f"SELECT * FROM {table}"):
             current = new.execute(
-                f"SELECT {','.join(columns)} FROM {table} WHERE {primary}=?",
-                (row[primary],),
+                f"SELECT {','.join(columns)} FROM {table} WHERE {where}",
+                tuple(row[column] for column in primary),
             ).fetchone()
             assert current is not None, (table, "missing record")
             if table == "preferences" and row["key"] in allowed:
@@ -78,7 +92,7 @@ else:
                 assert dict(current) == dict(row), (table, "changed existing record")
             count += 1
         preserved[table] = count
-    assert new.execute("PRAGMA user_version").fetchone()[0] == 3
+    assert new.execute("PRAGMA user_version").fetchone()[0] == 5
     assert new.execute("PRAGMA integrity_check").fetchone()[0] == "ok"
     assert not new.execute("PRAGMA foreign_key_check").fetchall()
     total = new.execute("SELECT COUNT(*) FROM topics").fetchone()[0]
@@ -93,7 +107,7 @@ else:
         for p in files
     )
     report = {
-        "version": "1.4.3",
+        "version": "1.0.0",
         "installed_executable": str(installed / "RUMO.exe"),
         "matches_build": True,
         "all_existing_study_records_preserved": True,
@@ -101,10 +115,9 @@ else:
         "preserved_counts": preserved,
         "new_syllabus_entries": total - before["counts"]["topics"],
         "backup": before["backup"],
-        "schema_version": 3,
+        "schema_version": 5,
         "installed_files_checked": len(files),
         "final_build_installed": True,
-        "subtopic_click_regression_passed": True,
     }
     (out / "installation-report.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8"

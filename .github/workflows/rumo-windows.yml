@@ -19,6 +19,12 @@ jobs:
           python -m black --check .
           python scripts/check_repository.py
           python -m unittest discover -s tests -v
+          python scripts/verify_rpg_gui.py
+          python scripts/verify_rpg_dialogs.py
+          python scripts/verify_appearance_gui.py
+          python scripts/verify_gui.py
+          python scripts/verify_modern_ui.py
+          python scripts/verify_performance.py
       - name: Build native Windows executable and installer
         shell: pwsh
         run: |
@@ -35,7 +41,7 @@ jobs:
         run: python scripts/verify_brand_package.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: RUMO-Windows-1.4.3
+          name: RUMO-Windows-1.0.0
           path: |
             dist/RUMO-Instalar-Windows.exe
             dist/RUMO-Windows-Portatil.zip

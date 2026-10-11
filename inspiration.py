@@ -59,6 +59,44 @@ def header(app, parent, path):
     return area
 
 
+def inline(app, parent, path):
+    """One quiet line under the page title; the full reference is in the tooltip."""
+    from ui import Tooltip, glyph, ui_font
+
+    _, quote = daily(path, app.today())
+    area = ttk.Frame(parent)
+    area.pack(fill="x", anchor="w")
+    text = "“" + quote["text"] + "”  — " + quote["author"]
+    label = ttk.Label(area, text=text, style="Muted.TLabel", anchor="w")
+    label.pack(side="left")
+    Tooltip(
+        label,
+        "“" + quote["text"] + "”\n" + quote["author"] + " • " + quote["reference"],
+    )
+    source = MotionButton(
+        area,
+        icon="external-link",
+        text="" if glyph(area, "external-link") else "Fonte",
+        style="Ghost.TButton",
+        height=26,
+        command=lambda: app.open_link(quote["source"]),
+    )
+    source.pack(side="left", padx=(4, 0))
+    Tooltip(source, "Abrir a fonte da frase no navegador")
+    font = ui_font(area, size=10)
+
+    def fit(event=None):
+        room = area.winfo_width() - source.winfo_reqwidth() - 12
+        shown = text
+        while room > 40 and len(shown) > 8 and font.measure(shown) > room:
+            shown = shown[:-4].rstrip() + "…"
+        if label.cget("text") != shown:
+            label.configure(text=shown)
+
+    area.bind("<Configure>", fit)
+    return area
+
+
 def render(app, path, parent=None):
     index, quote = daily(path, app.today())
     panel = Panel(parent or app.content, app)
