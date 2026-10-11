@@ -25,6 +25,8 @@ jobs:
           python scripts/verify_appearance_gui.py
           python scripts/verify_gui.py
           python scripts/verify_modern_ui.py
+          python scripts/verify_design.py
+          python scripts/verify_subtopic_clicks.py
           python scripts/verify_performance.py
       - name: Build native Windows executable and installer
         shell: pwsh

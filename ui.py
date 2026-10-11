@@ -10,6 +10,7 @@ import tkinter as tk
 import time
 import os
 import ctypes
+import ctypes.util
 from tkinter import ttk
 from tkinter import font as tkfont
 
@@ -67,8 +68,6 @@ def load_fonts(root, assets):
                 add(str(path), 0x10, None)
     else:
         try:
-            import ctypes.util
-
             fc = ctypes.CDLL(ctypes.util.find_library("fontconfig"))
             fc.FcConfigAppFontAddFile.argtypes = [ctypes.c_void_p, ctypes.c_char_p]
             # Per file, not per directory: a directory cache keyed by its mtime

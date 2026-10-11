@@ -9,10 +9,11 @@ Release v1 da aplicação integrada, em 11/10/2026. A numeração pública recom
 - Seletores e diálogos aguardam a janela estar visível antes de capturar o foco. Regressão cobre o formulário ainda não mapeado que antes causava tela branca/fechamento.
 - Personalização salva somente após confirmação; cancelar descarta o rascunho. O build regenera todas as camadas, e cada avatar mantém as imagens que está exibindo mesmo quando o cache é renovado.
 - Abertura do edital retificado corrigida para Linux e Windows.
+- Carregamento de fontes privadas corrigido no Windows; o import específico de Linux não pode ocultar o módulo `ctypes` no ramo Windows.
 
 ## Verificação
 
-117 testes de domínio, persistência, migrações, backups, entradas inválidas, progressão e aparência. Scripts nativos `verify_rpg_gui.py`, `verify_rpg_dialogs.py` e `verify_appearance_gui.py` verificam atividades reais, formulários, equipamentos, caderno do Erudito, temas e personalização com bases sintéticas. Não se usa o banco pessoal.
+118 testes de domínio, persistência, migrações, backups, entradas inválidas, progressão e aparência. Scripts nativos `verify_rpg_gui.py`, `verify_rpg_dialogs.py` e `verify_appearance_gui.py` verificam atividades reais, formulários, equipamentos, caderno do Erudito, temas e personalização com bases sintéticas. Não se usa o banco pessoal.
 
 Formatação Black e revisão de arquivos antes do commit. Pip-audit do ambiente de desenvolvimento: nenhuma vulnerabilidade conhecida encontrada. Bandit: nenhum achado alto; composição SQL revisada, valores parametrizados e identificadores limitados a listas internas. `random.choice` só seleciona aparência cosmética. Abertura de documentos/diretórios é ação explícita do usuário.
 
