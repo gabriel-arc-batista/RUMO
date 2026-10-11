@@ -1,0 +1,1448 @@
+{
+  "source": "https://bcb.gov.br/content/acessoinformacao/analista_2024/Edital-n-1-de-Abertura-do-concurso.pdf",
+  "notice": "Edital nº 1 – BCB, de 15 de janeiro de 2024",
+  "section": "18 — Objetos de avaliação",
+  "sha256": "3e2822384e64c0220a0c343500564139b907418c612b187b6625fd0ac45736a1",
+  "note": "Edital de abertura histórico; não é um edital novo nem consolidação de retificações. Numeração e texto preservados; quebras do PDF normalizadas.",
+  "areas": {
+    "Tecnologia da Informação": [
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "1 Compreensão e interpretação de textos de gêneros variados",
+        "pai": ""
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "2 Reconhecimento de tipos e gêneros textuais",
+        "pai": ""
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "3 Domínio da ortografia oficial",
+        "pai": ""
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "4 Domínio dos mecanismos de coesão textual",
+        "pai": ""
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "4.1 Emprego de elementos de referencia ção, substituição e repetição, de conectores e de outros elementos de sequenciação textual",
+        "pai": "4 Domínio dos mecanismos de coesão textual"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "4.2 Emprego de tempos e modos verbais",
+        "pai": "4 Domínio dos mecanismos de coesão textual"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5 Domínio da estrutura morfossintática do período",
+        "pai": ""
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5.1 Emprego das classes de palavras",
+        "pai": "5 Domínio da estrutura morfossintática do período"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5.2 Relações de coordenação entre orações e entre termos da oração",
+        "pai": "5 Domínio da estrutura morfossintática do período"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5.3 Relações de subordinação entre orações e entre termos da oração",
+        "pai": "5 Domínio da estrutura morfossintática do período"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5.4 Emprego dos sinais de pontuação",
+        "pai": "5 Domínio da estrutura morfossintática do período"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5.5 Concordância verbal e nominal",
+        "pai": "5 Domínio da estrutura morfossintática do período"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5.6 Regência verbal e nominal",
+        "pai": "5 Domínio da estrutura morfossintática do período"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5.7 Emprego do sinal indicativo de crase",
+        "pai": "5 Domínio da estrutura morfossintática do período"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5.8 Colocação dos pronomes átonos",
+        "pai": "5 Domínio da estrutura morfossintática do período"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "6 Reescrita de frases e parágrafos do texto",
+        "pai": ""
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "6.1 Significação das palavras",
+        "pai": "6 Reescrita de frases e parágrafos do texto"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "6.2 Substituição de palavras ou de trechos de texto",
+        "pai": "6 Reescrita de frases e parágrafos do texto"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "6.3 Reorganização da estrutura de orações e de períodos do texto",
+        "pai": "6 Reescrita de frases e parágrafos do texto"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "6.4 Reescrita de textos de diferentes gêneros e níveis de formalidade",
+        "pai": "6 Reescrita de frases e parágrafos do texto"
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "1 Raciocínio lógico ",
+        "pai": ""
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "1.1 Estruturas lógicas ",
+        "pai": "1 Raciocínio lógico "
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "1.2 Lógica de argumentação: analogias, inferências, deduções e conclusões",
+        "pai": "1 Raciocínio lógico "
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "1.3 Lógica sentencial (ou proposicional)",
+        "pai": "1 Raciocínio lógico "
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "10.3.1 Proposições simples e compostas ",
+        "pai": ""
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "10.3.2 Tabelas -verdade",
+        "pai": ""
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "10.3.3 Equivalências ",
+        "pai": ""
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "10.3.4 Leis de Morgan; problemas",
+        "pai": ""
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "2 Noções de estatística",
+        "pai": ""
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "2.1 População e amostra",
+        "pai": "2 Noções de estatística"
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "2.2 Histogramas e curvas de frequência",
+        "pai": "2 Noções de estatística"
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "2.3 Medidas de posição: média, moda, mediana e separatrizes",
+        "pai": "2 Noções de estatística"
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "2.4 Medidas de dispersão absoluta e relativa",
+        "pai": "2 Noções de estatística"
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "2.5 Probabilidade condicional, independência",
+        "pai": "2 Noções de estatística"
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "2.6 Variável aleatória e funções de distribuição",
+        "pai": "2 Noções de estatística"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "1 Administração pública: princípios básicos",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "1.1 Administração direta e indireta",
+        "pai": "1 Administração pública: princípios básicos"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "2 Poderes administrativos",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "2.1 Espécies de poder: hierárquico, disciplinar, regulamentar, de polícia e normativo",
+        "pai": "2 Poderes administrativos"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "2.2 Uso e abuso do poder",
+        "pai": "2 Poderes administrativos"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "3 Organização administrativa brasileira",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "3.1 Serviços públicos: conceito e princípios",
+        "pai": "3 Organização administrativa brasileira"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "3.2 Autarquias, a gências reguladoras, agências executivas, fundações públicas, empresas públicas, sociedades de economia mista",
+        "pai": "3 Organização administrativa brasileira"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "4 Ato administrativo",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "4.1 Conceito, requisitos e atributos",
+        "pai": "4 Ato administrativo"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "4.2 Comunicação dos atos administrativos",
+        "pai": "4 Ato administrativo"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "4.3 Anulação, revogação e convalidação",
+        "pai": "4 Ato administrativo"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "4.4 Discricionariedade e vinculação",
+        "pai": "4 Ato administrativo"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "5 Servidores públicos: cargo, emprego e função públicos",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "5.1 Lei nº 8.112/1990 (Regime Jurídico dos Servidores Públicos Civis da União) e alterações",
+        "pai": "5 Servidores públicos: cargo, emprego e função públicos"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "5.1.1 Disposições preliminares",
+        "pai": "5.1 Lei nº 8.112/1990 (Regime Jurídico dos Servidores Públicos Civis da União) e alterações"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "5.1.2 Provimento, vacância, remoção, redistribuição e substituição",
+        "pai": "5.1 Lei nº 8.112/1990 (Regime Jurídico dos Servidores Públicos Civis da União) e alterações"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "5.1.3 Direitos e vantagens",
+        "pai": "5.1 Lei nº 8.112/1990 (Regime Jurídico dos Servidores Públicos Civis da União) e alterações"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "5.1.4 Regime disciplinar",
+        "pai": "5.1 Lei nº 8.112/1990 (Regime Jurídico dos Servidores Públicos Civis da União) e alterações"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "5.1.5 Seguridade social do servidor: aposentadoria e pensão civil",
+        "pai": "5.1 Lei nº 8.112/1990 (Regime Jurídico dos Servidores Públicos Civis da União) e alterações"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "5.1.6 Processo administrativo disciplinar",
+        "pai": "5.1 Lei nº 8.112/1990 (Regime Jurídico dos Servidores Públicos Civis da União) e alterações"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "6 Improbidade administrativa",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "7 Código de Ética Profissional do Servidor Público Civil do Poder Executivo Federal (Decreto nº 1.171/1994)",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "8 Código de Conduta da Alta Administração Federal",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "9 Lei de conflito de interesses (Lei nº 11.813/2013)",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "10 Lei de Acesso à Informação (Lei nº 12.527/2011)",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "11 Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais)",
+        "pai": ""
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Macroeconomia — 1 Contas nacionais",
+        "pai": ""
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Macroeconomia — 2 Agregados monetários",
+        "pai": ""
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Macroeconomia — 3 Multiplicador monetário, criação e destruição de moeda",
+        "pai": ""
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Macroeconomia — 4 Contas do sistema monetário",
+        "pai": ""
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Macroeconomia — 5 Balanço de pagamentos",
+        "pai": ""
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 1 Estrutura de mercado ",
+        "pai": ""
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 1.1 Formas de organização da atividade econômica, o pap el dos preços, custo de oportunidade e fronteiras das possibilidades de produção",
+        "pai": "Microeconomia — 1 Estrutura de mercado "
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 2 Oferta e demanda",
+        "pai": ""
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 2.1 Curvas de indiferença ",
+        "pai": "Microeconomia — 2 Oferta e demanda"
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 2.2 Restrição orçamentária",
+        "pai": "Microeconomia — 2 Oferta e demanda"
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 2.3 Equilíbrio do consumidor",
+        "pai": "Microeconomia — 2 Oferta e demanda"
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 2.4 Efeitos preço, renda e substituição",
+        "pai": "Microeconomia — 2 Oferta e demanda"
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 2.5 Curva de demanda",
+        "pai": "Microeconomia — 2 Oferta e demanda"
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 2.6 Elasticidade da demanda",
+        "pai": "Microeconomia — 2 Oferta e demanda"
+      },
+      {
+        "materia": "Atualidades",
+        "assunto": "1 Tópicos relevantes e atuais de diversas áreas, tais como segurança, transportes, política, economia, sociedade, educação, saúde, cultura, tecnologia, energia, relações internacionais, desenvolvimento sustentável e ecologia",
+        "pai": ""
+      },
+      {
+        "materia": "Ciência De Dados",
+        "assunto": "1 Aprendizado de Máquina",
+        "pai": ""
+      },
+      {
+        "materia": "Ciência De Dados",
+        "assunto": "2 Deep learning",
+        "pai": ""
+      },
+      {
+        "materia": "Ciência De Dados",
+        "assunto": "3 Processamento de linguagem natural",
+        "pai": ""
+      },
+      {
+        "materia": "Ciência De Dados",
+        "assunto": "4 Big data",
+        "pai": ""
+      },
+      {
+        "materia": "Ciência De Dados",
+        "assunto": "5 Qualidade de Dados",
+        "pai": ""
+      },
+      {
+        "materia": "Ciência De Dados",
+        "assunto": "6 Tipos de Aprendizado: Supervisionado, Não Supervisionado, Semi Supervisionado, Por Reforço, Por Transferência",
+        "pai": ""
+      },
+      {
+        "materia": "Ciência De Dados",
+        "assunto": "7 Grandes Modelos de Linguagem (LLM), IA Generativa",
+        "pai": ""
+      },
+      {
+        "materia": "Ciência De Dados",
+        "assunto": "8 Redes Neurais",
+        "pai": ""
+      },
+      {
+        "materia": "Ciência De Dados",
+        "assunto": "9 MLOps: Gestão de código, treinamento, implantação, monitoramento e versionamento de modelos, automação do ciclo de produção",
+        "pai": ""
+      },
+      {
+        "materia": "Ciência De Dados",
+        "assunto": "10 Governança e Ética na IA: Transparência, Responsabilidade, Explicabilidade, Privacidade, Segurança, Viés",
+        "pai": ""
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "assunto": "1 Gestão de Identidades e Acesso: Autenticação e Autoriza ção, Single Sign-On (SSO), Security Assertion Markup Language (SAML), OAuth2 e OpenId Connect",
+        "pai": ""
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "assunto": "2 Privacidade e segurança por padrão",
+        "pai": ""
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "assunto": "3 Principais tipos de ataques e vulnerabilidades",
+        "pai": ""
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "assunto": "4 Controles e testes de segurança para aplicações Web e Web Services",
+        "pai": ""
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "assunto": "5 Múltiplos Fatores de Autenticação (MFA)",
+        "pai": ""
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "assunto": "6 Soluções para Segurança da Informação: Firewall, Intrusion Detection System (IDS), Intrusion Prevention System (IPS), Security Information and Event Management (SIEM), Proxy, Identity Access Management (IAM), Privi leged Access Management (PAM), Antivírus, Antispam",
+        "pai": ""
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "assunto": "7 Frameworks de segurança da informação e segurança cibernética, como, por exemplo, MITRE ATT&CK, CIS Controls e NIST CyberSecurity Framework (NIST CSF)",
+        "pai": ""
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "assunto": "8 Tratamento de Incidentes Cibernéticos",
+        "pai": ""
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "assunto": "9 Assinat ura e certificação digital, criptografia e proteção de dados em trânsito e em repouso",
+        "pai": ""
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "assunto": "10 Segurança em nuvens e de contêineres",
+        "pai": ""
+      },
+      {
+        "materia": "Engenharia De Software",
+        "assunto": "1 Arquitetura de sistemas web: protocolo HTTP, HTTP/2, gRPC, WebSockets, TLS, servidores proxy, cache, DNS, balanceamento de carga, tolerância a falhas e escalabilidade em sistemas web",
+        "pai": ""
+      },
+      {
+        "materia": "Engenharia De Software",
+        "assunto": "2 Princípios e práticas de DevOps e DevSecOps, integração e entrega co ntínuas (CI/CD)",
+        "pai": ""
+      },
+      {
+        "materia": "Engenharia De Software",
+        "assunto": "3 Técnicas de desenvolvimento seguro",
+        "pai": ""
+      },
+      {
+        "materia": "Engenharia De Software",
+        "assunto": "4 Testes de software: Testes unitários, Testes de Integração, TDD, BDD",
+        "pai": ""
+      },
+      {
+        "materia": "Engenharia De Software",
+        "assunto": "5 Arquiteturas em camadas, baseada em serviços, microsserviços (orquestração de serviços e API gateway), orientação a eventos, cliente-servidor, serverless",
+        "pai": ""
+      },
+      {
+        "materia": "Engenharia De Software",
+        "assunto": "6 Práticas de UX e UI design",
+        "pai": ""
+      },
+      {
+        "materia": "Engenharia De Software",
+        "assunto": "7 Programação assíncrona",
+        "pai": ""
+      },
+      {
+        "materia": "Engenharia De Software",
+        "assunto": "8 RESTful e GraphQL",
+        "pai": ""
+      },
+      {
+        "materia": "Engenharia De Software",
+        "assunto": "9 Web services",
+        "pai": ""
+      },
+      {
+        "materia": "Engenharia De Software",
+        "assunto": "10 Padrões: GoF e GRASP",
+        "pai": ""
+      },
+      {
+        "materia": "Engenharia De Software",
+        "assunto": "11 Git",
+        "pai": ""
+      },
+      {
+        "materia": "Engenharia De Software",
+        "assunto": "12 Python e Java",
+        "pai": ""
+      },
+      {
+        "materia": "Engenharia De Software",
+        "assunto": "13 Transações distribuídas",
+        "pai": ""
+      },
+      {
+        "materia": "Engenharia De Software",
+        "assunto": "14 Distributed Ledger Technology (DLT)",
+        "pai": ""
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "assunto": "1 Conceitos de infraestrutura como código e automação de infraestrutura de TI",
+        "pai": ""
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "assunto": "2 Docker, Kubernetes: boas práticas para infraestrutura e orquestração de containers",
+        "pai": ""
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "assunto": "3 Serviços de Rede Microsoft Windows Server: DNS, DHCP, Radius, Autenticação, C ertificados, Active Directory (AD)",
+        "pai": ""
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "assunto": "4 Monitoração, observabilidade e análise de sistemas em produção por meio do uso de ferramentas de monitoramento e logging, como o Nagios, Prometheus, Grafana, Elasticsearch, Kibana, Application Performance Monitoring (A PM), entre outras",
+        "pai": ""
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "assunto": "5 Protocolos da camada de aplicação, como Simple Mail Transfer Protocol (SMTP), Hypertext Transfer Protocol (HTTP), Hypertext Transfer Protocol (HTTPS), SSL/TLS, Lightweight Directory Access Protocol (LDAP), Network File System (NFS), Se rver Message Block (SMB)",
+        "pai": ""
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "assunto": "6 Tolerância a falhas e continuidade de operação",
+        "pai": ""
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "assunto": "7 Implantação e administração de serviços de nuvem (IaaS, PaaS e SaaS)",
+        "pai": ""
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "assunto": "8 Administração e gerenciamento de ambientes de virtualização",
+        "pai": ""
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "assunto": "9 Administração e operação de sistemas operacionais Microsoft Windows Server e Linux",
+        "pai": ""
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "assunto": "10 Conceitos de LAN, WAN e SDN",
+        "pai": ""
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "assunto": "11 Conceitos e ferramentas de orquestração e automação de infraestrutura: Puppet, Ansible",
+        "pai": ""
+      },
+      {
+        "materia": "Bancos De Dados",
+        "assunto": "1 SGBDs SQL e NOSQL",
+        "pai": ""
+      },
+      {
+        "materia": "Bancos De Dados",
+        "assunto": "2 Modelagens de dados: relacional, multidimensional, nosql",
+        "pai": ""
+      },
+      {
+        "materia": "Bancos De Dados",
+        "assunto": "3 SQL (Procedural Language / Structured Query Language)",
+        "pai": ""
+      },
+      {
+        "materia": "Bancos De Dados",
+        "assunto": "4 Arquitetura de Inteligência de Negócio: DataWarehouse, DataMart, DataLake, DataMesh",
+        "pai": ""
+      },
+      {
+        "materia": "Gestão Em Ti",
+        "assunto": "1 Kanban",
+        "pai": ""
+      },
+      {
+        "materia": "Gestão Em Ti",
+        "assunto": "2 Scrum",
+        "pai": ""
+      },
+      {
+        "materia": "Gestão Em Ti",
+        "assunto": "3 Governança de Dados",
+        "pai": ""
+      },
+      {
+        "materia": "Gestão Em Ti",
+        "assunto": "4 ITIL v4",
+        "pai": ""
+      }
+    ],
+    "Economia e Finanças": [
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "1 Compreensão e interpretação de textos de gêneros variados",
+        "pai": ""
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "2 Reconhecimento de tipos e gêneros textuais",
+        "pai": ""
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "3 Domínio da ortografia oficial",
+        "pai": ""
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "4 Domínio dos mecanismos de coesão textual",
+        "pai": ""
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "4.1 Emprego de elementos de referencia ção, substituição e repetição, de conectores e de outros elementos de sequenciação textual",
+        "pai": "4 Domínio dos mecanismos de coesão textual"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "4.2 Emprego de tempos e modos verbais",
+        "pai": "4 Domínio dos mecanismos de coesão textual"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5 Domínio da estrutura morfossintática do período",
+        "pai": ""
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5.1 Emprego das classes de palavras",
+        "pai": "5 Domínio da estrutura morfossintática do período"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5.2 Relações de coordenação entre orações e entre termos da oração",
+        "pai": "5 Domínio da estrutura morfossintática do período"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5.3 Relações de subordinação entre orações e entre termos da oração",
+        "pai": "5 Domínio da estrutura morfossintática do período"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5.4 Emprego dos sinais de pontuação",
+        "pai": "5 Domínio da estrutura morfossintática do período"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5.5 Concordância verbal e nominal",
+        "pai": "5 Domínio da estrutura morfossintática do período"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5.6 Regência verbal e nominal",
+        "pai": "5 Domínio da estrutura morfossintática do período"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5.7 Emprego do sinal indicativo de crase",
+        "pai": "5 Domínio da estrutura morfossintática do período"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "5.8 Colocação dos pronomes átonos",
+        "pai": "5 Domínio da estrutura morfossintática do período"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "6 Reescrita de frases e parágrafos do texto",
+        "pai": ""
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "6.1 Significação das palavras",
+        "pai": "6 Reescrita de frases e parágrafos do texto"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "6.2 Substituição de palavras ou de trechos de texto",
+        "pai": "6 Reescrita de frases e parágrafos do texto"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "6.3 Reorganização da estrutura de orações e de períodos do texto",
+        "pai": "6 Reescrita de frases e parágrafos do texto"
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "assunto": "6.4 Reescrita de textos de diferentes gêneros e níveis de formalidade",
+        "pai": "6 Reescrita de frases e parágrafos do texto"
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "1 Raciocínio lógico ",
+        "pai": ""
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "1.1 Estruturas lógicas ",
+        "pai": "1 Raciocínio lógico "
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "1.2 Lógica de argumentação: analogias, inferências, deduções e conclusões",
+        "pai": "1 Raciocínio lógico "
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "1.3 Lógica sentencial (ou proposicional)",
+        "pai": "1 Raciocínio lógico "
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "10.3.1 Proposições simples e compostas ",
+        "pai": ""
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "10.3.2 Tabelas -verdade",
+        "pai": ""
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "10.3.3 Equivalências ",
+        "pai": ""
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "10.3.4 Leis de Morgan; problemas",
+        "pai": ""
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "2 Noções de estatística",
+        "pai": ""
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "2.1 População e amostra",
+        "pai": "2 Noções de estatística"
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "2.2 Histogramas e curvas de frequência",
+        "pai": "2 Noções de estatística"
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "2.3 Medidas de posição: média, moda, mediana e separatrizes",
+        "pai": "2 Noções de estatística"
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "2.4 Medidas de dispersão absoluta e relativa",
+        "pai": "2 Noções de estatística"
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "2.5 Probabilidade condicional, independência",
+        "pai": "2 Noções de estatística"
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "assunto": "2.6 Variável aleatória e funções de distribuição",
+        "pai": "2 Noções de estatística"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "1 Administração pública: princípios básicos",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "1.1 Administração direta e indireta",
+        "pai": "1 Administração pública: princípios básicos"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "2 Poderes administrativos",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "2.1 Espécies de poder: hierárquico, disciplinar, regulamentar, de polícia e normativo",
+        "pai": "2 Poderes administrativos"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "2.2 Uso e abuso do poder",
+        "pai": "2 Poderes administrativos"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "3 Organização administrativa brasileira",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "3.1 Serviços públicos: conceito e princípios",
+        "pai": "3 Organização administrativa brasileira"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "3.2 Autarquias, a gências reguladoras, agências executivas, fundações públicas, empresas públicas, sociedades de economia mista",
+        "pai": "3 Organização administrativa brasileira"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "4 Ato administrativo",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "4.1 Conceito, requisitos e atributos",
+        "pai": "4 Ato administrativo"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "4.2 Comunicação dos atos administrativos",
+        "pai": "4 Ato administrativo"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "4.3 Anulação, revogação e convalidação",
+        "pai": "4 Ato administrativo"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "4.4 Discricionariedade e vinculação",
+        "pai": "4 Ato administrativo"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "5 Servidores públicos: cargo, emprego e função públicos",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "5.1 Lei nº 8.112/1990 (Regime Jurídico dos Servidores Públicos Civis da União) e alterações",
+        "pai": "5 Servidores públicos: cargo, emprego e função públicos"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "5.1.1 Disposições preliminares",
+        "pai": "5.1 Lei nº 8.112/1990 (Regime Jurídico dos Servidores Públicos Civis da União) e alterações"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "5.1.2 Provimento, vacância, remoção, redistribuição e substituição",
+        "pai": "5.1 Lei nº 8.112/1990 (Regime Jurídico dos Servidores Públicos Civis da União) e alterações"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "5.1.3 Direitos e vantagens",
+        "pai": "5.1 Lei nº 8.112/1990 (Regime Jurídico dos Servidores Públicos Civis da União) e alterações"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "5.1.4 Regime disciplinar",
+        "pai": "5.1 Lei nº 8.112/1990 (Regime Jurídico dos Servidores Públicos Civis da União) e alterações"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "5.1.5 Seguridade social do servidor: aposentadoria e pensão civil",
+        "pai": "5.1 Lei nº 8.112/1990 (Regime Jurídico dos Servidores Públicos Civis da União) e alterações"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "5.1.6 Processo administrativo disciplinar",
+        "pai": "5.1 Lei nº 8.112/1990 (Regime Jurídico dos Servidores Públicos Civis da União) e alterações"
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "6 Improbidade administrativa",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "7 Código de Ética Profissional do Servidor Público Civil do Poder Executivo Federal (Decreto nº 1.171/1994)",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "8 Código de Conduta da Alta Administração Federal",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "9 Lei de conflito de interesses (Lei nº 11.813/2013)",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "10 Lei de Acesso à Informação (Lei nº 12.527/2011)",
+        "pai": ""
+      },
+      {
+        "materia": "Direito Administrativo",
+        "assunto": "11 Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais)",
+        "pai": ""
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Macroeconomia — 1 Contas nacionais",
+        "pai": ""
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Macroeconomia — 2 Agregados monetários",
+        "pai": ""
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Macroeconomia — 3 Multiplicador monetário, criação e destruição de moeda",
+        "pai": ""
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Macroeconomia — 4 Contas do sistema monetário",
+        "pai": ""
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Macroeconomia — 5 Balanço de pagamentos",
+        "pai": ""
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 1 Estrutura de mercado ",
+        "pai": ""
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 1.1 Formas de organização da atividade econômica, o pap el dos preços, custo de oportunidade e fronteiras das possibilidades de produção",
+        "pai": "Microeconomia — 1 Estrutura de mercado "
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 2 Oferta e demanda",
+        "pai": ""
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 2.1 Curvas de indiferença ",
+        "pai": "Microeconomia — 2 Oferta e demanda"
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 2.2 Restrição orçamentária",
+        "pai": "Microeconomia — 2 Oferta e demanda"
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 2.3 Equilíbrio do consumidor",
+        "pai": "Microeconomia — 2 Oferta e demanda"
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 2.4 Efeitos preço, renda e substituição",
+        "pai": "Microeconomia — 2 Oferta e demanda"
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 2.5 Curva de demanda",
+        "pai": "Microeconomia — 2 Oferta e demanda"
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "assunto": "Microeconomia — 2.6 Elasticidade da demanda",
+        "pai": "Microeconomia — 2 Oferta e demanda"
+      },
+      {
+        "materia": "Atualidades",
+        "assunto": "1 Tópicos relevantes e atuais de diversas áreas, tais como segurança, transportes, política, economia, sociedade, educação, saúde, cultura, tecnologia, energia, relações internacionais, desenvolvimento sustentável e ecologia",
+        "pai": ""
+      },
+      {
+        "materia": "Macroeconomia",
+        "assunto": "1 Principais modelos macroeconômicos: modelo clássico, modelo novo-keynesiano, modelos de oferta e demanda agregadas; modelos de crescimento; modelos de escolha intertemporal (consumo, investimento, gastos do governo e conta corrente)",
+        "pai": ""
+      },
+      {
+        "materia": "Macroeconomia",
+        "assunto": "2 Política monetária: regras versus discricionariedade; modelos de credibilidade; convencionais e não convencionais; objetivos e instrumentos; regime de metas para a inflação",
+        "pai": ""
+      },
+      {
+        "materia": "Macroeconomia",
+        "assunto": "3 Política macroprudencial e estabilidade financeira",
+        "pai": ""
+      },
+      {
+        "materia": "Macroeconomia",
+        "assunto": "4 Política fiscal. Déficit e dívida pública",
+        "pai": ""
+      },
+      {
+        "materia": "Macroeconomia",
+        "assunto": "5 Modelo de paridade coberta e descoberta de taxa de juros. Modelos de exportação e importação. Regimes cambiais e taxa de câmbio de equilíbrio; termos de troca. Paridade de poder de compra",
+        "pai": ""
+      },
+      {
+        "materia": "Macroeconomia",
+        "assunto": "6 Curva de Phillips, expectativas racionais e inflação",
+        "pai": ""
+      },
+      {
+        "materia": "Macroeconomia",
+        "assunto": "7 Teoria dos ciclos econômicos reais",
+        "pai": ""
+      },
+      {
+        "materia": "Macroeconomia",
+        "assunto": "8 Mercado de trabalho – determinação dos salários no modelo novo-keynesiano e clássico e taxa natural de desemprego",
+        "pai": ""
+      },
+      {
+        "materia": "Microeconomia",
+        "assunto": "1 Teoria do consumidor. Teoria da firma",
+        "pai": ""
+      },
+      {
+        "materia": "Microeconomia",
+        "assunto": "2 Análise de concentração e competição. Organização industrial",
+        "pai": ""
+      },
+      {
+        "materia": "Microeconomia",
+        "assunto": "3 Teoria dos jogos e leilões",
+        "pai": ""
+      },
+      {
+        "materia": "Microeconomia",
+        "assunto": "4 Falhas de mercado: informação assimétrica, seleção adversa e risco moral (moral ha zard). Externalidades e bens públicos",
+        "pai": ""
+      },
+      {
+        "materia": "Microeconomia",
+        "assunto": "5 Equilíbrio geral, lei de Walras e equilíbrio de Pareto",
+        "pai": ""
+      },
+      {
+        "materia": "Microeconomia",
+        "assunto": "6 Bem-estar social",
+        "pai": ""
+      },
+      {
+        "materia": "Microeconomia",
+        "assunto": "7 Economia comportamental",
+        "pai": ""
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "1 Características de operações e instrumentos do mercado financeiro e de capitais",
+        "pai": ""
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "1.1 Títulos emitidos pelo Tesouro Nacional ",
+        "pai": "1 Características de operações e instrumentos do mercado financeiro e de capitais"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "1.2 Títulos de dívida privada ",
+        "pai": "1 Características de operações e instrumentos do mercado financeiro e de capitais"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "1.3 Securitização ",
+        "pai": "1 Características de operações e instrumentos do mercado financeiro e de capitais"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "1.4 Operações compromissadas",
+        "pai": "1 Características de operações e instrumentos do mercado financeiro e de capitais"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "1.5 Depósito a prazo e depósito interfinanceiro ou interbancário",
+        "pai": "1 Características de operações e instrumentos do mercado financeiro e de capitais"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "1.6 Ações",
+        "pai": "1 Características de operações e instrumentos do mercado financeiro e de capitais"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "1.7 Fundos de investimento",
+        "pai": "1 Características de operações e instrumentos do mercado financeiro e de capitais"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "1.8 Contratos futuros, a t ermo, swaps e de opções ",
+        "pai": "1 Características de operações e instrumentos do mercado financeiro e de capitais"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "1.9 Derivativos de crédito",
+        "pai": "1 Características de operações e instrumentos do mercado financeiro e de capitais"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "2 Eficiência de Mercado",
+        "pai": ""
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "2.1 Tipos de eficiência ",
+        "pai": "2 Eficiência de Mercado"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "2.2 Propriedades dos mercados e dos agentes financeiros ",
+        "pai": "2 Eficiência de Mercado"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "2.3 Estratégias de investimento",
+        "pai": "2 Eficiência de Mercado"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "3 Teoria de Carteiras",
+        "pai": ""
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "3.1 Risco e retorno",
+        "pai": "3 Teoria de Carteiras"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "3.2 Seleção de investimentos por média-variância",
+        "pai": "3 Teoria de Carteiras"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "3.3 Diversificação do risco",
+        "pai": "3 Teoria de Carteiras"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "3.4 Fronteira eficiente",
+        "pai": "3 Teoria de Carteiras"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "3.5 Funções de utilidade e aversão ao risco",
+        "pai": "3 Teoria de Carteiras"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "3.6 Ativo livre de risco",
+        "pai": "3 Teoria de Carteiras"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "3.7 Custos de transações",
+        "pai": "3 Teoria de Carteiras"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "4 Apreçamento de ativos",
+        "pai": ""
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "4.1 Modelo CAPM e suas extensões",
+        "pai": "4 Apreçamento de ativos"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "4.2 Teoria de Apreçamento por Arbitragem (APT)",
+        "pai": "4 Apreçamento de ativos"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "5 Estrutura a termo de taxas de juros",
+        "pai": ""
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "5.1 Principais teorias",
+        "pai": "5 Estrutura a termo de taxas de juros"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "5.2 Taxas à vista e a termo ",
+        "pai": "5 Estrutura a termo de taxas de juros"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "5.3 Movimentos nas curvas de juros ",
+        "pai": "5 Estrutura a termo de taxas de juros"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "6 Renda fixa ",
+        "pai": ""
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "6.1 Apreçamento de instrumentos de renda fixa",
+        "pai": "6 Renda fixa "
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "6.2 Gestão de carteiras de renda f ixa",
+        "pai": "6 Renda fixa "
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "6.3 Duration e convexidade ",
+        "pai": "6 Renda fixa "
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "7 Riscos dos fatores sociais, ambientais e de governança (ESG) ",
+        "pai": ""
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "8 Risco",
+        "pai": ""
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "8.1 Medidas de volatilidade",
+        "pai": "8 Risco"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "8.2 VaR",
+        "pai": "8 Risco"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "8.3 Premissas do modelo VaR",
+        "pai": "8 Risco"
+      },
+      {
+        "materia": "Finanças",
+        "assunto": "8.4 Testes de estresse e de cenários",
+        "pai": "8 Risco"
+      },
+      {
+        "materia": "Estatística E Econometria",
+        "assunto": "1 Distribuições de probabilidade, esperança matemática, momentos, esperança condicionais",
+        "pai": ""
+      },
+      {
+        "materia": "Estatística E Econometria",
+        "assunto": "2 Lei dos grandes números",
+        "pai": ""
+      },
+      {
+        "materia": "Estatística E Econometria",
+        "assunto": "3 Inferência: Estimação de parâmetros por ponto e por intervalo de confiança; Testes de hipóteses; Amostragem",
+        "pai": ""
+      },
+      {
+        "materia": "Estatística E Econometria",
+        "assunto": "4 Regressão simples e múltipla",
+        "pai": ""
+      },
+      {
+        "materia": "Estatística E Econometria",
+        "assunto": "5 Econometria de séries temporais: Vetor auto regressivo; estacionaridade",
+        "pai": ""
+      },
+      {
+        "materia": "Estatística E Econometria",
+        "assunto": "6 Econometria de dados em painel: Efeito fixo; Efeito aleatório. Técnicas de identificação",
+        "pai": ""
+      },
+      {
+        "materia": "Estatística E Econometria",
+        "assunto": "7 Processos estocásticos",
+        "pai": ""
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "1 Princípios gerais",
+        "pai": ""
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "2 Instrumentos Financeiros",
+        "pai": ""
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "2.1 Operações Interfinanceiras de Liquidez, Operações com Títulos e Valores Mobiliários e Derivativos",
+        "pai": "2 Instrumentos Financeiros"
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "2.2 Operações de Crédito",
+        "pai": "2 Instrumentos Financeiros"
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "2.3 Inves timentos Mantidos para Venda",
+        "pai": "2 Instrumentos Financeiros"
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "3 Arrendamento mercantil",
+        "pai": ""
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "4 Ativos Não Financeiros Mantidos para Venda",
+        "pai": ""
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "5 Ativo Imobilizado",
+        "pai": ""
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "6 Ativo Intangível",
+        "pai": ""
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "7 Provisões, Passivos Contingentes e Ativos Contingentes",
+        "pai": ""
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "8 Patrimônio Líquido e Remuneração do Capital Próprio",
+        "pai": ""
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "9 Demonstrações Financeiras de Divulgação",
+        "pai": ""
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "10 Conglomerado Prudencial",
+        "pai": ""
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "11 Combinado Cooperativo",
+        "pai": ""
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "11.1 Balancete Cooperativo",
+        "pai": "11 Combinado Cooperativo"
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "11.2 Auditoria Cooperativa",
+        "pai": "11 Combinado Cooperativo"
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "12 Grupos de Consórcio",
+        "pai": ""
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "13 Empresas em Liquidação Extrajudicial",
+        "pai": ""
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "assunto": "14 Auditoria Independente",
+        "pai": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.txt text eol=lf
+*.pdf binary
+*.ttf binary
+*.png binary
+*.ico binary
+assets/BACEN-2024-texto.txt whitespace=-blank-at-eol,-blank-at-eof
+assets/fonts/OFL.txt whitespace=-blank-at-eol,-blank-at-eof

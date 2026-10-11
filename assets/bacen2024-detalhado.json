@@ -1,0 +1,3192 @@
+{
+  "version": 2,
+  "kind": "authorial-study-guide",
+  "note": "Desdobramento pedagógico dos itens oficiais. Não é texto do edital nem garantia de exaustividade; não altera o PDF histórico. Consulte o edital e suas retificações para o escopo exigido.",
+  "sources": [
+    "https://bcb.gov.br/content/acessoinformacao/analista_2024/Edital-n-1-de-Abertura-do-concurso.pdf",
+    "https://dev.java/learn/",
+    "https://docs.python.org/3/tutorial/",
+    "https://www.postgresql.org/docs/current/tutorial.html",
+    "https://www.planalto.gov.br/ccivil_03/leis/l8112cons.htm",
+    "https://www.planalto.gov.br/ccivil_03/leis/l8429.htm",
+    "https://www.bcb.gov.br/estabilidadefinanceira/cosif"
+  ],
+  "areas": {
+    "Tecnologia da Informação": [
+      {
+        "materia": "Língua Portuguesa",
+        "official": "1 Compreensão e interpretação de textos de gêneros variados",
+        "items": [
+          "Tema e ideia central",
+          "Informações explícitas e implícitas",
+          "Inferências e pressupostos",
+          "Intenção comunicativa e ponto de vista"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "2 Reconhecimento de tipos e gêneros textuais",
+        "items": [
+          "Narração e descrição",
+          "Dissertação e argumentação",
+          "Exposição e injunção",
+          "Características e função dos gêneros textuais"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "3 Domínio da ortografia oficial",
+        "items": [
+          "Emprego de letras e dígrafos",
+          "Acentuação gráfica",
+          "Hífen e escrita de palavras compostas"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "4.1 Emprego de elementos de referencia ção, substituição e repetição, de conectores e de outros elementos de sequenciação textual",
+        "items": [
+          "Referenciação anafórica e catafórica",
+          "Substituição e elipse",
+          "Repetição e progressão textual",
+          "Conectores e relações de sentido"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "4.2 Emprego de tempos e modos verbais",
+        "items": [
+          "Tempos e modos do indicativo e subjuntivo",
+          "Valores do imperativo",
+          "Correlação de tempos verbais"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "5.1 Emprego das classes de palavras",
+        "items": [
+          "Substantivos e adjetivos",
+          "Artigos, numerais e pronomes",
+          "Verbos e locuções verbais",
+          "Advérbios, preposições e conjunções"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "5.2 Relações de coordenação entre orações e entre termos da oração",
+        "items": [
+          "Orações coordenadas sindéticas e assindéticas",
+          "Conjunções e seus valores",
+          "Coordenação entre termos"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "5.3 Relações de subordinação entre orações e entre termos da oração",
+        "items": [
+          "Orações subordinadas substantivas",
+          "Orações subordinadas adjetivas",
+          "Orações subordinadas adverbiais",
+          "Orações reduzidas"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "5.4 Emprego dos sinais de pontuação",
+        "items": [
+          "Vírgula e separação de termos e orações",
+          "Ponto e ponto e vírgula",
+          "Dois-pontos, travessões e parênteses",
+          "Pontuação e alteração de sentido"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "5.5 Concordância verbal e nominal",
+        "items": [
+          "Concordância verbal: sujeito simples e composto",
+          "Concordância verbal: casos especiais",
+          "Concordância nominal e casos especiais"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "5.6 Regência verbal e nominal",
+        "items": [
+          "Regência verbal",
+          "Regência nominal",
+          "Pronomes relativos e preposições"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "5.7 Emprego do sinal indicativo de crase",
+        "items": [
+          "Casos obrigatórios de crase",
+          "Casos proibidos de crase",
+          "Casos facultativos e locuções"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "5.8 Colocação dos pronomes átonos",
+        "items": [
+          "Próclise",
+          "Ênclise",
+          "Mesóclise e colocação em locuções verbais"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "6.1 Significação das palavras",
+        "items": [
+          "Sinonímia e antonímia",
+          "Polissemia e ambiguidade",
+          "Sentido literal e figurado"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "6.2 Substituição de palavras ou de trechos de texto",
+        "items": [
+          "Substituição lexical com manutenção do sentido",
+          "Substituição de conectores",
+          "Reescrita de estruturas gramaticais"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "6.3 Reorganização da estrutura de orações e de períodos do texto",
+        "items": [
+          "Ordem direta e inversa",
+          "Transformação de orações e períodos",
+          "Voz ativa e passiva",
+          "Preservação de sentido e correção gramatical"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "6.4 Reescrita de textos de diferentes gêneros e níveis de formalidade",
+        "items": [
+          "Adequação ao gênero textual",
+          "Registro formal e informal",
+          "Clareza, concisão e impessoalidade"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "1.1 Estruturas lógicas ",
+        "items": [
+          "Relações e ordenação lógica",
+          "Condições necessárias e suficientes",
+          "Problemas de associação e sequências"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "1.2 Lógica de argumentação: analogias, inferências, deduções e conclusões",
+        "items": [
+          "Premissas e conclusões",
+          "Validade de argumentos",
+          "Dedução e inferência",
+          "Analogias e falácias"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "1.3 Lógica sentencial (ou proposicional)",
+        "items": [
+          "Sintaxe e semântica proposicional",
+          "Formalização de enunciados",
+          "Raciocínio com conectivos lógicos"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "10.3.1 Proposições simples e compostas ",
+        "items": [
+          "Proposições e valores lógicos",
+          "Negação e conectivos",
+          "Tradução de linguagem natural para proposições"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "10.3.2 Tabelas -verdade",
+        "items": [
+          "Construção de tabelas-verdade",
+          "Tautologia, contradição e contingência",
+          "Implicação e equivalência lógica"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "10.3.3 Equivalências ",
+        "items": [
+          "Equivalência do condicional",
+          "Contraposição",
+          "Equivalências do bicondicional"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "10.3.4 Leis de Morgan; problemas",
+        "items": [
+          "Negação de conjunções e disjunções",
+          "Leis de De Morgan",
+          "Aplicação em problemas de lógica"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "2.1 População e amostra",
+        "items": [
+          "População e amostra",
+          "Censo e amostragem",
+          "Parâmetros e estatísticas"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "2.2 Histogramas e curvas de frequência",
+        "items": [
+          "Frequência absoluta e relativa",
+          "Frequência acumulada",
+          "Histogramas e polígonos de frequência"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "2.3 Medidas de posição: média, moda, mediana e separatrizes",
+        "items": [
+          "Média simples e ponderada",
+          "Mediana e moda",
+          "Quartis, decis e percentis"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "2.4 Medidas de dispersão absoluta e relativa",
+        "items": [
+          "Amplitude e variância",
+          "Desvio padrão",
+          "Coeficiente de variação"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "2.5 Probabilidade condicional, independência",
+        "items": [
+          "Probabilidade condicional",
+          "Independência de eventos",
+          "Regra do produto e teorema de Bayes"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "2.6 Variável aleatória e funções de distribuição",
+        "items": [
+          "Variáveis discretas e contínuas",
+          "Função de probabilidade e densidade",
+          "Função de distribuição acumulada",
+          "Esperança e variância"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "1.1 Administração direta e indireta",
+        "items": [
+          "Órgãos da administração direta",
+          "Entidades da administração indireta",
+          "Centralização, descentralização e desconcentração",
+          "Princípios expressos e implícitos da administração pública"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "2.1 Espécies de poder: hierárquico, disciplinar, regulamentar, de polícia e normativo",
+        "items": [
+          "Poder hierárquico",
+          "Poder disciplinar",
+          "Poder regulamentar e normativo",
+          "Poder de polícia"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "2.2 Uso e abuso do poder",
+        "items": [
+          "Excesso de poder",
+          "Desvio de finalidade",
+          "Controle do uso e abuso de poder"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "3.1 Serviços públicos: conceito e princípios",
+        "items": [
+          "Conceito e classificação dos serviços públicos",
+          "Princípios e continuidade",
+          "Formas de prestação e delegação"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "3.2 Autarquias, a gências reguladoras, agências executivas, fundações públicas, empresas públicas, sociedades de economia mista",
+        "items": [
+          "Autarquias e fundações públicas",
+          "Agências reguladoras e executivas",
+          "Empresas públicas",
+          "Sociedades de economia mista"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "4.1 Conceito, requisitos e atributos",
+        "items": [
+          "Conceito e elementos do ato administrativo",
+          "Competência, finalidade, forma, motivo e objeto",
+          "Presunção de legitimidade, imperatividade e autoexecutoriedade"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "4.2 Comunicação dos atos administrativos",
+        "items": [
+          "Publicidade e publicação dos atos",
+          "Notificação e intimação",
+          "Efeitos da comunicação dos atos"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "4.3 Anulação, revogação e convalidação",
+        "items": [
+          "Anulação e efeitos",
+          "Revogação e mérito administrativo",
+          "Convalidação e limites"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "4.4 Discricionariedade e vinculação",
+        "items": [
+          "Atos vinculados e discricionários",
+          "Mérito administrativo",
+          "Controle de legalidade"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "5.1.1 Disposições preliminares",
+        "items": [
+          "Âmbito de aplicação da Lei 8.112",
+          "Conceitos de servidor e cargo público",
+          "Requisitos básicos de investidura"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "5.1.2 Provimento, vacância, remoção, redistribuição e substituição",
+        "items": [
+          "Nomeação, posse e exercício",
+          "Estágio probatório e estabilidade",
+          "Formas de provimento",
+          "Hipóteses de vacância",
+          "Remoção, redistribuição e substituição"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "5.1.3 Direitos e vantagens",
+        "items": [
+          "Vencimento e remuneração",
+          "Indenizações e gratificações",
+          "Férias e licenças",
+          "Afastamentos e concessões"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "5.1.4 Regime disciplinar",
+        "items": [
+          "Deveres e proibições",
+          "Acumulação de cargos",
+          "Responsabilidades",
+          "Penalidades e prescrição"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "5.1.5 Seguridade social do servidor: aposentadoria e pensão civil",
+        "items": [
+          "Benefícios do plano de seguridade",
+          "Aposentadoria do servidor",
+          "Pensão civil",
+          "Licenças e auxílios da seguridade"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "5.1.6 Processo administrativo disciplinar",
+        "items": [
+          "Sindicância e instauração",
+          "Inquérito, instrução e defesa",
+          "Relatório e julgamento",
+          "Revisão do processo disciplinar"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "6 Improbidade administrativa",
+        "items": [
+          "Sujeitos e dolo na improbidade",
+          "Enriquecimento ilícito",
+          "Prejuízo ao erário",
+          "Violação de princípios",
+          "Sanções e processo na Lei 8.429"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "7 Código de Ética Profissional do Servidor Público Civil do Poder Executivo Federal (Decreto nº 1.171/1994)",
+        "items": [
+          "Regras deontológicas",
+          "Deveres fundamentais",
+          "Vedações ao servidor",
+          "Comissões de ética"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "8 Código de Conduta da Alta Administração Federal",
+        "items": [
+          "Abrangência do Código da Alta Administração",
+          "Conflitos de interesse e conduta",
+          "Presentes e atividades externas",
+          "Apuração e consequências"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "9 Lei de conflito de interesses (Lei nº 11.813/2013)",
+        "items": [
+          "Hipóteses de conflito de interesses",
+          "Conflitos durante e após o exercício do cargo",
+          "Consulta e prevenção",
+          "Competências de fiscalização",
+          "Lei 12.813/2013: identificação e prevenção de conflitos de interesses"
+        ],
+        "evidence": {
+          "Lei 12.813/2013: identificação e prevenção de conflitos de interesses": {
+            "exam": "BACEN 2024 • Retificação do edital",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/ED_1_BCB_23_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "questions": "Retificação do item 9"
+          }
+        }
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "10 Lei de Acesso à Informação (Lei nº 12.527/2011)",
+        "items": [
+          "Transparência ativa e passiva",
+          "Pedido e prazos de acesso",
+          "Restrições e classificação da informação",
+          "Recursos e responsabilidades"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "11 Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais)",
+        "items": [
+          "Conceitos e princípios da LGPD",
+          "Bases legais de tratamento",
+          "Direitos do titular",
+          "Tratamento pelo poder público",
+          "Agentes, segurança e ANPD"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Macroeconomia — 1 Contas nacionais",
+        "items": [
+          "PIB e PNB",
+          "Óticas do produto, renda e despesa",
+          "Valores nominais e reais",
+          "Identidades das contas nacionais"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Macroeconomia — 2 Agregados monetários",
+        "items": [
+          "Moeda e funções",
+          "Base monetária",
+          "Agregados monetários e liquidez"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Macroeconomia — 3 Multiplicador monetário, criação e destruição de moeda",
+        "items": [
+          "Reservas e depósitos bancários",
+          "Multiplicador monetário",
+          "Criação de moeda pelos bancos",
+          "Destruição de moeda"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Macroeconomia — 4 Contas do sistema monetário",
+        "items": [
+          "Balanço do banco central",
+          "Contas dos bancos comerciais",
+          "Consolidação do sistema monetário"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Macroeconomia — 5 Balanço de pagamentos",
+        "items": [
+          "Conta corrente",
+          "Conta capital e financeira",
+          "Reservas internacionais",
+          "Identidade do balanço de pagamentos"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Microeconomia — 1.1 Formas de organização da atividade econômica, o pap el dos preços, custo de oportunidade e fronteiras das possibilidades de produção",
+        "items": [
+          "Formas de organização econômica",
+          "Papel dos preços",
+          "Custo de oportunidade",
+          "Fronteira de possibilidades de produção"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Microeconomia — 2.1 Curvas de indiferença ",
+        "items": [
+          "Preferências e utilidade",
+          "Curvas de indiferença",
+          "Taxa marginal de substituição"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Microeconomia — 2.2 Restrição orçamentária",
+        "items": [
+          "Renda e preços na restrição orçamentária",
+          "Inclinação e interceptos",
+          "Deslocamentos da reta orçamentária"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Microeconomia — 2.3 Equilíbrio do consumidor",
+        "items": [
+          "Escolha ótima do consumidor",
+          "Solução interior e de canto",
+          "Equilíbrio e alterações de renda e preços"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Microeconomia — 2.4 Efeitos preço, renda e substituição",
+        "items": [
+          "Efeito substituição",
+          "Efeito renda",
+          "Efeito preço e bens inferiores"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Microeconomia — 2.5 Curva de demanda",
+        "items": [
+          "Derivação da demanda individual",
+          "Demanda de mercado",
+          "Movimento e deslocamento da curva"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Microeconomia — 2.6 Elasticidade da demanda",
+        "items": [
+          "Elasticidade-preço da demanda",
+          "Elasticidade-renda",
+          "Elasticidade cruzada",
+          "Elasticidade e receita total"
+        ]
+      },
+      {
+        "materia": "Atualidades",
+        "official": "1 Tópicos relevantes e atuais de diversas áreas, tais como segurança, transportes, política, economia, sociedade, educação, saúde, cultura, tecnologia, energia, relações internacionais, desenvolvimento sustentável e ecologia",
+        "items": [
+          "Segurança e transportes",
+          "Política e instituições",
+          "Economia e sociedade",
+          "Educação e saúde",
+          "Cultura e tecnologia",
+          "Energia e transição energética",
+          "Relações internacionais",
+          "Desenvolvimento sustentável e ecologia"
+        ]
+      },
+      {
+        "materia": "Ciência De Dados",
+        "official": "1 Aprendizado de Máquina",
+        "items": [
+          "Preparação de dados e atributos",
+          "Regressão e classificação",
+          "Validação cruzada e métricas",
+          "Overfitting, underfitting e regularização",
+          "Validação K-fold: separação de treino, validação e teste"
+        ],
+        "evidence": {
+          "Validação K-fold: separação de treino, validação e teste": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "52,54"
+          }
+        }
+      },
+      {
+        "materia": "Ciência De Dados",
+        "official": "2 Deep learning",
+        "items": [
+          "Redes profundas e treinamento",
+          "Backpropagation e otimizadores",
+          "Redes convolucionais e recorrentes",
+          "Transformers e atenção",
+          "Descida de gradiente e retropropagação no treinamento"
+        ],
+        "evidence": {
+          "Descida de gradiente e retropropagação no treinamento": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "53"
+          }
+        }
+      },
+      {
+        "materia": "Ciência De Dados",
+        "official": "3 Processamento de linguagem natural",
+        "items": [
+          "Tokenização e normalização textual",
+          "Representação vetorial e embeddings",
+          "Classificação de textos",
+          "Análise de sentimentos e reconhecimento de entidades",
+          "Bag of Words: frequência, ordem e contexto das palavras"
+        ],
+        "evidence": {
+          "Bag of Words: frequência, ordem e contexto das palavras": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "51"
+          }
+        }
+      },
+      {
+        "materia": "Ciência De Dados",
+        "official": "4 Big data",
+        "items": [
+          "Volume, variedade e velocidade",
+          "Armazenamento distribuído",
+          "Processamento em lote e streaming",
+          "Particionamento e processamento paralelo",
+          "HDFS: NameNode, DataNode e checkpoints do Secondary NameNode"
+        ],
+        "evidence": {
+          "HDFS: NameNode, DataNode e checkpoints do Secondary NameNode": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "55"
+          }
+        }
+      },
+      {
+        "materia": "Ciência De Dados",
+        "official": "5 Qualidade de Dados",
+        "items": [
+          "Completude e consistência",
+          "Acurácia e validade",
+          "Unicidade e atualidade",
+          "Limpeza e validação de dados"
+        ]
+      },
+      {
+        "materia": "Ciência De Dados",
+        "official": "6 Tipos de Aprendizado: Supervisionado, Não Supervisionado, Semi Supervisionado, Por Reforço, Por Transferência",
+        "items": [
+          "Aprendizado supervisionado",
+          "Aprendizado não supervisionado",
+          "Aprendizado semissupervisionado",
+          "Aprendizado por reforço",
+          "Aprendizado por transferência",
+          "Transferência indutiva e transdutiva: domínios e tarefas"
+        ],
+        "evidence": {
+          "Transferência indutiva e transdutiva: domínios e tarefas": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "58"
+          }
+        }
+      },
+      {
+        "materia": "Ciência De Dados",
+        "official": "7 Grandes Modelos de Linguagem (LLM), IA Generativa",
+        "items": [
+          "Modelos de linguagem e tokenização",
+          "Pré-treinamento e ajuste fino",
+          "Inferência e engenharia de prompts",
+          "Recuperação aumentada por geração",
+          "Alucinações e avaliação de respostas",
+          "Temperature, diversidade da geração e configuração de threads"
+        ],
+        "evidence": {
+          "Temperature, diversidade da geração e configuração de threads": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "59,60"
+          }
+        }
+      },
+      {
+        "materia": "Ciência De Dados",
+        "official": "8 Redes Neurais",
+        "items": [
+          "Neurônios, pesos e funções de ativação",
+          "Camadas e arquiteturas",
+          "Funções de perda",
+          "Propagação direta e retropropagação",
+          "LSTM, redes recorrentes e dependências de longo prazo"
+        ],
+        "evidence": {
+          "LSTM, redes recorrentes e dependências de longo prazo": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "61"
+          }
+        }
+      },
+      {
+        "materia": "Ciência De Dados",
+        "official": "9 MLOps: Gestão de código, treinamento, implantação, monitoramento e versionamento de modelos, automação do ciclo de produção",
+        "items": [
+          "Gestão de código e experimentos",
+          "Treinamento e pipelines",
+          "Versionamento de dados e modelos",
+          "Implantação e automação",
+          "Monitoramento de desempenho e drift"
+        ]
+      },
+      {
+        "materia": "Ciência De Dados",
+        "official": "10 Governança e Ética na IA: Transparência, Responsabilidade, Explicabilidade, Privacidade, Segurança, Viés",
+        "items": [
+          "Transparência e explicabilidade",
+          "Responsabilidade e supervisão",
+          "Privacidade e segurança",
+          "Viés, equidade e avaliação de riscos"
+        ]
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "official": "1 Gestão de Identidades e Acesso: Autenticação e Autoriza ção, Single Sign-On (SSO), Security Assertion Markup Language (SAML), OAuth2 e OpenId Connect",
+        "items": [
+          "Autenticação e autorização",
+          "Gestão de identidades e permissões",
+          "Single Sign-On",
+          "SAML",
+          "OAuth 2",
+          "OpenID Connect",
+          "SAML: sujeito, provedor de identidade e provedor de serviço"
+        ],
+        "evidence": {
+          "SAML: sujeito, provedor de identidade e provedor de serviço": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "65,66"
+          }
+        }
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "official": "2 Privacidade e segurança por padrão",
+        "items": [
+          "Privacy by design e by default",
+          "Minimização e proteção de dados",
+          "Configurações seguras por padrão"
+        ]
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "official": "3 Principais tipos de ataques e vulnerabilidades",
+        "items": [
+          "Malware e ransomware",
+          "Phishing e engenharia social",
+          "Injeção e XSS",
+          "Falhas de autenticação e controle de acesso",
+          "DoS e DDoS"
+        ]
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "official": "4 Controles e testes de segurança para aplicações Web e Web Services",
+        "items": [
+          "Validação de entradas e saídas",
+          "Gestão de sessões",
+          "Segurança de APIs e serviços web",
+          "Análise estática e dinâmica",
+          "Testes de segurança",
+          "Fuzzing: entradas inesperadas e análise de falhas"
+        ],
+        "evidence": {
+          "Fuzzing: entradas inesperadas e análise de falhas": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "67"
+          }
+        }
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "official": "5 Múltiplos Fatores de Autenticação (MFA)",
+        "items": [
+          "Fatores de conhecimento, posse e inerência",
+          "MFA e autenticação forte",
+          "Recuperação e proteção contra abuso",
+          "MFA adaptativa: contexto, localização e tentativas de acesso"
+        ],
+        "evidence": {
+          "MFA adaptativa: contexto, localização e tentativas de acesso": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "69,70"
+          }
+        }
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "official": "6 Soluções para Segurança da Informação: Firewall, Intrusion Detection System (IDS), Intrusion Prevention System (IPS), Security Information and Event Management (SIEM), Proxy, Identity Access Management (IAM), Privi leged Access Management (PAM), Antivírus, Antispam",
+        "items": [
+          "Firewall e proxy",
+          "IDS e IPS",
+          "SIEM e correlação de eventos",
+          "IAM e PAM",
+          "Antivírus e antispam"
+        ]
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "official": "7 Frameworks de segurança da informação e segurança cibernética, como, por exemplo, MITRE ATT&CK, CIS Controls e NIST CyberSecurity Framework (NIST CSF)",
+        "items": [
+          "MITRE ATT&CK: táticas e técnicas",
+          "CIS Controls",
+          "NIST CSF: funções e gestão de riscos",
+          "Aplicação de frameworks na organização",
+          "NIST CSF 2.0: Govern, Identify, Protect, Detect, Respond e Recover"
+        ],
+        "evidence": {
+          "NIST CSF 2.0: Govern, Identify, Protect, Detect, Respond e Recover": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "71"
+          }
+        }
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "official": "8 Tratamento de Incidentes Cibernéticos",
+        "items": [
+          "Preparação e identificação",
+          "Contenção",
+          "Erradicação e recuperação",
+          "Evidências e comunicação",
+          "Lições aprendidas"
+        ]
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "official": "9 Assinat ura e certificação digital, criptografia e proteção de dados em trânsito e em repouso",
+        "items": [
+          "Criptografia simétrica e assimétrica",
+          "Hash e integridade",
+          "Assinatura digital",
+          "Certificados e infraestrutura de chaves públicas",
+          "Proteção em trânsito e em repouso"
+        ]
+      },
+      {
+        "materia": "Segurança Da Informação",
+        "official": "10 Segurança em nuvens e de contêineres",
+        "items": [
+          "Responsabilidade compartilhada em nuvem",
+          "Identidades, redes e segredos",
+          "Segurança de imagens e contêineres",
+          "Isolamento e proteção de workloads"
+        ]
+      },
+      {
+        "materia": "Engenharia De Software",
+        "official": "1 Arquitetura de sistemas web: protocolo HTTP, HTTP/2, gRPC, WebSockets, TLS, servidores proxy, cache, DNS, balanceamento de carga, tolerância a falhas e escalabilidade em sistemas web",
+        "items": [
+          "HTTP e HTTP/2",
+          "gRPC",
+          "WebSockets",
+          "TLS",
+          "Proxy, cache e DNS",
+          "Balanceamento de carga",
+          "Tolerância a falhas e escalabilidade",
+          "HTTP/2: multiplexação e transporte usado pelo gRPC",
+          "WebSocket: comunicação bidirecional orientada a mensagens"
+        ],
+        "evidence": {
+          "HTTP/2: multiplexação e transporte usado pelo gRPC": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "74,75"
+          },
+          "WebSocket: comunicação bidirecional orientada a mensagens": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "72"
+          }
+        }
+      },
+      {
+        "materia": "Engenharia De Software",
+        "official": "2 Princípios e práticas de DevOps e DevSecOps, integração e entrega co ntínuas (CI/CD)",
+        "items": [
+          "Cultura e práticas DevOps",
+          "DevSecOps e segurança no pipeline",
+          "Integração contínua",
+          "Entrega e implantação contínuas",
+          "Pipelines e automação",
+          "DevOps: plan, code, build, test, release, deploy, operate e monitor",
+          "Entrega contínua versus implantação contínua e intervenção humana",
+          "Shift-left: antecipação de testes e segurança"
+        ],
+        "evidence": {
+          "DevOps: plan, code, build, test, release, deploy, operate e monitor": {
+            "exam": "BACEN 2024 • Discursiva TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/BCB_24_PADRO_DE_RESPOSTA_DEFINITIVO_CARGO_2_ATUALIZADO.PDF",
+            "questions": "Discursiva P4"
+          },
+          "Entrega contínua versus implantação contínua e intervenção humana": {
+            "exam": "BACEN 2024 • Discursiva TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/BCB_24_PADRO_DE_RESPOSTA_DEFINITIVO_CARGO_2_ATUALIZADO.PDF",
+            "questions": "Discursiva P4"
+          },
+          "Shift-left: antecipação de testes e segurança": {
+            "exam": "BACEN 2024 • Discursiva TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/BCB_24_PADRO_DE_RESPOSTA_DEFINITIVO_CARGO_2_ATUALIZADO.PDF",
+            "questions": "Discursiva P4"
+          }
+        }
+      },
+      {
+        "materia": "Engenharia De Software",
+        "official": "3 Técnicas de desenvolvimento seguro",
+        "items": [
+          "Modelagem de ameaças",
+          "Validação e sanitização",
+          "Privilégio mínimo e gestão de segredos",
+          "Revisão de código e dependências",
+          "HTTP 429, limitação de requisições e proteção contra abuso",
+          "XXE: entidades externas XML e configurações seguras de parser"
+        ],
+        "evidence": {
+          "HTTP 429, limitação de requisições e proteção contra abuso": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "78"
+          },
+          "XXE: entidades externas XML e configurações seguras de parser": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "79"
+          }
+        }
+      },
+      {
+        "materia": "Engenharia De Software",
+        "official": "4 Testes de software: Testes unitários, Testes de Integração, TDD, BDD",
+        "items": [
+          "Testes unitários",
+          "Testes de integração",
+          "TDD e ciclo red-green-refactor",
+          "BDD e cenários de aceitação",
+          "Isolamento, mocks e cobertura"
+        ]
+      },
+      {
+        "materia": "Engenharia De Software",
+        "official": "5 Arquiteturas em camadas, baseada em serviços, microsserviços (orquestração de serviços e API gateway), orientação a eventos, cliente-servidor, serverless",
+        "items": [
+          "Arquitetura em camadas",
+          "Arquitetura baseada em serviços",
+          "Microsserviços e orquestração",
+          "API gateway",
+          "Arquitetura orientada a eventos",
+          "Cliente-servidor",
+          "Serverless",
+          "Serverless: responsabilidades, BaaS e FaaS orientado a eventos"
+        ],
+        "evidence": {
+          "Serverless: responsabilidades, BaaS e FaaS orientado a eventos": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "82,83,84,85,86"
+          }
+        }
+      },
+      {
+        "materia": "Engenharia De Software",
+        "official": "6 Práticas de UX e UI design",
+        "items": [
+          "Pesquisa e necessidades do usuário",
+          "Arquitetura da informação",
+          "Usabilidade e acessibilidade",
+          "Prototipação e testes de interface"
+        ]
+      },
+      {
+        "materia": "Engenharia De Software",
+        "official": "7 Programação assíncrona",
+        "items": [
+          "Concorrência e paralelismo",
+          "Event loop e operações não bloqueantes",
+          "Futures e promises",
+          "Async/await",
+          "Tratamento de erros e cancelamento",
+          "Diferença entre execução sequencial, concorrente e assíncrona"
+        ],
+        "evidence": {
+          "Diferença entre execução sequencial, concorrente e assíncrona": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "87"
+          }
+        }
+      },
+      {
+        "materia": "Engenharia De Software",
+        "official": "8 RESTful e GraphQL",
+        "items": [
+          "Recursos, verbos HTTP e códigos de resposta",
+          "Idempotência e stateless",
+          "Versionamento e paginação de APIs",
+          "GraphQL: schema, queries e mutations",
+          "Resolvers e controle de acesso",
+          "REST stateless e diferenças entre consultas GraphQL e SQL"
+        ],
+        "evidence": {
+          "REST stateless e diferenças entre consultas GraphQL e SQL": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "89,90"
+          }
+        }
+      },
+      {
+        "materia": "Engenharia De Software",
+        "official": "9 Web services",
+        "items": [
+          "SOAP e envelopes",
+          "WSDL e contratos",
+          "Serialização XML e JSON",
+          "Interoperabilidade e segurança de serviços"
+        ]
+      },
+      {
+        "materia": "Engenharia De Software",
+        "official": "10 Padrões: GoF e GRASP",
+        "items": [
+          "GoF: padrões criacionais",
+          "GoF: padrões estruturais",
+          "GoF: padrões comportamentais",
+          "GRASP: responsabilidades, coesão e acoplamento",
+          "Abstract Factory, Facade, Composite, Decorator e Memento"
+        ],
+        "evidence": {
+          "Abstract Factory, Facade, Composite, Decorator e Memento": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "91,92"
+          }
+        }
+      },
+      {
+        "materia": "Engenharia De Software",
+        "official": "11 Git",
+        "items": [
+          "Repositórios e commits",
+          "Branches e merge",
+          "Rebase e resolução de conflitos",
+          "Remotes, fetch, pull e push",
+          "Reversão e inspeção do histórico",
+          "Git: clone, branches, merge, resolução de conflitos e Gitflow"
+        ],
+        "evidence": {
+          "Git: clone, branches, merge, resolução de conflitos e Gitflow": {
+            "exam": "STJ 2024 • Análise de Sistemas",
+            "url": "https://cdn.cebraspe.org.br/concursos/stj_24/arquivos/018_STJ_003_01.PDF",
+            "questions": "67,71,72"
+          }
+        }
+      },
+      {
+        "materia": "Engenharia De Software",
+        "official": "12 Python e Java",
+        "items": [
+          "Java: tipos, variáveis e operadores",
+          "Java: estruturas sequenciais e entrada/saída",
+          "Java: condicionais if/else e switch",
+          "Java: laços for, while e do/while",
+          "Java: arrays e strings",
+          "Java: classes, objetos e construtores",
+          "Java: métodos, parâmetros e sobrecarga",
+          "Java: encapsulamento e modificadores de acesso",
+          "Java: herança e polimorfismo",
+          "Java: interfaces e classes abstratas",
+          "Java: exceções e try/catch/finally",
+          "Java: generics e coleções",
+          "Java: lambdas e streams",
+          "Java: pacotes e organização do código",
+          "Python: tipos, variáveis e operadores",
+          "Python: estruturas sequenciais e entrada/saída",
+          "Python: condicionais e laços",
+          "Python: listas, tuplas, conjuntos e dicionários",
+          "Python: funções, parâmetros e escopo",
+          "Python: classes, métodos e herança",
+          "Python: exceções e context managers",
+          "Python: módulos e pacotes",
+          "Python: iteradores, generators e comprehensions",
+          "Java: rastreamento de chamadas recursivas e caso base",
+          "Python: len() em strings, listas e dicionários",
+          "Java: interpretação e execução de programas em provas"
+        ],
+        "evidence": {
+          "Java: rastreamento de chamadas recursivas e caso base": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "94"
+          },
+          "Python: len() em strings, listas e dicionários": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "95"
+          },
+          "Java: interpretação e execução de programas em provas": {
+            "exam": "STJ 2024 • Suporte de TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/stj_24/arquivos/018_STJ_018_01.PDF",
+            "questions": "75"
+          }
+        }
+      },
+      {
+        "materia": "Engenharia De Software",
+        "official": "13 Transações distribuídas",
+        "items": [
+          "Atomicidade e consistência distribuída",
+          "Commit em duas fases",
+          "Sagas e compensação",
+          "Idempotência e consistência eventual"
+        ]
+      },
+      {
+        "materia": "Engenharia De Software",
+        "official": "14 Distributed Ledger Technology (DLT)",
+        "items": [
+          "Ledgers distribuídos e blockchain",
+          "Consenso e validação",
+          "Redes permissionadas e não permissionadas",
+          "Contratos inteligentes",
+          "Integridade e rastreabilidade"
+        ]
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "official": "1 Conceitos de infraestrutura como código e automação de infraestrutura de TI",
+        "items": [
+          "Infraestrutura declarativa e imperativa",
+          "Versionamento e reprodutibilidade",
+          "Provisionamento automatizado",
+          "Idempotência e gestão de configuração"
+        ]
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "official": "2 Docker, Kubernetes: boas práticas para infraestrutura e orquestração de containers",
+        "items": [
+          "Docker: imagens, containers e Dockerfile",
+          "Docker: redes e volumes",
+          "Kubernetes: pods e deployments",
+          "Kubernetes: services e ingress",
+          "ConfigMaps, secrets e persistência",
+          "Disponibilidade e boas práticas",
+          "Kubernetes: Pod, Node, kubelet, kube-scheduler e autoscaling",
+          "Manifests YAML: diferença entre Service e Deployment",
+          "Runtimes CRI-O e containerd e independência do Docker",
+          "etcd: armazenamento do estado e configuração do cluster"
+        ],
+        "evidence": {
+          "Kubernetes: Pod, Node, kubelet, kube-scheduler e autoscaling": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "82,83,96,98"
+          },
+          "Manifests YAML: diferença entre Service e Deployment": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "96"
+          },
+          "Runtimes CRI-O e containerd e independência do Docker": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "99"
+          },
+          "etcd: armazenamento do estado e configuração do cluster": {
+            "exam": "STJ 2024 • Análise de Sistemas",
+            "url": "https://cdn.cebraspe.org.br/concursos/stj_24/arquivos/018_STJ_003_01.PDF",
+            "questions": "75"
+          }
+        }
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "official": "3 Serviços de Rede Microsoft Windows Server: DNS, DHCP, Radius, Autenticação, C ertificados, Active Directory (AD)",
+        "items": [
+          "DNS no Windows Server",
+          "DHCP e concessões",
+          "RADIUS e autenticação",
+          "Serviços de certificados",
+          "Active Directory, domínios e políticas de grupo"
+        ]
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "official": "4 Monitoração, observabilidade e análise de sistemas em produção por meio do uso de ferramentas de monitoramento e logging, como o Nagios, Prometheus, Grafana, Elasticsearch, Kibana, Application Performance Monitoring (A PM), entre outras",
+        "items": [
+          "Métricas, logs e traces",
+          "Nagios e verificações",
+          "Prometheus e coleta de métricas",
+          "Grafana e dashboards",
+          "Elasticsearch e Kibana",
+          "APM, alertas e diagnóstico",
+          "Prometheus: counter, gauge, histogram e summary",
+          "Grafana: fontes de dados, consultas e dashboards",
+          "APM: traces, taxas de erro e requisições HTTP 500"
+        ],
+        "evidence": {
+          "Prometheus: counter, gauge, histogram e summary": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "101"
+          },
+          "Grafana: fontes de dados, consultas e dashboards": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "100"
+          },
+          "APM: traces, taxas de erro e requisições HTTP 500": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "102"
+          }
+        }
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "official": "5 Protocolos da camada de aplicação, como Simple Mail Transfer Protocol (SMTP), Hypertext Transfer Protocol (HTTP), Hypertext Transfer Protocol (HTTPS), SSL/TLS, Lightweight Directory Access Protocol (LDAP), Network File System (NFS), Se rver Message Block (SMB)",
+        "items": [
+          "SMTP",
+          "HTTP e HTTPS",
+          "SSL/TLS",
+          "LDAP",
+          "NFS",
+          "SMB",
+          "LDAP e integração com serviços de diretório"
+        ],
+        "evidence": {
+          "LDAP e integração com serviços de diretório": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "104"
+          }
+        }
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "official": "6 Tolerância a falhas e continuidade de operação",
+        "items": [
+          "Redundância e alta disponibilidade",
+          "Failover e recuperação",
+          "Backup e restauração",
+          "RTO e RPO",
+          "Plano de continuidade e testes",
+          "Failover versus failback e recuperação da disponibilidade"
+        ],
+        "evidence": {
+          "Failover versus failback e recuperação da disponibilidade": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "107,108"
+          }
+        }
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "official": "7 Implantação e administração de serviços de nuvem (IaaS, PaaS e SaaS)",
+        "items": [
+          "IaaS e provisionamento",
+          "PaaS e serviços gerenciados",
+          "SaaS e administração",
+          "Redes, armazenamento e identidade em nuvem",
+          "Monitoramento, custos e disponibilidade"
+        ]
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "official": "8 Administração e gerenciamento de ambientes de virtualização",
+        "items": [
+          "Hipervisores e máquinas virtuais",
+          "Redes e armazenamento virtualizados",
+          "Snapshots e migração",
+          "Capacidade, isolamento e disponibilidade",
+          "Live migration e migração de memória com pré-cópia"
+        ],
+        "evidence": {
+          "Live migration e migração de memória com pré-cópia": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "105"
+          }
+        }
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "official": "9 Administração e operação de sistemas operacionais Microsoft Windows Server e Linux",
+        "items": [
+          "Windows Server: serviços, usuários e permissões",
+          "Linux: usuários, grupos e permissões",
+          "Processos, serviços e logs",
+          "Sistemas de arquivos e armazenamento",
+          "Atualizações e administração remota",
+          "Linux: dpkg, apt e resolução de dependências",
+          "Windows Admin Center e administração remota do servidor"
+        ],
+        "evidence": {
+          "Linux: dpkg, apt e resolução de dependências": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "112"
+          },
+          "Windows Admin Center e administração remota do servidor": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "110"
+          }
+        }
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "official": "10 Conceitos de LAN, WAN e SDN",
+        "items": [
+          "LAN e comutação",
+          "WAN e interconexão",
+          "SDN: planos de controle e dados",
+          "VLANs e segmentação"
+        ]
+      },
+      {
+        "materia": "Infraestrutura Em Ti",
+        "official": "11 Conceitos e ferramentas de orquestração e automação de infraestrutura: Puppet, Ansible",
+        "items": [
+          "Puppet: manifests e estado desejado",
+          "Ansible: inventário e playbooks",
+          "Roles e reutilização",
+          "Idempotência e automação de configuração"
+        ]
+      },
+      {
+        "materia": "Bancos De Dados",
+        "official": "1 SGBDs SQL e NOSQL",
+        "items": [
+          "Arquitetura e componentes de um SGBD",
+          "Modelo relacional e integridade",
+          "Transações ACID e níveis de isolamento",
+          "Controle de concorrência e bloqueios",
+          "Índices e planos de execução",
+          "Backup e recuperação",
+          "NoSQL: chave-valor",
+          "NoSQL: documentos",
+          "NoSQL: famílias de colunas",
+          "NoSQL: grafos",
+          "Replicação, particionamento e consistência",
+          "Sharding em NoSQL: particionamento e balanceamento entre nós"
+        ],
+        "evidence": {
+          "Sharding em NoSQL: particionamento e balanceamento entre nós": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "113"
+          }
+        }
+      },
+      {
+        "materia": "Bancos De Dados",
+        "official": "2 Modelagens de dados: relacional, multidimensional, nosql",
+        "items": [
+          "Modelo conceitual e entidade-relacionamento",
+          "Entidades, atributos e relacionamentos",
+          "Cardinalidade e participação",
+          "Modelo lógico relacional e chaves",
+          "Dependências funcionais",
+          "Normalização: 1FN, 2FN, 3FN e BCNF",
+          "Modelo físico e índices",
+          "Modelagem dimensional: fatos e dimensões",
+          "Esquemas estrela e floco de neve",
+          "Modelagem de documentos, colunas e grafos",
+          "Dependências funcionais e multivaloradas: 3FN, BCNF e 4FN"
+        ],
+        "evidence": {
+          "Dependências funcionais e multivaloradas: 3FN, BCNF e 4FN": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "115"
+          }
+        }
+      },
+      {
+        "materia": "Bancos De Dados",
+        "official": "3 SQL (Procedural Language / Structured Query Language)",
+        "items": [
+          "DDL: CREATE, ALTER e DROP",
+          "DML: INSERT, UPDATE e DELETE",
+          "SELECT, WHERE e ORDER BY",
+          "INNER, LEFT, RIGHT e FULL JOIN",
+          "GROUP BY, HAVING e agregações",
+          "Subconsultas e operações de conjuntos",
+          "CTEs e consultas recursivas",
+          "Funções de janela",
+          "Constraints e integridade referencial",
+          "Views e índices",
+          "Transações: COMMIT, ROLLBACK e SAVEPOINT",
+          "SQL procedural: variáveis e controle de fluxo",
+          "Procedures, funções e triggers",
+          "Cursores e tratamento de exceções",
+          "SELECT: subconsultas aninhadas e consultas correlacionadas"
+        ],
+        "evidence": {
+          "SELECT: subconsultas aninhadas e consultas correlacionadas": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "114"
+          }
+        }
+      },
+      {
+        "materia": "Bancos De Dados",
+        "official": "4 Arquitetura de Inteligência de Negócio: DataWarehouse, DataMart, DataLake, DataMesh",
+        "items": [
+          "Data warehouse e integração de dados",
+          "Data marts",
+          "ETL e ELT",
+          "OLAP e operações analíticas",
+          "Data lake e organização de dados",
+          "Data mesh: domínios e produtos de dados",
+          "Governança, catálogo e linhagem",
+          "Data warehouse: concorrência, bloqueios e deadlocks"
+        ],
+        "evidence": {
+          "Data warehouse: concorrência, bloqueios e deadlocks": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "116"
+          }
+        }
+      },
+      {
+        "materia": "Gestão Em Ti",
+        "official": "1 Kanban",
+        "items": [
+          "Visualização do fluxo",
+          "Limites de trabalho em progresso",
+          "Lead time e cycle time",
+          "Gestão de fluxo e melhoria contínua",
+          "Kanban: fluxo contínuo, limites de WIP e diferença para sprint"
+        ],
+        "evidence": {
+          "Kanban: fluxo contínuo, limites de WIP e diferença para sprint": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "118"
+          }
+        }
+      },
+      {
+        "materia": "Gestão Em Ti",
+        "official": "2 Scrum",
+        "items": [
+          "Responsabilidades do Scrum",
+          "Eventos e timeboxes",
+          "Artefatos e compromissos",
+          "Product backlog e sprint backlog",
+          "Incremento e Definition of Done",
+          "Sprint Planning: responsabilidades do Product Owner e Developers"
+        ],
+        "evidence": {
+          "Sprint Planning: responsabilidades do Product Owner e Developers": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "117"
+          }
+        }
+      },
+      {
+        "materia": "Gestão Em Ti",
+        "official": "3 Governança de Dados",
+        "items": [
+          "Papéis e responsabilidades sobre dados",
+          "Políticas e qualidade",
+          "Catálogo, metadados e linhagem",
+          "Acesso, segurança e conformidade",
+          "Estratégia de dados e planejamento da gestão de dados"
+        ],
+        "evidence": {
+          "Estratégia de dados e planejamento da gestão de dados": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "119"
+          }
+        }
+      },
+      {
+        "materia": "Gestão Em Ti",
+        "official": "4 ITIL v4",
+        "items": [
+          "Sistema de valor de serviço",
+          "Cadeia de valor de serviço",
+          "Princípios orientadores",
+          "Quatro dimensões",
+          "Práticas de gestão de serviços",
+          "Melhoria contínua",
+          "ITIL v4: gerenciamento de riscos e níveis de serviço"
+        ],
+        "evidence": {
+          "ITIL v4: gerenciamento de riscos e níveis de serviço": {
+            "exam": "BACEN 2024 • TI",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF",
+            "questions": "120"
+          }
+        }
+      }
+    ],
+    "Economia e Finanças": [
+      {
+        "materia": "Língua Portuguesa",
+        "official": "1 Compreensão e interpretação de textos de gêneros variados",
+        "items": [
+          "Tema e ideia central",
+          "Informações explícitas e implícitas",
+          "Inferências e pressupostos",
+          "Intenção comunicativa e ponto de vista"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "2 Reconhecimento de tipos e gêneros textuais",
+        "items": [
+          "Narração e descrição",
+          "Dissertação e argumentação",
+          "Exposição e injunção",
+          "Características e função dos gêneros textuais"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "3 Domínio da ortografia oficial",
+        "items": [
+          "Emprego de letras e dígrafos",
+          "Acentuação gráfica",
+          "Hífen e escrita de palavras compostas"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "4.1 Emprego de elementos de referencia ção, substituição e repetição, de conectores e de outros elementos de sequenciação textual",
+        "items": [
+          "Referenciação anafórica e catafórica",
+          "Substituição e elipse",
+          "Repetição e progressão textual",
+          "Conectores e relações de sentido"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "4.2 Emprego de tempos e modos verbais",
+        "items": [
+          "Tempos e modos do indicativo e subjuntivo",
+          "Valores do imperativo",
+          "Correlação de tempos verbais"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "5.1 Emprego das classes de palavras",
+        "items": [
+          "Substantivos e adjetivos",
+          "Artigos, numerais e pronomes",
+          "Verbos e locuções verbais",
+          "Advérbios, preposições e conjunções"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "5.2 Relações de coordenação entre orações e entre termos da oração",
+        "items": [
+          "Orações coordenadas sindéticas e assindéticas",
+          "Conjunções e seus valores",
+          "Coordenação entre termos"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "5.3 Relações de subordinação entre orações e entre termos da oração",
+        "items": [
+          "Orações subordinadas substantivas",
+          "Orações subordinadas adjetivas",
+          "Orações subordinadas adverbiais",
+          "Orações reduzidas"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "5.4 Emprego dos sinais de pontuação",
+        "items": [
+          "Vírgula e separação de termos e orações",
+          "Ponto e ponto e vírgula",
+          "Dois-pontos, travessões e parênteses",
+          "Pontuação e alteração de sentido"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "5.5 Concordância verbal e nominal",
+        "items": [
+          "Concordância verbal: sujeito simples e composto",
+          "Concordância verbal: casos especiais",
+          "Concordância nominal e casos especiais"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "5.6 Regência verbal e nominal",
+        "items": [
+          "Regência verbal",
+          "Regência nominal",
+          "Pronomes relativos e preposições"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "5.7 Emprego do sinal indicativo de crase",
+        "items": [
+          "Casos obrigatórios de crase",
+          "Casos proibidos de crase",
+          "Casos facultativos e locuções"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "5.8 Colocação dos pronomes átonos",
+        "items": [
+          "Próclise",
+          "Ênclise",
+          "Mesóclise e colocação em locuções verbais"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "6.1 Significação das palavras",
+        "items": [
+          "Sinonímia e antonímia",
+          "Polissemia e ambiguidade",
+          "Sentido literal e figurado"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "6.2 Substituição de palavras ou de trechos de texto",
+        "items": [
+          "Substituição lexical com manutenção do sentido",
+          "Substituição de conectores",
+          "Reescrita de estruturas gramaticais"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "6.3 Reorganização da estrutura de orações e de períodos do texto",
+        "items": [
+          "Ordem direta e inversa",
+          "Transformação de orações e períodos",
+          "Voz ativa e passiva",
+          "Preservação de sentido e correção gramatical"
+        ]
+      },
+      {
+        "materia": "Língua Portuguesa",
+        "official": "6.4 Reescrita de textos de diferentes gêneros e níveis de formalidade",
+        "items": [
+          "Adequação ao gênero textual",
+          "Registro formal e informal",
+          "Clareza, concisão e impessoalidade"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "1.1 Estruturas lógicas ",
+        "items": [
+          "Relações e ordenação lógica",
+          "Condições necessárias e suficientes",
+          "Problemas de associação e sequências"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "1.2 Lógica de argumentação: analogias, inferências, deduções e conclusões",
+        "items": [
+          "Premissas e conclusões",
+          "Validade de argumentos",
+          "Dedução e inferência",
+          "Analogias e falácias"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "1.3 Lógica sentencial (ou proposicional)",
+        "items": [
+          "Sintaxe e semântica proposicional",
+          "Formalização de enunciados",
+          "Raciocínio com conectivos lógicos"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "10.3.1 Proposições simples e compostas ",
+        "items": [
+          "Proposições e valores lógicos",
+          "Negação e conectivos",
+          "Tradução de linguagem natural para proposições"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "10.3.2 Tabelas -verdade",
+        "items": [
+          "Construção de tabelas-verdade",
+          "Tautologia, contradição e contingência",
+          "Implicação e equivalência lógica"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "10.3.3 Equivalências ",
+        "items": [
+          "Equivalência do condicional",
+          "Contraposição",
+          "Equivalências do bicondicional"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "10.3.4 Leis de Morgan; problemas",
+        "items": [
+          "Negação de conjunções e disjunções",
+          "Leis de De Morgan",
+          "Aplicação em problemas de lógica"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "2.1 População e amostra",
+        "items": [
+          "População e amostra",
+          "Censo e amostragem",
+          "Parâmetros e estatísticas"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "2.2 Histogramas e curvas de frequência",
+        "items": [
+          "Frequência absoluta e relativa",
+          "Frequência acumulada",
+          "Histogramas e polígonos de frequência"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "2.3 Medidas de posição: média, moda, mediana e separatrizes",
+        "items": [
+          "Média simples e ponderada",
+          "Mediana e moda",
+          "Quartis, decis e percentis"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "2.4 Medidas de dispersão absoluta e relativa",
+        "items": [
+          "Amplitude e variância",
+          "Desvio padrão",
+          "Coeficiente de variação"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "2.5 Probabilidade condicional, independência",
+        "items": [
+          "Probabilidade condicional",
+          "Independência de eventos",
+          "Regra do produto e teorema de Bayes"
+        ]
+      },
+      {
+        "materia": "Noções De Lógica E Estatística",
+        "official": "2.6 Variável aleatória e funções de distribuição",
+        "items": [
+          "Variáveis discretas e contínuas",
+          "Função de probabilidade e densidade",
+          "Função de distribuição acumulada",
+          "Esperança e variância"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "1.1 Administração direta e indireta",
+        "items": [
+          "Órgãos da administração direta",
+          "Entidades da administração indireta",
+          "Centralização, descentralização e desconcentração",
+          "Princípios expressos e implícitos da administração pública"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "2.1 Espécies de poder: hierárquico, disciplinar, regulamentar, de polícia e normativo",
+        "items": [
+          "Poder hierárquico",
+          "Poder disciplinar",
+          "Poder regulamentar e normativo",
+          "Poder de polícia"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "2.2 Uso e abuso do poder",
+        "items": [
+          "Excesso de poder",
+          "Desvio de finalidade",
+          "Controle do uso e abuso de poder"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "3.1 Serviços públicos: conceito e princípios",
+        "items": [
+          "Conceito e classificação dos serviços públicos",
+          "Princípios e continuidade",
+          "Formas de prestação e delegação"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "3.2 Autarquias, a gências reguladoras, agências executivas, fundações públicas, empresas públicas, sociedades de economia mista",
+        "items": [
+          "Autarquias e fundações públicas",
+          "Agências reguladoras e executivas",
+          "Empresas públicas",
+          "Sociedades de economia mista"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "4.1 Conceito, requisitos e atributos",
+        "items": [
+          "Conceito e elementos do ato administrativo",
+          "Competência, finalidade, forma, motivo e objeto",
+          "Presunção de legitimidade, imperatividade e autoexecutoriedade"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "4.2 Comunicação dos atos administrativos",
+        "items": [
+          "Publicidade e publicação dos atos",
+          "Notificação e intimação",
+          "Efeitos da comunicação dos atos"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "4.3 Anulação, revogação e convalidação",
+        "items": [
+          "Anulação e efeitos",
+          "Revogação e mérito administrativo",
+          "Convalidação e limites"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "4.4 Discricionariedade e vinculação",
+        "items": [
+          "Atos vinculados e discricionários",
+          "Mérito administrativo",
+          "Controle de legalidade"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "5.1.1 Disposições preliminares",
+        "items": [
+          "Âmbito de aplicação da Lei 8.112",
+          "Conceitos de servidor e cargo público",
+          "Requisitos básicos de investidura"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "5.1.2 Provimento, vacância, remoção, redistribuição e substituição",
+        "items": [
+          "Nomeação, posse e exercício",
+          "Estágio probatório e estabilidade",
+          "Formas de provimento",
+          "Hipóteses de vacância",
+          "Remoção, redistribuição e substituição"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "5.1.3 Direitos e vantagens",
+        "items": [
+          "Vencimento e remuneração",
+          "Indenizações e gratificações",
+          "Férias e licenças",
+          "Afastamentos e concessões"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "5.1.4 Regime disciplinar",
+        "items": [
+          "Deveres e proibições",
+          "Acumulação de cargos",
+          "Responsabilidades",
+          "Penalidades e prescrição"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "5.1.5 Seguridade social do servidor: aposentadoria e pensão civil",
+        "items": [
+          "Benefícios do plano de seguridade",
+          "Aposentadoria do servidor",
+          "Pensão civil",
+          "Licenças e auxílios da seguridade"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "5.1.6 Processo administrativo disciplinar",
+        "items": [
+          "Sindicância e instauração",
+          "Inquérito, instrução e defesa",
+          "Relatório e julgamento",
+          "Revisão do processo disciplinar"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "6 Improbidade administrativa",
+        "items": [
+          "Sujeitos e dolo na improbidade",
+          "Enriquecimento ilícito",
+          "Prejuízo ao erário",
+          "Violação de princípios",
+          "Sanções e processo na Lei 8.429"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "7 Código de Ética Profissional do Servidor Público Civil do Poder Executivo Federal (Decreto nº 1.171/1994)",
+        "items": [
+          "Regras deontológicas",
+          "Deveres fundamentais",
+          "Vedações ao servidor",
+          "Comissões de ética"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "8 Código de Conduta da Alta Administração Federal",
+        "items": [
+          "Abrangência do Código da Alta Administração",
+          "Conflitos de interesse e conduta",
+          "Presentes e atividades externas",
+          "Apuração e consequências"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "9 Lei de conflito de interesses (Lei nº 11.813/2013)",
+        "items": [
+          "Hipóteses de conflito de interesses",
+          "Conflitos durante e após o exercício do cargo",
+          "Consulta e prevenção",
+          "Competências de fiscalização",
+          "Lei 12.813/2013: identificação e prevenção de conflitos de interesses"
+        ],
+        "evidence": {
+          "Lei 12.813/2013: identificação e prevenção de conflitos de interesses": {
+            "exam": "BACEN 2024 • Retificação do edital",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/ED_1_BCB_23_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "questions": "Retificação do item 9"
+          }
+        }
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "10 Lei de Acesso à Informação (Lei nº 12.527/2011)",
+        "items": [
+          "Transparência ativa e passiva",
+          "Pedido e prazos de acesso",
+          "Restrições e classificação da informação",
+          "Recursos e responsabilidades"
+        ]
+      },
+      {
+        "materia": "Direito Administrativo",
+        "official": "11 Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais)",
+        "items": [
+          "Conceitos e princípios da LGPD",
+          "Bases legais de tratamento",
+          "Direitos do titular",
+          "Tratamento pelo poder público",
+          "Agentes, segurança e ANPD"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Macroeconomia — 1 Contas nacionais",
+        "items": [
+          "PIB e PNB",
+          "Óticas do produto, renda e despesa",
+          "Valores nominais e reais",
+          "Identidades das contas nacionais"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Macroeconomia — 2 Agregados monetários",
+        "items": [
+          "Moeda e funções",
+          "Base monetária",
+          "Agregados monetários e liquidez"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Macroeconomia — 3 Multiplicador monetário, criação e destruição de moeda",
+        "items": [
+          "Reservas e depósitos bancários",
+          "Multiplicador monetário",
+          "Criação de moeda pelos bancos",
+          "Destruição de moeda"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Macroeconomia — 4 Contas do sistema monetário",
+        "items": [
+          "Balanço do banco central",
+          "Contas dos bancos comerciais",
+          "Consolidação do sistema monetário"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Macroeconomia — 5 Balanço de pagamentos",
+        "items": [
+          "Conta corrente",
+          "Conta capital e financeira",
+          "Reservas internacionais",
+          "Identidade do balanço de pagamentos"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Microeconomia — 1.1 Formas de organização da atividade econômica, o pap el dos preços, custo de oportunidade e fronteiras das possibilidades de produção",
+        "items": [
+          "Formas de organização econômica",
+          "Papel dos preços",
+          "Custo de oportunidade",
+          "Fronteira de possibilidades de produção"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Microeconomia — 2.1 Curvas de indiferença ",
+        "items": [
+          "Preferências e utilidade",
+          "Curvas de indiferença",
+          "Taxa marginal de substituição"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Microeconomia — 2.2 Restrição orçamentária",
+        "items": [
+          "Renda e preços na restrição orçamentária",
+          "Inclinação e interceptos",
+          "Deslocamentos da reta orçamentária"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Microeconomia — 2.3 Equilíbrio do consumidor",
+        "items": [
+          "Escolha ótima do consumidor",
+          "Solução interior e de canto",
+          "Equilíbrio e alterações de renda e preços"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Microeconomia — 2.4 Efeitos preço, renda e substituição",
+        "items": [
+          "Efeito substituição",
+          "Efeito renda",
+          "Efeito preço e bens inferiores"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Microeconomia — 2.5 Curva de demanda",
+        "items": [
+          "Derivação da demanda individual",
+          "Demanda de mercado",
+          "Movimento e deslocamento da curva"
+        ]
+      },
+      {
+        "materia": "Fundamentos De Macroeconomia E Microeconomia",
+        "official": "Microeconomia — 2.6 Elasticidade da demanda",
+        "items": [
+          "Elasticidade-preço da demanda",
+          "Elasticidade-renda",
+          "Elasticidade cruzada",
+          "Elasticidade e receita total"
+        ]
+      },
+      {
+        "materia": "Atualidades",
+        "official": "1 Tópicos relevantes e atuais de diversas áreas, tais como segurança, transportes, política, economia, sociedade, educação, saúde, cultura, tecnologia, energia, relações internacionais, desenvolvimento sustentável e ecologia",
+        "items": [
+          "Segurança e transportes",
+          "Política e instituições",
+          "Economia e sociedade",
+          "Educação e saúde",
+          "Cultura e tecnologia",
+          "Energia e transição energética",
+          "Relações internacionais",
+          "Desenvolvimento sustentável e ecologia"
+        ]
+      },
+      {
+        "materia": "Macroeconomia",
+        "official": "1 Principais modelos macroeconômicos: modelo clássico, modelo novo-keynesiano, modelos de oferta e demanda agregadas; modelos de crescimento; modelos de escolha intertemporal (consumo, investimento, gastos do governo e conta corrente)",
+        "items": [
+          "Modelo clássico",
+          "Modelo novo-keynesiano",
+          "Oferta e demanda agregadas",
+          "Modelos de crescimento",
+          "Escolha intertemporal: consumo",
+          "Escolha intertemporal: investimento, governo e conta corrente",
+          "Modelo de Solow: crescimento populacional e produto de equilíbrio"
+        ],
+        "evidence": {
+          "Modelo de Solow: crescimento populacional e produto de equilíbrio": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "52"
+          }
+        }
+      },
+      {
+        "materia": "Macroeconomia",
+        "official": "2 Política monetária: regras versus discricionariedade; modelos de credibilidade; convencionais e não convencionais; objetivos e instrumentos; regime de metas para a inflação",
+        "items": [
+          "Regras e discricionariedade",
+          "Credibilidade e consistência temporal",
+          "Instrumentos convencionais",
+          "Instrumentos não convencionais",
+          "Objetivos e transmissão da política monetária",
+          "Regime de metas de inflação",
+          "SELIC, multiplicador monetário e instrumentos do Banco Central"
+        ],
+        "evidence": {
+          "SELIC, multiplicador monetário e instrumentos do Banco Central": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "56,59"
+          }
+        }
+      },
+      {
+        "materia": "Macroeconomia",
+        "official": "3 Política macroprudencial e estabilidade financeira",
+        "items": [
+          "Risco sistêmico",
+          "Instrumentos macroprudenciais",
+          "Pró-ciclicidade e estabilidade financeira",
+          "Exigência de capital para risco operacional"
+        ],
+        "evidence": {
+          "Exigência de capital para risco operacional": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "54"
+          }
+        }
+      },
+      {
+        "materia": "Macroeconomia",
+        "official": "4 Política fiscal. Déficit e dívida pública",
+        "items": [
+          "Resultado primário e nominal",
+          "Déficit público",
+          "Dinâmica e sustentabilidade da dívida",
+          "Política fiscal e atividade econômica",
+          "DBGG e operações compromissadas do Banco Central"
+        ],
+        "evidence": {
+          "DBGG e operações compromissadas do Banco Central": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "58"
+          }
+        }
+      },
+      {
+        "materia": "Macroeconomia",
+        "official": "5 Modelo de paridade coberta e descoberta de taxa de juros. Modelos de exportação e importação. Regimes cambiais e taxa de câmbio de equilíbrio; termos de troca. Paridade de poder de compra",
+        "items": [
+          "Paridade coberta de juros",
+          "Paridade descoberta de juros",
+          "Exportações e importações",
+          "Regimes cambiais",
+          "Câmbio de equilíbrio e termos de troca",
+          "Paridade do poder de compra",
+          "Paridade coberta: arbitragem e taxas de juros",
+          "Elasticidades do comércio exterior e resposta ao câmbio"
+        ],
+        "evidence": {
+          "Paridade coberta: arbitragem e taxas de juros": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "62"
+          },
+          "Elasticidades do comércio exterior e resposta ao câmbio": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "63"
+          }
+        }
+      },
+      {
+        "materia": "Macroeconomia",
+        "official": "6 Curva de Phillips, expectativas racionais e inflação",
+        "items": [
+          "Curva de Phillips de curto e longo prazo",
+          "Expectativas adaptativas e racionais",
+          "Inflação e desinflação",
+          "Curva de Phillips: expectativas e distinção entre curto e longo prazo"
+        ],
+        "evidence": {
+          "Curva de Phillips: expectativas e distinção entre curto e longo prazo": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "60"
+          }
+        }
+      },
+      {
+        "materia": "Macroeconomia",
+        "official": "7 Teoria dos ciclos econômicos reais",
+        "items": [
+          "Choques reais e produtividade",
+          "Propagação dos ciclos econômicos",
+          "Hipóteses e implicações dos modelos RBC"
+        ]
+      },
+      {
+        "materia": "Macroeconomia",
+        "official": "8 Mercado de trabalho – determinação dos salários no modelo novo-keynesiano e clássico e taxa natural de desemprego",
+        "items": [
+          "Salários e emprego no modelo clássico",
+          "Rigidez salarial no modelo novo-keynesiano",
+          "Taxa natural de desemprego"
+        ]
+      },
+      {
+        "materia": "Microeconomia",
+        "official": "1 Teoria do consumidor. Teoria da firma",
+        "items": [
+          "Preferências e escolha do consumidor",
+          "Dualidade e demanda",
+          "Produção e tecnologia",
+          "Custos e escolha da firma",
+          "Maximização de lucro",
+          "Função de custo de longo prazo e escolha ótima de insumos"
+        ],
+        "evidence": {
+          "Função de custo de longo prazo e escolha ótima de insumos": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "69,70"
+          }
+        }
+      },
+      {
+        "materia": "Microeconomia",
+        "official": "2 Análise de concentração e competição. Organização industrial",
+        "items": [
+          "Medidas de concentração",
+          "Concorrência perfeita e monopólio",
+          "Oligopólio e competição",
+          "Barreiras à entrada",
+          "Organização industrial"
+        ]
+      },
+      {
+        "materia": "Microeconomia",
+        "official": "3 Teoria dos jogos e leilões",
+        "items": [
+          "Jogos estáticos e dinâmicos",
+          "Estratégias e equilíbrio de Nash",
+          "Equilíbrio em subjogos",
+          "Jogos repetidos",
+          "Formatos de leilão e estratégias de lance",
+          "Equilíbrio de Nash, estratégias mistas e estratégias dominantes"
+        ],
+        "evidence": {
+          "Equilíbrio de Nash, estratégias mistas e estratégias dominantes": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "71,72"
+          }
+        }
+      },
+      {
+        "materia": "Microeconomia",
+        "official": "4 Falhas de mercado: informação assimétrica, seleção adversa e risco moral (moral ha zard). Externalidades e bens públicos",
+        "items": [
+          "Informação assimétrica",
+          "Seleção adversa",
+          "Risco moral",
+          "Externalidades e instrumentos de correção",
+          "Bens públicos e provisão",
+          "Sinalização, reputação e relação principal-agente"
+        ],
+        "evidence": {
+          "Sinalização, reputação e relação principal-agente": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "73,74"
+          }
+        }
+      },
+      {
+        "materia": "Microeconomia",
+        "official": "5 Equilíbrio geral, lei de Walras e equilíbrio de Pareto",
+        "items": [
+          "Equilíbrio geral de trocas e produção",
+          "Lei de Walras",
+          "Eficiência de Pareto",
+          "Teoremas do bem-estar",
+          "Lei de Walras e demandas excedentes"
+        ],
+        "evidence": {
+          "Lei de Walras e demandas excedentes": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "75"
+          }
+        }
+      },
+      {
+        "materia": "Microeconomia",
+        "official": "6 Bem-estar social",
+        "items": [
+          "Excedentes do consumidor e produtor",
+          "Critérios de bem-estar",
+          "Eficiência e distribuição",
+          "Funções de bem-estar social",
+          "Primeiro teorema do bem-estar e melhoria de Pareto"
+        ],
+        "evidence": {
+          "Primeiro teorema do bem-estar e melhoria de Pareto": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "76"
+          }
+        }
+      },
+      {
+        "materia": "Microeconomia",
+        "official": "7 Economia comportamental",
+        "items": [
+          "Heurísticas e vieses",
+          "Aversão à perda e teoria do prospecto",
+          "Preferências intertemporais",
+          "Arquitetura de escolhas",
+          "Teoria do prospecto, racionalidade e escolhas sob risco"
+        ],
+        "evidence": {
+          "Teoria do prospecto, racionalidade e escolhas sob risco": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "77,78"
+          }
+        }
+      },
+      {
+        "materia": "Finanças",
+        "official": "1.1 Títulos emitidos pelo Tesouro Nacional ",
+        "items": [
+          "Características dos títulos públicos",
+          "Indexadores e vencimentos",
+          "Negociação e remuneração",
+          "Tesouro Prefixado e Tesouro IPCA: retorno e resgate antecipado"
+        ],
+        "evidence": {
+          "Tesouro Prefixado e Tesouro IPCA: retorno e resgate antecipado": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "79,80"
+          }
+        }
+      },
+      {
+        "materia": "Finanças",
+        "official": "1.2 Títulos de dívida privada ",
+        "items": [
+          "Debêntures e notas comerciais",
+          "Remuneração e garantias",
+          "Risco de crédito e liquidez"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "1.3 Securitização ",
+        "items": [
+          "Estrutura de securitização",
+          "Lastro e cessão de recebíveis",
+          "Riscos e participantes"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "1.4 Operações compromissadas",
+        "items": [
+          "Compra e venda com compromisso de reversão",
+          "Lastro e remuneração",
+          "Finalidade e riscos"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "1.5 Depósito a prazo e depósito interfinanceiro ou interbancário",
+        "items": [
+          "Depósitos a prazo e certificados",
+          "Depósitos interfinanceiros",
+          "Liquidez e remuneração"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "1.6 Ações",
+        "items": [
+          "Ações ordinárias e preferenciais",
+          "Dividendos e direitos",
+          "Mercados primário e secundário",
+          "Ações ordinárias e preferenciais: voto e dividendos"
+        ],
+        "evidence": {
+          "Ações ordinárias e preferenciais: voto e dividendos": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "81,82"
+          }
+        }
+      },
+      {
+        "materia": "Finanças",
+        "official": "1.7 Fundos de investimento",
+        "items": [
+          "Estrutura e participantes dos fundos",
+          "Cotas e patrimônio",
+          "Taxas, rentabilidade e riscos",
+          "Classificação e composição de fundos cambiais"
+        ],
+        "evidence": {
+          "Classificação e composição de fundos cambiais": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "85"
+          }
+        }
+      },
+      {
+        "materia": "Finanças",
+        "official": "1.8 Contratos futuros, a t ermo, swaps e de opções ",
+        "items": [
+          "Contratos a termo",
+          "Contratos futuros e ajustes",
+          "Swaps",
+          "Opções: calls e puts",
+          "Payoffs, hedge e arbitragem",
+          "Opções de venda: preço de exercício, prêmio e payoff"
+        ],
+        "evidence": {
+          "Opções de venda: preço de exercício, prêmio e payoff": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "83"
+          }
+        }
+      },
+      {
+        "materia": "Finanças",
+        "official": "1.9 Derivativos de crédito",
+        "items": [
+          "Transferência do risco de crédito",
+          "Credit default swaps",
+          "Eventos de crédito e liquidação"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "2.1 Tipos de eficiência ",
+        "items": [
+          "Eficiência fraca",
+          "Eficiência semiforte",
+          "Eficiência forte"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "2.2 Propriedades dos mercados e dos agentes financeiros ",
+        "items": [
+          "Informação e formação de preços",
+          "Racionalidade e expectativas",
+          "Arbitragem e agentes financeiros"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "2.3 Estratégias de investimento",
+        "items": [
+          "Gestão ativa e passiva",
+          "Estratégias de alocação",
+          "Relação entre eficiência e estratégias"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "3.1 Risco e retorno",
+        "items": [
+          "Retornos simples e compostos",
+          "Retorno esperado",
+          "Variância, covariância e correlação"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "3.2 Seleção de investimentos por média-variância",
+        "items": [
+          "Modelo de Markowitz",
+          "Restrições de carteira",
+          "Otimização média-variância"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "3.3 Diversificação do risco",
+        "items": [
+          "Risco sistemático e específico",
+          "Correlação e diversificação",
+          "Efeito da composição da carteira",
+          "Risco sistemático versus risco diversificável"
+        ],
+        "evidence": {
+          "Risco sistemático versus risco diversificável": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "87"
+          }
+        }
+      },
+      {
+        "materia": "Finanças",
+        "official": "3.4 Fronteira eficiente",
+        "items": [
+          "Conjunto de carteiras possíveis",
+          "Carteira de mínima variância",
+          "Fronteira eficiente"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "3.5 Funções de utilidade e aversão ao risco",
+        "items": [
+          "Utilidade esperada",
+          "Aversão ao risco",
+          "Escolha ótima de carteira"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "3.6 Ativo livre de risco",
+        "items": [
+          "Ativo livre de risco e carteira arriscada",
+          "Linha de alocação de capital",
+          "Carteira tangente"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "3.7 Custos de transações",
+        "items": [
+          "Custos de negociação",
+          "Impacto sobre retorno e rebalanceamento",
+          "Liquidez e spreads"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "4.1 Modelo CAPM e suas extensões",
+        "items": [
+          "Hipóteses do CAPM",
+          "Beta e retorno requerido",
+          "Linha do mercado de títulos",
+          "Extensões do CAPM"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "4.2 Teoria de Apreçamento por Arbitragem (APT)",
+        "items": [
+          "Ausência de arbitragem",
+          "Modelos multifatoriais",
+          "Prêmios de risco e fatores",
+          "APT: múltiplos fatores e distinções em relação ao CAPM"
+        ],
+        "evidence": {
+          "APT: múltiplos fatores e distinções em relação ao CAPM": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "88,89"
+          }
+        }
+      },
+      {
+        "materia": "Finanças",
+        "official": "5.1 Principais teorias",
+        "items": [
+          "Teoria das expectativas",
+          "Preferência pela liquidez",
+          "Segmentação de mercados",
+          "Habitat preferido"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "5.2 Taxas à vista e a termo ",
+        "items": [
+          "Taxas spot",
+          "Taxas forward",
+          "Relação entre taxas e fatores de desconto"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "5.3 Movimentos nas curvas de juros ",
+        "items": [
+          "Deslocamentos paralelos",
+          "Inclinação e curvatura",
+          "Efeitos sobre preços de títulos",
+          "Deslocamentos paralelos e mudanças na curva de rendimentos"
+        ],
+        "evidence": {
+          "Deslocamentos paralelos e mudanças na curva de rendimentos": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "90,91,92"
+          }
+        }
+      },
+      {
+        "materia": "Finanças",
+        "official": "6.1 Apreçamento de instrumentos de renda fixa",
+        "items": [
+          "Valor presente e fluxo de caixa",
+          "Preço e yield to maturity",
+          "Títulos prefixados e indexados"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "6.2 Gestão de carteiras de renda f ixa",
+        "items": [
+          "Imunização de carteiras",
+          "Casamento de fluxos",
+          "Estratégias de gestão de renda fixa"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "6.3 Duration e convexidade ",
+        "items": [
+          "Duration de Macaulay",
+          "Duration modificada",
+          "Convexidade",
+          "Sensibilidade a taxas de juros",
+          "Duration versus convexidade: sensibilidade ao juro"
+        ],
+        "evidence": {
+          "Duration versus convexidade: sensibilidade ao juro": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "93"
+          }
+        }
+      },
+      {
+        "materia": "Finanças",
+        "official": "7 Riscos dos fatores sociais, ambientais e de governança (ESG) ",
+        "items": [
+          "Fatores ambientais",
+          "Fatores sociais",
+          "Governança",
+          "Riscos ESG e avaliação financeira"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "8.1 Medidas de volatilidade",
+        "items": [
+          "Volatilidade histórica",
+          "Volatilidade implícita",
+          "Estimação e interpretação da volatilidade"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "8.2 VaR",
+        "items": [
+          "VaR paramétrico",
+          "Simulação histórica",
+          "Simulação de Monte Carlo",
+          "Horizonte e nível de confiança",
+          "VaR versus testes de estresse e cenários extremos"
+        ],
+        "evidence": {
+          "VaR versus testes de estresse e cenários extremos": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "95"
+          }
+        }
+      },
+      {
+        "materia": "Finanças",
+        "official": "8.3 Premissas do modelo VaR",
+        "items": [
+          "Hipóteses de distribuição",
+          "Correlações e estabilidade de parâmetros",
+          "Limitações e backtesting"
+        ]
+      },
+      {
+        "materia": "Finanças",
+        "official": "8.4 Testes de estresse e de cenários",
+        "items": [
+          "Testes de estresse",
+          "Análise de cenários",
+          "Choques e sensibilidade de carteiras"
+        ]
+      },
+      {
+        "materia": "Estatística E Econometria",
+        "official": "1 Distribuições de probabilidade, esperança matemática, momentos, esperança condicionais",
+        "items": [
+          "Distribuições discretas",
+          "Distribuições contínuas",
+          "Esperança e variância",
+          "Momentos",
+          "Esperança condicional"
+        ]
+      },
+      {
+        "materia": "Estatística E Econometria",
+        "official": "2 Lei dos grandes números",
+        "items": [
+          "Lei fraca dos grandes números",
+          "Lei forte dos grandes números",
+          "Convergência e aplicações",
+          "Lei dos grandes números e convergência em probabilidade"
+        ],
+        "evidence": {
+          "Lei dos grandes números e convergência em probabilidade": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "97,98"
+          }
+        }
+      },
+      {
+        "materia": "Estatística E Econometria",
+        "official": "3 Inferência: Estimação de parâmetros por ponto e por intervalo de confiança; Testes de hipóteses; Amostragem",
+        "items": [
+          "Estimação pontual e propriedades",
+          "Intervalos de confiança",
+          "Testes de hipóteses e erros",
+          "P-valor e poder do teste",
+          "Amostragem e desenhos amostrais",
+          "Estimadores de máxima verossimilhança e método dos momentos"
+        ],
+        "evidence": {
+          "Estimadores de máxima verossimilhança e método dos momentos": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "99,100,101,102"
+          }
+        }
+      },
+      {
+        "materia": "Estatística E Econometria",
+        "official": "4 Regressão simples e múltipla",
+        "items": [
+          "Regressão linear simples",
+          "Regressão múltipla",
+          "Mínimos quadrados ordinários",
+          "Hipóteses e inferência",
+          "Heterocedasticidade, autocorrelação e multicolinearidade"
+        ]
+      },
+      {
+        "materia": "Estatística E Econometria",
+        "official": "5 Econometria de séries temporais: Vetor auto regressivo; estacionaridade",
+        "items": [
+          "Estacionaridade",
+          "Autocorrelação e modelos de séries",
+          "Vetores autorregressivos",
+          "Testes de raiz unitária",
+          "Previsão e diagnóstico",
+          "VAR: defasagens, estacionariedade e previsão"
+        ],
+        "evidence": {
+          "VAR: defasagens, estacionariedade e previsão": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "103,104,105"
+          }
+        }
+      },
+      {
+        "materia": "Estatística E Econometria",
+        "official": "6 Econometria de dados em painel: Efeito fixo; Efeito aleatório. Técnicas de identificação",
+        "items": [
+          "Estrutura de dados em painel",
+          "Efeitos fixos",
+          "Efeitos aleatórios",
+          "Escolha e diagnóstico de modelos",
+          "Identificação e causalidade",
+          "Efeitos fixos e aleatórios: correlação com heterogeneidade não observada"
+        ],
+        "evidence": {
+          "Efeitos fixos e aleatórios: correlação com heterogeneidade não observada": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "106,107"
+          }
+        }
+      },
+      {
+        "materia": "Estatística E Econometria",
+        "official": "7 Processos estocásticos",
+        "items": [
+          "Processos estocásticos e propriedades",
+          "Passeio aleatório",
+          "Processos estacionários",
+          "Dependência temporal e momentos",
+          "Cadeias de Markov e probabilidades de transição"
+        ],
+        "evidence": {
+          "Cadeias de Markov e probabilidades de transição": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "108"
+          }
+        }
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "1 Princípios gerais",
+        "items": [
+          "Objetivos e estrutura do Cosif",
+          "Escrituração e critérios gerais",
+          "Reconhecimento e mensuração",
+          "Contas e documentação contábil",
+          "Aplicação dos pronunciamentos CPC às instituições financeiras"
+        ],
+        "evidence": {
+          "Aplicação dos pronunciamentos CPC às instituições financeiras": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "110"
+          }
+        }
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "2.1 Operações Interfinanceiras de Liquidez, Operações com Títulos e Valores Mobiliários e Derivativos",
+        "items": [
+          "Operações interfinanceiras de liquidez",
+          "Títulos e valores mobiliários",
+          "Instrumentos financeiros derivativos",
+          "Reconhecimento, mensuração e evidenciação",
+          "Bonificações, custo de aplicações e categorias de títulos"
+        ],
+        "evidence": {
+          "Bonificações, custo de aplicações e categorias de títulos": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "111,112"
+          }
+        }
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "2.2 Operações de Crédito",
+        "items": [
+          "Registro das operações de crédito",
+          "Classificação e mensuração",
+          "Encargos e reconhecimento de receitas",
+          "Perdas e provisões de crédito",
+          "Empréstimos versus financiamentos e destinação de recursos"
+        ],
+        "evidence": {
+          "Empréstimos versus financiamentos e destinação de recursos": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "109"
+          }
+        }
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "2.3 Inves timentos Mantidos para Venda",
+        "items": [
+          "Classificação de investimentos mantidos para venda",
+          "Mensuração",
+          "Baixa e divulgação"
+        ]
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "3 Arrendamento mercantil",
+        "items": [
+          "Classificação do arrendamento mercantil",
+          "Reconhecimento pelo arrendador e arrendatário",
+          "Mensuração e evidenciação"
+        ]
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "4 Ativos Não Financeiros Mantidos para Venda",
+        "items": [
+          "Classificação de ativos não financeiros para venda",
+          "Mensuração e redução ao valor recuperável",
+          "Baixa e divulgação"
+        ]
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "5 Ativo Imobilizado",
+        "items": [
+          "Reconhecimento e custo inicial",
+          "Depreciação",
+          "Redução ao valor recuperável",
+          "Baixa e evidenciação"
+        ]
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "6 Ativo Intangível",
+        "items": [
+          "Critérios de reconhecimento do intangível",
+          "Vida útil e amortização",
+          "Recuperabilidade",
+          "Baixa e divulgação"
+        ]
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "7 Provisões, Passivos Contingentes e Ativos Contingentes",
+        "items": [
+          "Reconhecimento de provisões",
+          "Mensuração e revisão",
+          "Passivos contingentes",
+          "Ativos contingentes e divulgação",
+          "Diferença entre provisão e passivo contingente"
+        ],
+        "evidence": {
+          "Diferença entre provisão e passivo contingente": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "115"
+          }
+        }
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "8 Patrimônio Líquido e Remuneração do Capital Próprio",
+        "items": [
+          "Composição do patrimônio líquido",
+          "Capital e reservas",
+          "Ajustes patrimoniais",
+          "Distribuição de resultados e remuneração do capital"
+        ]
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "9 Demonstrações Financeiras de Divulgação",
+        "items": [
+          "Balanço patrimonial",
+          "Demonstração do resultado",
+          "Demonstração dos fluxos de caixa",
+          "Mutações do patrimônio líquido",
+          "Notas explicativas"
+        ]
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "10 Conglomerado Prudencial",
+        "items": [
+          "Abrangência do conglomerado prudencial",
+          "Consolidação de demonstrações",
+          "Eliminações e ajustes",
+          "Divulgação consolidada"
+        ]
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "11.1 Balancete Cooperativo",
+        "items": [
+          "Estrutura do balancete cooperativo",
+          "Agregação e consolidação",
+          "Ajustes e evidenciação"
+        ]
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "11.2 Auditoria Cooperativa",
+        "items": [
+          "Escopo da auditoria cooperativa",
+          "Procedimentos e evidências",
+          "Relatórios e responsabilidades"
+        ]
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "12 Grupos de Consórcio",
+        "items": [
+          "Registro de grupos e cotas de consórcio",
+          "Recursos, obrigações e contemplações",
+          "Demonstrações e controles"
+        ]
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "13 Empresas em Liquidação Extrajudicial",
+        "items": [
+          "Contabilidade na liquidação extrajudicial",
+          "Apuração de ativos e obrigações",
+          "Demonstrações e prestação de contas",
+          "Liquidação extrajudicial e recuperabilidade de intangíveis"
+        ],
+        "evidence": {
+          "Liquidação extrajudicial e recuperabilidade de intangíveis": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "118"
+          }
+        }
+      },
+      {
+        "materia": "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
+        "official": "14 Auditoria Independente",
+        "items": [
+          "Objetivo e alcance da auditoria independente",
+          "Independência e responsabilidades",
+          "Procedimentos e relatórios",
+          "Divulgação de resultados",
+          "Comitê de auditoria e acompanhamento das recomendações"
+        ],
+        "evidence": {
+          "Comitê de auditoria e acompanhamento das recomendações": {
+            "exam": "BACEN 2024 • Economia",
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF",
+            "questions": "117"
+          }
+        }
+      }
+    ]
+  },
+  "reviewed_on": "2026-10-10",
+  "review_sources": {
+    "BCB-RET": {
+      "exam": "BACEN 2024 • Retificação do edital",
+      "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/ED_1_BCB_23_ABERTURA_ATUALIZADO_RET_4.PDF"
+    },
+    "BCB-TI": {
+      "exam": "BACEN 2024 • TI",
+      "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_002_01.PDF"
+    },
+    "BCB-ECO": {
+      "exam": "BACEN 2024 • Economia",
+      "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/959_BCB_001_01.PDF"
+    },
+    "BCB-DISC": {
+      "exam": "BACEN 2024 • Discursiva TI",
+      "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/BCB_24_PADRO_DE_RESPOSTA_DEFINITIVO_CARGO_2_ATUALIZADO.PDF"
+    },
+    "STJ-ANALISE": {
+      "exam": "STJ 2024 • Análise de Sistemas",
+      "url": "https://cdn.cebraspe.org.br/concursos/stj_24/arquivos/018_STJ_003_01.PDF"
+    },
+    "STJ-SUPORTE": {
+      "exam": "STJ 2024 • Suporte de TI",
+      "url": "https://cdn.cebraspe.org.br/concursos/stj_24/arquivos/018_STJ_018_01.PDF"
+    }
+  },
+  "evidence_additions": 80,
+  "review_scope": "Edital de abertura BACEN 2024, conferência com a versão retificada; provas objetivas básicas e específicas de 2024 das duas áreas; padrão definitivo da discursiva TI; comparação com STJ 2024 Análise de Sistemas e Suporte de TI. Não é um levantamento de todas as provas históricas nem garantia de esgotar assuntos amplos."
+}

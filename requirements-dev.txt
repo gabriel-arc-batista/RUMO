@@ -1,0 +1,11 @@
+pyinstaller==6.16.0
+pyinstaller-hooks-contrib==2026.8
+altgraph==0.17.5
+packaging==26.3
+pefile==2023.2.7; sys_platform == 'win32'
+pywin32-ctypes==0.2.3; sys_platform == 'win32'
+setuptools==84.0.0
+pillow==12.3.0
+psutil==7.1.0
+pypdf==6.19.0
+tzdata==2025.2
