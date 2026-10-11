@@ -48,13 +48,22 @@ def windows(pid):
     return found
 
 
+def is_main_window(hwnd, title):
+    # The integrated shell no longer appends the plan to its title. A native
+    # second-instance message box uses the same title, but is not TkTopLevel.
+    name = ctypes.create_unicode_buffer(256)
+    user32.GetClassNameW.argtypes = [wintypes.HWND, wintypes.LPWSTR, ctypes.c_int]
+    user32.GetClassNameW(hwnd, name, len(name))
+    return title == "RUMO — Estudos" and name.value == "TkTopLevel"
+
+
 def await_main(process):
     start = time.perf_counter()
     while time.perf_counter() - start < 20:
         if process.poll() is not None:
             raise AssertionError(f"Executable exited with {process.returncode}")
         matches = [
-            (h, t) for h, t in windows(process.pid) if t.startswith("RUMO — Estudos •")
+            (h, t) for h, t in windows(process.pid) if is_main_window(h, t)
         ]
         if matches:
             return matches[0][0], round(time.perf_counter() - start, 2)
@@ -100,7 +109,7 @@ try:
     assert not [
         title
         for _, title in windows(second.pid)
-        if title.startswith("RUMO — Estudos •")
+        if is_main_window(h, title)
     ], "Second counting instance was opened"
     for h, t in windows(second.pid):
         user32.PostMessageW(h, 0x0010, 0, 0)
