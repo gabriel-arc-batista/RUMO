@@ -3,6 +3,7 @@
 import ctypes
 import json
 import os
+import platform
 import subprocess
 import sys
 import tempfile
@@ -183,7 +184,7 @@ try:
     assert original.snapshot()["tables"] == expected
     original.db.close()
     report = {
-        "platform": "Windows 11 x64",
+        "platform": platform.platform(),
         "exe": str(executable),
         "startup_seconds": startup,
         "resident_memory_mb": round(memory, 1),

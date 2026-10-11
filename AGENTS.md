@@ -1,5 +1,7 @@
 # RUMO — Estudos — orientação para agentes
 
+Claude: comece por `.agents/logs_claude.md` (contexto, preferências do usuário e onde paramos) e atualize-o ao fim de cada etapa.
+
 Antes de alterar o projeto, leia `.agents/README.md`, `.agents/ARCHITECTURE.md`, `.agents/SECURITY.md` e `.agents/TESTING.md`. Para publicar ou empacotar, leia `.agents/RELEASE.md`.
 
 O produto é um aplicativo desktop nativo, local e offline, em português brasileiro. Priorize baixa RAM e preservação dos dados. Trabalhe em ciclos de construir → testar → revisar. Mantenha as instruções do usuário acima destas orientações.
