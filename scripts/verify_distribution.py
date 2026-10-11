@@ -62,9 +62,7 @@ def await_main(process):
     while time.perf_counter() - start < 20:
         if process.poll() is not None:
             raise AssertionError(f"Executable exited with {process.returncode}")
-        matches = [
-            (h, t) for h, t in windows(process.pid) if is_main_window(h, t)
-        ]
+        matches = [(h, t) for h, t in windows(process.pid) if is_main_window(h, t)]
         if matches:
             return matches[0][0], round(time.perf_counter() - start, 2)
         time.sleep(0.15)
@@ -107,9 +105,7 @@ try:
     processes.append(second)
     time.sleep(0.8)
     assert not [
-        title
-        for _, title in windows(second.pid)
-        if is_main_window(h, title)
+        title for h, title in windows(second.pid) if is_main_window(h, title)
     ], "Second counting instance was opened"
     for h, t in windows(second.pid):
         user32.PostMessageW(h, 0x0010, 0, 0)
