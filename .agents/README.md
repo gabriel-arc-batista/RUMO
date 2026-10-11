@@ -24,7 +24,7 @@ A revisão de segurança 1.4.1 separou backups, protegeu retenção, CSV e links
 
 ## Marca e compatibilidade 1.4.2
 
-A marca pública é **Rumo — Estudos**. Preserve os identificadores técnicos legados `RUMO`, o AppId do instalador, os caminhos de dados, o formato de backup e `RUMO_DATA`: a mudança de nome atualiza a instalação existente. O repositório pessoal continua `RUMO`. Downloads novos usam prefixo `Rumo-`; atalhos antigos são substituídos pelo instalador.
+A marca pública é **Rumo — Estudos**. Preserve os identificadores técnicos legados `RUMO`, o AppId do instalador, os caminhos de dados, o formato de backup e `RUMO_DATA`: a mudança de nome atualiza a instalação existente. O repositório pessoal é `RUMO`. Downloads novos usam prefixo `Rumo-`; atalhos antigos são substituídos pelo instalador.
 
 ## Apresentação e licença
 
