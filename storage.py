@@ -50,9 +50,25 @@ def migrate_existing_data(base, target, schema, tables):
         if source.is_symlink() or not source.is_file():
             continue
         try:
+            reader = sqlite3.connect(source.resolve().as_uri() + "?mode=ro", uri=True)
+            try:
+                objects = {
+                    row[0]
+                    for row in reader.execute(
+                        "SELECT name FROM sqlite_master WHERE type='table'"
+                    )
+                }
+            finally:
+                reader.close()
+            if not set(tables) <= objects:
+                continue
             validate_backup(source, schema, tables)
-        except (ValueError, OSError, sqlite3.Error):
-            continue
+        except (ValueError, OSError, sqlite3.Error) as error:
+            raise ValueError(
+                "A base de estudos anterior não passou na validação. "
+                "Nenhuma base foi substituída. Restaure um backup válido "
+                "ou defina RUMO_DATA antes de continuar."
+            ) from error
         candidates.append(source)
     if len(candidates) > 1:
         raise ValueError(

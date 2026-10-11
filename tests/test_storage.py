@@ -63,6 +63,16 @@ class StorageMigrationTests(unittest.TestCase):
             migrate_existing_data(self.base, self.target, SCHEMA, TABLES)
         self.assertFalse((self.target / "estudos.sqlite3").exists())
 
+    def test_invalid_previous_data_does_not_silently_create_an_empty_database(self):
+        self.original.db.execute("CREATE VIEW unexpected AS SELECT * FROM plans")
+        self.original.db.commit()
+        with self.assertRaises(ValueError):
+            migrate_existing_data(self.base, self.target, SCHEMA, TABLES)
+        self.assertFalse((self.target / "estudos.sqlite3").exists())
+        self.assertIsNotNone(
+            self.original.one("SELECT id FROM plans WHERE id=?", (self.plan,))
+        )
+
     def test_override_skips_automatic_import(self):
         isolated = self.base / "isolated"
         with patch.dict(
