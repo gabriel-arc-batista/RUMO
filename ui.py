@@ -97,6 +97,29 @@ def palette_of(widget):
     return motion.palette if motion and motion.palette else FALLBACK
 
 
+def trace_owned(widget, variable, callback):
+    """Keep a write observer only for its owning widget's lifetime.
+
+    Tcl otherwise retains callback closures after widget destruction, including
+    variables and entire Python screen trees referenced by those closures.
+    """
+    trace_id = variable.trace_add("write", callback)
+    active = [True]
+
+    def cleanup(event):
+        if event.widget != widget or not active[0]:
+            return
+        active[0] = False
+        try:
+            variable.trace_remove("write", trace_id)
+        except tk.TclError:
+            # The interpreter/variable can already be gone during root teardown.
+            pass
+
+    widget.bind("<Destroy>", cleanup, add="+")
+    return trace_id
+
+
 def ui_font(widget, family=FONT, size=10, weight="normal"):
     """Shared named fonts: one Tcl font per style instead of one per widget."""
     root = widget.winfo_toplevel()._root()

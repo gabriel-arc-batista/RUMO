@@ -6,7 +6,7 @@ from tkinter import ttk
 from core import duration
 from journey import ReducedMission
 from rpg import CONTEXT_KEYS
-from ui import MotionButton, Panel, CharacterView
+from ui import MotionButton, Panel, CharacterView, trace_owned
 
 
 def form_class():
@@ -298,7 +298,7 @@ def challenge_form(app, kind="Masmorra"):
             set_topics("\n".join(label for label in mapping if label in selections))
             win.destroy()
 
-        search.trace_add("write", filter_list)
+        trace_owned(win, search, filter_list)
         filter_list()
         MotionButton(body, text="Usar assuntos selecionados", command=apply).pack(
             anchor="e", pady=12

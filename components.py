@@ -2,7 +2,7 @@
 
 import tkinter as tk
 from tkinter import ttk
-from ui import MotionButton, glyph, palette_of, rounded
+from ui import MotionButton, glyph, palette_of, rounded, trace_owned
 
 
 class SearchSelect(ttk.Frame):
@@ -166,7 +166,7 @@ class SearchSelect(ttk.Frame):
         MotionButton(
             footer, text="Selecionar", style="Accent.TButton", height=42, command=choose
         ).pack(side="right")
-        query.trace_add("write", filter_values)
+        trace_owned(win, query, filter_values)
         filter_values()
         motion.reveal(win)
         from ui import activate_popup

@@ -12,7 +12,7 @@ import unicodedata
 from components import CompletionBox
 from core import ratio
 from theme import percent
-from ui import MotionButton, ProgressBar, blend
+from ui import MotionButton, ProgressBar, blend, trace_owned
 from ui_kit import (
     ActionMenu,
     Card,
@@ -786,5 +786,5 @@ def render_edital(app, tooltip, dialogs):
 
         app.motion.jobs[(entry, "search")] = app.root.after(180, run)
 
-    search.trace_add("write", search_changed)
+    trace_owned(entry, search, search_changed)
     populate()

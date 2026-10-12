@@ -26,6 +26,7 @@ from core import (
     uid,
 )
 from ui import (
+    trace_owned,
     Motion,
     MotionButton,
     MetricCard,
@@ -3162,7 +3163,7 @@ class App:
                 pass
 
         for k in ["correct", "wrong", "blank"]:
-            form.vars[k].trace_add("write", update_total)
+            trace_owned(form.win, form.vars[k], update_total)
         row = ttk.Frame(form.body)
         row.grid(row=len(fields) + 1, column=0, columnspan=2, sticky="w", pady=8)
         MotionButton(

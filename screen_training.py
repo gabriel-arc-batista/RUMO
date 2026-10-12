@@ -10,7 +10,7 @@ from tkinter import filedialog, ttk
 from urllib.parse import urlsplit
 
 from theme import compact_duration
-from ui import MotionButton, Tooltip
+from ui import MotionButton, Tooltip, trace_owned
 from ui_kit import (
     ActionMenu,
     Card,
@@ -116,7 +116,7 @@ class TrainingScreen(tk.Frame):
         )
         entry.pack(side="left", padx=(10, 0))
         placeholder(entry, self.app, "Buscar por aula, matéria ou assunto")
-        self.search_var.trace_add("write", self.search_changed)
+        trace_owned(entry, self.search_var, self.search_changed)
         ActionMenu(
             bar,
             self.app,
