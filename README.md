@@ -156,4 +156,9 @@ O build nativo gera `dist/RUMO-linux-portatil.tar.gz`. Extraia o arquivo e execu
 A entrega 2.0.0 foi validada no pacote Linux e na execução Windows do GitHub
 Actions (executável, instalador, ZIP portátil e hashes), com o serviço de conta
 hospedado e o site em https://rumo-estudos.vercel.app.
+
+A versão 2.1.0 mostra no site a aparência, o nome, os itens equipados e o ciclo
+do aplicativo (somente leitura), conta vitórias na Arena sem alterar XP, traz
+marcações de leitura entre versões de uma aula apenas com confirmação e oferece
+"Manter conectado" opcional no aplicativo. Fórmulas do site usam KaTeX.
 Veja [as evidências e os limites](docs/integration/VALIDATION.md).
