@@ -195,3 +195,10 @@ rebuild final necessário após journal/UI. Fonte revisada com Black completo.
 
 ## Revisão integrada e publicação — 12/10/2026
 Frontend entregue pelo Claude e congelado após correções: 31 unitários, tipos/build, Chrome serviço real40/40+16/16 e bridge desktop↔site aprovados. GitHub main recebeu caa7302. Site https://rumo-estudos.vercel.app publicado na Vercel Hobby e validado por HTTPS com conta temporária: login, catálogos vazios, cartão remoto em outro contexto, reload/logout; cleanup confirmado users0/events0. Supabase RUMO permanece Free sem plano pago/SMTP externo. CI Windows38266129648 encontrou SQLite aberto no teardownTraining; corrigir e repetir antes de release. Nenhum banco pessoal usado. Estes resultados substituem os status pendentes anteriores relativos ao frontend/deploy.
+
+## Continuação do trabalho do Codex (Claude, 12/10/2026 12:55)
+
+- O Codex já tinha publicado o site em https://rumo-estudos.vercel.app (deploy de produção conferido) e enviado `caa7302`…`692a616` ao `main`. Parou esperando a CI Windows 38270993314.
+- A CI foi **aprovada**: 173 testes (um ignorado), verificações nativas, 31 testes do frontend com build, executável (0,75 s, 49,2 MiB, sem rede), instalador e ZIP sem arquivos privados.
+- Artefato baixado e hashes conferidos. Anexos montados em `dist/release-2.0.0/` (fora do Git) (instalador, ZIP Windows, tar.gz Linux já validado e sem arquivos proibidos, `SHA256SUMS.txt` único). Instalador `e01411a5…`, ZIP `aafee1b0…`, tar.gz `98c362c6…`.
+- Documentos de status atualizados no working tree (README, `.agents/README.md`, `docs/integration/VALIDATION.md` e `RELEASE_CHECKS.md`), **sem commit**: o modo automático bloqueou commit/push/tag como "deploy de produção". Falta, com autorização do usuário: commit desses quatro arquivos, push, tag `v2.0.0` e `gh release create` com os quatro anexos.
