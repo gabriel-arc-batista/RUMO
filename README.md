@@ -2,7 +2,7 @@
 
 Organize sua preparação para concursos, provas e outros objetivos de aprendizagem. O RUMO é um aplicativo desktop em português que reúne planos, ciclos, assuntos, sessões de foco e acompanhamento de progresso.
 
-Funciona localmente, sem conta, assinatura ou conexão obrigatória com a internet. A interface nativa usa Python, Tk e SQLite, com foco em baixo consumo de memória.
+Funciona localmente, sem exigir conta, assinatura ou conexão com a internet. A interface nativa usa Python, Tk e SQLite, com foco em baixo consumo de memória.
 
 ## Recursos
 
@@ -135,6 +135,8 @@ O build gera o executável e o ZIP em `dist/`. Para gerar também o instalador W
 
 A versão 1.0.0 integra o frontend, a progressão RPG e a personalização do viajante. As verificações usam bases temporárias e não alteram seu histórico. Veja [a revisão final](docs/RUMO_V1_VALIDATION.md) e [as regras de equipamentos](docs/RUMO_EQUIPMENT.md).
 
+A versão 2.0.0 acrescenta conta opcional, sincronização de ações de estudo e integração com o site. O aplicativo continua nativo e permite estudar offline. Histórico anterior exige seleção explícita para compartilhamento; PDFs pessoais permanecem locais. Consulte [os contratos e a configuração](docs/integration/SETUP.md).
+
 ## Continuidade do projeto
 
 Leia [AGENTS.md](AGENTS.md) e o [contexto de arquitetura, testes e segurança](.agents/README.md) antes de alterar o código. Preserve os dados existentes e a compatibilidade dos backups. Bancos pessoais, `.env`, credenciais, capturas, relatórios locais e builds não devem entrar no Git.
@@ -150,3 +152,7 @@ As dependências, fontes e demais materiais de terceiros mantêm seus próprios 
 ### Pacote Linux
 
 O build nativo gera `dist/RUMO-linux-portatil.tar.gz`. Extraia o arquivo e execute `RUMO/RUMO`; preserve a pasta `_internal` junto ao executável. O banco permanece no diretório de dados do usuário. Para testes isolados, configure `RUMO_DATA` para uma pasta temporária.
+
+A entrega 2.0.0 está em validação final: pacote Linux e serviço de conta foram
+verificados; revisão do frontend, CI Windows e publicação ainda estão pendentes.
+Veja [as evidências e os limites](docs/integration/VALIDATION.md).

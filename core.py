@@ -13,24 +13,29 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 from security import csv_cell
 from rpg_schema import RPG_SCHEMA, RPG_TABLES
+from training_schema import TRAINING_SCHEMA, TRAINING_TABLES
 
 COLORS = ["#D6B467", "#B6914A", "#E8CC91", "#A78956", "#F1DEAD", "#786541"]
-TABLES = [
-    "preferences",
-    "plans",
-    "subjects",
-    "topics",
-    "materials",
-    "cycles",
-    "blocks",
-    "decisions",
-    "sessions",
-    "reviews",
-    "tasks",
-    "goals",
-    "mock_results",
-    "active",
-] + RPG_TABLES
+TABLES = (
+    [
+        "preferences",
+        "plans",
+        "subjects",
+        "topics",
+        "materials",
+        "cycles",
+        "blocks",
+        "decisions",
+        "sessions",
+        "reviews",
+        "tasks",
+        "goals",
+        "mock_results",
+        "active",
+    ]
+    + RPG_TABLES
+    + TRAINING_TABLES
+)
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS preferences(key TEXT PRIMARY KEY,value TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS plans(id TEXT PRIMARY KEY,name TEXT NOT NULL,description TEXT DEFAULT '',exam_date TEXT,archived INTEGER DEFAULT 0);
@@ -53,7 +58,7 @@ CREATE INDEX IF NOT EXISTS ix_topics_subject ON topics(subject_id);
 CREATE INDEX IF NOT EXISTS ix_reviews_due ON reviews(due,state);
 ALTER TABLE sessions ADD COLUMN pauses TEXT NOT NULL DEFAULT '[]';
 PRAGMA user_version=3;
-""" + RPG_SCHEMA
+""" + RPG_SCHEMA + TRAINING_SCHEMA
 
 
 def uid():
@@ -103,7 +108,7 @@ class Store:
         self.db = sqlite3.connect(self.path)
         self.db.row_factory = sqlite3.Row
         version = self.db.execute("PRAGMA user_version").fetchone()[0]
-        if version > 5:
+        if version > 6:
             self.db.close()
             raise ValueError(
                 "A base foi criada por uma versão mais nova do RUMO — Estudos. Atualize o aplicativo."
@@ -162,6 +167,23 @@ class Store:
                 self.db.executescript(
                     "BEGIN IMMEDIATE;" + INVENTORY_V5_MIGRATION + "COMMIT;"
                 )
+            except Exception:
+                self.db.rollback()
+                self.db.close()
+                raise
+        if 1 <= version <= 5:
+            # v6 only adds empty tables for the Campo de Treinamento; a copy is
+            # kept anyway, like every previous upgrade.
+            backup = self.path.parent / (
+                "pre-campo-" + datetime.now().strftime("%Y%m%d-%H%M%S%f") + ".sqlite3"
+            )
+            destination = sqlite3.connect(backup)
+            try:
+                self.db.backup(destination)
+            finally:
+                destination.close()
+            try:
+                self.db.executescript("BEGIN IMMEDIATE;" + TRAINING_SCHEMA + "COMMIT;")
             except Exception:
                 self.db.rollback()
                 self.db.close()
@@ -380,6 +402,9 @@ class Store:
             if k in v and not math.isfinite(v[k]):
                 raise ValueError("Pontuação inválida.")
         old = self.one("SELECT * FROM sessions WHERE id=?", (v.get("id", ""),))
+        # The lesson read in the Campo de Treinamento is context, not a new session.
+        context = dict(context or {})
+        lesson = {k: context.pop(k, None) for k in ("lesson_id", "lesson_version")}
         with self.db:
             sid = self.put("sessions", v)
             if shift_pending and old and old["day"] != v["day"]:
@@ -425,8 +450,37 @@ class Store:
                 )
             if finish_active:
                 self.db.execute("DELETE FROM active")
-            self.rpg.session_saved(sid, old is None, context)
+            self.link_lesson(sid, lesson)
+            self.rpg.session_saved(sid, old is None, context or None)
+        # Optional workspace is separate from backup/schema contracts. Capture
+        # after canonical commit; account sync can repair missing queue writes.
+        if (
+            not getattr(self, "_applying_sync", False)
+            and self.path.with_name("study-sync.sqlite3").exists()
+        ):
+            from desktop_sync import capture_session
+
+            try:
+                capture_session(self, sid)
+            except (OSError, sqlite3.Error) as exc:
+                self.sync_capture_error = type(exc).__name__
         return sid
+
+    def link_lesson(self, sid, lesson):
+        """Attach (or keep) the lesson studied in this session; idempotent."""
+        from training_schema import valid_id, valid_version
+
+        if not lesson.get("lesson_id"):
+            return
+        version = lesson.get("lesson_version")
+        if not valid_id(lesson["lesson_id"]) or (
+            version is not None and not valid_version(version)
+        ):
+            raise ValueError("Aula vinculada inválida.")
+        self.db.execute(
+            "INSERT OR REPLACE INTO training_session_links VALUES(?,?,?)",
+            (sid, lesson["lesson_id"], version),
+        )
 
     def delete_session(self, sid):
         with self.db:
@@ -802,7 +856,7 @@ class Store:
     def snapshot(self):
         return {
             "format": "RUMO",
-            "version": 5,
+            "version": 6,
             "created": datetime.now().isoformat(),
             "tables": {t: self.rows(f"SELECT * FROM {t}") for t in TABLES},
         }

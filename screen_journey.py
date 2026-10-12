@@ -8,8 +8,12 @@ subject are read from real records.
 import tkinter as tk
 from tkinter import ttk
 
-from theme import ICON, compact_duration, number, percent
+from theme import DISPLAY, ICON, compact_duration, number, percent
+from ui_kit import ActionMenu, Card, Row, Section, icon_label, label, wrapping
 from ui import (
+    background_of,
+    load_image,
+    rounded,
     Chip,
     CharacterView,
     Columns,
@@ -35,25 +39,56 @@ DEMO_NOTE = (
 def render(app):
     plan = app.plan
     hero = app.journey.character(plan)
+    equipment = app.journey.equipment(plan)
     if hero.source == "demo":
         banner(app)
+    head = tk.Frame(app.content, bg=app.bg)
+    head.pack(fill="x", pady=(0, 12))
+    if hero.source == "real":
+        from rpg_ui import progression_details, rename_character, retroactive_preview
+
+        ActionMenu(
+            head,
+            app,
+            [
+                ("Nome do personagem", lambda: rename_character(app)),
+                ("Personalizar aparência", app.customize_character),
+                None,
+                ("Como ganho XP e moedas", lambda: progression_details(app)),
+                ("Importar XP do histórico", lambda: retroactive_preview(app)),
+            ],
+            text="Ajustes da jornada",
+            icon="settings",
+        ).pack(side="right")
+        credit = app.store.rpg.profile(plan)["correction_credit"]
+        if credit:
+            wrapping(
+                label(
+                    head,
+                    app,
+                    f"Uma correção de estudos deixou {credit} moedas a compensar com ganhos futuros. "
+                    "Os itens comprados continuam seus.",
+                    size=9,
+                    tone="muted",
+                )
+            ).pack(side="left", fill="x", expand=True)
     top = Columns(
         app.content,
         app,
-        (1, 1) if app.store.pref("rpg_show_character", True) else (1,),
-        gap=16,
+        (5, 6) if app.store.pref("rpg_show_character", True) else (1,),
+        gap=18,
         breakpoint=980,
     )
-    top.pack(fill="x", pady=(0, 16))
+    top.pack(fill="x", pady=(0, 26))
     if app.store.pref("rpg_show_character", True):
         stage(app, top.cols[0], hero)
-    profile(app, top.cols[-1], hero, app.journey.equipment(plan))
-    equipment_panel(app, app.journey.equipment(plan))
+    profile(app, top.cols[-1], hero, equipment)
+    inventory(app, equipment)
     if hero.source == "real":
         study_paths(app, app.journey.progression(plan))
     skills(app, app.journey.skills(plan))
-    lower = Columns(app.content, app, (1, 1), gap=16, breakpoint=900)
-    lower.pack(fill="x", pady=(0, 16))
+    lower = Columns(app.content, app, (1, 1), gap=18, breakpoint=900)
+    lower.pack(fill="x", pady=(0, 26))
     achievements(app, lower.cols[0], app.journey.achievements(plan))
     if app.store.pref("rpg_story", True):
         story(app, lower.cols[1], app.journey.chapters(plan))
@@ -72,7 +107,7 @@ def banner(app):
             fg=p["warning"],
             font=(ICON, 12),
         ).pack(side="left", padx=(14, 10), pady=10, anchor="n")
-    label = tk.Label(
+    text = tk.Label(
         strip,
         text=DEMO_NOTE,
         bg=p["warning_bg"],
@@ -81,125 +116,216 @@ def banner(app):
         justify="left",
         anchor="w",
     )
-    label.pack(side="left", fill="x", expand=True, pady=10, padx=(0, 14))
-    label.bind(
-        "<Configure>",
-        lambda e: label.configure(wraplength=max(200, e.width - 4)),
+    text.pack(side="left", fill="x", expand=True, pady=10, padx=(0, 14))
+    wrapping(text, 4, 200)
+
+
+def item_art(app, canvas, item, size, fill):
+    p = app.motion.palette
+    canvas.delete("all")
+    rounded(canvas, 0, 0, size - 1, size - 1, 12, fill=fill, outline="")
+    folder = 96 if size >= 90 else 64 if size >= 60 else 44
+    path = f"character/items/{folder}/{item.id}.png"
+    if (app.assets / path).is_file():
+        canvas.create_image(size / 2, size / 2, image=load_image(app, path))
+    else:
+        canvas.create_text(
+            size / 2,
+            size / 2,
+            text=glyph(canvas, item_icon(item)),
+            fill=p["muted"] if item.unlocked else p["faint"],
+            font=(ICON, max(12, size // 3)),
+        )
+    if not item.unlocked:
+        r = max(9, size // 6)
+        canvas.create_oval(
+            size - 2 * r - 3,
+            size - 2 * r - 3,
+            size - 3,
+            size - 3,
+            fill=p["surface"],
+            outline=p["border"],
+        )
+        canvas.create_text(
+            size - r - 3,
+            size - r - 3,
+            text=glyph(canvas, "lock"),
+            fill=p["muted"],
+            font=(ICON, max(8, r - 1)),
+        )
+    elif item.equipped:
+        canvas.create_oval(size - 15, 4, size - 5, 14, fill=p["primary"], outline="")
+
+
+def art(app, parent, item, size=56, fill=None):
+    p = app.motion.palette
+    fill = fill or p["raised"]
+    canvas = tk.Canvas(
+        parent,
+        width=size,
+        height=size,
+        bg=background_of(parent) or p["surface"],
+        highlightthickness=0,
     )
+    item_art(app, canvas, item, size, fill)
+    return canvas
 
 
 def stage(app, parent, hero):
-    panel = Panel(parent, app, padding=(12, 12), tone="hero", stretch=True)
-    panel.pack(fill="both", expand=True)
+    card = Card(parent, app, padding=(14, 14), stretch=True)
+    card.pack(fill="both", expand=True)
     view = CharacterView(
-        panel.body, app, hero.equipped, backdrop=app.store.pref("rpg_effects", True)
+        card.body, app, hero.equipped, backdrop=app.store.pref("rpg_effects", True)
     )
-    view.configure(height=330)
+    view.configure(height=360)
     view.pack(fill="both", expand=True)
     app.character_view = view
     MotionButton(
-        panel.body,
+        card.body,
         text="Personalizar aparência",
         icon="wand-sparkles",
+        style="Ghost.TButton",
         command=app.customize_character,
-    ).pack(pady=(4, 6))
+    ).pack(pady=(2, 2))
 
 
 def profile(app, parent, hero, equipment):
     p = app.motion.palette
-    panel = Panel(parent, app, padding=(24, 22), stretch=True)
-    panel.pack(fill="both", expand=True)
-    body = panel.body
-    head = ttk.Frame(body, style="Panel.TFrame")
-    head.pack(fill="x")
+    card = Card(parent, app, padding=(26, 24), stretch=True)
+    card.pack(fill="both", expand=True)
+    body = card.body
     if hero.source == "demo":
-        demo_chip(head).pack(side="left")
-    ttk.Label(
+        demo_chip(body).pack(anchor="w", pady=(0, 10))
+    show = app.store.pref("rpg_show_character", True)
+    tk.Label(
         body,
-        text=(
-            hero.name
-            if app.store.pref("rpg_show_character", True)
-            else "Progressão dos estudos"
-        ),
-        style="PanelDisplay.TLabel",
-    ).pack(anchor="w", pady=(12, 0))
-    if app.store.pref("rpg_show_character", True):
-        ttk.Label(body, text=hero.title, style="PanelMuted.TLabel").pack(anchor="w")
-    level = ttk.Frame(body, style="Panel.TFrame")
-    level.pack(fill="x", pady=(16, 6))
-    ttk.Label(level, text=f"Nível {hero.level}", style="PanelHeading.TLabel").pack(
-        side="left"
-    )
-    ttk.Label(
+        text=hero.name if show else "Progressão dos estudos",
+        bg=p["surface"],
+        fg=p["fg"],
+        font=(DISPLAY, 19, "bold"),
+        anchor="w",
+    ).pack(fill="x")
+    if show:
+        label(body, app, hero.title, size=10, tone="muted").pack(anchor="w")
+    level = tk.Frame(body, bg=p["surface"])
+    level.pack(fill="x", pady=(18, 6))
+    label(level, app, f"Nível {hero.level}", size=12, weight="bold").pack(side="left")
+    label(
         level,
-        text=f"{hero.xp} / {hero.xp_next} XP • faltam {hero.xp_next - hero.xp}",
-        style="PanelMuted.TLabel",
+        app,
+        f"{number(hero.xp)} de {number(hero.xp_next)} XP · faltam {number(hero.xp_next - hero.xp)}",
+        size=9,
+        tone="muted",
     ).pack(side="right")
     ProgressBar(
-        body, app, hero.xp / hero.xp_next * 100 if hero.xp_next else 0, height=8
+        body, app, hero.xp / hero.xp_next * 100 if hero.xp_next else 0, height=7
     ).pack(fill="x")
-    stats = ttk.Frame(body, style="Panel.TFrame")
-    stats.pack(fill="x", pady=(14, 18))
-    for icon, text, color, tip in [
+    stats = tk.Frame(body, bg=p["surface"])
+    stats.pack(fill="x", pady=(12, 0))
+    for icon, text, tone, tip in [
         (
             "flame",
-            f"{hero.streak_days} dias seguidos",
-            p["warning"],
-            "Real: dias consecutivos com estudo registrado.",
+            f"{hero.streak_days} {'dia' if hero.streak_days == 1 else 'dias'} seguidos",
+            "warning",
+            "Dias consecutivos com estudo registrado. Faltar um dia não tira nada.",
         ),
         (
             "coins",
-            f"{hero.coins} moedas",
-            p["accent"],
+            f"{number(hero.coins or 0)} moedas",
+            "accent",
             (
                 "Demonstração."
                 if hero.source == "demo"
-                else "Moedas virtuais de atividades reais; acessórios com atalhos de estudo, sem multiplicadores."
+                else "Moedas virtuais de atividades reais; compram acessórios, sem multiplicadores."
             ),
         ),
     ]:
-        item = ttk.Frame(stats, style="Panel.TFrame")
-        item.pack(side="left", padx=(0, 18))
-        if glyph(item, icon):
-            ttk.Label(
-                item,
-                text=glyph(item, icon),
-                font=(ICON, 12),
-                foreground=color,
-                style="Panel.TLabel",
-            ).pack(side="left", padx=(0, 6))
-        ttk.Label(item, text=text, style="Panel.TLabel").pack(side="left")
+        item = tk.Frame(stats, bg=p["surface"])
+        item.pack(side="left", padx=(0, 20))
+        icon_label(item, app, icon, size=11, tone=tone).pack(side="left", padx=(0, 6))
+        label(item, app, text, size=10).pack(side="left")
         Tooltip(item, tip)
+    upcoming = [i for i in equipment if not i.unlocked]
+    rewards = [i for i in upcoming if i.acquisition == "reward"] or upcoming
+    if rewards:
+        nxt = rewards[0]
+        label(body, app, "Próximo desbloqueio", size=10, weight="bold").pack(
+            anchor="w", pady=(22, 8)
+        )
+        line = tk.Frame(body, bg=p["surface"], cursor="hand2")
+        line.pack(fill="x")
+        art(app, line, nxt, 48).pack(side="left", padx=(0, 12))
+        texts = tk.Frame(line, bg=p["surface"])
+        texts.pack(side="left", fill="x", expand=True)
+        label(texts, app, nxt.name, size=10).pack(anchor="w")
+        wrapping(label(texts, app, nxt.unlock_hint, size=9, tone="muted")).pack(
+            fill="x"
+        )
+        for widget in (line, texts, *texts.winfo_children()):
+            widget.bind("<Button-1>", lambda e, i=nxt: select_item(app, i), add="+")
+    worn = [i for i in equipment if i.equipped]
+    if worn:
+        label(body, app, "Equipado", size=10, weight="bold").pack(
+            anchor="w", pady=(20, 8)
+        )
+        slots = tk.Frame(body, bg=p["surface"])
+        slots.pack(fill="x")
+        for index, item in enumerate(worn[:8]):
+            cell = art(app, slots, item, 44)
+            cell.grid(row=index // 8, column=index % 8, padx=(0, 8), pady=(0, 8))
+            cell.configure(cursor="hand2")
+            cell.bind("<Button-1>", lambda e, i=item: select_item(app, i))
+            Tooltip(cell, f"{item.name} · {item.slot}")
 
 
-def equipment_panel(app, equipment):
-    panel = Panel(app.content, app)
-    panel.pack(fill="x", pady=(0, 16))
-    body = panel.body
-    SectionHeader(body, app, "Inventário e recompensas", icon="backpack").pack(fill="x")
-    ttk.Label(
-        body,
-        text="Comece com trapos e uma arma velha. Ganhe equipamento por nível e marcos de estudo.",
-        style="PanelMuted.TLabel",
-        wraplength=700,
-    ).pack(anchor="w", pady=(4, 10))
-    tabs = ttk.Frame(body, style="Panel.TFrame")
-    tabs.pack(fill="x", pady=(0, 12))
-    grid = ttk.Frame(body, style="Panel.TFrame")
+def select_item(app, item):
+    app.equipment_category = item.kind
+    app.equipment_selected = item.id
+    app.refresh()
+
+
+def inventory(app, equipment):
+    p = app.motion.palette
+    owned = sum(item.unlocked for item in equipment)
+    section = Section(
+        app.content, app, "Inventário", count=f"{owned} de {len(equipment)}"
+    )
+    section.pack(fill="x", pady=(0, 10))
+    wrapping(
+        label(
+            app.content,
+            app,
+            "Você começa com trapos e uma arma velha. Itens chegam por nível e por marcos de estudo; nenhum dá vantagem nas métricas.",
+            size=9,
+            tone="muted",
+        )
+    ).pack(fill="x", pady=(0, 12))
+    columns = Columns(app.content, app, (3, 2), gap=18, breakpoint=900)
+    columns.pack(fill="x", pady=(0, 26))
+    grid_card = Card(columns.cols[0], app, padding=(18, 16), stretch=True)
+    grid_card.pack(fill="both", expand=True)
+    detail_card = Card(columns.cols[1], app, padding=(24, 22), stretch=True)
+    detail_card.pack(fill="both", expand=True)
+    tabs = tk.Frame(grid_card.body, bg=p["surface"])
+    tabs.pack(fill="x", pady=(0, 14))
+    grid = tk.Frame(grid_card.body, bg=p["surface"])
     grid.pack(fill="x")
     kinds = list(dict.fromkeys(item.kind for item in equipment))
-    selected = getattr(app, "equipment_category", "Roupas")
-    if selected not in kinds:
-        selected = kinds[0] if kinds else ""
+    selected_kind = getattr(app, "equipment_category", "Roupas")
+    if selected_kind not in kinds:
+        selected_kind = kinds[0] if kinds else ""
+    by_id = {item.id: item for item in equipment}
     tiles = []
     layout = [0]
+    buttons = {}
+    current = [by_id.get(getattr(app, "equipment_selected", None))]
 
     def reflow(event=None):
-        per_row = max(1, min(5, grid.winfo_width() // 165))
+        per_row = max(2, min(6, grid.winfo_width() // 104))
         if per_row == layout[0]:
             return
         layout[0] = per_row
-        for col in range(5):
+        for col in range(6):
             grid.columnconfigure(
                 col,
                 weight=1 if col < per_row else 0,
@@ -207,25 +333,29 @@ def equipment_panel(app, equipment):
             )
         for index, tile in enumerate(tiles):
             row, col = divmod(index, per_row)
-            tile.grid(
-                row=row,
-                column=col,
-                sticky="nsew",
-                padx=(0 if col == 0 else 8, 0),
-                pady=(0 if row == 0 else 8, 0),
-            )
-
-    buttons = {}
+            tile.grid(row=row, column=col, sticky="nsew", padx=4, pady=4)
 
     def show(kind):
         app.equipment_category = kind
         for widget in grid.winfo_children():
             widget.destroy()
-        tiles[:] = [slot(app, grid, item) for item in equipment if item.kind == kind]
+        items = [item for item in equipment if item.kind == kind]
+        tiles[:] = [tile(app, grid, item, choose) for item in items]
         for key, button in buttons.items():
             button.select(key == kind)
         layout[0] = 0
         app.motion.idle(grid, reflow)
+        if not current[0] or current[0].kind != kind:
+            choose(items[0] if items else None)
+        else:
+            choose(current[0])
+
+    def choose(item):
+        current[0] = item
+        app.equipment_selected = item.id if item else None
+        for widget in tiles:
+            widget.mark(widget.item is item)
+        item_detail(app, detail_card.body, item)
 
     for kind in kinds:
         buttons[kind] = MotionButton(
@@ -233,55 +363,156 @@ def equipment_panel(app, equipment):
         )
         buttons[kind].pack(side="left", padx=(0, 6))
     grid.bind("<Configure>", reflow)
-    show(selected)
+    show(selected_kind)
+
+
+def tile(app, parent, item, on_choose):
+    p = app.motion.palette
+    frame = tk.Frame(parent, bg=p["surface"], cursor="hand2", takefocus=True)
+    frame.item = item
+    picture = art(app, frame, item, 64)
+    picture.pack(pady=(8, 4))
+    name = tk.Label(
+        frame,
+        text=item.name,
+        bg=p["surface"],
+        fg=p["fg"] if item.unlocked else p["muted"],
+        font=(app.font_family, 9),
+        wraplength=92,
+        justify="center",
+    )
+    name.pack(padx=4, pady=(0, 8))
+    selected = [False]
+
+    def paint(color):
+        for widget in (frame, name):
+            widget.configure(bg=color)
+        picture.configure(bg=color)
+
+    def mark(value):
+        selected[0] = value
+        paint(p["selected"] if value else p["surface"])
+
+    def hover(inside):
+        if not selected[0]:
+            paint(p["hover"] if inside else p["surface"])
+
+    frame.mark = mark
+    for widget in (frame, picture, name):
+        widget.bind("<Button-1>", lambda e: on_choose(item))
+        widget.bind("<Enter>", lambda e: hover(True))
+        widget.bind("<Leave>", lambda e: hover(False))
+    frame.bind("<Return>", lambda e: on_choose(item))
+    return frame
+
+
+def item_detail(app, body, item):
+    p = app.motion.palette
+    for widget in body.winfo_children():
+        widget.destroy()
+    if item is None:
+        label(body, app, "Nenhum item nesta categoria.", size=10, tone="muted").pack(
+            anchor="w"
+        )
+        return
+    art(app, body, item, 96, p["raised"]).pack(anchor="w")
+    wrapping(label(body, app, item.name, size=14, weight="bold")).pack(
+        fill="x", pady=(14, 0)
+    )
+    state = (
+        "Equipado"
+        if item.equipped
+        else ("Guardado no inventário" if item.unlocked else "Bloqueado")
+    )
+    kind = (
+        item.kind
+        if item.slot.lower() in item.kind.lower()
+        else f"{item.kind} · {item.slot}"
+    )
+    label(
+        body,
+        app,
+        f"{kind} · {state}",
+        size=9,
+        tone="accent" if item.equipped else "muted",
+    ).pack(anchor="w", pady=(4, 0))
+    wrapping(label(body, app, item.description, size=10)).pack(fill="x", pady=(14, 0))
+    if item.purpose and item.purpose.strip() != item.description.strip():
+        wrapping(label(body, app, item.purpose, size=9, tone="muted")).pack(
+            fill="x", pady=(8, 0)
+        )
+    if not item.unlocked:
+        label(body, app, "Como liberar", size=10, weight="bold").pack(
+            anchor="w", pady=(16, 2)
+        )
+        wrapping(label(body, app, item.unlock_hint, size=10, tone="muted")).pack(
+            fill="x"
+        )
+
+    def act():
+        if item.source == "real":
+            from rpg_ui import purchase_preview
+
+            purchase_preview(app, item.id)
+            return
+        if item.unlocked:
+            app.journey.toggle_equipment(app.plan, item.id)
+            app.refresh()
+
+    text = (
+        ("Desequipar" if item.equipped else "Equipar")
+        if item.unlocked
+        else (
+            "Ver requisitos e preço" if item.acquisition == "shop" else "Ver requisitos"
+        )
+    )
+    if item.source == "real":
+        text = "Ver, comprar ou equipar" if not item.unlocked else text
+    MotionButton(
+        body,
+        text=text,
+        icon="shirt" if item.unlocked else "lock",
+        command=act,
+        state="normal" if item.source == "real" or item.unlocked else "disabled",
+    ).pack(side="bottom", anchor="w", pady=(16, 0))
 
 
 def study_paths(app, rows):
-    panel = Panel(app.content, app)
-    panel.pack(fill="x", pady=(0, 16))
-    body = panel.body
-    SectionHeader(body, app, "Caminhos de classe", icon="graduation-cap").pack(fill="x")
-    ttk.Label(
-        body,
-        text="Não precisa escolher uma classe. Os seis caminhos evoluem juntos; nenhuma ausência tira seu equipamento.",
-        style="PanelMuted.TLabel",
-        wraplength=700,
-    ).pack(anchor="w", pady=(4, 12))
-    for path in rows:
-        row = ttk.Frame(body, style="Panel.TFrame")
-        row.pack(fill="x", pady=6)
-        text = ttk.Frame(row, style="Panel.TFrame")
-        text.pack(side="left", fill="x", expand=True)
-        ttk.Label(
-            text, text=f"{path.name} · {path.rank}", style="PanelHeading.TLabel"
-        ).pack(anchor="w")
-        label = ttk.Label(
-            text,
-            text=f"{path.value}/{path.target} {path.unit} · {path.purpose}",
-            style="PanelMuted.TLabel",
-            wraplength=600,
+    section = Section(app.content, app, "Caminhos de classe")
+    section.pack(fill="x", pady=(0, 6))
+    wrapping(
+        label(
+            app.content,
+            app,
+            "Não precisa escolher uma classe: os seis caminhos evoluem juntos, e nenhuma ausência tira seu equipamento.",
+            size=9,
+            tone="muted",
         )
-        label.pack(anchor="w", pady=(2, 4))
-        label.bind(
-            "<Configure>",
-            lambda e, w=label: (
-                w.configure(wraplength=max(160, e.width))
-                if int(w.cget("wraplength")) != max(160, e.width)
-                else None
-            ),
+    ).pack(fill="x", pady=(0, 12))
+    card = Card(app.content, app, padding=(14, 8))
+    card.pack(fill="x", pady=(0, 26))
+    for index, path in enumerate(rows):
+        row = Row(
+            card.body,
+            app,
+            f"{path.name} · {path.rank}",
+            f"{path.value} de {path.target} {path.unit} · {path.purpose}",
+            separator=index < len(rows) - 1,
         )
-        ProgressBar(text, app, min(100, path.value / path.target * 100), height=5).pack(
-            fill="x"
-        )
+        row.pack(fill="x")
+        ProgressBar(
+            row.texts, app, min(100, path.value / path.target * 100), height=4
+        ).pack(fill="x", pady=(6, 2))
 
         def practice(action=path.action):
             from rpg_ui import study_action
 
             study_action(app, action)
 
-        MotionButton(row, text="Praticar", command=practice).pack(
+        MotionButton(row.trail, text="Praticar", height=32, command=practice).pack(
             side="right", padx=(16, 0)
         )
+        row.refresh_bindings()
 
 
 ITEM_ICONS = [
@@ -417,7 +648,7 @@ def slot(app, parent, item):
 
 def skills(app, rows):
     panel = Panel(app.content, app)
-    panel.pack(fill="x", pady=(0, 16))
+    panel.pack(fill="x", pady=(0, 26))
     body = panel.body
     demo = any(skill.progress_source == "demo" for skill in rows)
     SectionHeader(
@@ -429,7 +660,7 @@ def skills(app, rows):
             (
                 lambda parent: Chip(
                     parent,
-                    "NÍVEL: DEMONSTRAÇÃO",
+                    "Nível de demonstração",
                     tone="demo",
                     tip="O nível por matéria é fictício. Esforço e desempenho são reais.",
                 )
@@ -488,9 +719,7 @@ def skills(app, rows):
 
 def skill_card(app, parent, skill, most):
     p = app.motion.palette
-    card = tk.Frame(
-        parent, bg=p["raised"], highlightthickness=1, highlightbackground=p["border"]
-    )
+    card = tk.Frame(parent, bg=p["raised"], highlightthickness=0)
     head = tk.Frame(card, bg=p["raised"])
     head.pack(fill="x", padx=14, pady=(12, 0))
     name = tk.Label(
@@ -570,7 +799,7 @@ def skill_card(app, parent, skill, most):
             fill="x", padx=14, pady=(5, 0)
         )
     tk.Frame(card, bg=p["raised"], height=12).pack()
-    hover_card(app, card, p["raised"], p["hover"], p["border"], p["strong"])
+    hover_card(app, card, p["raised"], p["hover"])
     for widget in [card, head, name]:
         widget.bind(
             "<Button-1>", lambda e, sid=skill.subject_id: app.subject_detail(sid)
@@ -735,23 +964,41 @@ def story(app, parent, chapters):
 
 def challenges(app, items):
     p = app.motion.palette
-    panel = Panel(app.content, app)
+    section = Section(app.content, app, "Masmorras, chefes e revanche")
+    section.pack(fill="x", pady=(0, 6))
+    if any(i.source == "demo" for i in items):
+        demo_chip(section).pack(side="left", padx=(10, 0))
+    if app.journey.character(app.plan).source == "real":
+        from rpg_ui import challenge_form, challenge_list, difficulty_list
+
+        section.action(
+            "Criar masmorra ou chefe",
+            lambda: challenge_form(app),
+            icon="plus",
+            style="TButton",
+        )
+        section.menu(
+            "",
+            [
+                ("Desafios em andamento", lambda: challenge_list(app)),
+                ("Dificuldades e revanche", lambda: difficulty_list(app)),
+                None,
+                ("Ver simulados", lambda: app.navigate("Simulados")),
+            ],
+        )
+    wrapping(
+        label(
+            app.content,
+            app,
+            "Masmorras usam só assuntos que você já estudou; um simulado registrado pode ser o chefe. "
+            "Dificuldades anotadas voltam como revanche.",
+            size=9,
+            tone="muted",
+        )
+    ).pack(fill="x", pady=(0, 12))
+    panel = Card(app.content, app, padding=(18, 16))
     panel.pack(fill="x", pady=(0, 8))
     body = panel.body
-    SectionHeader(
-        body,
-        app,
-        "Masmorras e chefes",
-        icon="castle",
-        chip=demo_chip if any(i.source == "demo" for i in items) else None,
-        action=("Ver simulados", lambda: app.navigate("Simulados")),
-    ).pack(fill="x")
-    ttk.Label(
-        body,
-        text="Desafios usam apenas assuntos já estudados. O resultado continua sendo uma análise séria.",
-        style="PanelMuted.TLabel",
-        font=(app.font_family, 9),
-    ).pack(anchor="w", pady=(4, 12))
     grid = ttk.Frame(body, style="Panel.TFrame")
     grid.pack(fill="x")
     if not items:
@@ -761,19 +1008,14 @@ def challenges(app, items):
             "castle",
             "Nenhum desafio criado",
             "Monte uma masmorra com assuntos já estudados ou registre um simulado como chefe.",
-            [("Ver simulados", lambda: app.navigate("Simulados"), "swords")],
+            [],
         ).pack(fill="x")
         return
     for index, item in enumerate(items):
         grid.columnconfigure(index % 2, weight=1, uniform="challenge")
         boss = item.kind == "chefe"
         fill = p["raised"]
-        card = tk.Frame(
-            grid,
-            bg=fill,
-            highlightthickness=1,
-            highlightbackground=p["accent"] if boss else p["border"],
-        )
+        card = tk.Frame(grid, bg=fill, highlightthickness=0)
         card.grid(
             row=index // 2,
             column=index % 2,
@@ -792,7 +1034,7 @@ def challenges(app, items):
         ).pack(side="left", padx=(0, 10))
         tk.Label(
             head,
-            text=("CHEFE" if boss else "MASMORRA"),
+            text=("Chefe" if boss else "Masmorra"),
             bg=fill,
             fg=p["accent"] if boss else p["muted"],
             font=(app.font_family, 8, "bold"),

@@ -1,0 +1,95 @@
+{
+  "example": true,
+  "publication_status": "example_only",
+  "description": "Dados sintéticos para desenvolvimento; não são conteúdo revisado ou publicado.",
+  "lessons": [
+    {
+      "id": "example.lesson",
+      "version": "1",
+      "title": "Aula de exemplo",
+      "pages": 3,
+      "pdf_url": null,
+      "status": "planejada",
+      "subject_id": "example.subject",
+      "topic_ids": [
+        "example.topic"
+      ],
+      "exam_ids": [],
+      "example": true,
+      "catalog_revision": 1
+    }
+  ],
+  "questions": [
+    {
+      "id": "example.question",
+      "version": "1",
+      "type": "multipla-escolha",
+      "options": {
+        "a": "3",
+        "b": "4"
+      },
+      "annulled": false,
+      "prompt": "Exemplo: quanto é 2 + 2?",
+      "subject_id": "example.subject",
+      "topic_ids": [
+        "example.topic"
+      ],
+      "exam_ids": [],
+      "provenance": {
+        "kind": "autoral",
+        "label": "Exemplo sintético"
+      },
+      "example": true,
+      "catalog_revision": 1,
+      "status": "rascunho"
+    }
+  ],
+  "decks": [
+    {
+      "id": "example.deck",
+      "title": "Deck de exemplo",
+      "version": "1",
+      "subject_id": "example.subject",
+      "topic_ids": [
+        "example.topic"
+      ],
+      "topic_id": "example.topic",
+      "example": true,
+      "catalog_revision": 1
+    }
+  ],
+  "cards": [
+    {
+      "id": "example.card",
+      "version": "1",
+      "deck_id": "example.deck",
+      "front": "Quanto é 2 + 2?",
+      "back": "4",
+      "explanation": "Exemplo de cartão.",
+      "source": "Exemplo sintético",
+      "lesson_id": "example.lesson",
+      "question_id": "example.question",
+      "suspended": false,
+      "deleted": false,
+      "deck_version": "1",
+      "example": true,
+      "catalog_revision": 1,
+      "status": "rascunho"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "example.subject",
+      "name": "Matemática de exemplo"
+    }
+  ],
+  "topics": [
+    {
+      "id": "example.topic",
+      "subject_id": "example.subject",
+      "parent_id": null,
+      "name": "Adição de exemplo"
+    }
+  ],
+  "exams": []
+}

@@ -1,0 +1,31 @@
+{
+ "schema_version": 1,
+ "catalog_id": "rumo-conteudo",
+ "catalog_version": "0.1.0",
+ "generated_at": "2026-10-11",
+ "kind": "publicado",
+ "notice": "Exemplo: substitua pelos dados reais. A aula abaixo está planejada e não tem PDF.",
+ "subjects": [{"id": "dados.modelagem", "name": "Banco de dados e modelagem"}],
+ "topics": [
+  {"id": "dados.modelagem:assunto:01", "subject_id": "dados.modelagem", "name": "Fundamentos e arquitetura de SGBDs", "suggested_prerequisite_topic_ids": []}
+ ],
+ "lessons": [
+  {
+   "id": "dados.modelagem:aula:01",
+   "primary_topic_id": "dados.modelagem:assunto:01",
+   "additional_topic_ids": [],
+   "title": "Fundamentos e arquitetura de SGBDs",
+   "content_version": "0.1.0",
+   "publication_status": "planejada",
+   "summary": "",
+   "objectives": ["Explicar o que um SGBD faz e quais problemas resolve"],
+   "prerequisite_lesson_ids": [],
+   "authors": [],
+   "review": {"status": "pendente", "reviewer": null, "reviewed_at": null},
+   "resource": null,
+   "license": "",
+   "sources": [],
+   "coverage_links": [{"exam_id": "bacen-2024-ti", "item_id": "bacen-2024-ti:disciplina:10:item:1", "depth": "", "status": "nao-auditada"}]
+  }
+ ]
+}

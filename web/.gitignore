@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+public/fonts/
+public/character/
+public/pdf/
+public/favicon.png
+*.tsbuildinfo
+.vercel
+dist-*/
+scripts/servico-local/.tmp/
+e2e/.shots/

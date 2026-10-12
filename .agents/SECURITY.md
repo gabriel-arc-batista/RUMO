@@ -20,3 +20,20 @@ A marca do JSON é um rótulo de 1–64 caracteres, não uma barreira de seguran
 Backups RPG v4/v5 exigem fontes únicas e recompensas compatíveis com sessões/revisões/desafios canônicos. Valores de catálogo, preços, slots e relações entre planos/assuntos são validados antes da restauração. Recompensas não são confiadas a números arbitrários do JSON. RPG não introduz serviços externos, pagamentos ou sorteios.
 
 Itens de evolução têm IDs, slots, requisitos e preço zero no catálogo permitido. Backups mantêm aquisições antigas mesmo quando a correção reduz o nível; não inferir fraude só de um item cujo marco atual diminuiu. Atalhos não executam conteúdo externo nem geram registros. As classes não introduzem moedas pagas, sorteios, vantagens nas métricas ou penalidades por ausência.
+
+Campo de Treinamento: catálogo público só por HTTPS ou pasta local; validação completa antes de ativar (último válido permanece). PDFs apenas de hosts aprovados (redirecionamentos conferidos), com limite de tamanho, SHA-256, verificação `%PDF-`, espaço em disco e gravação atômica. Nada do catálogo é executado. Aula publicada exige revisão aprovada; planejadas/rascunhos não têm URL. Preferência `training_source` validada nos backups (sem credenciais, remoto só HTTPS). Nenhum dado pessoal é enviado; SHA-256 não autentica o editor do catálogo (assinatura é evolução futura).
+
+## Integração opcional autorizada (12/10/2026)
+As afirmações iniciais de ausência de conta/rede referem-se ao modo local.
+Supabase Auth + RLS/RPC é opcional, sem publicação nesta etapa. Backend usa
+`auth.uid()`, lock por conta e security definer com search_path fixo. Tabelas
+privadas não são expostas nem graváveis pelo cliente. Gabarito/comentário só
+retornam ao dono após confirmar; XP/agenda derivam de eventos canônicos.
+Catálogo publicado exige revisão; exemplos são explícitos, rascunhos ocultos.
+Cliente HTTPS rejeita redirecionamentos/origens com credenciais; tokens em memória,
+sem `.env` do desktop. Site só recebe chave pública, nunca administrativa.
+Workspace não criptografado segue a proteção de arquivos do usuário do sistema.
+Conta vinculada não pode ser trocada silenciosamente. Upload legado exige seleção;
+PDFs pessoais e demais dados fora do contrato não são enviados. Cada evento tem
+UUID e CAS; conflito preserva original. Backups antigos não apagam dados remotos;
+exportar workspace separadamente. Logout impede rede mas mantém pendências locais.

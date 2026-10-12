@@ -16,6 +16,7 @@ for name in [
     "README.md",
     "CHECKLIST.md",
     "THIRD_PARTY.md",
+    "THIRD_PARTY_ASSETS.md",
     "FONTES.md",
     "SECURITY_REVIEW.md",
 ]:
@@ -24,6 +25,12 @@ for name in [
 (bundle / "docs").mkdir(exist_ok=True)
 for source in (project / "docs").glob("*.md"):
     shutil.copy2(source, bundle / "docs" / source.name)
+integration = project / "docs/integration"
+if integration.is_dir():
+    target = bundle / "docs/integration"
+    target.mkdir(exist_ok=True)
+    for source in integration.glob("*.md"):
+        shutil.copy2(source, target / source.name)
 prefix = Path(sys.base_prefix)
 font_license = project / "assets/fonts/OFL.txt"
 if font_license.exists():
@@ -57,7 +64,7 @@ for name in ["tk8.6", "tcl8.6"]:
             )
             if source.is_file():
                 shutil.copy2(source, notices / (name + "-copyright.txt"))
-for package in ["tzdata", "pyinstaller"]:
+for package in ["tzdata", "pyinstaller", "pypdfium2"]:
     dist = distribution(package)
     for entry in dist.files:
         label = str(entry).replace("\\", "/")

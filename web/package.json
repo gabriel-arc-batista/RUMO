@@ -1,0 +1,44 @@
+{
+  "name": "rumo-site",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Site do RUMO: Campo de Treinamento, Arena e Flashcards.",
+  "scripts": {
+    "assets": "node scripts/copy-assets.mjs",
+    "predev": "npm run assets",
+    "dev": "vite",
+    "prebuild": "npm run assets",
+    "build": "tsc -p tsconfig.json && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json",
+    "e2e": "node e2e/flow.mjs",
+    "e2e:servico": "MODE=servico BASE=http://localhost:4175 node e2e/flow.mjs && node e2e/extras.mjs",
+    "servico:up": "bash scripts/servico-local/up.sh",
+    "servico:down": "bash scripts/servico-local/down.sh",
+    "build:servico": "vite build --mode servico --outDir dist-servico",
+    "preview:servico": "vite preview --outDir dist-servico --port 4175 --strictPort"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.117.2",
+    "lucide-react": "1.48.0",
+    "pdfjs-dist": "6.3.289",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-router-dom": "7.18.4"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/react": "16.3.3",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "fake-indexeddb": "6.2.5",
+    "jsdom": "30.1.1",
+    "playwright-core": "1.63.0",
+    "typescript": "7.0.2",
+    "vite": "8.3.1",
+    "vitest": "5.0.2"
+  }
+}

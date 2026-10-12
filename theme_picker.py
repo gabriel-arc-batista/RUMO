@@ -109,9 +109,7 @@ class ThemeCard(tk.Canvas):
                 fill=t[key],
                 outline=t["strong"],
             )
-        label = (
-            "ATUAL" if self.current else ("ESCURO" if self.theme["dark"] else "CLARO")
-        )
+        label = "Em uso" if self.current else ""
         self.create_text(
             w - 16,
             y + h - 27,
@@ -129,20 +127,26 @@ def open_theme_picker(app, reveal=True):
     win.title("Temas • RUMO")
     win.configure(bg=app.bg)
     win.transient(app.root)
-    win.geometry("780x640")
+    win.geometry(
+        f"{min(1010, app.root.winfo_screenwidth() - 80)}x"
+        f"{min(760, app.root.winfo_screenheight() - 120)}"
+    )
     win.minsize(560, 480)
     head = ttk.Frame(win)
     head.pack(fill="x", padx=24, pady=(22, 4))
     ttk.Label(head, text="Temas", style="Title.TLabel").pack(anchor="w")
     ttk.Label(
         head,
-        text="Todos mantêm o dourado do RUMO e somam uma cor companheira. Clique para aplicar.",
+        text="Cada tema combina três cores: o fundo, a cor principal e uma companheira. Clique para aplicar.",
         style="Muted.TLabel",
     ).pack(anchor="w", pady=(2, 0))
-    grid = ttk.Frame(win)
-    grid.pack(fill="both", expand=True, padx=24, pady=12)
-    grid.columnconfigure(0, weight=1, uniform="theme")
-    grid.columnconfigure(1, weight=1, uniform="theme")
+    footer = ttk.Frame(win)
+    footer.pack(side="bottom", fill="x", padx=24, pady=(0, 18))
+    from app import Scroll
+
+    area = Scroll(win)
+    area.pack(fill="both", expand=True, padx=(24, 8), pady=12)
+    area.canvas.configure(bg=app.bg)
 
     def pick(name):
         app.store.set_pref("theme", name)
@@ -152,17 +156,45 @@ def open_theme_picker(app, reveal=True):
         app.motion.reveal(app.root)
         app.root.after(30, lambda: open_theme_picker(app, reveal=False))
 
-    for index, name in enumerate(THEMES):
-        card = ThemeCard(grid, app, name, name == current, pick)
-        card.grid(
-            row=index // 2,
-            column=index % 2,
-            sticky="nsew",
-            padx=(0 if index % 2 == 0 else 8, 8 if index % 2 == 0 else 0),
-            pady=(0, 10),
+    groups = []
+    for title, dark in [("Escuros", True), ("Claros", False)]:
+        ttk.Label(area.body, text=title, style="Heading.TLabel").pack(
+            anchor="w", pady=(6, 8)
         )
-    footer = ttk.Frame(win)
-    footer.pack(fill="x", padx=24, pady=(0, 18))
+        grid = ttk.Frame(area.body)
+        grid.pack(fill="x", padx=(0, 12), pady=(0, 10))
+        cards = [
+            ThemeCard(grid, app, name, name == current, pick)
+            for name, theme in THEMES.items()
+            if theme["dark"] == dark
+        ]
+        groups.append((grid, cards))
+
+    def reflow(event=None):
+        width = area.body.winfo_width()
+        columns = max(1, min(3, width // 300))
+        for grid, cards in groups:
+            if getattr(grid, "_columns", None) == columns:
+                continue
+            grid._columns = columns
+            for column in range(3):
+                grid.columnconfigure(
+                    column,
+                    weight=1 if column < columns else 0,
+                    uniform="theme" if column < columns else "",
+                )
+            for index, card in enumerate(cards):
+                column = index % columns
+                card.grid(
+                    row=index // columns,
+                    column=column,
+                    sticky="nsew",
+                    padx=(0 if column == 0 else 6, 0 if column == columns - 1 else 6),
+                    pady=(0, 10),
+                )
+
+    area.body.bind("<Configure>", reflow, add="+")
+    app.motion.idle(area.body, reflow)
     MotionButton(
         footer,
         text="Seguir o sistema",

@@ -50,6 +50,14 @@ def validate_preferences(rows: list[dict]) -> None:
         "mock_chart": ("Desempenho", "Pontuação"),
         "syllabus_order": ("Aprendizagem", "Edital"),
         "time_format": ("24h", "12h"),
+        "training_view": (
+            "disponiveis",
+            "baixadas",
+            "andamento",
+            "favoritas",
+            "planejadas",
+        ),
+        "reader_panel": ("indice", "marcadores"),
     }
     ranges = {
         "retention": (1, 100),
@@ -72,6 +80,8 @@ def validate_preferences(rows: list[dict]) -> None:
         "rpg_effects",
         "rpg_story",
         "rpg_reward_notifications",
+        "reader_side",
+        "reader_notes",
     }
     for row in rows:
         key, value = row["key"], json.loads(row["value"])
@@ -106,10 +116,43 @@ def validate_preferences(rows: list[dict]) -> None:
             raise ValueError("Nível de desafio inválido no backup.")
         if key == LOOK_PREFERENCE and not validate_look(value):
             raise ValueError("Aparência do personagem inválida no backup.")
+        if key == "training_source":
+            validate_training_source(value)
+        if key == "training_exam" and (not isinstance(value, str) or len(value) > 160):
+            raise ValueError("Edital-alvo inválido no backup.")
         if key == "timezone" and value != "Sistema":
             from zoneinfo import ZoneInfo
 
             ZoneInfo(value)
+
+
+def validate_training_source(value) -> None:
+    """Content source preference: no credentials, HTTPS only for remote."""
+    if not isinstance(value, dict) or value.get("mode") not in (
+        "none",
+        "local",
+        "remote",
+    ):
+        raise ValueError("Fonte de conteúdo inválida no backup.")
+    hosts = value.get("allowed_hosts", [])
+    if (
+        not isinstance(hosts, list)
+        or len(hosts) > 20
+        or any(
+            not isinstance(h, str)
+            or not h
+            or len(h) > 253
+            or any(c in h for c in "/@:")
+            for h in hosts
+        )
+    ):
+        raise ValueError("Hosts da fonte de conteúdo inválidos no backup.")
+    if value["mode"] == "remote":
+        url = web_url(value.get("url", ""))
+        if urlsplit(url).scheme != "https":
+            raise ValueError("A fonte remota precisa usar HTTPS.")
+    if not isinstance(value.get("path", ""), str) or len(value.get("path", "")) > 4096:
+        raise ValueError("Pasta da fonte de conteúdo inválida no backup.")
 
 
 def validate_relationships(tables: dict[str, list[dict]]) -> None:

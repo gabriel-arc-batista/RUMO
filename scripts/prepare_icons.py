@@ -23,7 +23,9 @@ triangle-alert user circle-check circle rotate-ccw skull lamp telescope
 scroll-text graduation-cap square-check square arrow-right eye pencil ellipsis
 undo-2 search palette swatch-book shirt shield-half axe hammer wand-sparkles
 wand rabbit bird dog cat squirrel turtle paw-print glasses crown gem sparkle
-venetian-mask
+venetian-mask filter-x sliders-horizontal download archive notebook-pen link
+list-filter file-text folder-open upload list chart-bar clock calendar-days trending-up
+zoom-in zoom-out bookmark bookmark-check refresh-cw cloud-off library hard-drive circle-x loader
 """.split()
 
 

@@ -10,6 +10,7 @@ from pathlib import Path
 from security import validate_preferences, validate_relationships
 from rpg_schema import RPG_TABLES
 from rpg_validation import validate_rpg
+from training_schema import TRAINING_TABLES, valid_id, valid_version, validate_training
 
 
 def validate_backup(path, schema, tables):
@@ -17,16 +18,30 @@ def validate_backup(path, schema, tables):
     if (
         not isinstance(data.get("format"), str)
         or not 1 <= len(data["format"]) <= 64
-        or data.get("version") not in [1, 2, 3, 4, 5]
+        or data.get("version") not in [1, 2, 3, 4, 5, 6]
     ):
         raise ValueError("Formato ou versão de backup inválidos.")
-    legacy = set(tables) - set(RPG_TABLES)
-    expected = legacy if data["version"] <= 3 else set(tables)
+    legacy = set(tables) - set(RPG_TABLES) - set(TRAINING_TABLES)
+    expected = (
+        legacy
+        if data["version"] <= 3
+        else legacy | set(RPG_TABLES) if data["version"] <= 5 else set(tables)
+    )
     # Some manually downgraded snapshots retain extension tables; require all or none.
-    if set(data["tables"]) not in (expected, set(tables)):
+    present = set(data["tables"])
+    if data["version"] <= 5 and set(TRAINING_TABLES) <= present:
+        present -= set(TRAINING_TABLES)
+        expected -= set(TRAINING_TABLES)
+        full = set(tables) - set(TRAINING_TABLES)
+    else:
+        full = set(tables)
+    if present not in (expected, full):
         raise ValueError("Tabelas de backup inválidas.")
     if data["version"] <= 3:
         for name in RPG_TABLES:
+            data["tables"].setdefault(name, [])
+    if data["version"] <= 5:
+        for name in TRAINING_TABLES:
             data["tables"].setdefault(name, [])
     if data["version"] == 1:
         for row in data["tables"]["sessions"]:
@@ -36,7 +51,7 @@ def validate_backup(path, schema, tables):
         for row in data["tables"]["topics"]:
             row.setdefault("notes", "")
         data["version"] = 3
-    data["version"] = 5
+    data["version"] = 6
     test = sqlite3.connect(":memory:")
     test.execute("PRAGMA foreign_keys=ON")
     test.executescript(schema)
@@ -66,6 +81,7 @@ def validate_backup(path, schema, tables):
         validate_preferences(data["tables"]["preferences"])
         validate_relationships(data["tables"])
         validate_rpg(data["tables"])
+        validate_training(data["tables"])
         for row in data["tables"]["active"]:
             active = json.loads(row["value"])
             if not isinstance(active, dict) or not {
@@ -98,6 +114,11 @@ def validate_backup(path, schema, tables):
                 raise ValueError("Tempo de rascunho inválido.")
             if not any(p["id"] == active["plan_id"] for p in data["tables"]["plans"]):
                 raise ValueError("Plano do rascunho inexistente.")
+            if active.get("lesson_id") is not None and (
+                not valid_id(active["lesson_id"])
+                or not valid_version(active.get("lesson_version"))
+            ):
+                raise ValueError("Aula do rascunho inválida.")
             subject = next(
                 (
                     s
@@ -202,7 +223,12 @@ def read_backup(path, tables):
                 for r in reader.execute("SELECT name,type FROM sqlite_master")
             }
             version = reader.execute("PRAGMA user_version").fetchone()[0]
-            required = [t for t in tables if version >= 4 or t not in RPG_TABLES]
+            required = [
+                t
+                for t in tables
+                if (version >= 4 or t not in RPG_TABLES)
+                and (version >= 6 or t not in TRAINING_TABLES)
+            ]
             if any(objects.get(t) != "table" for t in required) or any(
                 v in ("view", "trigger") for v in objects.values()
             ):

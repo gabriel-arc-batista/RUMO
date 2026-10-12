@@ -7,6 +7,9 @@ from pathlib import Path
 
 project = Path(__file__).resolve().parents[1]
 os.chdir(project)
+# Asset scripts import native modules from the project root. Preserve the
+# isolated Tk runtime paths while making those imports independent of cwd.
+os.environ["PYTHONPATH"] = str(project) + os.pathsep + os.environ.get("PYTHONPATH", "")
 subprocess.run([sys.executable, "scripts/prepare_icon.py"], check=True)
 subprocess.run([sys.executable, "scripts/prepare_character.py"], check=True)
 subprocess.run([sys.executable, "scripts/prepare_avatar.py"], check=True)
@@ -34,6 +37,13 @@ subprocess.run(
         "assets:assets",
         "--collect-data",
         "tzdata",
+        # PDF reader of the Campo de Treinamento: PDFium binary + version files.
+        "--collect-all",
+        "pypdfium2_raw",
+        "--collect-data",
+        "pypdfium2",
+        "--hidden-import",
+        "pypdfium2",
         "--exclude-module",
         "PIL",
         "--exclude-module",

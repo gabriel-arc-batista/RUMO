@@ -9,6 +9,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from core import Store, Clock, ratio, parse_duration, duration, SCHEMA
 from rpg_schema import RPG_SCHEMA
+from training_schema import TRAINING_SCHEMA, TRAINING_TABLES
 
 
 class DomainTests(unittest.TestCase):
@@ -452,6 +453,7 @@ class DomainTests(unittest.TestCase):
             )
             .replace("user_version=3", "user_version=1")
             .replace(RPG_SCHEMA, "")
+            .replace(TRAINING_SCHEMA, "")
             .replace(",notes TEXT NOT NULL DEFAULT ''", "")
         )
         c.executescript(old_schema)
@@ -464,8 +466,15 @@ class DomainTests(unittest.TestCase):
                 upgraded.one("SELECT name FROM plans")["name"], "Preservado"
             )
             self.assertEqual(
-                upgraded.db.execute("PRAGMA user_version").fetchone()[0], 5
+                upgraded.db.execute("PRAGMA user_version").fetchone()[0], 6
             )
+            tables = {
+                r[0]
+                for r in upgraded.db.execute(
+                    "SELECT name FROM sqlite_master WHERE type='table'"
+                )
+            }
+            self.assertTrue(set(TRAINING_TABLES) <= tables)
             self.assertIn(
                 "pauses",
                 [r[1] for r in upgraded.db.execute("PRAGMA table_info(sessions)")],

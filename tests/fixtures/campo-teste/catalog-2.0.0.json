@@ -1,0 +1,60 @@
+{
+ "schema_version": 1,
+ "catalog_id": "rumo-teste-leitor",
+ "catalog_version": "2.0.0",
+ "generated_at": "2026-10-11",
+ "kind": "teste",
+ "notice": "Catálogo de TESTE para validar download e leitor. Não é conteúdo de estudo.",
+ "subjects": [
+  {
+   "id": "teste.campo",
+   "name": "Material de teste"
+  }
+ ],
+ "topics": [
+  {
+   "id": "teste.campo:leitor",
+   "subject_id": "teste.campo",
+   "name": "Validação do leitor",
+   "suggested_prerequisite_topic_ids": []
+  }
+ ],
+ "lessons": [
+  {
+   "id": "teste.campo:leitor:aula:01",
+   "primary_topic_id": "teste.campo:leitor",
+   "additional_topic_ids": [],
+   "title": "[TESTE] Validação do leitor do RUMO",
+   "content_version": "2.0.0",
+   "publication_status": "teste",
+   "summary": "PDF gerado automaticamente para testar o fluxo. Não é uma aula.",
+   "objectives": [
+    "Conferir download, hash e leitura offline",
+    "Conferir busca, índice, zoom, favoritos e notas"
+   ],
+   "authors": [
+    "Gerador automatizado do RUMO"
+   ],
+   "review": {
+    "status": "pendente",
+    "reviewer": null,
+    "reviewed_at": null
+   },
+   "resource": {
+    "id": "teste.campo:leitor:aula:01:pdf",
+    "version": "2.0.0",
+    "url": "arquivos/leitor-teste-2.0.0.pdf",
+    "media_type": "application/pdf",
+    "bytes": 4891,
+    "sha256": "0cd38641fc04d984faff2b8bce5ecfdcacf2cdc7b8a2bfd1b2fe4d74efb38252",
+    "license": "Somente para testes do RUMO",
+    "page_count": 4,
+    "published_at": "2026-10-11"
+   },
+   "license": "Somente para testes do RUMO",
+   "sources": [],
+   "coverage_links": [],
+   "changes": "Versão 2 altera a página 2."
+  }
+ ]
+}

@@ -24,6 +24,7 @@ PATTERNS = {
     ),
     "AWS access key": re.compile(r"\b(?:AKIA|ASIA)[A-Z0-9]{16}\b"),
     "OpenAI key": re.compile(r"\bsk-(?:proj-|svcacct-)?[A-Za-z0-9_-]{32,}\b"),
+    "Supabase secret key": re.compile(r"\bsb_secret_[A-Za-z0-9_-]{24,}\b"),
 }
 
 
@@ -51,6 +52,10 @@ def main():
             ".toml",
             ".yml",
             ".yaml",
+            ".ts",
+            ".tsx",
+            ".js",
+            ".mjs",
         }:
             text = (ROOT / path).read_text(encoding="utf-8")
             failures.extend(

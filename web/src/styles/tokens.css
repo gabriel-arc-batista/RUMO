@@ -1,0 +1,99 @@
+/* Norte Dourado — mesmos papéis e valores de theme.THEMES["Norte Dourado"] no app. */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Bold.ttf") format("truetype");
+  font-weight: 600 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+
+  --bg: #101011;
+  --sidebar: #0c0c0d;
+  --surface: #181819;
+  --raised: #202021;
+  --hover: #262627;
+  --border: #2c2c2b;
+  --strong: #3d3d3b;
+  --fg: #f0eee8;
+  --muted: #b5b1a8;
+  --faint: #918e87;
+  --accent: #d6b97e;
+  --tint: #312c25;
+  --selected: #2a2722;
+  --primary: #c8aa6e;
+  --primary-hover: #d2b988;
+  --primary-ink: #17130b;
+  --success: #72c493;
+  --success-bg: #25302a;
+  --error: #e58085;
+  --error-bg: #352728;
+  --info: #7fb5a8;
+  --info-bg: #262e2d;
+  --warning: #e2ae62;
+  --warning-bg: #342d23;
+  --secondary: #7fb5a8;
+  --track: #2a2a29;
+  --paper: #f7f3ea;
+  --paper-ink: #1f1d1a;
+
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --display: "Poppins", var(--font);
+  --mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", "DejaVu Sans Mono", monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-md: 0.9375rem;
+  --text-lg: 1.0625rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+
+  --r-sm: 6px;
+  --r-md: 8px;
+  --r-lg: 14px;
+  --r-pill: 999px;
+
+  --sidebar-w: 248px;
+  --rail-w: 72px;
+  --header-h: 64px;
+  --content-max: 1120px;
+  --reading-max: 70ch;
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --t-fast: 120ms;
+  --t-med: 220ms;
+  --shadow: 0 10px 30px rgb(0 0 0 / 0.35);
+}
+
+/* Movimento reduzido: pela preferência do sistema ou pelo ajuste do RUMO. */
+@media (prefers-reduced-motion: reduce) {
+  :root:not([data-motion="full"]) {
+    --t-fast: 0ms;
+    --t-med: 0ms;
+  }
+}
+:root[data-motion="reduce"] {
+  --t-fast: 0ms;
+  --t-med: 0ms;
+}

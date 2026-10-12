@@ -1,12 +1,12 @@
 # Contexto para continuidade
 
-Versão preparada: **1.0.0**, em 11/10/2026. Python 3.13, Tk 8.6, SQLite esquema 5. A versão anterior foi validada em Windows 11 x64; esta integração é verificada em Linux com testes nativos e dados temporários, e o workflow de release valida os pacotes Windows. Consulte a execução da release para o resultado. O produto atende concursos e objetivos de aprendizagem em geral. Os planos BACEN 2024 incluídos são referências iniciais, não uma restrição do aplicativo.
+Versão preparada: **2.0.0**, em 12/10/2026. Tk 8.6 e SQLite esquema 6; Python 3.13 no workflow Windows, build Linux validado com Python 3.14.4. Conta e serviço são opcionais: o desktop preserva o funcionamento local/offline. Serviço Supabase hospedado validado com migrações 001–008 e duas contas temporárias, removidas após os testes. Frontend em finalização/revisão; CI Windows e publicação da release/site ainda pendentes. Consulte `docs/integration/VALIDATION.md` antes de declarar conclusão. O produto atende concursos e objetivos de aprendizagem em geral; os planos BACEN incluídos são referências iniciais.
 
 ## Produto e decisões aceitas
 
-Aplicativo sem conta, assinatura, servidor ou serviços em segundo plano. Dados ficam em `%LOCALAPPDATA%/RUMO`; binários instalados em `%LOCALAPPDATA%/Programs/RUMO`. `RUMO_DATA` permite uma pasta alternativa para testes. Não é segredo e não carrega `.env`.
+Aplicativo funciona sem conta, assinatura ou conexão obrigatória. Conta opcional usa serviço remoto autenticado somente para o compartilhamento autorizado. Dados ficam em `%LOCALAPPDATA%/RUMO`; binários instalados em `%LOCALAPPDATA%/Programs/RUMO`. `RUMO_DATA` permite uma pasta alternativa para testes. Não é segredo e não carrega `.env`.
 
-Oito temas nomeados (original: Norte Dourado, preto/grafite e dourado; claro padrão: Aurora), Inter para leitura e Poppins só na marca/personagem, ícones Lucide; tudo carregado privadamente. Motivo da marca: navegação (rosa dos ventos, viajante). Referências e tokens em `docs/RUMO_DESIGN.md` (substituem Estudei/Linear/MD3). Uma ação dourada por tela; frase diária em uma linha no cabeçalho do Início; relógio em pílula fixa no cabeçalho; RPG com selo DEMONSTRAÇÃO enquanto vier da prévia. Animações de entrada, hover e foco são finitas e respeitam a preferência de reduzir movimento.
+Treze temas nomeados (original: Norte Dourado, preto/grafite e dourado; claro padrão: Aurora), Inter para leitura e Poppins só na marca/personagem, ícones Lucide; tudo carregado privadamente. Motivo da marca: navegação (rosa dos ventos, viajante). Referências e tokens em `docs/RUMO_DESIGN.md` (substituem Estudei/Linear/MD3). Uma ação dourada por tela; frase diária em uma linha no cabeçalho do Início; relógio em pílula fixa no cabeçalho; RPG com selo DEMONSTRAÇÃO enquanto vier da prévia. Animações de entrada, hover e foco são finitas e respeitam a preferência de reduzir movimento.
 
 Cada subassunto tem conclusão verde e observações salvas sem reconstruir a lista. Nomes visíveis não mostram IDs. Relógio com busca, presets e progresso; pausas não contam. Desafios têm três níveis e permitem escolher a meta principal, lembrada no relógio. Preferências em quatro abas. Ciclo guiado usa 25 minutos por matéria e o próximo assunto pendente na ordem de aprendizagem; não é uma agenda diária rígida.
 
@@ -37,3 +37,14 @@ Perfil real é o padrão. `RUMO_JOURNEY=preview` é uma opção explícita de de
 ## Equipamentos e classes 1.0.0
 
 `rpg_progression.py` define 25 equipamentos de início/evolução e seis caminhos paralelos; os 13 IDs e preços antigos permanecem. Recompensas são gratuitas, idempotentes e persistem após correções. Novos personagens equipam apenas trapos/arma velha; itens conquistados não substituem escolhas automaticamente. Atalhos preparam fluxos existentes sem gravar estudos no clique. Esquema 5 amplia slots do inventário com migração transacional e cópia `pre-equipment` de bases v4. Backups v1–v5 aceitos. Arte original em camadas por `scripts/prepare_rpg_equipment.py`, chamada depois de `prepare_character.py`. A janela modal só captura foco quando visível; no Linux não usar fade de opacidade em Toplevels. Veja `docs/RUMO_EQUIPMENT.md`.
+
+## Expansão web autorizada — 12/10/2026
+Conta e sincronização são opcionais por pedido explícito. Modo nativo sem conta
+continua offline; não envia legado automaticamente. Serviço testável em `backend/`,
+contratos e configuração em `docs/integration/`, frontend Claude em `web/`.
+Contexto de coordenação: `WEB_INTEGRATION.md` e `SITE_WORK.md`. Tokens somente
+memória no desktop e fila separada com exportação própria; backups v1–v6 canônicos
+preservados. Projeto Supabase hospedado recebeu 001–008; Auth/RPC HTTPS, isolamento e auditoria
+validados, com zero usuários/eventos após limpeza. Não confundir esse serviço
+provisionado com site ou release publicados. Antes de concluir, conferir revisão
+final do frontend e CI Windows; veja `docs/integration/VALIDATION.md`.

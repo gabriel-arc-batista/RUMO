@@ -120,7 +120,7 @@ def background_of(parent):
         return parent.cget("bg")
 
 
-LOOK_CACHE = 72
+LOOK_CACHE = 24
 
 
 def load_image(app, relative, factor=1):
@@ -147,14 +147,26 @@ def load_image(app, relative, factor=1):
 
 
 def look_layers(app, look, view):
-    """Appearance PNG paths for ``look`` (full body or bust), in drawing order."""
-    from appearance import layers
+    """Local portrait paths; missing pieces fall back independently by category."""
+    from appearance import DEFAULT, layers
 
     back, front = layers(look)
+    default_back, default_front = layers(DEFAULT)
     folder = f"character/look/{view}/"
-    if not (app.assets / folder).exists():
-        return [], ["character/base.png"] if view == "full" else []
-    return [folder + n + ".png" for n in back], [folder + n + ".png" for n in front]
+    defaults = {name.split("-")[0]: name for name in default_back + default_front}
+
+    def available(names):
+        result = []
+        for name in names:
+            path = folder + name + ".png"
+            if not (app.assets / path).is_file():
+                fallback = defaults.get(name.split("-")[0])
+                path = folder + fallback + ".png" if fallback else ""
+            if path and (app.assets / path).is_file():
+                result.append(path)
+        return result
+
+    return available(back), available(front)
 
 
 class Motion:
@@ -752,12 +764,18 @@ class MotionButton(tk.Canvas):
         return super().cget(key)
 
     def set_focus(self, value):
+        # A click focuses the button without drawing the keyboard focus ring.
+        if value and getattr(self, "pointer", False):
+            self.pointer = False
+            return
+        self.pointer = False
         self.focused = value
         self.draw()
 
     def on_press(self, event):
         if self.disabled:
             return
+        self.pointer = True
         self.focus_set()
         self.press = 1
         self.draw()
@@ -1242,40 +1260,19 @@ class Panel(tk.Canvas):
             if int(float(self.itemcget(self.window, "height"))) != body_height:
                 self.itemconfigure(self.window, height=body_height)
         self.delete("border")
-        p = self.app.motion.palette
-        rest = (
-            blend(self.app.border, p["accent"], 0.38)
-            if self.tone == "hero"
-            else self.app.border
-        )
-        lit = (
-            blend(self.app.border, p["accent"], 0.7)
-            if self.tone == "hero"
-            else p["strong"]
-        )
-        outline = blend(rest, lit, self.hover)
+        # One quiet fill without an outline: regions separate by luminosity.
         rounded(
             self,
-            1,
-            1,
-            self.winfo_width() - 2,
-            height - 2,
+            0,
+            0,
+            self.winfo_width() - 1,
+            height - 1,
             14,
             fill=self.app.surface,
-            outline=outline,
+            outline=self.app.surface,
             width=1,
             tags="border",
         )
-        if self.tone == "hero":
-            self.create_line(
-                24,
-                1,
-                min(96, self.winfo_width() - 24),
-                1,
-                fill=p["accent"],
-                width=2,
-                tags="border",
-            )
         self.tag_lower("border")
 
 
@@ -1555,7 +1552,7 @@ FRONT_ORDER = [
 
 
 class CharacterView(tk.Canvas):
-    """Composites pre-rendered PNG layers; equipment is decorative only."""
+    """Shows the downloaded portrait; equipment remains in the existing inventory."""
 
     def __init__(self, parent, app, equipped=(), backdrop=True, bg=None, look=None):
         super().__init__(
@@ -1608,14 +1605,9 @@ class CharacterView(tk.Canvas):
             )
         look = self.look or self.app.character_look()
         back, front = look_layers(self.app, look, "full")
-        layers = []
-        for item in FRONT_ORDER:
-            if item in self.equipped:
-                layers += [f"character/{n}.png" for n in EQUIPMENT_LAYERS[item][0]]
-        layers += back + front
-        for item in FRONT_ORDER:
-            if item in self.equipped:
-                layers += [f"character/{n}.png" for n in EQUIPMENT_LAYERS[item][1]]
+        # The downloaded family contains portraits only. Equipment remains in
+        # the inventory; incompatible legacy body overlays must not cover faces.
+        layers = back + front
         self._layer_images = []
         for path in layers:
             if "glow" in path and not self.app.store.pref("rpg_effects", True):
@@ -1623,6 +1615,16 @@ class CharacterView(tk.Canvas):
             image = load_image(self.app, path)
             self._layer_images.append(image)
             self.create_image(cx, cy, image=image)
+
+        if self.equipped:
+            self.create_text(
+                cx,
+                h - 14,
+                text="Retrato • equipamentos no inventário",
+                width=max(100, w - 16),
+                fill=p["muted"],
+                font=ui_font(self, size=9),
+            )
 
 
 class Portrait(tk.Canvas):

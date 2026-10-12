@@ -92,13 +92,32 @@ Os IDs desenhados são `backpack`, `scarf`, `compass`, `spyglass` e `lantern` (o
 
 ## Mapa das telas
 
-| Tela | Onde | Estado |
+| Tela | Onde | Composição (reforma de 11/10) |
 |---|---|---|
-| Início | `screen_home.py` | **Prévia.** Missão (ação principal), "Hoje está difícil", personagem, indicadores, ciclo atual, revisões, constância, gráfico semanal e metas, matérias (esforço × desempenho). |
-| Estudo com relógio | `app.clock_setup` + `focus.py` | **Prévia.** Formulário com chips de duração; modo foco com matéria, assunto, tempo e controles; descarte separado; toast após salvar. |
-| Jornada | `screen_journey.py` | **Prévia.** Personagem, equipamentos, habilidades, conquistas, história e masmorras/chefes. |
-| Ciclo, Edital e assuntos, Revisões, Simulados, Metas, Estatísticas, Histórico, Configurações | `app.py` / `edital.py` / `challenges.py` | Herdam o tema; recomposição na etapa 2. |
-| Dificuldades / revanche | — | Etapa 2. Contrato de dados a definir com o Codex (ver handoff). |
+| Início | `screen_home.py` | Próximo estudo como protagonista (matéria, assunto, tempo do bloco, "onde parei" só quando é real, "Começar estudo" + "Hoje está difícil"); ciclo como sequência ao lado; hoje/semana numa linha de números; revisões de hoje em lista curta com "Revisar"; Jornada compacta com o próximo item; semana, constância e metas; frase do dia discreta no fim. |
+| Edital e assuntos | `edital.py` | Árvore à esquerda (busca, matérias com progresso, assuntos com recuo) e detalhe à direita (trilha, estado, números, observações, "Estudar agora", "Registrar estudo", menu com materiais/editar/arquivar). Administração no menu "Gerenciar". |
+| Revisões | `screen_reviews.py` | Controle Hoje · Atrasadas · Próximas · Todas · Concluídas com contagens; lista agrupada por estado com "Revisar" e "⋯"; três estados vazios distintos; tarefas opcionais só quando existem. |
+| Simulados | `screen_mocks.py` | Primeiro simulado como ação central; com dados: números com unidade, evolução (aproveitamento ou pontuação), histórico em lista com detalhes ao clicar. |
+| Jornada | `screen_journey.py` | Personagem e perfil lado a lado (nível, XP, próximo desbloqueio com a arte do item, itens equipados); inventário com categorias, grade de miniaturas reais e painel do item; caminhos; habilidades; conquistas e história; masmorras com as ferramentas de prática no próprio cabeçalho. |
+| Metas e conquistas | `screen_goals.py` | Metas da semana primeiro; desafios em lista com nível em controle segmentado; conquistas como coleção. Pontos de desafio separados de XP e moedas. |
+| Estatísticas | `screen_stats.py` | Período em um controle; filtros e exportação em menus; tempo estudado como gráfico principal; por matéria (barras) e questões; evolução; pontos de atenção; tabela detalhada com alternância. |
+| Ciclo, Histórico, Configurações | `app.py` | Herdam tokens, painéis sem borda e foco por teclado; recomposição própria ainda pendente. |
+
+## Mapa das ações movidas (nada foi removido)
+
+| Antes | Agora |
+|---|---|
+| Edital: Importar, Gerenciar matérias, Fontes e cobertura, Área BACEN 2024, PDF e referência | Menu "Gerenciar" no topo do Edital |
+| Edital: "Como é calculado?" e textos fixos de ordem | Último item do menu "Gerenciar" (ajuda) |
+| Edital: Concluir/reabrir, Registrar estudo, Observações, Editar, Materiais, Arquivar | Detalhe do assunto: "Estudar agora", "Registrar estudo", "Escrever observações", menu "⋯" (concluir/reabrir, materiais, editar, arquivar); caixa e lápis continuam na linha |
+| Revisões: Nova tarefa, Calendário de apoio, Avisos de hoje | Menu "Mais" (com a ajuda sobre séries) |
+| Revisões: Revisar com relógio / Registrar revisão / Reagendar / Concluir / Cancelar / Reabrir | Em cada linha: "Revisar" e menu "⋯" |
+| Simulados: Detalhes / Editar / Excluir | Clique na linha (detalhes) e menu "⋯" |
+| Estatísticas: Filtros, Limpar, 7/30 dias, Semana, Mês | Controle de período + menu "Filtros" |
+| Estatísticas: "Exportar CSV" e "Exportar estatísticas CSV" | Menu "Exportar": "Registros de estudo, um por linha" e "Resumo por matéria, categoria e assunto" (escopos diferentes, preservados) |
+| Jornada: faixa de 6 botões | "Ajustes da jornada" (nome, aparência, como ganho XP, importar XP) e cabeçalho de Masmorras ("Criar masmorra ou chefe", menu com desafios em andamento e dificuldades/revanche) |
+| Cabeçalho: pílula do relógio | Rodapé da coluna de conteúdo, canto inferior direito, com o status à esquerda |
+| Início: frase do dia no cabeçalho | Linha discreta no fim do Início; o subtítulo mostra a data |
 
 ## Decisões que mudam o que estava aceito (confirmar na revisão)
 
@@ -113,20 +132,35 @@ Inventário sai do cartão de perfil para painel próprio com cinco categorias, 
 
 ## Temas
 
-Oito temas com nome em `theme.THEMES`, escolhidos pelo ícone de paleta no cabeçalho (galeria com miniatura de cada tema nas próprias cores) ou em Configurações. Cada um soma ao dourado uma cor companheira (`secondary`, usada em desempenho, gráficos e destaques). O original é **Norte Dourado**, o "N" dourado da rosa dos ventos.
+Treze temas em `theme.THEMES`, cada um com **três cores**: o fundo, a cor principal (ações, seleção, progresso) e uma companheira (`secondary`: desempenho, linha de acertos, revisões futuras). O seletor separa escuros e claros.
 
-| Tema | Tipo | Cores |
+| Tema | Tipo | Três cores |
 |---|---|---|
-| Norte Dourado | escuro | grafite + ouro + azul-aço (original) |
+| Norte Dourado | escuro | preto + ouro + verdete (pátina do bronze), o original |
 | Alto-Mar | escuro | azul-marinho + ouro + água-marinha |
 | Esmeralda Noturna | escuro | grafite + ouro + esmeralda |
 | Rubi Imperial | escuro | vinho + ouro + rubi |
 | Ametista | escuro | roxo + ouro + lavanda |
 | Brasa | escuro | carvão + ouro + cobre |
+| Nórdico | escuro | ardósia + azul-gelo + âmbar |
+| Menta e Coral | escuro | grafite + menta + coral |
 | Aurora | claro | papel quente + ouro + azul |
 | Brisa | claro | branco frio + ouro + verde-água |
+| Sálvia | claro | papel claro + sálvia + terracota |
+| Pergaminho | claro | pergaminho + bordô + azul-petróleo |
+| Cobalto | claro | neve + cobalto + âmbar |
 
-`theme.derive()` calcula bordas, hover, trilhos e fundos de estado a partir de poucas cores e corrige o contraste automaticamente; `tests/test_journey.py` verifica AA em todos. Os valores antigos `Escuro`/`Claro` continuam válidos (`resolve_theme`). As fontes nomeadas do Tk (`TkDefaultFont`, `TkTextFont`…) agora usam Inter: antes, campos e widgets sem fonte explícita caíam em outra família no Linux.
+Norte Dourado usa os tokens do kit (fundo #101011, navegação #0C0C0D, superfície #181819, texto #F0EEE8, ouro #C8AA6E) e acrescenta o verdete #7FB5A8. `theme.derive()` calcula os demais papéis e corrige o contraste; `derive(..., ink=...)` permite cor principal escura com texto claro (Pergaminho, Cobalto). `tests/test_journey.py` verifica AA em todos. Os valores antigos `Escuro`/`Claro` continuam válidos.
+
+## Sistema das telas reformadas (`ui_kit.py`)
+
+- Superfícies sem borda (`Card`, e `Panel` também): regiões se separam por luminosidade e espaço, nunca cartão dentro de cartão.
+- Listas com divisória fina (`Row`), ação principal e menu "⋯" perto do objeto (`ActionMenu`).
+- Visões exclusivas num controle segmentado (`Segmented`), não em fileira de botões iguais.
+- Números com a legenda embaixo (`stat_row`) no lugar de cartões de métrica; nada de rótulo em caixa alta acima de título.
+- Estados vazios que ensinam e oferecem uma ação (`empty`); filtro sem resultado oferece limpar.
+- Um dourado por tela; foco visível só com teclado.
+- Miniaturas do inventário: recortes das camadas `eq-*.png` originais (`scripts/prepare_item_thumbs.py`), sem arte nova desenhada por código.
 
 ## Movimento
 

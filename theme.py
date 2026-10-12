@@ -4,33 +4,7 @@ Dark is the identity (layered graphite with moderate gold). Light keeps the same
 roles on warm paper. Contrast pairs are verified by tests/test_journey.py.
 """
 
-DARK = dict(
-    bg="#0E0E11",
-    sidebar="#121215",
-    surface="#18181C",
-    raised="#1F1F24",
-    hover="#25252B",
-    border="#2A2A31",
-    strong="#3B3B45",
-    fg="#ECE8E0",
-    muted="#A3A0A8",
-    faint="#8A8792",
-    accent="#D4B26A",
-    tint="#2A2418",
-    selected="#241F17",
-    primary="#CBA65A",
-    primary_hover="#DDBB72",
-    primary_ink="#17130B",
-    success="#72C493",
-    success_bg="#18291F",
-    error="#E58085",
-    error_bg="#2F1C1F",
-    info="#8EADDB",
-    info_bg="#1A2232",
-    warning="#E2AE62",
-    warning_bg="#2E2416",
-    track="#2C2C33",
-)
+# Norte Dourado (the original) is derived further below from its three colors.
 
 LIGHT = dict(
     bg="#F4F2ED",
@@ -95,9 +69,8 @@ def contrast(a, b):
     return (high + 0.05) / (low + 0.05)
 
 
-for _base in (DARK, LIGHT):
-    _base.setdefault("secondary", _base["info"])
-    _base.setdefault("secondary_bg", _base["info_bg"])
+LIGHT.setdefault("secondary", LIGHT["info"])
+LIGHT.setdefault("secondary_bg", LIGHT["info_bg"])
 
 DEFAULT_THEME = "Norte Dourado"
 LIGHT_THEME = "Aurora"
@@ -145,7 +118,7 @@ def derive(dark, bg, surface, fg, muted, accent, primary, secondary, **extra):
         primary_hover=(
             _mix(primary, "#FFFFFF", 0.18) if dark else _mix(primary, "#000000", 0.09)
         ),
-        primary_ink="#17130B",
+        primary_ink=extra.pop("ink", "#17130B"),
         success=extra.pop("success", "#72C493" if dark else "#2A7247"),
         error=extra.pop("error", "#E58085" if dark else "#B03A47"),
         info=secondary,
@@ -175,12 +148,30 @@ def derive(dark, bg, surface, fg, muted, accent, primary, secondary, **extra):
     return p
 
 
-# Every theme: a name, light/dark, a sentence and its palette. Three hues each:
-# the background family, gold (the RUMO identity) and one companion color.
+# The original: black, gold and verdigris (the patina of an old bronze compass).
+DARK = derive(
+    True,
+    "#101011",
+    "#181819",
+    "#F0EEE8",
+    "#B5B1A8",
+    "#D6B97E",
+    "#C8AA6E",
+    "#7FB5A8",
+    sidebar="#0C0C0D",
+    raised="#202021",
+    hover="#262627",
+    border="#2C2C2B",
+    strong="#3D3D3B",
+    track="#2A2A29",
+)
+
+# Every theme: a name, light/dark, a sentence, its three colors and its palette.
+# Three hues each: the background family, the main color and one companion.
 THEMES = {
     "Norte Dourado": dict(
         dark=True,
-        about="O original: grafite profundo e ouro. A estrela que guia o RUMO.",
+        about="O original: preto, ouro e verdete, como uma bússola antiga.",
         palette=DARK,
     ),
     "Alto-Mar": dict(
@@ -280,7 +271,88 @@ THEMES = {
             sidebar="#E6EEEC",
         ),
     ),
+    "Nórdico": dict(
+        dark=True,
+        about="Ardósia, azul-gelo e âmbar: a calma de um porto no inverno.",
+        palette=derive(
+            True,
+            "#0D1015",
+            "#151A21",
+            "#E8EDF2",
+            "#9BA6B2",
+            "#A3D0EC",
+            "#8FC1E3",
+            "#E3B873",
+            sidebar="#0A0D11",
+        ),
+    ),
+    "Menta e Coral": dict(
+        dark=True,
+        about="Grafite, menta e coral: fresco e vivo para as manhãs de revisão.",
+        palette=derive(
+            True,
+            "#0F1111",
+            "#171A1A",
+            "#EAEEEC",
+            "#A0A9A6",
+            "#8EDDBD",
+            "#7DD3B0",
+            "#F2A08F",
+            sidebar="#0C0E0E",
+            error="#F27A7A",
+        ),
+    ),
+    "Sálvia": dict(
+        dark=False,
+        about="Papel claro, sálvia e terracota: um caderno de campo.",
+        palette=derive(
+            False,
+            "#F0F3EE",
+            "#FFFFFF",
+            "#1C241E",
+            "#556058",
+            "#3F6B4A",
+            "#8DB596",
+            "#B5583A",
+            sidebar="#E7ECE5",
+        ),
+    ),
+    "Pergaminho": dict(
+        dark=False,
+        about="Pergaminho, bordô e azul-petróleo: biblioteca antiga à luz do dia.",
+        palette=derive(
+            False,
+            "#F3EDE0",
+            "#FFFCF5",
+            "#2A1F1A",
+            "#6A5B50",
+            "#7A2E3A",
+            "#7A2E3A",
+            "#2F5D62",
+            sidebar="#ECE4D3",
+            ink="#FFF6EC",
+            error="#A3322B",
+        ),
+    ),
+    "Cobalto": dict(
+        dark=False,
+        about="Neve, cobalto e âmbar: claro, nítido e objetivo.",
+        palette=derive(
+            False,
+            "#EEF1F7",
+            "#FFFFFF",
+            "#172033",
+            "#4F5B70",
+            "#2449B8",
+            "#2F5BD3",
+            "#A86400",
+            sidebar="#E4E9F3",
+            ink="#FFFFFF",
+        ),
+    ),
 }
+# Dark themes first, then light ones; the picker follows this order.
+THEMES = dict(sorted(THEMES.items(), key=lambda item: not item[1]["dark"]))
 THEME_NAMES = tuple(THEMES)
 
 

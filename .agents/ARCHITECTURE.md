@@ -23,6 +23,10 @@
 | `journey_live.py` | Leituras reais somente leitura para missão, revisões e habilidades |
 | `journey_demo.py` | `PreviewJourney`: prévia com dados de demonstração identificados, sem gravação |
 | `screen_home.py`, `screen_journey.py`, `focus.py` | Telas Início, Jornada e modo foco; recebem só view models |
+| `ui_kit.py` | Blocos das telas reformadas: `Card` (superfície sem borda), `Section`, `Row` (lista com divisória), `Segmented`, `ActionMenu`, `stat_row`, `empty`, `placeholder` |
+| `training_schema.py`, `training_catalog.py`, `training_content.py`, `training.py` | Campo de Treinamento: esquema v6, contrato do catálogo, provedor/downloads, estado de leitura e biblioteca (sem Tk) |
+| `pdf_reader.py`, `screen_training.py` | Leitor PDF (pypdfium2 → PPM → Tk) e tela do Campo |
+| `screen_reviews.py`, `screen_mocks.py`, `screen_goals.py`, `screen_stats.py` | Revisões, Simulados, Metas e Estatísticas; mesmas consultas e ações do `App`, só a composição é nova |
 | `scripts/` | Preparação de assets, QA, build e instalador |
 
 ## Contratos que não devem mudar silenciosamente
@@ -48,3 +52,77 @@ Esforço, aproveitamento observado (20 respostas em três datas) e autoavaliaç�
 Telas leem a Jornada só por `app.journey` (`app.make_journey`). Selos de demonstração dependem do campo `source`. `Columns`/`Panel(stretch)` fazem a responsividade; em `grid`, sempre informe `padx` e `pady` ao re-posicionar e retire colunas vazias do grupo `uniform`. Decisões visuais: `docs/RUMO_DESIGN.md`; integração: `docs/RUMO_HANDOFF.md`.
 
 Equipamentos de evolução e caminhos ficam em `rpg_progression.py`; contam apenas fontes canônicas inscritas no RPG. Caminhos são derivados e independentes, não classes obrigatórias. Inventário grava aquisições e preço real (zero para recompensas), preservando-as após correções. Migração v4→v5 reconstrói apenas a restrição de slots do inventário, copia todas as linhas e recria o índice de um item equipado por slot, numa transação precedida de backup. Não acrescentar XP, tempo ou questões por usar equipamentos. Avisos de novas recompensas são transitórios, consumidos uma vez pela interface.
+
+## Personalização com assets externos (11/10/2026)
+
+`appearance.py` mantém IDs antigos e novos em dados puros; `character_profile.py`
+salva nome por plano e aparência global, atomicamente nas tabelas existentes.
+Não há migração de esquema, concessão de XP nem alteração do inventário.
+O pacote de retratos CC0 de N. Erebus substitui a arte procedural da aparência:
+`prepare_avatar.py` chama `prepare_portrait_assets.py`, que apenas multiplica
+cores em peças isoladas, redimensiona e compõe PNGs originais. Pillow só no build.
+Manifesto/proveniência/licenças: `assets/character/look/catalog.json`,
+`assets/character/sources/erebus/` e `THIRD_PARTY_ASSETS.md`.
+Portrait e CharacterView usam a mesma família de retratos. O pacote não tem
+corpo/equipamentos: overlays corporais antigos não são aplicados, mas todos os
+itens e a equipagem continuam nas tabelas/controles existentes.
+Customizer mantém rascunho, miniaturas reais apenas da categoria aberta e
+cache de 24 PNGs; ao fechar descarta imagens de /look/ não usadas por widgets.
+
+## Reforma visual das telas (11/10/2026, Claude)
+
+`App.refresh` tem páginas fixas (`FIXED_PAGES`): o Edital não usa a rolagem da
+página; monta árvore (rolagem própria, `app.edital_scroll`) e detalhe lado a lado.
+Contratos dos scripts preservados: `edital_rows[tid] = (row, marker, labels)`,
+`labels[-2]` título, `labels[-1]` detalhe, lápis por linha, `CompletionBox`,
+`edital_branch_buttons`, `edital_search_entry`. O relógio fica num rodapé da coluna
+de conteúdo (`app.footer`: status à esquerda, `ClockButton` à direita), nunca sobre
+as linhas. `Panel` não desenha borda; o anel de foco de `MotionButton` só aparece
+com foco de teclado. Miniaturas do inventário: `scripts/prepare_item_thumbs.py`
+recorta as camadas `eq-*.png` existentes em `assets/character/items/{96,64,44}/`.
+
+## Campo de Treinamento (11/10/2026, Claude)
+
+Esquema **v6** aditivo (`training_*`, cópia `pre-campo-*` antes de migrar): posição por (aula, versão), marcadores, notas, favoritos/conclusão manual, `training_session_links` e metadados de PDFs próprios. Catálogo público e PDFs ficam em `<dados>/conteudo/`, fora do banco; remover download não apaga notas. `Store.save_session` aceita `lesson_id/lesson_version` no `context` e grava o vínculo na mesma transação (idempotente pelo ID da sessão do relógio); essas chaves são retiradas antes do RPG. O relógio carrega a aula no estado `active`. Abrir/baixar/concluir leitura não concede XP. Detalhes: `docs/campo-de-treinamento/IMPLEMENTACAO.md`; contratos futuros: `CONTRATOS_ARENA_FLASHCARDS.md`.
+
+## Conta e serviço opcional (12/10/2026, Codex)
+
+Pedido explícito autoriza expansão web; desktop nativo e modo sem conta continuam.
+`backend/migrations/` implementa Supabase Auth/PostgreSQL/RLS e RPCs de eventos;
+nenhum deploy foi feito. `docs/integration/CONTRACT.md` é a fonte compartilhada,
+`shared/rumo-api.ts` é o cliente do frontend Claude (`web/`).
+`sync_client.py` usa stdlib HTTPS e SQLite separado `study-sync.sqlite3` (schema
+próprio 1): outbox persistida, identidade/dispositivo, histórico remoto e cursor
+aplicado transacionalmente. Tokens somente memória. `study_sync.py` projeta
+leitura/questões/cartões/revisões; `desktop_sync.py` associa sessões ao Store
+canônico e preserva contagens anteriores. `screen_account.py` integra login,
+retry, associação de assuntos e backup separado nas configurações Tk; rede em
+worker curto, acesso à GUI/Store somente na thread principal. Timer único 60 s
+para sync autenticada; cancelar no fechamento. Nada roda sem a aplicação aberta.
+
+Leitura é por página e versão; posição não comprova conclusão. Checkbox nativo
+em `pdf_reader.py`. Antiga conclusão manual permanece como `legacy_completed`,
+sem assumir páginas lidas. PDFs pessoais permanecem locais. Inventário, compras,
+aparência, ciclos, metas, edital e histórico legado não sincronizam implicitamente.
+Backups canônicos v1–v6 permanecem compatíveis; workspace exige exportação separada.
+
+Integração de sessões: journal no workspace registra antes/depois das contagens
+antes do Store canônico. Retomada confere o resultado gravado e finaliza o baseline
+sem duplicar; mudanças intervenientes exigem confirmação explícita em Resolver
+conflitos. Totais manuais são separados das tentativas remotas; pending/conflict e
+sent de revisão mais nova impedem replay remoto sobre alteração local. Metas,
+notas, vínculos de revisão/aula e divisões de simulado são preservados.
+
+## Site (`web/`, 12/10/2026, Claude)
+
+Vite + React + TypeScript, sem SSR. `src/service/` é a fronteira: `contract.ts`
+(tipos de `shared/rumo-api.ts` e identidades canônicas de entidade), `sync.ts`
+(fila IndexedDB por conta, gravada antes da rede; lote recusado reenviado um a
+um; conflito retém a cadeia da entidade até escolha explícita), `supabase.ts`
+(Auth + RPC; catálogo pelas tabelas públicas, versão mais recente por
+`catalog_revision`) e `example/` (servidor simulado com as mesmas regras do SQL,
+usado só sem `VITE_SUPABASE_*`, sempre com selo EXEMPLO). `src/domain/projection.ts`
+reconstrói o estado a partir dos eventos aceitos + fila; correção, agenda, XP e
+nível vêm de `result`/`progress_summary`, nunca recalculados no navegador. Leitor
+pdf.js com render preguiçoso e camada de texto; "Li esta página" por página e na
+barra fixa; posição separada da leitura. Decisões em `docs/site/FRONTEND.md`.

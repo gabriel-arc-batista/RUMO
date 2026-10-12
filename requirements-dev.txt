@@ -9,3 +9,4 @@ pillow==12.3.0
 psutil==7.1.0
 pypdf==6.19.0
 tzdata==2025.2
+pypdfium2==5.14.0

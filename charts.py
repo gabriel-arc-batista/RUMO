@@ -2,14 +2,18 @@
 
 import math
 import tkinter as tk
-from ui import rounded
+from ui import background_of, rounded
 from core import duration, ratio, percentage
-from theme import compact_duration
+from theme import compact_duration, percent
 
 
-def question_summary(app, stats):
-    canvas = tk.Canvas(app.content, height=195, bg=app.surface, highlightthickness=0)
+def question_summary(app, stats, parent=None):
+    host = parent or app.content
+    canvas = tk.Canvas(
+        host, height=195, bg=background_of(host) or app.surface, highlightthickness=0
+    )
     canvas.pack(fill="x", pady=12)
+    p = app.motion.palette
 
     def draw(event=None):
         canvas.delete("all")
@@ -18,7 +22,7 @@ def question_summary(app, stats):
         canvas.create_oval(22, 25, 158, 161, outline=app.border, width=12)
         for value, color, label, index in zip(
             [stats["correct"], stats["wrong"], stats["blank"]],
-            [app.motion.palette["accent"], app.motion.palette["error"], "#959DA9"],
+            [p["success"], p["error"], p["faint"]],
             ["Acertos", "Erros", "Em branco"],
             range(3),
         ):
@@ -42,7 +46,7 @@ def question_summary(app, stats):
                 212,
                 y,
                 text=f"{label}  {value}"
-                + (f"  •  {value/total*100:.0f}%" if total else ""),
+                + (f"  ·  {value/total*100:.0f}%" if total else ""),
                 anchor="w",
                 fill=app.fg,
                 font=("Inter", 10),
@@ -54,7 +58,11 @@ def question_summary(app, stats):
         canvas.create_text(
             191,
             30,
-            text=percentage(stats["rate"]) + " de acertos",
+            text=(
+                percent(stats["rate"], 1) + " de acertos nas respondidas"
+                if stats["rate"] is not None
+                else "Nenhuma questão respondida neste filtro"
+            ),
             anchor="w",
             fill=app.fg,
             font=("Inter", 12, "bold"),
@@ -62,7 +70,7 @@ def question_summary(app, stats):
         canvas.create_text(
             22,
             183,
-            text="Aproveitamento = acertos ÷ respostas. Brancos ficam separados.",
+            text="Acertos ÷ (acertos + erros). Questões em branco ficam de fora da conta.",
             anchor="w",
             fill=app.muted,
             font=("Inter", 8),
@@ -74,9 +82,41 @@ def question_summary(app, stats):
     return canvas
 
 
-def bars(app, rows, metric="elapsed", performance=False):
-    canvas = tk.Canvas(app.content, height=290, bg=app.surface, highlightthickness=0)
+TITLES = {
+    "elapsed": "Horas líquidas",
+    "target": "Horas planejadas",
+    "questions": "Questões feitas",
+    "score": "Pontuação",
+    "rate": "Aproveitamento (%)",
+    "correct": "Acertos",
+    "wrong": "Erros",
+}
+EMPTY = (
+    "Seu progresso começa com o primeiro registro.",
+    "Registre uma sessão para acompanhar esta evolução.",
+)
+
+
+def bars(
+    app,
+    rows,
+    metric="elapsed",
+    performance=False,
+    parent=None,
+    title=None,
+    empty=EMPTY,
+    height=290,
+):
+    """Bar chart of ``metric`` per row; ``performance`` adds the accuracy line.
+
+    ``title`` names the measure with its unit in Portuguese; ``empty`` is the
+    (headline, hint) shown when there is nothing to plot.
+    """
+    host = parent or app.content
+    surface = background_of(host) or app.surface
+    canvas = tk.Canvas(host, height=height, bg=surface, highlightthickness=0)
     canvas.pack(fill="x", pady=10)
+    line = app.motion.palette.get("secondary", app.motion.palette["info"])
     phase = [0 if app.motion.enabled else 1]
     shown = rows[-60:]
 
@@ -86,7 +126,7 @@ def bars(app, rows, metric="elapsed", performance=False):
         left = 52
         right = 54 if performance else 24
         top = 38
-        bottom = 232
+        bottom = height - 58
         plot = width - left - right
 
         def value(r):
@@ -118,44 +158,38 @@ def bars(app, rows, metric="elapsed", performance=False):
             else app.motion.palette["accent"]
         )
         canvas.create_text(
-            left,
+            left - 40,
             16,
-            text={
-                "elapsed": "Tempo líquido",
-                "target": "Tempo planejado",
-                "questions": "Questões apresentadas",
-                "score": "Pontuação",
-                "correct": "Acertos",
-                "wrong": "Erros",
-            }.get(metric, metric)
-            + " • "
-            + unit,
+            text=title or TITLES.get(metric, unit.capitalize()),
             anchor="w",
             fill=app.muted,
             font=("Inter", 9),
         )
         if performance:
+            canvas.create_line(
+                width - right - 120, 16, width - right - 104, 16, fill=line, width=2.5
+            )
             canvas.create_text(
-                width - right,
+                width - right - 98,
                 16,
-                text="● Acerto (%)",
-                anchor="e",
-                fill=app.motion.palette["success"],
+                text="acertos (%)",
+                anchor="w",
+                fill=app.muted,
                 font=("Inter", 8),
             )
         if not shown or not any(values):
             canvas.create_text(
                 width / 2,
-                118,
-                text="Seu progresso começa com o primeiro registro.",
+                height / 2 - 26,
+                text=empty[0],
                 fill=app.fg,
                 font=("Inter", 11),
                 width=width - 48,
             )
             canvas.create_text(
                 width / 2,
-                170,
-                text="Registre uma sessão para acompanhar esta evolução.",
+                height / 2 + 4,
+                text=empty[1],
                 fill=app.muted,
                 font=("Inter", 9),
                 width=width - 48,
@@ -208,7 +242,7 @@ def bars(app, rows, metric="elapsed", performance=False):
                 text = f"{r['label']}  •  {duration(r['elapsed'])}  •  {r['correct']+r['wrong']} respondidas  •  {percentage(ratio(r['correct'],r['wrong']))}"
                 canvas.create_text(
                     width / 2,
-                    277,
+                    height - 13,
                     text=text,
                     width=width - 32,
                     fill=app.fg,
@@ -226,7 +260,7 @@ def bars(app, rows, metric="elapsed", performance=False):
                     else label[-10:]
                 )
                 canvas.create_text(
-                    x, 250, text=label, fill=app.muted, font=("Inter", 8)
+                    x, bottom + 18, text=label, fill=app.muted, font=("Inter", 8)
                 )
             if count <= 8:
                 canvas.create_text(
@@ -235,7 +269,11 @@ def bars(app, rows, metric="elapsed", performance=False):
                     text=(
                         compact_duration(v * 3600)
                         if metric in ["elapsed", "target"]
-                        else f"{v:g}"
+                        else (
+                            f"{v:.0f}%"
+                            if metric == "rate"
+                            else f"{v:g}".replace(".", ",")
+                        )
                     ),
                     fill=app.fg,
                     font=("Inter", 8),
@@ -251,7 +289,7 @@ def bars(app, rows, metric="elapsed", performance=False):
                             *previous,
                             x,
                             yy,
-                            fill=app.motion.palette["success"],
+                            fill=line,
                             width=2.5,
                         )
                     canvas.create_oval(
@@ -259,7 +297,7 @@ def bars(app, rows, metric="elapsed", performance=False):
                         yy - 3,
                         x + 3,
                         yy + 3,
-                        fill=app.motion.palette["success"],
+                        fill=line,
                         outline="",
                     )
                     previous = (x, yy)
@@ -274,14 +312,15 @@ def bars(app, rows, metric="elapsed", performance=False):
     return canvas
 
 
-def distribution(app, rows):
+def distribution(app, rows, parent=None, limit=15):
     shown = sorted(
         (r for r in rows if r["elapsed"] > 0), key=lambda r: r["elapsed"], reverse=True
-    )[:15]
+    )[:limit]
+    host = parent or app.content
     canvas = tk.Canvas(
-        app.content,
+        host,
         height=max(100, len(shown) * 54 + 24),
-        bg=app.surface,
+        bg=background_of(host) or app.surface,
         highlightthickness=0,
     )
     canvas.pack(fill="x", pady=10)
@@ -305,7 +344,7 @@ def distribution(app, rows):
             canvas.create_text(
                 w - 14,
                 y,
-                text=f"{duration(row['elapsed'])} • {row['elapsed']/total*100:.0f}%",
+                text=f"{compact_duration(row['elapsed'])} · {row['elapsed']/total*100:.0f}%",
                 anchor="ne",
                 fill=app.muted,
                 font=("Inter", 8),

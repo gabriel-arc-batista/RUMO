@@ -7,6 +7,7 @@ from pathlib import Path
 
 from core import Clock, SCHEMA, TABLES, Store
 from rpg_schema import RPG_SCHEMA, RPG_TABLES
+from training_schema import TRAINING_SCHEMA
 from rpg import level_for
 
 
@@ -479,7 +480,9 @@ class RPGTests(unittest.TestCase):
     ):
         path = self.root / "legacy.sqlite3"
         connection = sqlite3.connect(path)
-        connection.executescript(SCHEMA.replace(RPG_SCHEMA, ""))
+        connection.executescript(
+            SCHEMA.replace(RPG_SCHEMA, "").replace(TRAINING_SCHEMA, "")
+        )
         connection.execute("INSERT INTO plans(id,name) VALUES('p','Histórico')")
         connection.execute(
             "INSERT INTO subjects(id,plan_id,name,color) VALUES('s','p','TI','#D6B467')"
@@ -495,7 +498,7 @@ class RPGTests(unittest.TestCase):
         upgraded = Store(path)
         try:
             self.assertEqual(
-                upgraded.db.execute("PRAGMA user_version").fetchone()[0], 5
+                upgraded.db.execute("PRAGMA user_version").fetchone()[0], 6
             )
             self.assertEqual(upgraded.stats("p")["elapsed"], 1200)
             self.assertEqual(upgraded.rpg.profile("p")["xp"], 0)
@@ -591,7 +594,7 @@ class RPGTests(unittest.TestCase):
             validate_backup(path, SCHEMA, TABLES)
         path.write_text(json.dumps(snapshot), encoding="utf-8")
         validated = validate_backup(path, SCHEMA, TABLES)
-        self.assertEqual(validated["version"], 5)
+        self.assertEqual(validated["version"], 6)
         recovered = Clock(self.store, lambda: 10)
         self.assertFalse(recovered.state["running"])
         self.assertEqual(recovered.state["mission_id"], mission["id"])

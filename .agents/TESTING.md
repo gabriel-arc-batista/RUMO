@@ -33,3 +33,34 @@ Seis caminhos: Paladino mantém o ID anterior, Ladino conta dificuldades distint
 
 
 Revisão v1: execute também `python scripts/verify_appearance_gui.py` (todos os temas e controles, salvar/cancelar, persistência, cache e nenhuma alteração nas métricas). A CI Windows inclui os fluxos legados `verify_gui.py`, `verify_modern_ui.py` e a carga `verify_performance.py`. Resultado final em `docs/RUMO_V1_VALIDATION.md`.
+
+Assets externos: `tests/test_appearance.py` valida todos os caminhos/opções,
+ordem de camadas, SHA-256 dos originais, IDs legados, fallback, gravação atômica,
+backup/restauração e nenhuma mudança nas métricas/inventário. O teste nativo
+`verify_appearance_gui.py` percorre as categorias preguiçosas e todos os temas,
+seleciona cada opção, verifica imagens vivas, cancelamento/nome/reinício e cache.
+`capture_character_examples.py` captura somente janelas Tk com base temporária
+no Linux/X11; exemplos ficam em validation/ e não devem ser versionados.
+Não gerar assets enquanto verifica a GUI; exportação de PNGs usa troca atômica.
+
+Campo de Treinamento: `tests/test_training.py` (catálogo inválido mantém o anterior, hash/tamanho/cancelamento, rede simulada e hosts aprovados, atualização e remoção preservando notas, sessão vinculada uma vez, backup v6/v5, migração v5→v6). Fixture de **teste** em `tests/fixtures/campo-teste/` (regerar com `scripts/make_test_lesson.py`; nunca apresentar como aula). O leitor precisa de `pypdfium2` (no `requirements-dev.txt` e coletado por `scripts/build.py`). No Linux, o atalho usa `~/.local/share/rumo-runtime/site`.
+
+## Conta/sync opcional (12/10/2026)
+`tests/test_sync_client.py`, `test_study_sync.py`, `test_sync_desktop.py` usam
+bases temporárias e rede simulada. `backend/tests/run.sh` usa PostgreSQL 16
+Docker descartável para RLS, RPC, duplicação, CAS, catálogos e edição de XP.
+`RUMO_POSTGRES_TEST=1 python -m unittest discover -s tests -p test_sync_integration.py -v`
+valida fila Python → RPC PostgreSQL → segundo dispositivo → Store/RPG nas três
+áreas, sem Auth/PostgREST hospedado. `scripts/verify_sync_gui.py` valida login
+opcional e marcação/desmarcação/conclusão do leitor Tk com PDF de teste temporário,
+sem rede. Executar scripts GUI sequencialmente. Frontend segue responsabilidade
+do Claude; não declarar teste do navegador concluído sem sua implementação pronta.
+
+Site (`web/`): `npm test` (Vitest: fila, conflito, conclusão manual, identidades,
+correção, SM-2, importação, chave privilegiada), `npm run e2e` (Chrome real, modo
+exemplo) e, com Docker, `npm run servico:up` + `build:servico` + `preview:servico`
++ `npm run e2e:servico` (Postgres/GoTrue/PostgREST locais com as migrações de
+`backend/`, conteúdo EXEMPLO e usuários sintéticos). `e2e/vazio.mjs` com
+`SEED=0` cobre o catálogo vazio; `python3 web/e2e/desktop_check.py` +
+`node web/e2e/desktop-para-site.mjs <email>` cobre a ida e volta com o cliente do
+desktop. Não substitui teste no Supabase hospedado nem em outros navegadores.

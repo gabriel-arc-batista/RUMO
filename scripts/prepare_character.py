@@ -66,10 +66,17 @@ EYE = "#2B1F19"
 
 def base():
     """Default appearance composite (older code and the default avatars use it)."""
-    import prepare_avatar
-    from appearance import DEFAULT
+    from appearance import DEFAULT, layers
 
-    image = prepare_avatar.compose(prepare_avatar.GRID, DEFAULT)
+    # Legacy packaging entry point: compose real downloaded assets only.
+    portrait = Image.new("RGBA", (264, 264))
+    for name in sum(layers(DEFAULT), []):
+        with Image.open(OUT / "look/bust" / f"{name}.png") as layer:
+            portrait.alpha_composite(layer)
+    image = canvas()
+    image.alpha_composite(
+        portrait.resize((240 * K, 240 * K), Image.LANCZOS), (30 * K, 60 * K)
+    )
     save(image, "base.png")
     return image
 

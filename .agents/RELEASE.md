@@ -10,4 +10,18 @@ Repositório na conta pessoal **gabriel-arc-batista**, a mesma de projetos de si
 6. Commit descritivo, tag semântica `vX.Y.Z`, push para `origin/main` e release no repositório privado. Anexar apenas instalador, ZIP portátil Windows, tar.gz nativo Linux e SHA256SUMS; nunca bancos ou relatórios de caminhos pessoais.
 7. Conferir commit remoto, release, assets e resultado da CI, se ativada. O workflow manual `.github/workflows/rumo-windows.yml` gera pacotes e hashes depois das verificações em Windows. Não declarar CI aprovada se estiver pendente.
 
-Na primeira publicação, a versão final auditada é 1.4.1; não anexar o build 1.4.0 anterior às correções de segurança.
+Versão alvo atual: **2.0.0** (`scripts/installer.iss`). Esquema desktop 6, backups
+v1–v6 preservados e workspace da conta separado. O pacote Linux foi construído
+e validado com dados temporários. O serviço hospedado recebeu 001–008 e passou
+Auth/RPC HTTPS e isolamento entre duas contas, removidas após validação.
+Frontend final e CI Windows permanecem pendentes; não criar afirmação de release
+ou site publicados antes de conferir os respectivos resultados. Evidências e
+limites em `docs/integration/VALIDATION.md` e `RELEASE_CHECKS.md`.
+
+## Serviço e site opcionais
+Publicação web é independente do instalador. Seguir `docs/integration/SETUP.md`:
+migrações testadas em projeto de desenvolvimento isolado, Auth/URLs autorizadas,
+RLS e esquemas expostos revisados, build frontend e validação entre duas contas.
+Nunca aplicar bootstrap/fixtures de testes nem chave administrativa ao cliente.
+Não declarar deploy por ter gerado SQL ou por tests Docker terem passado.
+Workspace da conta tem exportação separada; preservar dados antes da migração.

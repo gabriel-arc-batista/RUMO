@@ -11,6 +11,7 @@ from pathlib import Path
 from core import Store, SCHEMA, TABLES
 from backups import validate_backup
 from rpg_schema import CATALOG, RPG_SCHEMA
+from training_schema import TRAINING_SCHEMA
 from rpg_progression import GEAR
 from journey_backend import RPGJourney
 
@@ -182,7 +183,7 @@ class EquipmentProgressionTests(unittest.TestCase):
         ).replace("user_version=5", "user_version=4")
         path = self.root / "old4.sqlite3"
         db = sqlite3.connect(path)
-        db.executescript(SCHEMA.replace(RPG_SCHEMA, old))
+        db.executescript(SCHEMA.replace(RPG_SCHEMA, old).replace(TRAINING_SCHEMA, ""))
         db.execute("INSERT INTO plans(id,name) VALUES('p','Antigo')")
         db.execute(
             "INSERT INTO rpg_inventory VALUES('p','backpack','costas',5,1,'2026-01-01')"
@@ -192,7 +193,7 @@ class EquipmentProgressionTests(unittest.TestCase):
         upgraded = Store(path)
         try:
             self.assertEqual(
-                upgraded.db.execute("PRAGMA user_version").fetchone()[0], 5
+                upgraded.db.execute("PRAGMA user_version").fetchone()[0], 6
             )
             self.assertEqual(
                 upgraded.one(
@@ -220,7 +221,7 @@ class EquipmentProgressionTests(unittest.TestCase):
         path = self.root / "v4.json"
         path.write_text(json.dumps(data))
         normalized = validate_backup(path, SCHEMA, TABLES)
-        self.assertEqual(normalized["version"], 5)
+        self.assertEqual(normalized["version"], 6)
         self.store.restore(path)
         self.assertEqual(self.rpg.profile(self.plan)["xp"], 100)
         self.assertIn("training_sword", self.owned())

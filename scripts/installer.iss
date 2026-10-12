@@ -1,7 +1,7 @@
 [Setup]
 AppId={{96028A65-51CB-4DA7-B623-512B6896BA09}
 AppName=RUMO Estudos
-AppVersion=1.0.0
+AppVersion=2.0.0
 AppPublisher=RUMO Estudos Local
 SetupIconFile=..\assets\RUMO.ico
 DefaultDirName={localappdata}\Programs\RUMO

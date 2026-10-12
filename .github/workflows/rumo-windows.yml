@@ -20,6 +20,8 @@ jobs:
           python -m black --check .
           python scripts/check_repository.py
           python -m unittest discover -s tests -v
+          python scripts/verify_upgrade.py self-test
+          python scripts/verify_sync_gui.py
           python scripts/verify_rpg_gui.py
           python scripts/verify_rpg_dialogs.py
           python scripts/verify_appearance_gui.py
@@ -28,6 +30,22 @@ jobs:
           python scripts/verify_design.py
           python scripts/verify_subtopic_clicks.py
           python scripts/verify_performance.py
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        if: ${{ hashFiles('web/package-lock.json') != '' }}
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Verify optional frontend source
+        if: ${{ hashFiles('web/package-lock.json') != '' }}
+        working-directory: web
+        shell: bash
+        run: |
+          node --version
+          npm ci
+          npm run typecheck
+          npm test -- --run
+          npm run build
       - name: Build native Windows executable and installer
         shell: pwsh
         run: |
@@ -43,9 +61,28 @@ jobs:
           python scripts/verify_installer.py
       - name: Verify packaged names and generate checksums
         run: python scripts/verify_brand_package.py
+      - name: Reject private data and development dependencies in portable package
+        shell: bash
+        run: |
+          python - <<'PY'
+          import zipfile
+          from pathlib import PurePosixPath
+          with zipfile.ZipFile('dist/RUMO-Windows-Portatil.zip') as archive:
+              for name in archive.namelist():
+                  path = PurePosixPath(name)
+                  assert not set(path.parts) & {'node_modules', 'validation', '.git', 'backups'}, name
+                  assert not path.name.startswith('.env'), name
+                  assert path.suffix.lower() not in {'.sqlite', '.sqlite3', '.db', '.log'}, name
+                  assert path.name.lower() not in {'credentials.json', 'tokens.json', 'account-sync.sqlite3'}, name
+          print('Portable package contains no forbidden private files.')
+          PY
+      - name: Read release version
+        id: release
+        shell: bash
+        run: python -c "import os; from scripts.verify_upgrade import release_version; open(os.environ['GITHUB_OUTPUT'], 'a').write('version=' + release_version() + '\n')"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: RUMO-Windows-1.0.0
+          name: RUMO-Windows-${{ steps.release.outputs.version }}
           path: |
             dist/RUMO-Instalar-Windows.exe
             dist/RUMO-Windows-Portatil.zip

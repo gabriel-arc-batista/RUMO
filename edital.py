@@ -1,11 +1,43 @@
-"""Lazy expandable syllabus sections; one page scrollbar, no wide table."""
+"""Edital: a lazy subject/topic tree on the left, the selected topic on the right.
+
+Selecting, completing and annotating update existing widgets; the tree is never
+rebuilt for those actions, so scroll position, selection and focus stay put.
+Official numbering stays in the names; the learning order only sorts siblings.
+"""
 
 import tkinter as tk
 from tkinter import ttk
 import unicodedata
-from ui import MotionButton, Panel, ThinProgress, blend
-from core import ratio, percentage
+
 from components import CompletionBox
+from core import ratio
+from theme import percent
+from ui import MotionButton, ProgressBar, blend
+from ui_kit import (
+    ActionMenu,
+    Card,
+    empty,
+    icon_label,
+    label,
+    placeholder,
+    stat_row,
+    wrapping,
+)
+
+HELP = (
+    "Cada assunto final conta uma vez. Matérias e tópicos com filhos mostram o "
+    "progresso somado. A busca não altera a porcentagem.\n\n"
+    "Ordem: dentro de cada matéria, os assuntos aparecem na sequência sugerida "
+    "(fundamentos, aplicação, aprofundamento). A numeração original do edital "
+    "continua no nome de cada item; você pode estudar qualquer um.\n\n"
+    "Os itens originais do BACEN mantêm o texto do edital de abertura de 2024. "
+    "Subassuntos marcados como “Guia de estudo” são um desdobramento pedagógico, "
+    "não texto oficial nem garantia de exaustividade. O PDF não foi alterado.\n\n"
+    "Ao detalhar um item já concluído, os novos subassuntos herdam a conclusão. "
+    "O histórico continua ligado ao item original e é somado aos filhos.\n\n"
+    "Referências: edital BACEN, dev.java/learn, docs.python.org/3/tutorial, "
+    "postgresql.org/docs/current/tutorial.html, legislação no Planalto e Cosif/BCB."
+)
 
 
 def normalized(text):
@@ -16,85 +48,8 @@ def normalized(text):
     )
 
 
-def render_edital(app, tooltip, dialogs):
+def load_topics(app):
     store = app.store
-    parent = app.content
-    palette = app.motion.palette
-    progress = store.progress(app.plan)
-    percent = 100 * progress["done"] / progress["total"] if progress["total"] else 0
-    card = Panel(parent, app)
-    card.pack(fill="x", pady=(16, 8))
-    top = ttk.Frame(card.body, style="Panel.TFrame")
-    top.pack(fill="x")
-    progress_percent = ttk.Label(
-        top, text=f"{percent:.0f}%", font=("Inter", 17, "bold"), style="Panel.TLabel"
-    )
-    progress_percent.pack(side="left", padx=(0, 14))
-    progress_count = ttk.Label(
-        top,
-        text=f"{progress['done']} de {progress['total']} assuntos concluídos",
-        style="Panel.TLabel",
-    )
-    progress_count.pack(side="left")
-
-    def help_progress():
-        dialogs.showinfo(
-            "Conteúdo e progresso",
-            "Cada assunto final conta uma vez. Matérias e tópicos com filhos mostram o progresso agregado. "
-            "O filtro de busca não altera a porcentagem.\n\n"
-            "Os itens originais do BACEN mantêm o texto do edital de abertura de 2024. "
-            "Os subassuntos identificados como “Guia de estudo” são um desdobramento pedagógico, "
-            "não texto oficial nem garantia de exaustividade. O PDF não foi alterado.\n\n"
-            "Ao detalhar um item que já estava concluído, seus novos subassuntos herdam essa conclusão. "
-            "Seu histórico permanece ligado ao item original e é somado aos filhos. "
-            "O total passa a refletir os assuntos menores.\n\n"
-            "Referências: edital BACEN, dev.java/learn, docs.python.org/3/tutorial, "
-            "postgresql.org/docs/current/tutorial.html, legislação no Planalto e Cosif/BCB.",
-            parent=app.root,
-        )
-
-    info = MotionButton(top, text="Como é calculado?", command=help_progress)
-    info.pack(side="right")
-    tooltip(info, "Entenda os assuntos oficiais, o guia de estudo e o progresso")
-    progress_bar = ThinProgress(card.body, app, percent)
-    progress_bar.pack(fill="x", pady=(10, 2))
-    app.toolbar(
-        [
-            ("Importar", app.import_edital),
-            ("Gerenciar matérias", app.manage_entities),
-            ("Fontes e cobertura", app.syllabus_audit),
-            ("Área BACEN 2024", app.load_bacen),
-            ("PDF e referência", app.open_bacen),
-        ]
-    )
-    searchrow = ttk.Frame(parent)
-    searchrow.pack(fill="x", pady=(10, 8))
-    ttk.Label(searchrow, text="Buscar no edital", style="Muted.TLabel").pack(
-        side="left", padx=(0, 12)
-    )
-    search = tk.StringVar(value=app.edital_search)
-    entry = ttk.Entry(searchrow, textvariable=search)
-    entry.pack(side="left", fill="x", expand=True)
-    app.edital_search_entry = entry
-    selection_area = ttk.Frame(parent, height=44)
-    selection_area.pack(fill="x", pady=(3, 0))
-    selection_area.pack_propagate(False)
-    selection = ttk.Label(
-        selection_area,
-        text="Selecione um assunto para estudar, editar ou acessar materiais.",
-        style="Muted.TLabel",
-        wraplength=700,
-        anchor="w",
-    )
-    selection.pack(fill="both", expand=True)
-    selection_tip = tooltip(selection, "Selecione um assunto na lista abaixo.")
-
-    def wrap_label(label, event):
-        width = max(100, event.width - 8)
-        if int(float(label.cget("wraplength") or 0)) != width:
-            label.configure(wraplength=width)
-
-    selection.bind("<Configure>", lambda e: wrap_label(selection, e))
     topics = store.rows(
         """SELECT t.*,COALESCE(a.correct,0) correct,COALESCE(a.wrong,0) wrong,
         COALESCE(a.blank,0) blank,a.last,COALESCE(a.n,0) n,COALESCE(r.n,0) pending FROM topics t
@@ -104,7 +59,7 @@ def render_edital(app, tooltip, dialogs):
         WHERE d.plan_id=? AND d.archived=0 AND t.archived=0 ORDER BY t.rowid""",
         (app.plan,),
     )
-    from learning import ordered, subject_key
+    from learning import ordered
 
     names = {
         s["id"]: s["name"]
@@ -112,6 +67,94 @@ def render_edital(app, tooltip, dialogs):
     }
     if store.pref("syllabus_order", "Aprendizagem") == "Aprendizagem":
         topics = ordered(topics, names)
+    return topics
+
+
+def render_edital(app, tooltip, dialogs):
+    store = app.store
+    parent = app.content
+    palette = app.motion.palette
+    progress = store.progress(app.plan)
+
+    # Top bar: overall progress, the add action and the administrative menu.
+    bar = tk.Frame(parent, bg=app.bg)
+    bar.pack(fill="x", pady=(0, 14))
+    summary = tk.Frame(bar, bg=app.bg)
+    summary.pack(side="left")
+    progress_percent = label(summary, app, "", size=15, weight="bold")
+    progress_percent.pack(side="left")
+    progress_count = label(summary, app, "", size=10, tone="muted")
+    progress_count.pack(side="left", padx=(10, 14))
+    progress_bar = ProgressBar(summary, app, 0, height=4)
+    progress_bar.configure(width=180)
+    progress_bar.pack(side="left")
+
+    def show_progress(current):
+        value = 100 * current["done"] / current["total"] if current["total"] else 0
+        progress_percent.configure(text=f"{value:.0f}%")
+        progress_count.configure(
+            text=f"{current['done']} de {current['total']} assuntos concluídos"
+        )
+        progress_bar.value = value
+        progress_bar.draw()
+
+    show_progress(progress)
+    ActionMenu(
+        bar,
+        app,
+        [
+            ("Importar edital", app.import_edital),
+            ("Gerenciar matérias e planos", app.manage_entities),
+            ("Fontes e cobertura", app.syllabus_audit),
+            None,
+            ("Área BACEN 2024", app.load_bacen),
+            ("PDF e referência do edital", app.open_bacen),
+            None,
+            (
+                "Como o progresso e a ordem funcionam",
+                lambda: dialogs.showinfo("Conteúdo e progresso", HELP, parent=app.root),
+            ),
+        ],
+        text="Gerenciar",
+        icon="sliders-horizontal",
+    ).pack(side="right")
+    MotionButton(bar, text="Novo assunto", icon="plus", command=app.topic_form).pack(
+        side="right", padx=(0, 8)
+    )
+
+    split = tk.Frame(parent, bg=app.bg)
+    split.pack(fill="both", expand=True)
+    split.columnconfigure(0, weight=3, uniform="split")
+    split.columnconfigure(1, weight=2, uniform="split", minsize=300)
+    split.rowconfigure(0, weight=1)
+
+    # Left: search and the tree, on one quiet surface with its own scroll.
+    left_card = Card(split, app, padding=(4, 4), stretch=True)
+    left_card.grid(row=0, column=0, sticky="nsew", padx=(0, 9))
+    left = left_card.body
+    searchrow = tk.Frame(left, bg=app.surface)
+    searchrow.pack(fill="x", padx=14, pady=(14, 8))
+    icon_label(
+        searchrow, app, "search", size=11, tone="faint", bg=palette["raised"]
+    ).pack(side="left", ipadx=8, ipady=8)
+    search = tk.StringVar(value=app.edital_search)
+    entry = ttk.Entry(searchrow, textvariable=search, style="Field.TEntry")
+    entry.pack(side="left", fill="x", expand=True)
+    app.edital_search_entry = entry
+    hint = placeholder(entry, app, "Buscar assunto ou matéria")
+    from app import Scroll
+
+    tree_scroll = Scroll(left, style="Panel.TFrame")
+    tree_scroll.pack(fill="both", expand=True, padx=(6, 4), pady=(0, 8))
+    app.edital_scroll = tree_scroll
+    host = tree_scroll.body
+
+    # Right: details of the selected topic.
+    detail_card = Card(split, app, padding=(24, 22), stretch=True)
+    detail_card.grid(row=0, column=1, sticky="nsew", padx=(9, 0))
+    detail = detail_card.body
+
+    topics = load_topics(app)
     mapping = {t["id"]: t for t in topics}
     children = {}
     by_subject = {}
@@ -141,15 +184,15 @@ def render_edital(app, tooltip, dialogs):
         aggregate(topic)
     guide_ids = set(store.pref("bacen_guide_ids", []))
     evidence = store.pref("bacen_topic_sources", {})
+    from learning import subject_key
+
     subjects = sorted(
         store.rows(
             "SELECT * FROM subjects WHERE plan_id=? AND archived=0", (app.plan,)
         ),
         key=lambda s: subject_key(s["name"]),
     )
-    app.note(
-        "Sequência sugerida: fundamentos → aplicação → aprofundamento. A numeração original do edital continua preservada; você pode estudar qualquer item."
-    )
+    subject_names = {s["id"]: s["name"] for s in subjects}
     rendered = {}
     controls = {}
     subject_metrics = {}
@@ -157,12 +200,21 @@ def render_edital(app, tooltip, dialogs):
     app.edital_rows = rendered
     app.edital_mapping = mapping
     app.edital_branch_buttons = {}
+    limit = [100]
+    pending_reveal = [None]
 
     def chosen():
         topic = mapping.get(app.edital_selected)
         if not topic:
-            raise ValueError("Selecione um assunto na lista abaixo.")
+            raise ValueError("Selecione um assunto na lista.")
         return topic
+
+    def completion(t):
+        descendants = children.get(t["id"], [])
+        t["completed"] = (
+            sum(completion(c) for c in descendants) if descendants else int(t["done"])
+        )
+        return t["completed"]
 
     def toggle_done(topic=None):
         topic = topic or chosen()
@@ -171,74 +223,28 @@ def render_edital(app, tooltip, dialogs):
         done = not topic["done"]
         store.save("topics", {"id": topic["id"], "done": done})
         topic["done"] = done
-
-        # Update only completion, not already aggregated history. Keep rows alive
-        # so the viewport, selection and keyboard focus remain exactly in place.
-        def completion(t):
-            descendants = children.get(t["id"], [])
-            t["completed"] = (
-                sum(completion(c) for c in descendants)
-                if descendants
-                else int(t["done"])
-            )
-            return t["completed"]
-
+        # Update completion only; rows stay alive so the viewport stays in place.
         for t in topics:
             if t["parent_id"] not in mapping:
                 completion(t)
-        current = store.progress(app.plan)
-        percent = 100 * current["done"] / current["total"] if current["total"] else 0
-        progress_percent.configure(text=f"{percent:.0f}%")
-        progress_count.configure(
-            text=f"{current['done']} de {current['total']} assuntos concluídos"
-        )
-        progress_bar.value = percent
-        progress_bar.draw()
+        show_progress(store.progress(app.plan))
         if topic["id"] in controls:
-            controls[topic["id"]].configure(text="✓" if topic["done"] else "□")
+            control = controls[topic["id"]]
+            if isinstance(control, CompletionBox):
+                control.configure(text="✓" if topic["done"] else "□")
         for tid, (row, marker, labels) in rendered.items():
             text = detail_text(mapping[tid])
             if labels[-1].cget("text") != text:
                 labels[-1].configure(text=text)
-        for sid, (metric, bar, roots) in subject_metrics.items():
+        for sid, (metric, sbar, roots) in subject_metrics.items():
             total = sum(t["total"] for t in roots)
-            done = sum(t["completed"] for t in roots)
-            percent = 100 * done / total if total else 0
-            metric.configure(text=f"{percent:.0f}%  ·  {done}/{total}")
-            if bar:
-                bar.value = percent
-                bar.draw()
-
-    actions = app.toolbar(
-        [
-            ("Concluir / reabrir", toggle_done),
-            (
-                "Registrar estudo",
-                lambda: app.session_form(
-                    {"subject_id": chosen()["subject_id"], "topic_id": chosen()["id"]}
-                ),
-            ),
-            ("Observações", lambda: app.topic_notes(chosen(), update_notes)),
-            ("Editar", lambda: app.topic_form(chosen())),
-            ("Materiais", lambda: app.materials(chosen())),
-            ("Arquivar", lambda: app.archive_topic(chosen())),
-        ]
-    )
-    action_buttons = actions.winfo_children()[0].winfo_children()
-
-    def update_actions():
-        selected = mapping.get(app.edital_selected)
-        for index, button in enumerate(action_buttons):
-            enabled = bool(selected) and (
-                index != 0 or not children.get(selected["id"])
-            )
-            button.configure(state="normal" if enabled else "disabled")
-
-    update_actions()
-    host = ttk.Frame(parent)
-    host.pack(fill="x", pady=(6, 16))
-    limit = [100]
-    pending_reveal = [None]
+            done_count = sum(t["completed"] for t in roots)
+            metric.configure(text=f"{done_count}/{total}")
+            if sbar:
+                sbar.value = 100 * done_count / total if total else 0
+                sbar.draw()
+        if app.edital_selected in mapping:
+            show_detail(mapping[app.edital_selected])
 
     def paint_selected(tid, hover=False):
         if tid not in rendered:
@@ -260,23 +266,24 @@ def render_edital(app, tooltip, dialogs):
         def paint(t):
             current = blend(start, color, t)
             row.configure(bg=current)
-            marker.configure(bg=palette["accent"] if selected or hover else current)
-            for label in labels:
-                label.configure(bg=current)
+            marker.configure(bg=current)
+            for item in labels:
+                item.configure(bg=current)
+            for button in row._buttons:
+                button.surround = current
+                button.configure(bg=current)
+                if button.role == "Ghost.TButton" and not button.hover:
+                    button.current = current
+                button.draw()
 
-        app.motion.animate(row, paint, 240, channel="row-hover")
+        app.motion.animate(row, paint, 200, channel="row-hover")
 
     def select(topic):
         previous = app.edital_selected
         app.edital_selected = topic["id"]
         paint_selected(previous)
         paint_selected(topic["id"])
-        name = topic["name"]
-        selection.configure(
-            text="Selecionado: " + name[:100] + ("…" if len(name) > 100 else "")
-        )
-        selection_tip.text = name
-        update_actions()
+        show_detail(topic)
 
     def clear_branch(container):
         prefix = str(container) + "."
@@ -291,7 +298,6 @@ def render_edital(app, tooltip, dialogs):
 
     def show_branch(key):
         view = views[key]
-        view["bar"].pack(fill="x", pady=(9, 10)) if view["bar"] else None
         view["host"].pack(fill="x", after=view["after"])
         for topic in view["items"]:
             topic_row(view["host"], topic, view["depth"])
@@ -308,8 +314,6 @@ def render_edital(app, tooltip, dialogs):
             app.edital_expanded.discard(key)
             clear_branch(view["host"])
             view["host"].pack_forget()
-            if view["bar"]:
-                view["bar"].pack_forget()
         view["button"].configure(
             icon="chevron-down" if view["open"] else "chevron-right"
         )
@@ -342,40 +346,184 @@ def render_edital(app, tooltip, dialogs):
             if search.get().strip() and topic["parent_id"] in mapping:
                 details.append("Item oficial: " + mapping[topic["parent_id"]]["name"])
         if topic["n"]:
-            questions = topic["correct"] + topic["wrong"] + topic["blank"]
             answered = topic["correct"] + topic["wrong"]
-            details.append(
-                f"{questions} questões · {answered} respondidas · {percentage(ratio(topic['correct'],topic['wrong']))} de acertos"
-            )
-            details.append("Último estudo: " + str(topic["last"]))
+            if answered:
+                details.append(
+                    f"{percent(ratio(topic['correct'], topic['wrong']), 1)} em {answered} questões"
+                )
+            details.append("estudado em " + str(topic["last"]))
         if topic["pending"]:
-            details.append(f"{topic['pending']} revisões pendentes")
-        if topic.get("notes"):
-            details.append("✎ " + topic["notes"].replace("\n", " ")[:160])
-        if "11.813/2013" in topic["name"]:
-            details.append("Retificação oficial: leia Lei 12.813/2013")
-        if tid in evidence:
             details.append(
-                evidence[tid]["exam"] + " • itens " + evidence[tid]["questions"]
+                f"{topic['pending']} {'revisão pendente' if topic['pending'] == 1 else 'revisões pendentes'}"
             )
-        return "   ·   ".join(details) or (
-            "Teoria concluída" if topic["done"] else "Não iniciado"
-        )
+        if topic.get("notes"):
+            details.append("✎ " + topic["notes"].replace("\n", " ")[:90])
+        return "  ·  ".join(details)
 
     def update_notes():
+        fresh = store.one("SELECT notes FROM topics WHERE id=?", (app.edital_selected,))
+        if fresh and app.edital_selected in mapping:
+            mapping[app.edital_selected]["notes"] = fresh["notes"]
         for tid, (row, marker, labels) in rendered.items():
             labels[-1].configure(text=detail_text(mapping[tid]))
+        if app.edital_selected in mapping:
+            show_detail(mapping[app.edital_selected])
+
+    def show_detail(topic):
+        for widget in detail.winfo_children():
+            widget.destroy()
+        if topic is None:
+            empty(
+                detail,
+                app,
+                "book-open",
+                "Escolha um assunto",
+                "Selecione um item da lista para ver o progresso, as observações e os materiais, e para começar a estudá-lo.",
+            ).pack(fill="x", pady=(40, 0))
+            label(
+                detail,
+                app,
+                "Dica: clique duas vezes num assunto para registrar um estudo.",
+                size=9,
+                tone="faint",
+                anchor="center",
+            ).pack(fill="x", pady=(18, 0))
+            return
+        branch = bool(children.get(topic["id"]))
+        trail = [subject_names.get(topic["subject_id"], "")]
+        ancestor = mapping.get(topic["parent_id"])
+        if ancestor:
+            trail.append(ancestor["name"])
+        wrapping(label(detail, app, "  ›  ".join(trail), size=9, tone="muted")).pack(
+            fill="x"
+        )
+        wrapping(label(detail, app, topic["name"], size=15, weight="bold")).pack(
+            fill="x", pady=(6, 0)
+        )
+        state = (
+            f"{topic['completed']} de {topic['total']} subassuntos concluídos"
+            if branch
+            else (
+                "Teoria concluída"
+                if topic["done"]
+                else ("Em estudo" if topic["n"] else "Ainda não estudado")
+            )
+        )
+        tags = [state]
+        if topic["id"] in guide_ids:
+            tags.append("guia de estudo, não texto oficial")
+        label(
+            detail,
+            app,
+            "  ·  ".join(tags),
+            size=10,
+            tone="accent" if topic["done"] and not branch else "muted",
+        ).pack(anchor="w", pady=(6, 0))
+        if branch:
+            ProgressBar(
+                detail, app, 100 * topic["completed"] / topic["total"], height=4
+            ).pack(fill="x", pady=(10, 0))
+        if topic["n"]:
+            answered = topic["correct"] + topic["wrong"]
+            stats = [(str(topic["n"]), "estudos")]
+            if answered:
+                stats.append(
+                    (
+                        percent(ratio(topic["correct"], topic["wrong"]), 1),
+                        f"em {answered} questões",
+                    )
+                )
+            stats.append(
+                (str(topic["last"])[8:10] + "/" + str(topic["last"])[5:7], "último")
+            )
+            stat_row(detail, app, stats, gap=22).pack(anchor="w", pady=(18, 0))
+        if topic["pending"]:
+            label(
+                detail,
+                app,
+                f"{topic['pending']} {'revisão pendente' if topic['pending'] == 1 else 'revisões pendentes'} neste assunto",
+                size=9,
+                tone="warning",
+            ).pack(anchor="w", pady=(12, 0))
+        extra = []
+        if "11.813/2013" in topic["name"]:
+            extra.append("Retificação oficial: leia Lei 12.813/2013.")
+        if topic["id"] in evidence:
+            source = evidence[topic["id"]]
+            extra.append(f"Cobrado em {source['exam']} (itens {source['questions']}).")
+        for line in extra:
+            wrapping(label(detail, app, line, size=9, tone="muted")).pack(
+                fill="x", pady=(8, 0)
+            )
+        label(detail, app, "Observações", size=10, weight="bold").pack(
+            anchor="w", pady=(22, 4)
+        )
+        notes = (topic.get("notes") or "").strip()
+        wrapping(
+            label(
+                detail,
+                app,
+                notes or "Sem observações. Anote dúvidas, macetes e onde parou.",
+                size=10,
+                tone="fg" if notes else "faint",
+            )
+        ).pack(fill="x")
+        MotionButton(
+            detail,
+            text="Editar observações" if notes else "Escrever observações",
+            icon="pencil",
+            style="Ghost.TButton",
+            height=30,
+            command=lambda: app.topic_notes(topic, update_notes),
+        ).pack(anchor="w", pady=(6, 0))
+        actions = tk.Frame(detail, bg=app.surface)
+        actions.pack(side="bottom", fill="x", pady=(18, 0))
+        start = {"subject_id": topic["subject_id"], "topic_id": topic["id"]}
+        MotionButton(
+            actions,
+            text="Estudar agora",
+            icon="play",
+            style="Accent.TButton",
+            height=40,
+            command=lambda: app.clock_setup(dict(start)),
+        ).pack(side="left")
+        MotionButton(
+            actions,
+            text="Registrar estudo",
+            icon="plus",
+            height=40,
+            command=lambda: app.session_form(dict(start)),
+        ).pack(side="left", padx=(8, 0))
+        menu = [
+            ("Materiais e links", lambda: app.materials(topic)),
+            ("Editar assunto", lambda: app.topic_form(topic)),
+            None,
+            ("Arquivar assunto", lambda: app.archive_topic(topic), "danger"),
+        ]
+        if not branch:
+            menu.insert(
+                0,
+                (
+                    (
+                        "Reabrir teoria"
+                        if topic["done"]
+                        else "Marcar teoria como concluída"
+                    ),
+                    lambda: toggle_done(topic),
+                ),
+            )
+        ActionMenu(actions, app, menu, height=40).pack(side="right")
 
     def topic_row(container, topic, depth):
         tid = topic["id"]
         branches = children.get(tid, [])
         row = tk.Frame(container, bg=app.surface)
-        row.pack(fill="x", pady=1)
-        marker = tk.Frame(row, width=3, bg=app.surface)
+        row.pack(fill="x")
+        row._buttons = []
+        marker = tk.Frame(row, width=2, bg=app.surface)
         marker.pack(side="left", fill="y")
         inner = tk.Frame(row, bg=app.surface)
-        inner.pack(fill="x", padx=(8 + min(depth, 4) * 16, 10), pady=7)
-        # Controls are fixed width; the actual title wraps to available space.
+        inner.pack(fill="x", padx=(4 + min(depth, 5) * 18, 6), pady=4)
         filtered_parent = bool(branches and search.get().strip())
         button = (
             MotionButton(
@@ -390,14 +538,15 @@ def render_edital(app, tooltip, dialogs):
                     )
                 ),
                 style="Ghost.TButton",
-                height=34,
+                height=30,
                 state="disabled" if filtered_parent else "normal",
                 command=lambda: expand(tid),
             )
             if branches
             else CompletionBox(inner, topic["done"], command=lambda: toggle_done(topic))
         )
-        button.pack(side="left", anchor="n", padx=(0, 8))
+        button.pack(side="left", anchor="n", padx=(0, 6))
+        row._buttons.append(button)
         tooltip(
             button,
             (
@@ -411,39 +560,41 @@ def render_edital(app, tooltip, dialogs):
             inner,
             icon="pencil",
             style="Ghost.TButton",
-            height=34,
+            height=30,
             command=lambda: app.topic_notes(topic, update_notes),
         )
-        notes_button.pack(side="right", anchor="n", padx=(8, 0))
-        tooltip(notes_button, "Escrever descrição e observações deste assunto")
+        notes_button.pack(side="right", anchor="n", padx=(6, 0))
+        row._buttons.append(notes_button)
+        tooltip(notes_button, "Observações deste assunto")
         text_frame = tk.Frame(inner, bg=app.surface)
-        text_frame.pack(side="left", fill="x", expand=True)
-        label = tk.Label(
+        text_frame.pack(side="left", fill="x", expand=True, pady=(5, 0))
+        title = tk.Label(
             text_frame,
             text=topic["name"],
-            font=("Inter", 10),
+            font=(app.font_family, 10, "bold" if branches and depth == 0 else "normal"),
             fg=app.fg,
             bg=app.surface,
             anchor="w",
             justify="left",
             cursor="hand2",
         )
-        label.pack(fill="x")
-        label.bind("<Configure>", lambda e: wrap_label(label, e))
-        detail = tk.Label(
+        title.pack(fill="x")
+        wrapping(title, 8, 100)
+        info = tk.Label(
             text_frame,
             text=detail_text(topic),
-            font=("Inter", 9),
+            font=(app.font_family, 9),
             fg=app.muted,
             bg=app.surface,
             anchor="w",
             justify="left",
         )
-        detail.pack(fill="x", pady=(3, 0))
-        detail.bind("<Configure>", lambda e: wrap_label(detail, e))
-        labels = [inner, text_frame, label, detail]
+        if info.cget("text"):
+            info.pack(fill="x", pady=(2, 4))
+        wrapping(info, 8, 100)
+        labels = [inner, text_frame, title, info]
         rendered[tid] = (row, marker, labels)
-        for widget in [row, inner, text_frame, label, detail]:
+        for widget in [row, inner, text_frame, title, info]:
             widget.bind("<Button-1>", lambda e, t=topic: activate(t))
             widget.bind(
                 "<Double-1>",
@@ -457,15 +608,15 @@ def render_edital(app, tooltip, dialogs):
             )
             widget.bind("<Enter>", lambda e, t=tid: paint_selected(t, True))
             widget.bind("<Leave>", lambda e, t=tid: paint_selected(t))
-        label.configure(takefocus=True)
-        label.bind("<Return>", lambda e, t=topic: activate(t))
-        label.bind(
+        title.configure(takefocus=True)
+        title.bind("<Return>", lambda e, t=topic: activate(t))
+        title.bind(
             "<Right>",
             lambda e, k=tid: (
                 expand(k) if children.get(k) and k not in app.edital_expanded else None
             ),
         )
-        label.bind(
+        title.bind(
             "<Left>", lambda e, k=tid: expand(k) if k in app.edital_expanded else None
         )
         paint_selected(tid)
@@ -476,13 +627,55 @@ def render_edital(app, tooltip, dialogs):
                 button=button,
                 items=branches,
                 depth=depth + 1,
-                bar=None,
                 after=row,
                 open=tid in app.edital_expanded,
             )
             app.edital_branch_buttons[tid] = button
             if views[tid]["open"]:
                 show_branch(tid)
+
+    def subject_header(subject, roots, items, term):
+        sid = "s" + subject["id"]
+        total = sum(t["total"] for t in roots)
+        done = sum(t["completed"] for t in roots)
+        block = tk.Frame(host, bg=app.surface)
+        block.pack(fill="x", pady=(0, 2))
+        head = tk.Frame(block, bg=app.surface, cursor="hand2")
+        head.pack(fill="x", padx=4, pady=(6, 0))
+        arrow = MotionButton(
+            head,
+            icon=(
+                "chevron-down"
+                if term or sid in app.edital_expanded
+                else "chevron-right"
+            ),
+            style="Ghost.TButton",
+            height=30,
+            command=lambda k=sid: expand(k),
+        )
+        arrow.pack(side="left", padx=(0, 6))
+        title = label(
+            head, app, subject["name"], size=11, weight="bold", cursor="hand2"
+        )
+        title.pack(side="left", fill="x", expand=True)
+        metric = label(head, app, f"{done}/{total}", size=9, tone="muted")
+        metric.pack(side="right", padx=(8, 8))
+        for widget in (head, title, metric):
+            widget.bind("<Button-1>", lambda e, k=sid: expand(k))
+        sbar = ProgressBar(block, app, 100 * done / total if total else 0, height=3)
+        sbar.pack(fill="x", padx=(46, 12), pady=(2, 8))
+        subject_metrics[subject["id"]] = (metric, sbar, roots)
+        group = tk.Frame(block, bg=app.surface)
+        views[sid] = dict(
+            host=group,
+            button=arrow,
+            items=items,
+            depth=0,
+            after=sbar,
+            open=bool(term or sid in app.edital_expanded),
+        )
+        app.edital_branch_buttons[sid] = arrow
+        return sid, group
 
     def populate():
         rendered.clear()
@@ -512,66 +705,23 @@ def render_edital(app, tooltip, dialogs):
             if term and not matching:
                 continue
             found = True
-            sid = "s" + subject["id"]
             roots = [t for t in relevant if t["parent_id"] not in mapping]
-            total = sum(t["total"] for t in roots)
-            done = sum(t["completed"] for t in roots)
-            card = Panel(host, app)
-            card.pack(fill="x", pady=(0, 8))
-            head = ttk.Frame(card.body, style="Panel.TFrame")
-            head.pack(fill="x")
-            arrow = MotionButton(
-                head,
-                icon=(
-                    "chevron-down"
-                    if term or sid in app.edital_expanded
-                    else "chevron-right"
-                ),
-                command=lambda k=sid: expand(k),
-            )
-            arrow.pack(side="left", padx=(0, 8))
-            title = ttk.Label(
-                head,
-                text=subject["name"],
-                style="PanelHeading.TLabel",
-                justify="left",
-                cursor="hand2",
-            )
-            title.pack(side="left", fill="x", expand=True)
-            title.bind("<Configure>", lambda e, w=title: wrap_label(w, e))
-            title.bind("<Button-1>", lambda e, k=sid: expand(k))
-            metric = ttk.Label(
-                head,
-                text=f"{100*done/total if total else 0:.0f}%  ·  {done}/{total}",
-                style="PanelMuted.TLabel",
-            )
-            metric.pack(side="right", padx=(12, 0))
-            bar = ThinProgress(card.body, app, 100 * done / total if total else 0)
-            subject_metrics[subject["id"]] = (metric, bar, roots)
-            group = tk.Frame(card.body, bg=app.surface)
             items = roots
             if term:
                 items = matching[: max(0, limit[0] - shown)]
                 shown += len(items)
                 more = len(items) < len(matching)
-            views[sid] = dict(
-                host=group,
-                button=arrow,
-                items=items,
-                depth=0,
-                bar=bar,
-                after=bar,
-                open=bool(term or sid in app.edital_expanded),
-            )
-            app.edital_branch_buttons[sid] = arrow
+            sid, group = subject_header(subject, roots, items, term)
             if views[sid]["open"]:
                 show_branch(sid)
                 if not items:
-                    ttk.Label(
+                    label(
                         group,
-                        text="Adicione o primeiro assunto desta matéria.",
-                        style="PanelMuted.TLabel",
-                    ).pack(anchor="w", pady=8)
+                        app,
+                        "Adicione o primeiro assunto desta matéria.",
+                        size=9,
+                        tone="muted",
+                    ).pack(anchor="w", padx=46, pady=8)
             if more:
                 break
         if more:
@@ -580,17 +730,28 @@ def render_edital(app, tooltip, dialogs):
                 limit[0] += 100
                 populate()
 
-            MotionButton(host, text="Mostrar mais resultados", command=show_more).pack(
-                anchor="w", pady=8
-            )
-        if not found:
-            ttk.Label(
+            MotionButton(
                 host,
-                text="Nenhum assunto encontrado. Tente outro termo ou adicione um assunto.",
-                style="Muted.TLabel",
-            ).pack(anchor="w", pady=16)
+                text="Mostrar mais resultados",
+                style="Ghost.TButton",
+                command=show_more,
+            ).pack(anchor="w", padx=10, pady=8)
+        if not found:
+            empty(
+                host,
+                app,
+                "search",
+                "Nada encontrado",
+                "Tente outro termo, sem acentos ou mais curto, ou adicione um assunto.",
+                [
+                    ("Limpar busca", lambda: search.set("")),
+                    ("Novo assunto", app.topic_form),
+                ],
+            ).pack(fill="x", pady=30)
         if app.edital_selected in mapping:
             select(mapping[app.edital_selected])
+        else:
+            show_detail(None)
         tid = pending_reveal[0]
         pending_reveal[0] = None
         if tid in rendered:
@@ -601,21 +762,18 @@ def render_edital(app, tooltip, dialogs):
             def reveal():
                 app.motion.jobs.pop(key, None)
                 if row.winfo_exists():
-                    y = row.winfo_rooty() - app.content.winfo_rooty() - 80
-                    app.scroll.canvas.yview_moveto(
-                        max(0, y / max(1, app.content.winfo_height()))
+                    y = row.winfo_rooty() - host.winfo_rooty() - 80
+                    tree_scroll.canvas.yview_moveto(
+                        max(0, y / max(1, host.winfo_height()))
                     )
 
             app.motion.jobs[key] = app.root.after(120, reveal)
 
     def search_changed(*args):
+        hint()
         limit[0] = 100
         app.edital_selected = None
-        selection.configure(
-            text="Selecione um assunto para estudar, editar ou acessar materiais."
-        )
-        update_actions()
-        app.scroll.canvas.yview_moveto(0)
+        tree_scroll.canvas.yview_moveto(0)
         # Cancel rapid keystrokes without rebuilding hundreds of rows each time.
         previous = app.motion.jobs.pop((entry, "search"), None)
         if previous:

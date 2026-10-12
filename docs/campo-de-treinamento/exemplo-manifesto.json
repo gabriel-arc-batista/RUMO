@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "catalog_id": "rumo-exemplo-nao-publicado",
+  "catalog_version": "0.1.0",
+  "generated_at": "2026-10-11",
+  "kind": "exemplo-de-contrato",
+  "notice": "Não é um endpoint publicado. Aula planejada; recurso ainda inexistente.",
+  "subjects": [{ "id": "subject.bancos-dados", "name": "Bancos de dados" }],
+  "topics": [{
+    "id": "topic.bancos-dados.modelo-relacional",
+    "subject_id": "subject.bancos-dados",
+    "name": "Modelo relacional",
+    "suggested_prerequisite_topic_ids": []
+  }],
+  "lessons": [{
+    "id": "lesson.modelo-relacional.fundamentos",
+    "primary_topic_id": "topic.bancos-dados.modelo-relacional",
+    "additional_topic_ids": [],
+    "title": "Entendendo o modelo relacional",
+    "content_version": "0.1.0",
+    "publication_status": "planejada",
+    "objectives": ["Explicar tabelas, registros, atributos e relações sem depender de um SGBD específico"],
+    "review": { "status": "pendente", "reviewer": null, "reviewed_at": null },
+    "resource": null,
+    "license": null,
+    "sources": [],
+    "coverage_links": []
+  }],
+  "coverage": { "status": "nao-auditada", "items": [] },
+  "resource_contract": {
+    "notice": "Descrição dos campos de um recurso futuro; não representa um recurso publicado.",
+    "required_fields_when_published": ["id", "version", "url", "media_type", "bytes", "sha256", "license"],
+    "media_type": "application/pdf",
+    "optional_fields": ["page_count", "published_at"],
+    "constraints": [
+      "url HTTPS em host configurado e aprovado",
+      "bytes inteiro positivo dentro do limite do aplicativo",
+      "sha256 com 64 caracteres hexadecimais calculado do PDF final",
+      "revisão aprovada antes de publication_status publicada"
+    ]
+  }
+}

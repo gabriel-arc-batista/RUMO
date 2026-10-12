@@ -1,0 +1,1575 @@
+{
+  "schema_version": 1,
+  "researched_at": "2026-10-11",
+  "scope": "Nove edições e cargos/perfis selecionados, não todos os cargos de cada edital. Janela 11/10/2016–11/10/2026.",
+  "difficulty_method": "Classificação editorial relativa baseada em amplitude e profundidade do programa e formato técnico; sem estimativa de aprovação ou análise psicométrica das provas.",
+  "exams": [
+    {
+      "id": "bb-2022-001-ti",
+      "organization": "Banco do Brasil",
+      "edition_year": 2022,
+      "difficulty": "facil",
+      "difficulty_is_editorial": true,
+      "role": "Escriturário — Agente de Tecnologia (prova de 2023)",
+      "bank": "Cesgranrio",
+      "source_url": "https://inscricao.cesgranrio.com.br/storage.ashx?file=pdf/bbrasil/bb0122_edital.pdf",
+      "source_pages": [
+        33,
+        34
+      ],
+      "subjects": [
+        {
+          "name": "LÍNGUA PORTUGUESA",
+          "id": "bb-2022-001-ti:disciplina:01",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://inscricao.cesgranrio.com.br/storage.ashx?file=pdf/bbrasil/bb0122_edital.pdf",
+            "candidate_pages": [
+              33,
+              34
+            ],
+            "section_name": "LÍNGUA PORTUGUESA"
+          }
+        },
+        {
+          "name": "LÍNGUA INGLESA",
+          "id": "bb-2022-001-ti:disciplina:02",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://inscricao.cesgranrio.com.br/storage.ashx?file=pdf/bbrasil/bb0122_edital.pdf",
+            "candidate_pages": [
+              33,
+              34
+            ],
+            "section_name": "LÍNGUA INGLESA"
+          }
+        },
+        {
+          "name": "MATEMÁTICA",
+          "id": "bb-2022-001-ti:disciplina:03",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://inscricao.cesgranrio.com.br/storage.ashx?file=pdf/bbrasil/bb0122_edital.pdf",
+            "candidate_pages": [
+              33,
+              34
+            ],
+            "section_name": "MATEMÁTICA"
+          }
+        },
+        {
+          "name": "ATUALIDADES DO MERCADO FINANCEIRO",
+          "id": "bb-2022-001-ti:disciplina:04",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://inscricao.cesgranrio.com.br/storage.ashx?file=pdf/bbrasil/bb0122_edital.pdf",
+            "candidate_pages": [
+              33,
+              34
+            ],
+            "section_name": "ATUALIDADES DO MERCADO FINANCEIRO"
+          }
+        },
+        {
+          "name": "PROBABILIDADE E ESTATÍSTICA",
+          "id": "bb-2022-001-ti:disciplina:05",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://inscricao.cesgranrio.com.br/storage.ashx?file=pdf/bbrasil/bb0122_edital.pdf",
+            "candidate_pages": [
+              33,
+              34
+            ],
+            "section_name": "PROBABILIDADE E ESTATÍSTICA"
+          }
+        },
+        {
+          "name": "CONHECIMENTOS BANCÁRIOS",
+          "id": "bb-2022-001-ti:disciplina:06",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://inscricao.cesgranrio.com.br/storage.ashx?file=pdf/bbrasil/bb0122_edital.pdf",
+            "candidate_pages": [
+              33,
+              34
+            ],
+            "section_name": "CONHECIMENTOS BANCÁRIOS"
+          }
+        },
+        {
+          "name": "TECNOLOGIA DA INFORMAÇÃO",
+          "id": "bb-2022-001-ti:disciplina:07",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://inscricao.cesgranrio.com.br/storage.ashx?file=pdf/bbrasil/bb0122_edital.pdf",
+            "candidate_pages": [
+              33,
+              34
+            ],
+            "section_name": "TECNOLOGIA DA INFORMAÇÃO"
+          }
+        }
+      ],
+      "reason": "Recorte técnico em seis grandes blocos; classificação relativa ao conjunto, não facilidade de aprovação."
+    },
+    {
+      "id": "caixa-2024-tbn-ti",
+      "organization": "Caixa Econômica Federal",
+      "edition_year": 2024,
+      "difficulty": "facil",
+      "difficulty_is_editorial": true,
+      "role": "Técnico Bancário Novo — Tecnologia da Informação",
+      "bank": "Cesgranrio",
+      "source_url": "https://www.caixa.gov.br/Downloads/concurso-publico-editais/EDITAL_N_01_2024_NM_DE_22_DE_FEVEREIRO_DE_2024_.pdf",
+      "source_pages": [
+        33,
+        35
+      ],
+      "subjects": [
+        {
+          "name": "LÍNGUA PORTUGUESA",
+          "id": "caixa-2024-tbn-ti:disciplina:01",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://www.caixa.gov.br/Downloads/concurso-publico-editais/EDITAL_N_01_2024_NM_DE_22_DE_FEVEREIRO_DE_2024_.pdf",
+            "candidate_pages": [
+              33,
+              35
+            ],
+            "section_name": "LÍNGUA PORTUGUESA"
+          }
+        },
+        {
+          "name": "LÍNGUA INGLESA",
+          "id": "caixa-2024-tbn-ti:disciplina:02",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://www.caixa.gov.br/Downloads/concurso-publico-editais/EDITAL_N_01_2024_NM_DE_22_DE_FEVEREIRO_DE_2024_.pdf",
+            "candidate_pages": [
+              33,
+              35
+            ],
+            "section_name": "LÍNGUA INGLESA"
+          }
+        },
+        {
+          "name": "MATEMÁTICA FINANCEIRA",
+          "id": "caixa-2024-tbn-ti:disciplina:03",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://www.caixa.gov.br/Downloads/concurso-publico-editais/EDITAL_N_01_2024_NM_DE_22_DE_FEVEREIRO_DE_2024_.pdf",
+            "candidate_pages": [
+              33,
+              35
+            ],
+            "section_name": "MATEMÁTICA FINANCEIRA"
+          }
+        },
+        {
+          "name": "NOÇÕES DE PROBABILIDADE E ESTATÍSTICA",
+          "id": "caixa-2024-tbn-ti:disciplina:04",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://www.caixa.gov.br/Downloads/concurso-publico-editais/EDITAL_N_01_2024_NM_DE_22_DE_FEVEREIRO_DE_2024_.pdf",
+            "candidate_pages": [
+              33,
+              35
+            ],
+            "section_name": "NOÇÕES DE PROBABILIDADE E ESTATÍSTICA"
+          }
+        },
+        {
+          "name": "COMPORTAMENTOS ÉTICOS E COMPLIANCE",
+          "id": "caixa-2024-tbn-ti:disciplina:05",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://www.caixa.gov.br/Downloads/concurso-publico-editais/EDITAL_N_01_2024_NM_DE_22_DE_FEVEREIRO_DE_2024_.pdf",
+            "candidate_pages": [
+              33,
+              35
+            ],
+            "section_name": "COMPORTAMENTOS ÉTICOS E COMPLIANCE"
+          }
+        },
+        {
+          "name": "TECNOLOGIA DA INFORMAÇÃO",
+          "id": "caixa-2024-tbn-ti:disciplina:06",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://www.caixa.gov.br/Downloads/concurso-publico-editais/EDITAL_N_01_2024_NM_DE_22_DE_FEVEREIRO_DE_2024_.pdf",
+            "candidate_pages": [
+              33,
+              35
+            ],
+            "section_name": "TECNOLOGIA DA INFORMAÇÃO"
+          }
+        },
+        {
+          "name": "CONHECIMENTOS E COMPORTAMENTOS DIGITAIS",
+          "id": "caixa-2024-tbn-ti:disciplina:07",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://www.caixa.gov.br/Downloads/concurso-publico-editais/EDITAL_N_01_2024_NM_DE_22_DE_FEVEREIRO_DE_2024_.pdf",
+            "candidate_pages": [
+              33,
+              35
+            ],
+            "section_name": "CONHECIMENTOS E COMPORTAMENTOS DIGITAIS"
+          }
+        }
+      ],
+      "reason": "Categoria de entrada, mas programa tecnológico extenso; não significa programa simples."
+    },
+    {
+      "id": "ufabc-2023-tecnico-ti",
+      "organization": "UFABC",
+      "edition_year": 2023,
+      "difficulty": "facil",
+      "difficulty_is_editorial": true,
+      "role": "Técnico de Tecnologia da Informação — Edital 35/2023",
+      "bank": "Vunesp",
+      "source_url": "https://www.ufabc.edu.br/images/concursos_tas/2023/edital_35-2023/edital_35-2023_abertura_das_inscricoes.pdf",
+      "source_pages": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "subjects": [
+        {
+          "name": "Língua Portuguesa",
+          "id": "ufabc-2023-tecnico-ti:disciplina:01",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://www.ufabc.edu.br/images/concursos_tas/2023/edital_35-2023/edital_35-2023_abertura_das_inscricoes.pdf",
+            "candidate_pages": [
+              42,
+              43,
+              46,
+              47
+            ],
+            "section_name": "Língua Portuguesa"
+          }
+        },
+        {
+          "name": "Matemática / Raciocínio lógico",
+          "id": "ufabc-2023-tecnico-ti:disciplina:02",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://www.ufabc.edu.br/images/concursos_tas/2023/edital_35-2023/edital_35-2023_abertura_das_inscricoes.pdf",
+            "candidate_pages": [
+              42,
+              43,
+              46,
+              47
+            ],
+            "section_name": "Matemática / Raciocínio lógico"
+          }
+        },
+        {
+          "name": "Conceitos básicos",
+          "id": "ufabc-2023-tecnico-ti:disciplina:03",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://www.ufabc.edu.br/images/concursos_tas/2023/edital_35-2023/edital_35-2023_abertura_das_inscricoes.pdf",
+            "candidate_pages": [
+              42,
+              43,
+              46,
+              47
+            ],
+            "section_name": "Conceitos básicos"
+          }
+        },
+        {
+          "name": "Desenvolvimento",
+          "id": "ufabc-2023-tecnico-ti:disciplina:04",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://www.ufabc.edu.br/images/concursos_tas/2023/edital_35-2023/edital_35-2023_abertura_das_inscricoes.pdf",
+            "candidate_pages": [
+              42,
+              43,
+              46,
+              47
+            ],
+            "section_name": "Desenvolvimento"
+          }
+        },
+        {
+          "name": "Banco de dados",
+          "id": "ufabc-2023-tecnico-ti:disciplina:05",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://www.ufabc.edu.br/images/concursos_tas/2023/edital_35-2023/edital_35-2023_abertura_das_inscricoes.pdf",
+            "candidate_pages": [
+              42,
+              43,
+              46,
+              47
+            ],
+            "section_name": "Banco de dados"
+          }
+        },
+        {
+          "name": "Noções sobre metodologias de análise, projeto e desenvolvimento de sistemas",
+          "id": "ufabc-2023-tecnico-ti:disciplina:06",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://www.ufabc.edu.br/images/concursos_tas/2023/edital_35-2023/edital_35-2023_abertura_das_inscricoes.pdf",
+            "candidate_pages": [
+              42,
+              43,
+              46,
+              47
+            ],
+            "section_name": "Noções sobre metodologias de análise, projeto e desenvolvimento de sistemas"
+          }
+        },
+        {
+          "name": "Arquitetura de computadores",
+          "id": "ufabc-2023-tecnico-ti:disciplina:07",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://www.ufabc.edu.br/images/concursos_tas/2023/edital_35-2023/edital_35-2023_abertura_das_inscricoes.pdf",
+            "candidate_pages": [
+              42,
+              43,
+              46,
+              47
+            ],
+            "section_name": "Arquitetura de computadores"
+          }
+        },
+        {
+          "name": "Redes de computadores",
+          "id": "ufabc-2023-tecnico-ti:disciplina:08",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://www.ufabc.edu.br/images/concursos_tas/2023/edital_35-2023/edital_35-2023_abertura_das_inscricoes.pdf",
+            "candidate_pages": [
+              42,
+              43,
+              46,
+              47
+            ],
+            "section_name": "Redes de computadores"
+          }
+        }
+      ],
+      "reason": "Fundamentos de programação, bancos, sistemas e redes, sem a carga institucional de carreiras de auditoria."
+    },
+    {
+      "id": "serpro-2023-tecnologia",
+      "organization": "SERPRO",
+      "edition_year": 2023,
+      "difficulty": "intermediario",
+      "difficulty_is_editorial": true,
+      "role": "Analista — Especialização Tecnologia",
+      "bank": "Cebraspe",
+      "source_url": "https://cdn.cebraspe.org.br/concursos/serpro_23/arquivos/ED_1_SERPRO_2023_ABERTURA.PDF",
+      "source_pages": [
+        25,
+        26,
+        27
+      ],
+      "subjects": [
+        {
+          "name": "LÍNGUA PORTUGUESA",
+          "id": "serpro-2023-tecnologia:disciplina:01",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/serpro_23/arquivos/ED_1_SERPRO_2023_ABERTURA.PDF",
+            "candidate_pages": [
+              25,
+              26,
+              27
+            ],
+            "section_name": "LÍNGUA PORTUGUESA"
+          }
+        },
+        {
+          "name": "LÍNGUA INGLESA",
+          "id": "serpro-2023-tecnologia:disciplina:02",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/serpro_23/arquivos/ED_1_SERPRO_2023_ABERTURA.PDF",
+            "candidate_pages": [
+              25,
+              26,
+              27
+            ],
+            "section_name": "LÍNGUA INGLESA"
+          }
+        },
+        {
+          "name": "NOÇÕES DE ESTATÍSTICA/PROBABILIDADE",
+          "id": "serpro-2023-tecnologia:disciplina:03",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/serpro_23/arquivos/ED_1_SERPRO_2023_ABERTURA.PDF",
+            "candidate_pages": [
+              25,
+              26,
+              27
+            ],
+            "section_name": "NOÇÕES DE ESTATÍSTICA/PROBABILIDADE"
+          }
+        },
+        {
+          "name": "RACIOCÍNIO LÓGICO",
+          "id": "serpro-2023-tecnologia:disciplina:04",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/serpro_23/arquivos/ED_1_SERPRO_2023_ABERTURA.PDF",
+            "candidate_pages": [
+              25,
+              26,
+              27
+            ],
+            "section_name": "RACIOCÍNIO LÓGICO"
+          }
+        },
+        {
+          "name": "LEGISLAÇÃO ACERCA DE PRIVACIDADE E PROTEÇÃO DE DADOS PESSOAIS",
+          "id": "serpro-2023-tecnologia:disciplina:05",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/serpro_23/arquivos/ED_1_SERPRO_2023_ABERTURA.PDF",
+            "candidate_pages": [
+              25,
+              26,
+              27
+            ],
+            "section_name": "LEGISLAÇÃO ACERCA DE PRIVACIDADE E PROTEÇÃO DE DADOS PESSOAIS"
+          }
+        },
+        {
+          "name": "SEGURANÇA DA INFORMAÇÃO",
+          "id": "serpro-2023-tecnologia:disciplina:06",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/serpro_23/arquivos/ED_1_SERPRO_2023_ABERTURA.PDF",
+            "candidate_pages": [
+              25,
+              26,
+              27
+            ],
+            "section_name": "SEGURANÇA DA INFORMAÇÃO"
+          }
+        },
+        {
+          "name": "PROCESSOS DE DESENVOLVIMENTO E SUSTENTAÇÃO DE SOFTWARE",
+          "id": "serpro-2023-tecnologia:disciplina:07",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/serpro_23/arquivos/ED_1_SERPRO_2023_ABERTURA.PDF",
+            "candidate_pages": [
+              25,
+              26,
+              27
+            ],
+            "section_name": "PROCESSOS DE DESENVOLVIMENTO E SUSTENTAÇÃO DE SOFTWARE"
+          }
+        },
+        {
+          "name": "TECNOLOGIA",
+          "id": "serpro-2023-tecnologia:disciplina:08",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/serpro_23/arquivos/ED_1_SERPRO_2023_ABERTURA.PDF",
+            "candidate_pages": [
+              25,
+              26,
+              27
+            ],
+            "section_name": "TECNOLOGIA"
+          }
+        },
+        {
+          "name": "ENGENHARIA DE SOFTWARE",
+          "id": "serpro-2023-tecnologia:disciplina:09",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/serpro_23/arquivos/ED_1_SERPRO_2023_ABERTURA.PDF",
+            "candidate_pages": [
+              25,
+              26,
+              27
+            ],
+            "section_name": "ENGENHARIA DE SOFTWARE"
+          }
+        },
+        {
+          "name": "ARQUITETURA",
+          "id": "serpro-2023-tecnologia:disciplina:10",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/serpro_23/arquivos/ED_1_SERPRO_2023_ABERTURA.PDF",
+            "candidate_pages": [
+              25,
+              26,
+              27
+            ],
+            "section_name": "ARQUITETURA"
+          }
+        },
+        {
+          "name": "NUVEM",
+          "id": "serpro-2023-tecnologia:disciplina:11",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/serpro_23/arquivos/ED_1_SERPRO_2023_ABERTURA.PDF",
+            "candidate_pages": [
+              25,
+              26,
+              27
+            ],
+            "section_name": "NUVEM"
+          }
+        },
+        {
+          "name": "TÓPICOS AVANÇADOS",
+          "id": "serpro-2023-tecnologia:disciplina:12",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/serpro_23/arquivos/ED_1_SERPRO_2023_ABERTURA.PDF",
+            "candidate_pages": [
+              25,
+              26,
+              27
+            ],
+            "section_name": "TÓPICOS AVANÇADOS"
+          }
+        }
+      ],
+      "reason": "Amplitude de desenvolvimento, arquitetura, dados e segurança, além de prova de conhecimentos aplicados."
+    },
+    {
+      "id": "dataprev-2024-desenvolvimento",
+      "organization": "DATAPREV",
+      "edition_year": 2024,
+      "difficulty": "intermediario",
+      "difficulty_is_editorial": true,
+      "role": "Analista de TI — Perfil 3: Desenvolvimento de Software",
+      "bank": "FGV",
+      "source_url": "https://conhecimento.fgv.br/sites/default/files/concursos/dataprev_edital_0.pdf",
+      "source_pages": [
+        25,
+        27,
+        28
+      ],
+      "subjects": [
+        {
+          "name": "LÍNGUA PORTUGUESA",
+          "id": "dataprev-2024-desenvolvimento:disciplina:01",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/dataprev_edital_0.pdf",
+            "candidate_pages": [
+              25,
+              27,
+              28
+            ],
+            "section_name": "LÍNGUA PORTUGUESA"
+          }
+        },
+        {
+          "name": "LÍNGUA INGLESA",
+          "id": "dataprev-2024-desenvolvimento:disciplina:02",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/dataprev_edital_0.pdf",
+            "candidate_pages": [
+              25,
+              27,
+              28
+            ],
+            "section_name": "LÍNGUA INGLESA"
+          }
+        },
+        {
+          "name": "RACIOCÍNIO LÓGICO",
+          "id": "dataprev-2024-desenvolvimento:disciplina:03",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/dataprev_edital_0.pdf",
+            "candidate_pages": [
+              25,
+              27,
+              28
+            ],
+            "section_name": "RACIOCÍNIO LÓGICO"
+          }
+        },
+        {
+          "name": "ATUALIDADES",
+          "id": "dataprev-2024-desenvolvimento:disciplina:04",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/dataprev_edital_0.pdf",
+            "candidate_pages": [
+              25,
+              27,
+              28
+            ],
+            "section_name": "ATUALIDADES"
+          }
+        },
+        {
+          "name": "LEGISLAÇÃO ACERCA DE SEGURANÇA DA INFORMAÇÃO E PROTEÇÃO DE DADOS",
+          "id": "dataprev-2024-desenvolvimento:disciplina:05",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/dataprev_edital_0.pdf",
+            "candidate_pages": [
+              25,
+              27,
+              28
+            ],
+            "section_name": "LEGISLAÇÃO ACERCA DE SEGURANÇA DA INFORMAÇÃO E PROTEÇÃO DE DADOS"
+          }
+        },
+        {
+          "name": "DESENVOLVIMENTO DE SISTEMAS",
+          "id": "dataprev-2024-desenvolvimento:disciplina:06",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/dataprev_edital_0.pdf",
+            "candidate_pages": [
+              25,
+              27,
+              28
+            ],
+            "section_name": "DESENVOLVIMENTO DE SISTEMAS"
+          }
+        },
+        {
+          "name": "INTELIGÊNCIA DE NEGÓCIOS (BUSINESS INTELLIGENCE)",
+          "id": "dataprev-2024-desenvolvimento:disciplina:07",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/dataprev_edital_0.pdf",
+            "candidate_pages": [
+              25,
+              27,
+              28
+            ],
+            "section_name": "INTELIGÊNCIA DE NEGÓCIOS (BUSINESS INTELLIGENCE)"
+          }
+        },
+        {
+          "name": "SEGURANÇA DA INFORMAÇÃO",
+          "id": "dataprev-2024-desenvolvimento:disciplina:08",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/dataprev_edital_0.pdf",
+            "candidate_pages": [
+              25,
+              27,
+              28
+            ],
+            "section_name": "SEGURANÇA DA INFORMAÇÃO"
+          }
+        },
+        {
+          "name": "BANCO DE DADOS",
+          "id": "dataprev-2024-desenvolvimento:disciplina:09",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/dataprev_edital_0.pdf",
+            "candidate_pages": [
+              25,
+              27,
+              28
+            ],
+            "section_name": "BANCO DE DADOS"
+          }
+        },
+        {
+          "name": "GESTÃO E GOVERNANÇA DE TECNOLOGIA DA INFORMAÇÃO",
+          "id": "dataprev-2024-desenvolvimento:disciplina:10",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/dataprev_edital_0.pdf",
+            "candidate_pages": [
+              25,
+              27,
+              28
+            ],
+            "section_name": "GESTÃO E GOVERNANÇA DE TECNOLOGIA DA INFORMAÇÃO"
+          }
+        }
+      ],
+      "reason": "Perfil técnico escolhido explicitamente; forte desenvolvimento com dados, segurança e governança."
+    },
+    {
+      "id": "tse-2024-analista-ti",
+      "organization": "TSE / Justiça Eleitoral unificada",
+      "edition_year": 2024,
+      "difficulty": "intermediario",
+      "difficulty_is_editorial": true,
+      "role": "Cargo 17: Analista Judiciário — Tecnologia da Informação",
+      "bank": "Cebraspe",
+      "source_url": "https://cdn.cebraspe.org.br/concursos/cpnuje_24/arquivos/EDITAL_1_2024_CPNUJE_ABERTURA_ATUALIZADO_RET_4.PDF",
+      "source_pages": [
+        45,
+        46,
+        61,
+        62,
+        63
+      ],
+      "subjects": [
+        {
+          "name": "LÍNGUA PORTUGUESA",
+          "id": "tse-2024-analista-ti:disciplina:01",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/cpnuje_24/arquivos/EDITAL_1_2024_CPNUJE_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              45,
+              46,
+              61,
+              62,
+              63
+            ],
+            "section_name": "LÍNGUA PORTUGUESA"
+          }
+        },
+        {
+          "name": "NOÇÕES DE DIREITO ADMINISTRATIVO",
+          "id": "tse-2024-analista-ti:disciplina:02",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/cpnuje_24/arquivos/EDITAL_1_2024_CPNUJE_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              45,
+              46,
+              61,
+              62,
+              63
+            ],
+            "section_name": "NOÇÕES DE DIREITO ADMINISTRATIVO"
+          }
+        },
+        {
+          "name": "ARQUITETURA DE DESENVOLVIMENTO DA PLATAFORMA DIGITAL DO PODER JUDICIÁRIO BRASILEIRO (PDPJ-Br)",
+          "id": "tse-2024-analista-ti:disciplina:03",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/cpnuje_24/arquivos/EDITAL_1_2024_CPNUJE_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              45,
+              46,
+              61,
+              62,
+              63
+            ],
+            "section_name": "ARQUITETURA DE DESENVOLVIMENTO DA PLATAFORMA DIGITAL DO PODER JUDICIÁRIO BRASILEIRO (PDPJ-Br)"
+          }
+        },
+        {
+          "name": "NORMATIVOS DA PDPJ-BR",
+          "id": "tse-2024-analista-ti:disciplina:04",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/cpnuje_24/arquivos/EDITAL_1_2024_CPNUJE_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              45,
+              46,
+              61,
+              62,
+              63
+            ],
+            "section_name": "NORMATIVOS DA PDPJ-BR"
+          }
+        },
+        {
+          "name": "ENGENHARIA DE SOFTWARE",
+          "id": "tse-2024-analista-ti:disciplina:05",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/cpnuje_24/arquivos/EDITAL_1_2024_CPNUJE_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              45,
+              46,
+              61,
+              62,
+              63
+            ],
+            "section_name": "ENGENHARIA DE SOFTWARE"
+          }
+        },
+        {
+          "name": "DESENVOLVIMENTO DE SISTEMAS",
+          "id": "tse-2024-analista-ti:disciplina:06",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/cpnuje_24/arquivos/EDITAL_1_2024_CPNUJE_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              45,
+              46,
+              61,
+              62,
+              63
+            ],
+            "section_name": "DESENVOLVIMENTO DE SISTEMAS"
+          }
+        },
+        {
+          "name": "INFRAESTRUTURA",
+          "id": "tse-2024-analista-ti:disciplina:07",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/cpnuje_24/arquivos/EDITAL_1_2024_CPNUJE_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              45,
+              46,
+              61,
+              62,
+              63
+            ],
+            "section_name": "INFRAESTRUTURA"
+          }
+        },
+        {
+          "name": "BANCOS DE DADOS",
+          "id": "tse-2024-analista-ti:disciplina:08",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/cpnuje_24/arquivos/EDITAL_1_2024_CPNUJE_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              45,
+              46,
+              61,
+              62,
+              63
+            ],
+            "section_name": "BANCOS DE DADOS"
+          }
+        },
+        {
+          "name": "SISTEMAS EMBARCADOS",
+          "id": "tse-2024-analista-ti:disciplina:09",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/cpnuje_24/arquivos/EDITAL_1_2024_CPNUJE_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              45,
+              46,
+              61,
+              62,
+              63
+            ],
+            "section_name": "SISTEMAS EMBARCADOS"
+          }
+        },
+        {
+          "name": "GESTÃO E GOVERNANÇA DE TECNOLOGIA DA INFORMAÇÃO",
+          "id": "tse-2024-analista-ti:disciplina:10",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/cpnuje_24/arquivos/EDITAL_1_2024_CPNUJE_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              45,
+              46,
+              61,
+              62,
+              63
+            ],
+            "section_name": "GESTÃO E GOVERNANÇA DE TECNOLOGIA DA INFORMAÇÃO"
+          }
+        }
+      ],
+      "reason": "Programa de analista amplo e especializado no Judiciário; pode ser mais difícil que outros intermediários conforme o perfil do candidato."
+    },
+    {
+      "id": "bacen-2024-ti",
+      "organization": "Banco Central do Brasil",
+      "edition_year": 2024,
+      "difficulty": "dificil",
+      "difficulty_is_editorial": true,
+      "role": "Cargo 2: Analista — Tecnologia da Informação",
+      "bank": "Cebraspe",
+      "source_url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/ED_1_BCB_23_ABERTURA_ATUALIZADO_RET_4.PDF",
+      "source_pages": [
+        34,
+        35,
+        36
+      ],
+      "subjects": [
+        {
+          "name": "LÍNGUA PORTUGUESA (25)",
+          "id": "bacen-2024-ti:disciplina:01",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/ED_1_BCB_23_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              34,
+              35,
+              36
+            ],
+            "section_name": "LÍNGUA PORTUGUESA (25)"
+          }
+        },
+        {
+          "name": "NOÇÕES DE LÓGICA E ESTATÍSTICA (10)",
+          "id": "bacen-2024-ti:disciplina:02",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/ED_1_BCB_23_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              34,
+              35,
+              36
+            ],
+            "section_name": "NOÇÕES DE LÓGICA E ESTATÍSTICA (10)"
+          }
+        },
+        {
+          "name": "DIREITO ADMINISTRATIVO (5)",
+          "id": "bacen-2024-ti:disciplina:03",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/ED_1_BCB_23_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              34,
+              35,
+              36
+            ],
+            "section_name": "DIREITO ADMINISTRATIVO (5)"
+          }
+        },
+        {
+          "name": "FUNDAMENTOS DE MACROECONOMIA E MICROECONOMIA (10)",
+          "id": "bacen-2024-ti:disciplina:04",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/ED_1_BCB_23_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              34,
+              35,
+              36
+            ],
+            "section_name": "FUNDAMENTOS DE MACROECONOMIA E MICROECONOMIA (10)"
+          }
+        },
+        {
+          "name": "ATUALIDADES (SOMENTE PARA A PROVA DISCURSIVA)",
+          "id": "bacen-2024-ti:disciplina:05",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/ED_1_BCB_23_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              34,
+              35,
+              36
+            ],
+            "section_name": "ATUALIDADES (SOMENTE PARA A PROVA DISCURSIVA)"
+          }
+        },
+        {
+          "name": "CIÊNCIA DE DADOS (14)",
+          "id": "bacen-2024-ti:disciplina:06",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/ED_1_BCB_23_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              34,
+              35,
+              36
+            ],
+            "section_name": "CIÊNCIA DE DADOS (14)"
+          }
+        },
+        {
+          "name": "SEGURANÇA DA INFORMAÇÃO (7)",
+          "id": "bacen-2024-ti:disciplina:07",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/ED_1_BCB_23_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              34,
+              35,
+              36
+            ],
+            "section_name": "SEGURANÇA DA INFORMAÇÃO (7)"
+          }
+        },
+        {
+          "name": "ENGENHARIA DE SOFTWARE (24)",
+          "id": "bacen-2024-ti:disciplina:08",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/ED_1_BCB_23_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              34,
+              35,
+              36
+            ],
+            "section_name": "ENGENHARIA DE SOFTWARE (24)"
+          }
+        },
+        {
+          "name": "INFRAESTRUTURA EM TI (17)",
+          "id": "bacen-2024-ti:disciplina:09",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/ED_1_BCB_23_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              34,
+              35,
+              36
+            ],
+            "section_name": "INFRAESTRUTURA EM TI (17)"
+          }
+        },
+        {
+          "name": "BANCOS DE DADOS (4)",
+          "id": "bacen-2024-ti:disciplina:10",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/ED_1_BCB_23_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              34,
+              35,
+              36
+            ],
+            "section_name": "BANCOS DE DADOS (4)"
+          }
+        },
+        {
+          "name": "GESTÃO EM TI (4)",
+          "id": "bacen-2024-ti:disciplina:11",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://cdn.cebraspe.org.br/concursos/bcb_24/arquivos/ED_1_BCB_23_ABERTURA_ATUALIZADO_RET_4.PDF",
+            "candidate_pages": [
+              34,
+              35,
+              36
+            ],
+            "section_name": "GESTÃO EM TI (4)"
+          }
+        }
+      ],
+      "reason": "Conteúdo avançado de dados, segurança, engenharia e infraestrutura somado a economia e direito."
+    },
+    {
+      "id": "stn-2024-transformacao-digital",
+      "organization": "Secretaria do Tesouro Nacional",
+      "edition_year": 2024,
+      "difficulty": "dificil",
+      "difficulty_is_editorial": true,
+      "role": "Auditor Federal de Finanças e Controle — TI / Transformação Digital",
+      "bank": "FGV",
+      "source_url": "https://conhecimento.fgv.br/sites/default/files/concursos/edital-stn-28.05.pdf",
+      "source_pages": [
+        25,
+        26,
+        31
+      ],
+      "subjects": [
+        {
+          "name": "FINANÇAS PÚBLICAS E ADMINISTRAÇÃO FINANCEIRA E ORÇAMENTÁRIA",
+          "id": "stn-2024-transformacao-digital:disciplina:01",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/edital-stn-28.05.pdf",
+            "candidate_pages": [
+              25,
+              26,
+              31
+            ],
+            "section_name": "FINANÇAS PÚBLICAS E ADMINISTRAÇÃO FINANCEIRA E ORÇAMENTÁRIA"
+          }
+        },
+        {
+          "name": "LÍNGUA PORTUGUESA",
+          "id": "stn-2024-transformacao-digital:disciplina:02",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/edital-stn-28.05.pdf",
+            "candidate_pages": [
+              25,
+              26,
+              31
+            ],
+            "section_name": "LÍNGUA PORTUGUESA"
+          }
+        },
+        {
+          "name": "DIREITO ADMINISTRATIVO E ADMINISTRAÇÃO PÚBLICA",
+          "id": "stn-2024-transformacao-digital:disciplina:03",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/edital-stn-28.05.pdf",
+            "candidate_pages": [
+              25,
+              26,
+              31
+            ],
+            "section_name": "DIREITO ADMINISTRATIVO E ADMINISTRAÇÃO PÚBLICA"
+          }
+        },
+        {
+          "name": "DIREITO CONSTITUCIONAL",
+          "id": "stn-2024-transformacao-digital:disciplina:04",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/edital-stn-28.05.pdf",
+            "candidate_pages": [
+              25,
+              26,
+              31
+            ],
+            "section_name": "DIREITO CONSTITUCIONAL"
+          }
+        },
+        {
+          "name": "ESTATÍSTICA",
+          "id": "stn-2024-transformacao-digital:disciplina:05",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/edital-stn-28.05.pdf",
+            "candidate_pages": [
+              25,
+              26,
+              31
+            ],
+            "section_name": "ESTATÍSTICA"
+          }
+        },
+        {
+          "name": "CULTURA DIGITAL",
+          "id": "stn-2024-transformacao-digital:disciplina:06",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/edital-stn-28.05.pdf",
+            "candidate_pages": [
+              25,
+              26,
+              31
+            ],
+            "section_name": "CULTURA DIGITAL"
+          }
+        },
+        {
+          "name": "GOVERNANÇA DE TI",
+          "id": "stn-2024-transformacao-digital:disciplina:07",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/edital-stn-28.05.pdf",
+            "candidate_pages": [
+              25,
+              26,
+              31
+            ],
+            "section_name": "GOVERNANÇA DE TI"
+          }
+        },
+        {
+          "name": "ANÁLISE DE NEGÓCIO",
+          "id": "stn-2024-transformacao-digital:disciplina:08",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/edital-stn-28.05.pdf",
+            "candidate_pages": [
+              25,
+              26,
+              31
+            ],
+            "section_name": "ANÁLISE DE NEGÓCIO"
+          }
+        },
+        {
+          "name": "BANCO DE DADOS E GESTÃO DA INFORMAÇÃO",
+          "id": "stn-2024-transformacao-digital:disciplina:09",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/edital-stn-28.05.pdf",
+            "candidate_pages": [
+              25,
+              26,
+              31
+            ],
+            "section_name": "BANCO DE DADOS E GESTÃO DA INFORMAÇÃO"
+          }
+        }
+      ],
+      "reason": "TI com gestão e transformação digital, estatística aprofundada, direito e finanças públicas."
+    },
+    {
+      "id": "senado-2022-analise-sistemas",
+      "organization": "Senado Federal",
+      "edition_year": 2022,
+      "difficulty": "dificil",
+      "difficulty_is_editorial": true,
+      "role": "Analista Legislativo — Informática Legislativa / Análise de Sistemas",
+      "bank": "FGV",
+      "source_url": "https://conhecimento.fgv.br/sites/default/files/concursos/senado_analista_edital_retificado_002_01.09.2022_-_edital_1.pdf",
+      "source_pages": [
+        26,
+        31,
+        32,
+        33
+      ],
+      "subjects": [
+        {
+          "name": "LÍNGUA PORTUGUESA, LITERATURA NACIONAL E REDAÇÃO",
+          "id": "senado-2022-analise-sistemas:disciplina:01",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/senado_analista_edital_retificado_002_01.09.2022_-_edital_1.pdf",
+            "candidate_pages": [
+              26,
+              31,
+              32,
+              33
+            ],
+            "section_name": "LÍNGUA PORTUGUESA, LITERATURA NACIONAL E REDAÇÃO"
+          }
+        },
+        {
+          "name": "RACIOCÍNIO LÓGICO MATEMÁTICO",
+          "id": "senado-2022-analise-sistemas:disciplina:02",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/senado_analista_edital_retificado_002_01.09.2022_-_edital_1.pdf",
+            "candidate_pages": [
+              26,
+              31,
+              32,
+              33
+            ],
+            "section_name": "RACIOCÍNIO LÓGICO MATEMÁTICO"
+          }
+        },
+        {
+          "name": "LÍNGUA INGLESA",
+          "id": "senado-2022-analise-sistemas:disciplina:03",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/senado_analista_edital_retificado_002_01.09.2022_-_edital_1.pdf",
+            "candidate_pages": [
+              26,
+              31,
+              32,
+              33
+            ],
+            "section_name": "LÍNGUA INGLESA"
+          }
+        },
+        {
+          "name": "DIREITO CONSTITUCIONAL",
+          "id": "senado-2022-analise-sistemas:disciplina:04",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/senado_analista_edital_retificado_002_01.09.2022_-_edital_1.pdf",
+            "candidate_pages": [
+              26,
+              31,
+              32,
+              33
+            ],
+            "section_name": "DIREITO CONSTITUCIONAL"
+          }
+        },
+        {
+          "name": "DIREITO ADMINISTRATIVO",
+          "id": "senado-2022-analise-sistemas:disciplina:05",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/senado_analista_edital_retificado_002_01.09.2022_-_edital_1.pdf",
+            "candidate_pages": [
+              26,
+              31,
+              32,
+              33
+            ],
+            "section_name": "DIREITO ADMINISTRATIVO"
+          }
+        },
+        {
+          "name": "INFORMÁTICA LEGISLATIVA — ANÁLISE DE SISTEMAS",
+          "id": "senado-2022-analise-sistemas:disciplina:06",
+          "publication_status": "planejada",
+          "coverage_status": "pendente-de-aulas-e-revisao",
+          "note": "Inventário de disciplinas e referência oficial. Desmembramento de todos os itens/subitens ainda exige conferência editorial.",
+          "subsections": [
+            {
+              "number": 1,
+              "name": "Contratações de TI"
+            },
+            {
+              "number": 2,
+              "name": "Gestão e Governança de TI"
+            },
+            {
+              "number": 3,
+              "name": "Análise de negócio e de processos"
+            },
+            {
+              "number": 4,
+              "name": "Aquisição de soluções de TI"
+            },
+            {
+              "number": 5,
+              "name": "Processos de software"
+            },
+            {
+              "number": 6,
+              "name": "Engenharia de Requisitos"
+            },
+            {
+              "number": 7,
+              "name": "Gestão de projetos e produtos de software"
+            },
+            {
+              "number": 8,
+              "name": "Modelos de software"
+            },
+            {
+              "number": 9,
+              "name": "Princípios de projeto de software"
+            },
+            {
+              "number": 10,
+              "name": "Qualidade de software"
+            },
+            {
+              "number": 11,
+              "name": "Arquitetura de software e de sistemas"
+            },
+            {
+              "number": 12,
+              "name": "Arquitetura de sistemas web"
+            },
+            {
+              "number": 13,
+              "name": "Arquitetura de sistemas em nuvem"
+            },
+            {
+              "number": 14,
+              "name": "Desenvolvimento com containers"
+            },
+            {
+              "number": 15,
+              "name": "Arquitetura e gestão de dados"
+            },
+            {
+              "number": 16,
+              "name": "Desenvolvimento de software"
+            },
+            {
+              "number": 17,
+              "name": "Integração de sistemas"
+            },
+            {
+              "number": 18,
+              "name": "Testes de software"
+            },
+            {
+              "number": 19,
+              "name": "Gerência de configuração de software"
+            },
+            {
+              "number": 20,
+              "name": "DevOps"
+            },
+            {
+              "number": 21,
+              "name": "Segurança da informação"
+            },
+            {
+              "number": 22,
+              "name": "Inteligência artificial"
+            },
+            {
+              "number": 23,
+              "name": "Blockchain"
+            },
+            {
+              "number": 24,
+              "name": "Sistemas de Suporte à Decisão Analítica"
+            },
+            {
+              "number": 25,
+              "name": "Direito Digital"
+            }
+          ],
+          "source_locator": {
+            "url": "https://conhecimento.fgv.br/sites/default/files/concursos/senado_analista_edital_retificado_002_01.09.2022_-_edital_1.pdf",
+            "candidate_pages": [
+              26,
+              31,
+              32,
+              33
+            ],
+            "section_name": "INFORMÁTICA LEGISLATIVA — ANÁLISE DE SISTEMAS"
+          }
+        }
+      ],
+      "reason": "Programa amplo: contratações, governança, engenharia, dados, segurança e direito; não derivado de salário."
+    }
+  ],
+  "extraction_status": "Disciplinas identificadas; fontes oficiais fornecidas. Matriz completa de itens/subitens e equivalência de aulas pendente de conferência."
+}

@@ -1,5 +1,6 @@
 import csv
 import ctypes
+import re
 import json
 import logging
 import os
@@ -59,6 +60,8 @@ SECTIONS = [
     "Início",
     "Ciclo de estudos",
     "Edital e assuntos",
+    "Campo de Treinamento",
+    "Leitor",
     "Revisões",
     "Simulados",
     "Jornada",
@@ -79,7 +82,12 @@ PAGES = {
     "Metas e conquistas": "page_7",
     "Configurações e ajuda": "page_8",
     "Jornada": "page_journey",
+    "Campo de Treinamento": "page_training",
+    "Leitor": "page_reader",
 }
+FIXED_PAGES = {"Edital e assuntos", "Campo de Treinamento", "Leitor"}
+# Pages without their own navigation entry highlight a parent entry.
+NAV_PARENT = {"Leitor": "Campo de Treinamento"}
 NAV = [
     (
         "Estudo",
@@ -87,6 +95,7 @@ NAV = [
             ("Início", "house"),
             ("Ciclo de estudos", "repeat"),
             ("Edital e assuntos", "book-open"),
+            ("Campo de Treinamento", "library"),
             ("Revisões", "brain"),
             ("Simulados", "swords"),
         ],
@@ -96,11 +105,17 @@ NAV = [
 ]
 NAV_ICONS = {name: icon for _, items in NAV for name, icon in items}
 NAV_ICONS["Configurações e ajuda"] = "settings"
-NAV_LABELS = {"Configurações e ajuda": "Configurações", "Ciclo de estudos": "Ciclo"}
+NAV_LABELS = {
+    "Configurações e ajuda": "Configurações",
+    "Ciclo de estudos": "Ciclo",
+    "Campo de Treinamento": "Campo",
+}
 SUBTITLES = {
     "Início": "Seu progresso, um estudo de cada vez.",
     "Ciclo de estudos": "Uma fila contínua: retome de onde parou, sem agenda rígida.",
     "Edital e assuntos": "Transforme o conteúdo do edital em um caminho claro.",
+    "Campo de Treinamento": "Aulas em PDF para ler e estudar, também sem internet.",
+    "Leitor": "",
     "Revisões": "Tente lembrar antes de consultar o material.",
     "Estatísticas": "Veja como seu esforço se transforma em resultado.",
     "Histórico": "Cada sessão faz parte da sua trajetória.",
@@ -109,6 +124,30 @@ SUBTITLES = {
     "Metas e conquistas": "Pequenos avanços também merecem ser vistos.",
     "Configurações e ajuda": "Tudo do seu jeito, salvo neste computador.",
 }
+
+
+WEEKDAYS = ["segunda", "terça", "quarta", "quinta", "sexta", "sábado", "domingo"]
+MONTHS = [
+    "janeiro",
+    "fevereiro",
+    "março",
+    "abril",
+    "maio",
+    "junho",
+    "julho",
+    "agosto",
+    "setembro",
+    "outubro",
+    "novembro",
+    "dezembro",
+]
+
+
+def long_date(day):
+    """'Sábado, 11 de outubro' (weekday names without '-feira')."""
+    name = WEEKDAYS[day.weekday()]
+    name += "-feira" if day.weekday() < 5 else ""
+    return f"{name.capitalize()}, {day.day} de {MONTHS[day.month - 1]}"
 
 
 def make_journey(store):
@@ -531,6 +570,9 @@ class App:
         root._motion = self.motion
         self.journey = make_journey(self.store)
         self.focus_context = None
+        self.clock_listeners = []
+        self.focus_reading = False
+        self.reader_lesson = None
         self.store.set_pref("design_version", "inter-v4")
         self.section = "Início"
         self.filters = {}
@@ -698,7 +740,7 @@ class App:
             "SidebarGroup.TLabel",
             background=p["sidebar"],
             foreground=p["faint"],
-            font=(font, 8, "bold"),
+            font=(font, 9),
         )
         style.configure("Panel.TLabel", background=self.surface, foreground=self.fg)
         style.configure(
@@ -730,7 +772,7 @@ class App:
         )
         style.configure("TLabel", background=self.bg, foreground=self.fg)
         style.configure("Muted.TLabel", foreground=self.muted)
-        style.configure("Title.TLabel", font=(font, 17, "bold"))
+        style.configure("Title.TLabel", font=(font, 19, "bold"))
         style.configure("Heading.TLabel", font=(font, 12, "bold"))
         style.configure("Card.TLabel", background=self.surface, foreground=self.muted)
         style.configure(
@@ -947,19 +989,21 @@ class App:
         self.scroll.grid(row=1, column=1, sticky="nsew", padx=(28, 6), pady=(0, 8))
         self.scroll.canvas.configure(bg=self.bg)
         self.content = self.scroll.body
+        self.fixed = ttk.Frame(self.middle)
+        self.footer.grid(row=2, column=1, sticky="ew", padx=(28, 24), pady=(0, 10))
         if self.sidebar_visible:
-            self.sidebar.grid(row=0, column=0, rowspan=2, sticky="ns")
+            self.sidebar.grid(row=0, column=0, rowspan=3, sticky="ns")
         self.toast = Toast(self, self.middle, top=76)
         self.root.bind("<Control-n>", lambda e: self.session_form())
         self.root.bind("<Control-r>", lambda e: self.open_clock())
 
     def build_sidebar(self):
         p = self.motion.palette
-        self.sidebar = ttk.Frame(self.middle, width=230, style="Sidebar.TFrame")
+        self.sidebar = ttk.Frame(self.middle, width=224, style="Sidebar.TFrame")
         self.sidebar.grid_propagate(False)
         self.sidebar.pack_propagate(False)
         brand = ttk.Frame(self.sidebar, style="Sidebar.TFrame")
-        brand.pack(fill="x", padx=20, pady=(22, 2))
+        brand.pack(fill="x", padx=20, pady=(22, 18))
         if glyph(brand, "compass"):
             ttk.Label(
                 brand,
@@ -971,26 +1015,16 @@ class App:
         ttk.Label(
             brand, text="RUMO", font=(DISPLAY, 15, "bold"), style="Sidebar.TLabel"
         ).pack(side="left")
-        ttk.Label(
-            self.sidebar, text="Seu estudo, no seu ritmo", style="SidebarMuted.TLabel"
-        ).pack(anchor="w", padx=20, pady=(0, 14))
-        self.status = ttk.Label(
-            self.sidebar,
-            text="Dados neste computador • offline",
-            style="SidebarMuted.TLabel",
-            font=(self.font_family, 8),
-            wraplength=190,
-        )
-        self.status.pack(side="bottom", anchor="w", padx=20, pady=(4, 16))
         self.nav_buttons = {}
+        ttk.Frame(self.sidebar, height=10, style="Sidebar.TFrame").pack(side="bottom")
         self.nav_button(self.sidebar, "Configurações e ajuda", side="bottom")
         self.character_slot = ttk.Frame(self.sidebar, style="Sidebar.TFrame")
         self.character_slot.pack(side="bottom", fill="x", padx=12, pady=(8, 6))
         nav = Scroll(self.sidebar, style="Sidebar.TFrame")
         nav.pack(fill="both", expand=True)
         for group, items in NAV:
-            ttk.Label(nav.body, text=group.upper(), style="SidebarGroup.TLabel").pack(
-                anchor="w", padx=20, pady=(12, 4)
+            ttk.Label(nav.body, text=group, style="SidebarGroup.TLabel").pack(
+                anchor="w", padx=20, pady=(14, 4)
             )
             for section, icon in items:
                 self.nav_button(nav.body, section)
@@ -1002,10 +1036,10 @@ class App:
             text=label,
             icon=NAV_ICONS[section],
             style="Nav.TButton",
-            height=38,
+            height=36,
             command=lambda name=section: self.navigate(name),
         )
-        button.pack(side=side, fill="x", padx=10, pady=1)
+        button.pack(side=side, fill="x", padx=10, pady=0)
         self.nav_buttons[section] = button
         if label != section:
             Tooltip(button, section)
@@ -1031,28 +1065,22 @@ class App:
     def character_card(self, parent):
         p = self.motion.palette
         hero = self.journey.character(self.plan)
-        card = tk.Frame(
-            parent,
-            bg=p["surface"],
-            highlightthickness=1,
-            highlightbackground=p["border"],
-            cursor="hand2",
-        )
-        avatar = Portrait(card, self, 44, bg=p["surface"])
+        card = tk.Frame(parent, bg=p["sidebar"], highlightthickness=0, cursor="hand2")
+        avatar = Portrait(card, self, 40, bg=p["sidebar"])
         avatar.grid(row=0, column=0, rowspan=3, padx=(10, 10), pady=10)
         tk.Label(
             card,
             text=hero.name,
-            bg=p["surface"],
+            bg=p["sidebar"],
             fg=p["fg"],
-            font=(DISPLAY, 10, "bold"),
+            font=(self.font_family, 10, "bold"),
             anchor="w",
         ).grid(row=0, column=1, sticky="sw", pady=(10, 0))
         tk.Label(
             card,
             text=f"Nível {hero.level}"
             + (" • demonstração" if hero.source == "demo" else ""),
-            bg=p["surface"],
+            bg=p["sidebar"],
             fg=p["muted"],
             font=(self.font_family, 8),
             anchor="w",
@@ -1062,13 +1090,13 @@ class App:
             self,
             hero.xp / hero.xp_next * 100 if hero.xp_next else 0,
             height=4,
-            bg=p["surface"],
+            bg=p["sidebar"],
         )
         bar.grid(row=2, column=1, sticky="ew", padx=(0, 12), pady=(4, 10))
         card.columnconfigure(1, weight=1)
         for widget in [card, *card.winfo_children()]:
             widget.bind("<Button-1>", lambda e: self.navigate("Jornada"), add="+")
-        hover_card(self, card, p["surface"], p["raised"], p["border"], p["strong"])
+        hover_card(self, card, p["sidebar"], p["hover"])
         Tooltip(
             card,
             "Abrir Jornada."
@@ -1102,11 +1130,11 @@ class App:
         actions.grid(row=0, column=2, sticky="ne")
         self.plan_var = tk.StringVar()
         self.plan_combo = ttk.Combobox(
-            actions, textvariable=self.plan_var, state="readonly", width=26
+            actions, textvariable=self.plan_var, state="readonly", width=36
         )
         self.plan_combo.pack(side="left", padx=(0, 8))
         self.plan_combo.bind("<<ComboboxSelected>>", self.change_plan)
-        Tooltip(self.plan_combo, "Plano de estudos ativo")
+        self.plan_tip = Tooltip(self.plan_combo, "Plano de estudos ativo")
         for icon, tip, command in [
             ("bell", "Avisos e pendências", self.notifications),
             (
@@ -1127,14 +1155,24 @@ class App:
             Tooltip(button, tip)
         register = MotionButton(
             actions,
-            text="Registrar",
+            text="Registrar estudo",
             icon="plus",
             command=self.session_form,
         )
-        register.pack(side="left", padx=(8, 8))
+        register.pack(side="left", padx=(8, 0))
         Tooltip(register, "Registrar um estudo feito sem o relógio (Ctrl+N)")
-        self.floating = ClockButton(actions, command=self.open_clock)
-        self.floating.pack(side="left")
+        # The clock lives in a slim footer at the bottom-right of the content
+        # column: always reachable, never covering a row's own actions.
+        self.footer = ttk.Frame(self.middle)
+        self.status = ttk.Label(
+            self.footer,
+            text="Dados neste computador • offline",
+            style="Muted.TLabel",
+            font=(self.font_family, 9),
+        )
+        self.status.pack(side="left")
+        self.floating = ClockButton(self.footer, command=self.open_clock)
+        self.floating.pack(side="right")
         self.clock_tip = Tooltip(
             self.floating, "Iniciar estudo com relógio ou retomar o foco (Ctrl+R)"
         )
@@ -1163,10 +1201,11 @@ class App:
         for widget in self.page_subtitle.winfo_children():
             widget.destroy()
         self.quote_header = None
-        if section == "Início" and self.store.pref("motivation", True):
-            from inspiration import inline
-
-            self.quote_header = inline(self, self.page_subtitle, ASSETS / "quotes.json")
+        if section == "Início":
+            # The daily quote moved to a quiet line at the end of Início.
+            ttk.Label(
+                self.page_subtitle, text=long_date(self.today()), style="Muted.TLabel"
+            ).pack(anchor="w")
             return
         ttk.Label(
             self.page_subtitle, text=SUBTITLES.get(section, ""), style="Muted.TLabel"
@@ -1176,7 +1215,7 @@ class App:
         self.sidebar_visible = not self.sidebar_visible
         self.store.set_pref("sidebar_visible", self.sidebar_visible)
         if self.sidebar_visible:
-            self.sidebar.grid(row=0, column=0, rowspan=2, sticky="ns")
+            self.sidebar.grid(row=0, column=0, rowspan=3, sticky="ns")
             for index, button in enumerate(self.nav_buttons.values()):
                 self.motion.animate(
                     button,
@@ -1208,23 +1247,34 @@ class App:
                 "Plano arquivado",
             )
         )
-        for w in self.content.winfo_children():
-            w.destroy()
+        self.plan_tip.text = "Plano ativo: " + self.plan_var.get()
+        for area in (self.scroll.body, self.fixed):
+            for w in area.winfo_children():
+                w.destroy()
+        # Split pages (tree + detail) manage their own scrolling regions.
+        fixed = self.section in FIXED_PAGES
+        if fixed:
+            self.scroll.grid_remove()
+            self.fixed.grid(row=1, column=1, sticky="nsew", padx=(28, 24), pady=(0, 8))
+            self.content = self.fixed
+        else:
+            self.fixed.grid_remove()
+            self.scroll.grid()
+            self.content = self.scroll.body
+        current = NAV_PARENT.get(self.section, self.section)
         for name, button in self.nav_buttons.items():
-            button.select(name == self.section)
+            button.select(name == current)
         self.set_page_header(self.section)
+        # The reader has its own title bar; the page header would repeat it.
+        if self.section == "Leitor" or self.focus_reading:
+            self.header.grid_remove()
+        else:
+            self.header.grid()
         self.refresh_character_card()
-        if self.section == "Edital e assuntos":
-            title_row = ttk.Frame(self.content)
-            title_row.pack(fill="x", pady=(0, 4))
-            MotionButton(
-                title_row,
-                text="Novo assunto",
-                icon="plus",
-                style="Accent.TButton",
-                command=self.topic_form,
-            ).pack(side="right")
         getattr(self, PAGES[self.section])()
+        if fixed:
+            return
+        ttk.Frame(self.content, height=24).pack(fill="x")
         self.scroll.canvas.yview_moveto(0)
 
         def reveal_page(t):
@@ -1249,6 +1299,8 @@ class App:
         self.motion.animate(self.scroll.canvas, reveal_page, 320)
 
     def navigate(self, section):
+        if section != "Leitor" and self.focus_reading:
+            self.reading_focus(False)
         self.section = section
         self.history_offset = 0
         self.refresh()
@@ -1536,6 +1588,12 @@ class App:
                 try:
                     return (0, parse_duration(value))
                 except ValueError:
+                    match = re.fullmatch(
+                        r"(?:(\d+)h)? ?(?:(\d+) ?min)?(?: ?(\d+) s)?", value
+                    )
+                    if value and match and any(match.groups()):
+                        h, m, sec = (int(x or 0) for x in match.groups())
+                        return (0, h * 3600 + m * 60 + sec)
                     return (1, value.casefold())
 
         for order, (_, i) in enumerate(sorted(values, key=convert, reverse=reverse)):
@@ -1551,13 +1609,121 @@ class App:
 
         render(self)
 
+    @property
+    def content_manager(self):
+        if getattr(self, "_content", None) is None:
+            from training_content import ContentManager
+
+            self._content = ContentManager(
+                self.store.path.parent / "conteudo", self.store.pref("training_source")
+            )
+        return self._content
+
+    @property
+    def training(self):
+        if getattr(self, "_training", None) is None:
+            from training import TrainingService
+
+            self._training = TrainingService(self.store, self.content_manager)
+        return self._training
+
+    def reset_content(self):
+        """Rebuild the provider after the content source changed."""
+        self._content = None
+        self._training = None
+
+    def page_training(self):
+        from screen_training import render
+
+        render(self)
+
+    def page_reader(self):
+        from pdf_reader import Reader, pdfium, unavailable
+        from ui_kit import empty
+
+        lesson = self.reader_lesson
+        if pdfium is None:
+            unavailable(self.content, self).pack(fill="x", pady=40)
+            return
+        path, version = self.training.file_for(lesson) if lesson else (None, None)
+        if not path:
+            empty(
+                self.content,
+                self,
+                "file-text",
+                "Arquivo da aula indisponível",
+                "Baixe a aula novamente no Campo de Treinamento. Suas notas e o progresso foram preservados.",
+                [("Voltar ao Campo", lambda: self.navigate("Campo de Treinamento"))],
+            ).pack(fill="x", pady=40)
+            return
+        try:
+            Reader(self.content, self, lesson, path, version).pack(
+                fill="both", expand=True
+            )
+        except Exception as error:  # A damaged file must not break navigation.
+            logging.exception("PDF reader")
+            empty(
+                self.content,
+                self,
+                "triangle-alert",
+                "Não foi possível abrir este PDF",
+                f"O arquivo parece danificado ({error}). Remova o download e baixe de novo; notas e progresso continuam salvos.",
+                [("Voltar ao Campo", lambda: self.navigate("Campo de Treinamento"))],
+            ).pack(fill="x", pady=40)
+
+    def open_lesson(self, lesson):
+        self.reader_lesson = lesson
+        self.navigate("Leitor")
+
+    def reading_focus(self, on):
+        """Hide navigation and header while reading; the clock footer stays."""
+        self.focus_reading = on
+        if on:
+            self.sidebar.grid_remove()
+            self.header.grid_remove()
+        else:
+            if self.section != "Leitor":
+                self.header.grid()
+            if self.sidebar_visible:
+                self.sidebar.grid(row=0, column=0, rowspan=3, sticky="ns")
+
+    def focus_subject_name(self):
+        return getattr(self, "clock_subject", (None, ""))[1] or "outra matéria"
+
+    def study_lesson(self, lesson, version):
+        """Reuse the existing clock: subject, topic and lesson prefilled."""
+        from training import subject_match, topic_match
+
+        state = self.clock.state
+        if state:
+            if state.get("lesson_id") != lesson["id"]:
+                self.notify(
+                    "Já existe uma sessão ativa. Encerre ou descarte antes de começar outra.",
+                    "Sessão em andamento",
+                    "timer",
+                    "warning",
+                )
+            self.open_clock()
+            return
+        subject = subject_match(self.store, self.plan, lesson["subject"])
+        self.clock_setup(
+            dict(
+                subject_id=subject,
+                topic_id=(
+                    topic_match(self.store, subject, lesson["topic"])
+                    if subject
+                    else None
+                ),
+                category="Teoria",
+                material=f"{lesson['title']} (versão {version})",
+                lesson_id=lesson["id"],
+                lesson_version=version,
+            )
+        )
+
     def page_journey(self):
         from screen_journey import render
 
-        if self.journey.character(self.plan).source == "real":
-            from rpg_ui import render_tools
-
-            render_tools(self)
         render(self)
 
     def start_mission(self, mission, reduced=False):
@@ -2943,7 +3109,15 @@ class App:
                     from_clock,
                     v["base"],
                     shift,
-                    context=dict(context_from(initial), recall=v["recall"] or None),
+                    context=dict(
+                        context_from(initial),
+                        recall=v["recall"] or None,
+                        **{
+                            k: initial[k]
+                            for k in ("lesson_id", "lesson_version")
+                            if initial.get(k)
+                        },
+                    ),
                 )
                 if from_clock:
                     self.clock.state = None
@@ -3267,139 +3441,13 @@ class App:
             self.clock_tip.text = (
                 "Iniciar estudo com relógio ou retomar o foco (Ctrl+R)"
             )
+        for listener in list(self.clock_listeners):
+            listener()
 
     def page_3(self):
-        self.toolbar(
-            [
-                ("Nova tarefa", self.task_form),
-                ("Calendário de apoio", self.calendar),
-                ("Avisos de hoje", self.notifications),
-            ]
-        )
-        today = self.today().isoformat()
-        view = self.store.pref("review_view", "Todas")
-        var = tk.StringVar(value=view)
-        combo = ttk.Combobox(
-            self.content,
-            textvariable=var,
-            values=["Todas", "Hoje", "Próximas", "Atrasadas", "Concluídas"],
-            state="readonly",
-        )
-        combo.pack(anchor="w", pady=8)
-        combo.bind(
-            "<<ComboboxSelected>>",
-            lambda e: (self.store.set_pref("review_view", var.get()), self.refresh()),
-        )
-        conditions = {
-            "Todas": "",
-            "Hoje": " AND r.state='Pendente' AND r.due=?",
-            "Próximas": " AND r.state='Pendente' AND r.due>?",
-            "Atrasadas": " AND r.state='Pendente' AND r.due<?",
-            "Concluídas": " AND r.state='Concluída'",
-        }
-        rows = self.store.rows(
-            """SELECT r.*,t.name topic,t.subject_id,s.name subject,a.material,a.next_step FROM reviews r JOIN topics t ON t.id=r.topic_id JOIN subjects s ON s.id=t.subject_id LEFT JOIN sessions a ON a.id=r.origin_id WHERE s.plan_id=?"""
-            + conditions[view]
-            + " ORDER BY CASE WHEN r.state='Pendente' THEN 0 ELSE 1 END,r.due LIMIT 500",
-            [self.plan]
-            + ([today] if view in ["Hoje", "Próximas", "Atrasadas"] else []),
-        )
-        mapping = {r["id"]: r for r in rows}
-        tree = self.table(
-            [
-                ("due", "Data prevista", 115),
-                ("subject", "Matéria", 180),
-                ("topic", "Assunto", 280),
-                ("state", "Estado", 120),
-                ("material", "Material / retomada", 250),
-            ],
-            [
-                (
-                    r["id"],
-                    [
-                        r["due"],
-                        r["subject"],
-                        r["topic"],
-                        (
-                            "Atrasada"
-                            if r["state"] == "Pendente" and r["due"] < today
-                            else (
-                                "Hoje"
-                                if r["state"] == "Pendente" and r["due"] == today
-                                else r["state"]
-                            )
-                        ),
-                        (r["material"] or "") + " / " + (r["next_step"] or ""),
-                    ],
-                )
-                for r in rows
-            ],
-            height=10,
-        )
+        from screen_reviews import render
 
-        def chosen():
-            return mapping[self.selected(tree)]
-
-        def study(timer):
-            r = chosen()
-            if r["state"] != "Pendente":
-                raise ValueError("Esta revisão não está pendente.")
-            v = self.store.rpg.review_fields(r["id"])
-            v["material"] = r["material"] or ""
-            self.clock_setup(v) if timer else self.session_form(v)
-
-        def reschedule():
-            r = chosen()
-            Form(
-                self,
-                "Reagendar revisão",
-                [("due", "Data (AAAA-MM-DD)", "entry")],
-                lambda v: self.update_review_date(r["id"], v["due"]),
-                r,
-            )
-
-        def change(state):
-            r = chosen()
-            if messagebox.askyesno(
-                "Estado da revisão",
-                f"Marcar como {state}? Esta ação não cria tempo de estudo.",
-                parent=self.root,
-            ):
-                self.store.save("reviews", {"id": r["id"], "state": state})
-                self.refresh()
-
-        self.toolbar(
-            [
-                ("Revisar com relógio", lambda: study(True)),
-                ("Registrar revisão", lambda: study(False)),
-                ("Reagendar", reschedule),
-                ("Concluir tarefa", lambda: change("Concluída")),
-                ("Cancelar", lambda: change("Cancelada")),
-                ("Reabrir", lambda: change("Pendente")),
-            ]
-        )
-        self.heading("Tarefas opcionais")
-        tasks = self.store.rows(
-            "SELECT * FROM tasks WHERE plan_id=? ORDER BY due,name", (self.plan,)
-        )
-        tm = {t["id"]: t for t in tasks}
-        tt = self.table(
-            [("name", "Tarefa", 440), ("due", "Prazo", 120), ("state", "Estado", 150)],
-            [
-                (t["id"], [t["name"], t["due"] or "Sem prazo", t["state"]])
-                for t in tasks
-            ],
-            height=5,
-        )
-        self.toolbar(
-            [
-                ("Editar tarefa", lambda: self.task_form(tm[self.selected(tt)])),
-                ("Excluir tarefa", lambda: self.delete_task(self.selected(tt))),
-            ]
-        )
-        self.note(
-            "Séries idênticas para o mesmo assunto, intervalo e data não se repetem. Uma nova data base pode criar uma nova série. Avisos funcionam com o aplicativo aberto."
-        )
+        render(self)
 
     def update_review_date(self, rid, day):
         date.fromisoformat(day)
@@ -3903,109 +3951,9 @@ class App:
         self.notify("CSV de estatísticas exportado com os filtros atuais.")
 
     def page_4(self):
-        self.filter_toolbar()
-        self.toolbar([("Exportar estatísticas CSV", self.export_stats_csv)])
-        s = self.store.stats(self.plan, self.filters)
-        p = self.store.progress(self.plan)
-        self.cards(
-            [
-                (
-                    "TEMPO LÍQUIDO",
-                    duration(s["elapsed"]),
-                    f"Média: {duration(s['average'])} / dia estudado",
-                ),
-                (
-                    "APROVEITAMENTO",
-                    percentage(s["rate"]),
-                    f"{s['total']} questões • total apresentado: {percentage(s['presented_rate'])}",
-                ),
-                (
-                    "CONSTÂNCIA",
-                    f"{s['days']/s['period_days']*100:.1f}%",
-                    f"{s['days']} dias com estudo / {s['period_days']} no período",
-                ),
-                (
-                    "PÁGINAS",
-                    str(s["pages"]) if s["pages"] is not None else "Não informado",
-                    (
-                        f"{s['pages_hour']:.1f} páginas/h"
-                        if s["pages_hour"] is not None
-                        else "Sem medição de páginas/h"
-                    ),
-                ),
-            ]
-        )
-        self.note(
-            f"Tempo pretendido: {duration(s['target'])} • Videoaulas: {duration(s['video']) if s['video'] is not None else 'não informado'} • Dias sem estudo: {max(0,s['period_days']-s['days'])} • Edital atual: {p['done']}/{p['total']} folhas (não depende do filtro de sessões)."
-        )
-        from charts import question_summary
+        from screen_stats import render
 
-        question_summary(self, s)
-        self.heading("Evolução de questões e aproveitamento")
-        self.toolbar(
-            [
-                ("Diária", lambda: self.change_group("day")),
-                ("Semanal", lambda: self.change_group("week")),
-                ("Mensal", lambda: self.change_group("month")),
-            ]
-        )
-        rows = self.store.grouped(self.plan, self.filters, self.group)
-        self.bar_chart(rows, "questions", True)
-        self.heading("Tempo líquido de estudo")
-        self.bar_chart(rows, "elapsed")
-        self.heading("Horas por matéria")
-        self.horizontal_chart(self.store.grouped(self.plan, self.filters, "subject"))
-        strengths = self.store.grouped(self.plan, self.filters, "subject")
-        weak = sorted(
-            (r for r in strengths if r["correct"] + r["wrong"] >= 10),
-            key=lambda r: ratio(r["correct"], r["wrong"]),
-        )[:3]
-        self.heading("Onde concentrar a próxima revisão")
-        if weak:
-            for row in weak:
-                self.note(
-                    f"{row['label']} • {percentage(ratio(row['correct'],row['wrong']))} de acertos em {row['correct']+row['wrong']} respostas • {duration(row['elapsed'])} estudados"
-                )
-        else:
-            self.note(
-                "Registre pelo menos 10 respostas por matéria para comparar pontos de atenção com uma amostra mínima."
-            )
-        self.heading("Distribuição por matéria / categoria / assunto")
-        for group, label in [
-            ("subject", "Matéria"),
-            ("category", "Categoria"),
-            ("topic", "Assunto"),
-        ]:
-            rows = self.store.grouped(self.plan, self.filters, group)
-            self.table(
-                [
-                    ("name", label, 420),
-                    ("time", "Tempo líquido", 130),
-                    ("target", "Previsto", 130),
-                    ("total", "Questões", 100),
-                    ("rate", "Acertos (%)", 110),
-                ],
-                [
-                    (
-                        uid(),
-                        [
-                            r["label"],
-                            duration(r["elapsed"]),
-                            duration(r["target"]),
-                            r["correct"] + r["wrong"] + r["blank"],
-                            percentage(ratio(r["correct"], r["wrong"])),
-                        ],
-                    )
-                    for r in rows
-                ],
-                height=min(6, max(2, len(rows))),
-            )
-        self.toolbar(
-            [("Abrir registros deste filtro", lambda: self.navigate("Histórico"))]
-        )
-        self.note(
-            "Médias de aproveitamento são ponderadas pelo número de questões. Dias sem questões não recebem 0%. Os gráficos mostram até 60 grupos recentes; o CSV contém todos os registros do filtro."
-        )
+        render(self)
 
     def change_group(self, group):
         self.group = group
@@ -4214,117 +4162,9 @@ class App:
             self.refresh()
 
     def page_6(self):
-        self.toolbar(
-            [
-                ("Novo simulado", lambda: self.session_form({"category": "Simulado"})),
-                ("Filtros", self.filter_form),
-            ]
-        )
-        f = dict(self.filters, category="Simulado")
-        rows = self.store.sessions(self.plan, f, limit=500)
-        mapping = {r["id"]: r for r in rows}
-        last = rows[0] if rows else None
-        self.cards(
-            [
-                ("SIMULADOS", str(len(rows)), "Resultados reais; até 500 recentes"),
-                (
-                    "ÚLTIMO",
-                    (
-                        percentage(
-                            ratio(last["correct"], last["wrong"], last["blank"], True)
-                        )
-                        if last
-                        else "Sem simulado"
-                    ),
-                    "Acertos / total apresentado",
-                ),
-                (
-                    "RESPONDIDAS",
-                    (
-                        percentage(ratio(last["correct"], last["wrong"]))
-                        if last
-                        else "Sem questões"
-                    ),
-                    "Acertos / (acertos + erros)",
-                ),
-            ]
-        )
-        if last:
-            self.note(
-                f"Último: {last['correct']} acertos • {last['wrong']} erros • {last['blank']} brancos • Pontuação: {self.mock_score(last):g}"
-            )
-        graph = []
-        for r in reversed(rows):
-            graph.append(
-                {
-                    "label": r["day"],
-                    "elapsed": r["elapsed"],
-                    "target": r["target"],
-                    "correct": r["correct"],
-                    "wrong": r["wrong"],
-                    "blank": r["blank"],
-                    "score": self.mock_score(r),
-                    "rate": ratio(r["correct"], r["wrong"], r["blank"], True) or 0,
-                }
-            )
-        mode = tk.StringVar(value=self.store.pref("mock_chart", "Desempenho"))
-        row = ttk.Frame(self.content)
-        row.pack(fill="x", pady=8)
-        combo = ttk.Combobox(
-            row, textvariable=mode, values=["Desempenho", "Pontuação"], state="readonly"
-        )
-        combo.pack(side="left")
-        combo.bind(
-            "<<ComboboxSelected>>",
-            lambda e: (self.store.set_pref("mock_chart", mode.get()), self.refresh()),
-        )
-        self.bar_chart(graph, "rate" if mode.get() == "Desempenho" else "score")
-        self.note(
-            "Desempenho: acertos/total (%). Pontuação: valores configurados no registro, com pesos da divisão por matéria quando informados."
-        )
-        tree = self.table(
-            [
-                ("day", "Data", 110),
-                ("name", "Simulado", 240),
-                ("format", "Formato", 130),
-                ("time", "Tempo", 95),
-                ("c", "Acertos", 65),
-                ("w", "Erros", 65),
-                ("b", "Brancos", 65),
-                ("score", "Pontuação", 95),
-            ],
-            [
-                (
-                    r["id"],
-                    [
-                        r["day"],
-                        r["mock_name"],
-                        r["mock_format"],
-                        duration(r["elapsed"]),
-                        r["correct"],
-                        r["wrong"],
-                        r["blank"],
-                        f"{self.mock_score(r):g}",
-                    ],
-                )
-                for r in rows
-            ],
-            height=9,
-        )
-        self.toolbar(
-            [
-                ("Detalhes", lambda: self.mock_details(mapping[self.selected(tree)])),
-                (
-                    "Editar",
-                    lambda: self.session_form(
-                        editing=self.store.one(
-                            "SELECT * FROM sessions WHERE id=?", (self.selected(tree),)
-                        )
-                    ),
-                ),
-                ("Excluir", lambda: self.remove_session(self.selected(tree))),
-            ]
-        )
+        from screen_mocks import render
+
+        render(self)
 
     def mock_score(self, r):
         results = self.store.rows(
@@ -4366,103 +4206,9 @@ class App:
         self.session_details(r)
 
     def page_7(self):
-        from challenges import render
+        from screen_goals import render
 
         render(self)
-        self.toolbar([("Nova meta semanal", self.goal_form)])
-        self.goal_bars()
-        goals = self.store.rows(
-            "SELECT g.*,s.name subject FROM goals g LEFT JOIN subjects s ON s.id=g.subject_id WHERE g.plan_id=?",
-            (self.plan,),
-        )
-        mapping = {g["id"]: g for g in goals}
-        tree = self.table(
-            [
-                ("name", "Plano / matéria", 350),
-                ("hours", "Horas / semana", 160),
-                ("questions", "Questões / semana", 180),
-            ],
-            [
-                (g["id"], [g["subject"] or "Todo o plano", g["hours"], g["questions"]])
-                for g in goals
-            ],
-            height=4,
-        )
-
-        def principal():
-            goal = mapping[self.selected(tree)]
-            self.store.set_pref(
-                "main_goal_" + self.plan,
-                {
-                    "name": "Minha meta semanal",
-                    "target": f"{goal['hours']:g} h e {goal['questions']} questões por semana",
-                },
-            )
-            self.refresh()
-
-        self.toolbar(
-            [
-                ("Tornar meta principal", principal),
-                ("Editar meta", lambda: self.goal_form(mapping[self.selected(tree)])),
-                ("Excluir meta", lambda: self.delete_goal(self.selected(tree))),
-            ]
-        )
-        if not self.store.pref("achievements", True):
-            self.note(
-                "Conquistas desativadas nas preferências. As metas continuam disponíveis."
-            )
-            return
-        current, best, days = self.store.streak(self.plan)
-        eligible = self.store.pref("eligible_days", [0, 1, 2, 3, 4, 5, 6])
-        start, end = self.week_bounds()
-        pool = set(days)
-        week_days = [
-            start + timedelta(days=i)
-            for i in range(7)
-            if (start + timedelta(days=i)).weekday() in eligible
-        ]
-        week_count = sum(d in pool for d in week_days)
-        mocks = self.store.stats(self.plan, {"category": "Simulado"})["count"]
-        night = self.store.one(
-            "SELECT COUNT(*) n FROM sessions WHERE plan_id=? AND elapsed>0 AND start_time>='22:00'",
-            (self.plan,),
-        )["n"]
-        self.heading("Conquistas locais • critérios transparentes")
-        achievements = [
-            (
-                "Primeiros 7 dias sem falhar",
-                f"{min(best,7)}/7",
-                "7 dias consecutivos com tempo líquido positivo (ou mínimo configurado).",
-                best >= 7,
-            ),
-            (
-                "Semana perfeita",
-                f"{week_count}/{len(week_days)}",
-                "Estudar nos dias elegíveis desta semana. Recalculada ao corrigir registros.",
-                bool(week_days) and week_count == len(week_days),
-            ),
-            (
-                "Mestre dos simulados",
-                f"{min(mocks,10)}/10",
-                "10 simulados registrados no plano.",
-                mocks >= 10,
-            ),
-        ]
-        if self.store.pref("night_achievement", False):
-            achievements.append(
-                (
-                    "Corujão",
-                    str(night),
-                    "Opcional: uma sessão iniciada após 22h. Não exige reduzir seu sono.",
-                    night > 0,
-                )
-            )
-        for name, progress, rule, done in achievements:
-            self.heading(("✓ " if done else "○ ") + name + " • " + progress)
-            self.note(rule)
-        self.note(
-            f"Sequência atual: {current} dias. Conquistas são derivadas do banco; alterações de registros podem revogar uma conquista. Não há ranking ou punição por interrupções."
-        )
 
     def goal_form(self, g=None):
         g = g or {}
@@ -4507,6 +4253,9 @@ class App:
             self.refresh()
 
     def page_8(self):
+        from screen_account import render as render_account
+
+        render_account(self)
         groups = [
             (
                 "Aparência e conforto",
@@ -4829,6 +4578,10 @@ class App:
                 return
             self.clock.pause()
         self.store.db.close()
+        if getattr(self, "_study_auto_retry", None):
+            self.root.after_cancel(self._study_auto_retry)
+        if getattr(self.store, "study_workspace", None):
+            self.store.study_workspace.close()
         self.root.destroy()
 
 

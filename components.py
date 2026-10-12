@@ -204,11 +204,7 @@ class CompletionBox(MotionButton):
             22,
             22,
             5,
-            fill=(
-                ("#245940" if p["bg"] != "#F3F4F6" else "#E0F3E7")
-                if self.done
-                else p["surface"]
-            ),
+            fill=p["success_bg"] if self.done else p["surface"],
             outline=(
                 p["success"]
                 if self.done

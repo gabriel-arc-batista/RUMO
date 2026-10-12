@@ -6,17 +6,17 @@ is saved as one preference (``appearance.PREFERENCE``) only when confirmed.
 
 import random
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 
 import appearance as A
 from ui import (
-    CharacterView,
     Hover,
     MotionButton,
     Portrait,
     Tooltip,
     blend,
     ui_font,
+    load_image,
 )
 
 COLOR_FIELDS = {"skin": 2, "hair_color": 2, "eye_color": 3}
@@ -67,6 +67,55 @@ class Swatch(tk.Canvas):
             self.create_line(
                 27.5, 30.5, 29.8, 32.8, 33.6, 28, fill=p["primary_ink"], width=1.6
             )
+
+
+class AssetChoice(tk.Canvas):
+    """A small real-asset thumbnail, retained only while its category is visible."""
+
+    def __init__(self, parent, app, field, key, label, selected, command):
+        super().__init__(
+            parent,
+            width=116,
+            height=122,
+            bg=app.bg,
+            highlightthickness=0,
+            cursor="hand2",
+            takefocus=True,
+        )
+        self.app, self.selected, self.command = app, selected, command
+        self.image = load_image(app, f"character/look/thumbnails/{field}-{key}.png")
+        self.label = label
+        Tooltip(self, label)
+        self.bind("<Button-1>", lambda e: command())
+        self.bind("<Return>", lambda e: command())
+        self.bind("<space>", lambda e: command())
+        self.bind("<FocusIn>", lambda e: self.draw())
+        self.bind("<FocusOut>", lambda e: self.draw())
+        self.draw()
+
+    def select(self, selected):
+        self.selected = selected
+        self.draw()
+
+    def draw(self):
+        self.delete("all")
+        p = self.app.motion.palette
+        color = (
+            p["accent"] if self.selected or self.focus_get() == self else p["border"]
+        )
+        self.create_rectangle(
+            2, 2, 114, 120, outline=color, width=2 if self.selected else 1
+        )
+        self.create_image(58, 48, image=self.image)
+        self.create_text(
+            58,
+            104,
+            text=self.label,
+            width=108,
+            fill=p["fg"],
+            font=ui_font(self, size=9),
+            justify="center",
+        )
 
 
 def flow(frame, widgets, gap=6):
@@ -128,16 +177,21 @@ def open_customizer(app):
     stage.grid(row=0, column=0, sticky="ns", padx=(0, 18))
     portrait = Portrait(stage, app, 264, look=draft, bg=p["surface"], ring=False)
     portrait.pack(padx=18, pady=(18, 8))
-    equipped = ()
-    try:
-        equipped = app.journey.character(app.plan).equipped
-    except Exception:
-        equipped = ()
-    figure = CharacterView(
-        stage, app, equipped, backdrop=False, bg=p["surface"], look=draft
+    ttk.Label(stage, text="Retrato • N. Erebus • CC0", style="Muted.TLabel").pack(
+        pady=(0, 12)
     )
-    figure.configure(width=264, height=300)
-    figure.pack(padx=18)
+    info = tk.Label(
+        stage,
+        text=(
+            "Este conjunto contém retratos.\nEquipamentos e montarias continuam\nno inventário, sem sobreposição visual."
+        ),
+        bg=p["surface"],
+        fg=p["muted"],
+        font=ui_font(stage, size=9),
+        wraplength=260,
+        justify="center",
+    )
+    info.pack(padx=18, pady=16)
     summary = tk.Label(
         stage,
         text=A.describe(draft),
@@ -149,16 +203,32 @@ def open_customizer(app):
     )
     summary.pack(padx=18, pady=(4, 16))
 
-    scroll = Scroll(main)
-    scroll.grid(row=0, column=1, sticky="nsew")
+    editor = ttk.Frame(main)
+    editor.grid(row=0, column=1, sticky="nsew")
+    ttk.Label(editor, text="Nome do personagem", style="Heading.TLabel").pack(
+        anchor="w"
+    )
+    profile = app.store.one(
+        "SELECT name FROM rpg_characters WHERE plan_id=?", (app.plan,)
+    )
+    name = tk.StringVar(value=profile["name"] if profile else "Viajante")
+    entry = ttk.Entry(editor, textvariable=name)
+    entry.pack(fill="x", pady=(6, 14))
+    categories = ttk.Combobox(
+        editor, state="readonly", values=[label for _, label, _ in A.FIELDS]
+    )
+    categories.current(0)
+    categories.pack(fill="x", pady=(0, 12))
+    scroll = Scroll(editor)
+    scroll.pack(fill="both", expand=True)
     scroll.canvas.configure(bg=app.bg)
     body = scroll.body
     controls = {}
+    win.character_categories = categories
+    win.character_name = name
 
     def refresh():
         portrait.set_look(dict(draft))
-        figure.look = dict(draft)
-        figure.draw()
         summary.configure(text=A.describe(draft))
         for field, widgets in controls.items():
             for key, widget in widgets.items():
@@ -166,39 +236,47 @@ def open_customizer(app):
 
     def choose(field, key):
         draft[field] = key
+        if field == "sex":
+            draft["face"] = "rosto-4" if key == "feminino" else "rosto-1"
         refresh()
 
-    for field, label, options in A.FIELDS:
-        section = ttk.Frame(body)
-        section.pack(fill="x", pady=(0, 16))
-        ttk.Label(section, text=label, style="Heading.TLabel").pack(anchor="w")
-        row = ttk.Frame(section)
-        row.pack(fill="x", pady=(8, 0))
+    def show_category(event=None):
+        # Destroy the previous grid and its PhotoImage references; only the
+        # active category is loaded, never the complete catalogue.
+        for child in body.winfo_children():
+            child.destroy()
+        controls.clear()
+        field, label, options = A.FIELDS[categories.current()]
+        ttk.Label(body, text=label, style="Heading.TLabel").pack(
+            anchor="w", pady=(0, 8)
+        )
+        row = ttk.Frame(body)
+        row.pack(fill="x")
         widgets = {}
         for option in options:
-            key, name = option[0], option[1]
+            key, title = option[:2]
+            command = lambda f=field, k=key: choose(f, k)
             if field in COLOR_FIELDS:
                 widget = Swatch(
                     row,
                     app,
                     option[COLOR_FIELDS[field]],
-                    name,
+                    title,
                     key == draft[field],
-                    lambda f=field, k=key: choose(f, k),
+                    command,
                     app.bg,
                 )
             else:
-                widget = MotionButton(
-                    row,
-                    text=name,
-                    style="Chip.TButton",
-                    selected=key == draft[field],
-                    height=32,
-                    command=lambda f=field, k=key: choose(f, k),
+                widget = AssetChoice(
+                    row, app, field, key, title, key == draft[field], command
                 )
             widgets[key] = widget
         flow(row, list(widgets.values()))
         controls[field] = widgets
+        scroll.canvas.yview_moveto(0)
+
+    categories.bind("<<ComboboxSelected>>", show_category)
+    show_category()
 
     def randomize():
         for field, _, options in A.FIELDS:
@@ -210,7 +288,13 @@ def open_customizer(app):
         refresh()
 
     def save():
-        app.store.set_pref(A.PREFERENCE, dict(draft))
+        from character_profile import save_character
+
+        try:
+            save_character(app.store, app.plan, dict(draft), name.get())
+        except ValueError as error:
+            messagebox.showerror("Confira o personagem", str(error), parent=win)
+            return
         win.destroy()
         app.refresh()
         app.toast.show("Aparência salva", A.describe(draft), "sparkles", "success")
@@ -237,6 +321,17 @@ def open_customizer(app):
     MotionButton(footer, text="Cancelar", command=win.destroy).pack(
         side="right", padx=8
     )
+
+    def release_images(event):
+        if event.widget is win:
+            # Visible widgets retain their own layers. Discard unused editor
+            # images immediately instead of leaving an idle cache behind.
+            for key in list(app.images):
+                if "/look/" in key:
+                    app.images.pop(key, None)
+            app.customizer_win = None
+
+    win.bind("<Destroy>", release_images, add="+")
     win.bind("<Escape>", lambda e: win.destroy())
     win.bind("<Control-Return>", lambda e: save())
     app.motion.reveal(win)

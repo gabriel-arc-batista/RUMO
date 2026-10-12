@@ -1,0 +1,130 @@
+%PDF-1.4
+%âãÏÓ
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R /Outlines 14 0 R /PageMode /UseOutlines >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [7 0 R 9 0 R 11 0 R 13 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Length 669 >>
+stream
+0.97 0.96 0.93 rg 0 0 595 842 re f
+0.78 0.67 0.43 rg 0 806 595 36 re f
+BT /F2 10 Tf 0.07 0.07 0.07 rg 40 820 Td (MATERIAL DE TESTE DO RUMO — NÃO É UMA AULA) Tj ET
+BT /F2 20 Tf 0.1 0.1 0.1 rg 40 760 Td (Leitor: página de abertura) Tj ET
+BT /F1 12 Tf 0.15 0.15 0.15 rg 40 730 Td (Este PDF valida o Campo de Treinamento: download, leitura e notas.) Tj ET
+BT /F1 12 Tf 0.15 0.15 0.15 rg 40 710 Td (Ele não ensina conteúdo de concurso e não conta como cobertura.) Tj ET
+BT /F1 12 Tf 0.15 0.15 0.15 rg 40 690 Td (Palavra para testar a busca: relacional.) Tj ET
+
+BT /F1 8 Tf 0.4 0.4 0.4 rg 40 30 Td (Versão 1.0.0 · página 1 de 4 · gerado por scripts/make_test_lesson.py) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 777 >>
+stream
+0.97 0.96 0.93 rg 0 0 595 842 re f
+0.78 0.67 0.43 rg 0 806 595 36 re f
+BT /F2 10 Tf 0.07 0.07 0.07 rg 40 820 Td (MATERIAL DE TESTE DO RUMO — NÃO É UMA AULA) Tj ET
+BT /F2 20 Tf 0.1 0.1 0.1 rg 40 760 Td (Seção 1: diagrama) Tj ET
+BT /F1 12 Tf 0.15 0.15 0.15 rg 40 730 Td (O desenho abaixo não deve ser invertido pelo modo escuro.) Tj ET
+BT /F1 12 Tf 0.15 0.15 0.15 rg 40 710 Td (Duas tabelas e uma relação entre elas.) Tj ET
+
+0.2 0.4 0.7 RG 2 w 60 420 160 70 re S 330 420 160 70 re S
+BT /F1 12 Tf 0.1 0.1 0.1 rg 95 450 Td (Tabela A) Tj ET
+BT /F1 12 Tf 0.1 0.1 0.1 rg 365 450 Td (Tabela B) Tj ET
+0.78 0.55 0.2 RG 220 455 m 330 455 l S 320 462 m 330 455 l 320 448 l S
+
+BT /F1 8 Tf 0.4 0.4 0.4 rg 40 30 Td (Versão 1.0.0 · página 2 de 4 · gerado por scripts/make_test_lesson.py) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 658 >>
+stream
+0.97 0.96 0.93 rg 0 0 595 842 re f
+0.78 0.67 0.43 rg 0 806 595 36 re f
+BT /F2 10 Tf 0.07 0.07 0.07 rg 40 820 Td (MATERIAL DE TESTE DO RUMO — NÃO É UMA AULA) Tj ET
+BT /F2 20 Tf 0.1 0.1 0.1 rg 40 760 Td (Seção 2: código) Tj ET
+BT /F3 11 Tf 0.15 0.15 0.15 rg 40 730 Td (SELECT a.nome, b.total) Tj ET
+BT /F3 11 Tf 0.15 0.15 0.15 rg 40 711 Td (FROM tabela_a a) Tj ET
+BT /F3 11 Tf 0.15 0.15 0.15 rg 40 692 Td (JOIN tabela_b b ON b.a_id = a.id;) Tj ET
+BT /F1 12 Tf 0.15 0.15 0.15 rg 40 673 Td (O código deve continuar legível em qualquer zoom.) Tj ET
+
+BT /F1 8 Tf 0.4 0.4 0.4 rg 40 30 Td (Versão 1.0.0 · página 3 de 4 · gerado por scripts/make_test_lesson.py) Tj ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 10 0 R >>
+endobj
+12 0 obj
+<< /Length 542 >>
+stream
+0.97 0.96 0.93 rg 0 0 595 842 re f
+0.78 0.67 0.43 rg 0 806 595 36 re f
+BT /F2 10 Tf 0.07 0.07 0.07 rg 40 820 Td (MATERIAL DE TESTE DO RUMO — NÃO É UMA AULA) Tj ET
+BT /F2 20 Tf 0.1 0.1 0.1 rg 40 760 Td (Seção 3: página final) Tj ET
+BT /F1 12 Tf 0.15 0.15 0.15 rg 40 730 Td (Última página. Use-a para testar a retomada de leitura.) Tj ET
+BT /F1 12 Tf 0.15 0.15 0.15 rg 40 710 Td (Outra ocorrência para a busca: relacional.) Tj ET
+
+BT /F1 8 Tf 0.4 0.4 0.4 rg 40 30 Td (Versão 1.0.0 · página 4 de 4 · gerado por scripts/make_test_lesson.py) Tj ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 12 0 R >>
+endobj
+14 0 obj
+<< /Type /Outlines /First 15 0 R /Last 18 0 R /Count 4 >>
+endobj
+15 0 obj
+<< /Title (Abertura) /Parent 14 0 R /Dest [7 0 R /XYZ 0 842 null] /Next 16 0 R >>
+endobj
+16 0 obj
+<< /Title (Seção 1: diagrama) /Parent 14 0 R /Dest [9 0 R /XYZ 0 842 null] /Prev 15 0 R /Next 17 0 R >>
+endobj
+17 0 obj
+<< /Title (Seção 2: código) /Parent 14 0 R /Dest [11 0 R /XYZ 0 842 null] /Prev 16 0 R /Next 18 0 R >>
+endobj
+18 0 obj
+<< /Title (Seção 3: página final) /Parent 14 0 R /Dest [13 0 R /XYZ 0 842 null] /Prev 17 0 R >>
+endobj
+xref
+0 19
+0000000000 65535 f 
+0000000015 00000 n 
+0000000104 00000 n 
+0000000181 00000 n 
+0000000278 00000 n 
+0000000380 00000 n 
+0000000475 00000 n 
+0000001195 00000 n 
+0000001341 00000 n 
+0000002169 00000 n 
+0000002315 00000 n 
+0000003025 00000 n 
+0000003173 00000 n 
+0000003767 00000 n 
+0000003915 00000 n 
+0000003989 00000 n 
+0000004087 00000 n 
+0000004207 00000 n 
+0000004326 00000 n 
+trailer
+<< /Size 19 /Root 1 0 R >>
+startxref
+4438
+%%EOF

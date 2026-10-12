@@ -1,0 +1,6047 @@
+{
+  "package": "Portrait Creator example_assets",
+  "author": "N. Erebus",
+  "origin": "https://n-erebus.itch.io/portrait-creator",
+  "license": "CC0-1.0",
+  "source_size": [
+    1024,
+    1024
+  ],
+  "size": [
+    264,
+    264
+  ],
+  "pieces": [
+    {
+      "id": "head-rosto-1-porcelana",
+      "name": "Oval • Porcelana",
+      "category": "face",
+      "path": "bust/head-rosto-1-porcelana.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_1.png",
+      "source_sha256": "77fade07ce080964ca3796f519170f3324fed9e101e62b91e6d00c76a55e5b15",
+      "color": "#F1D5C3",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-1-clara",
+      "name": "Oval • Clara",
+      "category": "face",
+      "path": "bust/head-rosto-1-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_1.png",
+      "source_sha256": "77fade07ce080964ca3796f519170f3324fed9e101e62b91e6d00c76a55e5b15",
+      "color": "#E8C0A1",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-1-bege",
+      "name": "Oval • Bege",
+      "category": "face",
+      "path": "bust/head-rosto-1-bege.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_1.png",
+      "source_sha256": "77fade07ce080964ca3796f519170f3324fed9e101e62b91e6d00c76a55e5b15",
+      "color": "#D9AA85",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-1-oliva",
+      "name": "Oval • Oliva",
+      "category": "face",
+      "path": "bust/head-rosto-1-oliva.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_1.png",
+      "source_sha256": "77fade07ce080964ca3796f519170f3324fed9e101e62b91e6d00c76a55e5b15",
+      "color": "#C49C77",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-1-morena-clara",
+      "name": "Oval • Morena clara",
+      "category": "face",
+      "path": "bust/head-rosto-1-morena-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_1.png",
+      "source_sha256": "77fade07ce080964ca3796f519170f3324fed9e101e62b91e6d00c76a55e5b15",
+      "color": "#B58262",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-1-morena",
+      "name": "Oval • Morena",
+      "category": "face",
+      "path": "bust/head-rosto-1-morena.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_1.png",
+      "source_sha256": "77fade07ce080964ca3796f519170f3324fed9e101e62b91e6d00c76a55e5b15",
+      "color": "#996A4A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-1-marrom",
+      "name": "Oval • Marrom",
+      "category": "face",
+      "path": "bust/head-rosto-1-marrom.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_1.png",
+      "source_sha256": "77fade07ce080964ca3796f519170f3324fed9e101e62b91e6d00c76a55e5b15",
+      "color": "#784D34",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-1-retinta",
+      "name": "Oval • Retinta",
+      "category": "face",
+      "path": "bust/head-rosto-1-retinta.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_1.png",
+      "source_sha256": "77fade07ce080964ca3796f519170f3324fed9e101e62b91e6d00c76a55e5b15",
+      "color": "#563525",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-2-porcelana",
+      "name": "Alongado • Porcelana",
+      "category": "face",
+      "path": "bust/head-rosto-2-porcelana.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_2.png",
+      "source_sha256": "ca61105f6f0cf3395fa44728d0ea683edcb86c875e4233083227058b118034c8",
+      "color": "#F1D5C3",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-2-clara",
+      "name": "Alongado • Clara",
+      "category": "face",
+      "path": "bust/head-rosto-2-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_2.png",
+      "source_sha256": "ca61105f6f0cf3395fa44728d0ea683edcb86c875e4233083227058b118034c8",
+      "color": "#E8C0A1",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-2-bege",
+      "name": "Alongado • Bege",
+      "category": "face",
+      "path": "bust/head-rosto-2-bege.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_2.png",
+      "source_sha256": "ca61105f6f0cf3395fa44728d0ea683edcb86c875e4233083227058b118034c8",
+      "color": "#D9AA85",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-2-oliva",
+      "name": "Alongado • Oliva",
+      "category": "face",
+      "path": "bust/head-rosto-2-oliva.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_2.png",
+      "source_sha256": "ca61105f6f0cf3395fa44728d0ea683edcb86c875e4233083227058b118034c8",
+      "color": "#C49C77",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-2-morena-clara",
+      "name": "Alongado • Morena clara",
+      "category": "face",
+      "path": "bust/head-rosto-2-morena-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_2.png",
+      "source_sha256": "ca61105f6f0cf3395fa44728d0ea683edcb86c875e4233083227058b118034c8",
+      "color": "#B58262",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-2-morena",
+      "name": "Alongado • Morena",
+      "category": "face",
+      "path": "bust/head-rosto-2-morena.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_2.png",
+      "source_sha256": "ca61105f6f0cf3395fa44728d0ea683edcb86c875e4233083227058b118034c8",
+      "color": "#996A4A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-2-marrom",
+      "name": "Alongado • Marrom",
+      "category": "face",
+      "path": "bust/head-rosto-2-marrom.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_2.png",
+      "source_sha256": "ca61105f6f0cf3395fa44728d0ea683edcb86c875e4233083227058b118034c8",
+      "color": "#784D34",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-2-retinta",
+      "name": "Alongado • Retinta",
+      "category": "face",
+      "path": "bust/head-rosto-2-retinta.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_2.png",
+      "source_sha256": "ca61105f6f0cf3395fa44728d0ea683edcb86c875e4233083227058b118034c8",
+      "color": "#563525",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-3-porcelana",
+      "name": "Angular • Porcelana",
+      "category": "face",
+      "path": "bust/head-rosto-3-porcelana.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_3.png",
+      "source_sha256": "e28bdcbfed858e6899a40bd5f788f037b8749382fc1ca08fc70198ea357e6932",
+      "color": "#F1D5C3",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-3-clara",
+      "name": "Angular • Clara",
+      "category": "face",
+      "path": "bust/head-rosto-3-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_3.png",
+      "source_sha256": "e28bdcbfed858e6899a40bd5f788f037b8749382fc1ca08fc70198ea357e6932",
+      "color": "#E8C0A1",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-3-bege",
+      "name": "Angular • Bege",
+      "category": "face",
+      "path": "bust/head-rosto-3-bege.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_3.png",
+      "source_sha256": "e28bdcbfed858e6899a40bd5f788f037b8749382fc1ca08fc70198ea357e6932",
+      "color": "#D9AA85",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-3-oliva",
+      "name": "Angular • Oliva",
+      "category": "face",
+      "path": "bust/head-rosto-3-oliva.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_3.png",
+      "source_sha256": "e28bdcbfed858e6899a40bd5f788f037b8749382fc1ca08fc70198ea357e6932",
+      "color": "#C49C77",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-3-morena-clara",
+      "name": "Angular • Morena clara",
+      "category": "face",
+      "path": "bust/head-rosto-3-morena-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_3.png",
+      "source_sha256": "e28bdcbfed858e6899a40bd5f788f037b8749382fc1ca08fc70198ea357e6932",
+      "color": "#B58262",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-3-morena",
+      "name": "Angular • Morena",
+      "category": "face",
+      "path": "bust/head-rosto-3-morena.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_3.png",
+      "source_sha256": "e28bdcbfed858e6899a40bd5f788f037b8749382fc1ca08fc70198ea357e6932",
+      "color": "#996A4A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-3-marrom",
+      "name": "Angular • Marrom",
+      "category": "face",
+      "path": "bust/head-rosto-3-marrom.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_3.png",
+      "source_sha256": "e28bdcbfed858e6899a40bd5f788f037b8749382fc1ca08fc70198ea357e6932",
+      "color": "#784D34",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-3-retinta",
+      "name": "Angular • Retinta",
+      "category": "face",
+      "path": "bust/head-rosto-3-retinta.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_3.png",
+      "source_sha256": "e28bdcbfed858e6899a40bd5f788f037b8749382fc1ca08fc70198ea357e6932",
+      "color": "#563525",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-4-porcelana",
+      "name": "Suave • Porcelana",
+      "category": "face",
+      "path": "bust/head-rosto-4-porcelana.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_4.png",
+      "source_sha256": "5c6ab02bf2e94d760e19cd6e68fa5ac59014c7d67636352843e34eb2c9e12d55",
+      "color": "#F1D5C3",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-4-clara",
+      "name": "Suave • Clara",
+      "category": "face",
+      "path": "bust/head-rosto-4-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_4.png",
+      "source_sha256": "5c6ab02bf2e94d760e19cd6e68fa5ac59014c7d67636352843e34eb2c9e12d55",
+      "color": "#E8C0A1",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-4-bege",
+      "name": "Suave • Bege",
+      "category": "face",
+      "path": "bust/head-rosto-4-bege.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_4.png",
+      "source_sha256": "5c6ab02bf2e94d760e19cd6e68fa5ac59014c7d67636352843e34eb2c9e12d55",
+      "color": "#D9AA85",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-4-oliva",
+      "name": "Suave • Oliva",
+      "category": "face",
+      "path": "bust/head-rosto-4-oliva.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_4.png",
+      "source_sha256": "5c6ab02bf2e94d760e19cd6e68fa5ac59014c7d67636352843e34eb2c9e12d55",
+      "color": "#C49C77",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-4-morena-clara",
+      "name": "Suave • Morena clara",
+      "category": "face",
+      "path": "bust/head-rosto-4-morena-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_4.png",
+      "source_sha256": "5c6ab02bf2e94d760e19cd6e68fa5ac59014c7d67636352843e34eb2c9e12d55",
+      "color": "#B58262",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-4-morena",
+      "name": "Suave • Morena",
+      "category": "face",
+      "path": "bust/head-rosto-4-morena.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_4.png",
+      "source_sha256": "5c6ab02bf2e94d760e19cd6e68fa5ac59014c7d67636352843e34eb2c9e12d55",
+      "color": "#996A4A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-4-marrom",
+      "name": "Suave • Marrom",
+      "category": "face",
+      "path": "bust/head-rosto-4-marrom.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_4.png",
+      "source_sha256": "5c6ab02bf2e94d760e19cd6e68fa5ac59014c7d67636352843e34eb2c9e12d55",
+      "color": "#784D34",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-4-retinta",
+      "name": "Suave • Retinta",
+      "category": "face",
+      "path": "bust/head-rosto-4-retinta.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_4.png",
+      "source_sha256": "5c6ab02bf2e94d760e19cd6e68fa5ac59014c7d67636352843e34eb2c9e12d55",
+      "color": "#563525",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-5-porcelana",
+      "name": "Arredondado • Porcelana",
+      "category": "face",
+      "path": "bust/head-rosto-5-porcelana.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_5.png",
+      "source_sha256": "36309c921b5d07cd34b905bb42d42242b2cbc1c21cac51b56c441f2abc8b8844",
+      "color": "#F1D5C3",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-5-clara",
+      "name": "Arredondado • Clara",
+      "category": "face",
+      "path": "bust/head-rosto-5-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_5.png",
+      "source_sha256": "36309c921b5d07cd34b905bb42d42242b2cbc1c21cac51b56c441f2abc8b8844",
+      "color": "#E8C0A1",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-5-bege",
+      "name": "Arredondado • Bege",
+      "category": "face",
+      "path": "bust/head-rosto-5-bege.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_5.png",
+      "source_sha256": "36309c921b5d07cd34b905bb42d42242b2cbc1c21cac51b56c441f2abc8b8844",
+      "color": "#D9AA85",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-5-oliva",
+      "name": "Arredondado • Oliva",
+      "category": "face",
+      "path": "bust/head-rosto-5-oliva.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_5.png",
+      "source_sha256": "36309c921b5d07cd34b905bb42d42242b2cbc1c21cac51b56c441f2abc8b8844",
+      "color": "#C49C77",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-5-morena-clara",
+      "name": "Arredondado • Morena clara",
+      "category": "face",
+      "path": "bust/head-rosto-5-morena-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_5.png",
+      "source_sha256": "36309c921b5d07cd34b905bb42d42242b2cbc1c21cac51b56c441f2abc8b8844",
+      "color": "#B58262",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-5-morena",
+      "name": "Arredondado • Morena",
+      "category": "face",
+      "path": "bust/head-rosto-5-morena.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_5.png",
+      "source_sha256": "36309c921b5d07cd34b905bb42d42242b2cbc1c21cac51b56c441f2abc8b8844",
+      "color": "#996A4A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-5-marrom",
+      "name": "Arredondado • Marrom",
+      "category": "face",
+      "path": "bust/head-rosto-5-marrom.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_5.png",
+      "source_sha256": "36309c921b5d07cd34b905bb42d42242b2cbc1c21cac51b56c441f2abc8b8844",
+      "color": "#784D34",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-5-retinta",
+      "name": "Arredondado • Retinta",
+      "category": "face",
+      "path": "bust/head-rosto-5-retinta.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_5.png",
+      "source_sha256": "36309c921b5d07cd34b905bb42d42242b2cbc1c21cac51b56c441f2abc8b8844",
+      "color": "#563525",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-6-porcelana",
+      "name": "Estreito • Porcelana",
+      "category": "face",
+      "path": "bust/head-rosto-6-porcelana.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_6.png",
+      "source_sha256": "53e4e8c32a615e2960760f0ba4333bc4024d9815ac56136ab39923d871637021",
+      "color": "#F1D5C3",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-6-clara",
+      "name": "Estreito • Clara",
+      "category": "face",
+      "path": "bust/head-rosto-6-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_6.png",
+      "source_sha256": "53e4e8c32a615e2960760f0ba4333bc4024d9815ac56136ab39923d871637021",
+      "color": "#E8C0A1",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-6-bege",
+      "name": "Estreito • Bege",
+      "category": "face",
+      "path": "bust/head-rosto-6-bege.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_6.png",
+      "source_sha256": "53e4e8c32a615e2960760f0ba4333bc4024d9815ac56136ab39923d871637021",
+      "color": "#D9AA85",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-6-oliva",
+      "name": "Estreito • Oliva",
+      "category": "face",
+      "path": "bust/head-rosto-6-oliva.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_6.png",
+      "source_sha256": "53e4e8c32a615e2960760f0ba4333bc4024d9815ac56136ab39923d871637021",
+      "color": "#C49C77",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-6-morena-clara",
+      "name": "Estreito • Morena clara",
+      "category": "face",
+      "path": "bust/head-rosto-6-morena-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_6.png",
+      "source_sha256": "53e4e8c32a615e2960760f0ba4333bc4024d9815ac56136ab39923d871637021",
+      "color": "#B58262",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-6-morena",
+      "name": "Estreito • Morena",
+      "category": "face",
+      "path": "bust/head-rosto-6-morena.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_6.png",
+      "source_sha256": "53e4e8c32a615e2960760f0ba4333bc4024d9815ac56136ab39923d871637021",
+      "color": "#996A4A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-6-marrom",
+      "name": "Estreito • Marrom",
+      "category": "face",
+      "path": "bust/head-rosto-6-marrom.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_6.png",
+      "source_sha256": "53e4e8c32a615e2960760f0ba4333bc4024d9815ac56136ab39923d871637021",
+      "color": "#784D34",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "head-rosto-6-retinta",
+      "name": "Estreito • Retinta",
+      "category": "face",
+      "path": "bust/head-rosto-6-retinta.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 10,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "head/head_6.png",
+      "source_sha256": "53e4e8c32a615e2960760f0ba4333bc4024d9815ac56136ab39923d871637021",
+      "color": "#563525",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyeball",
+      "name": "Branco dos olhos",
+      "category": "eyes",
+      "path": "bust/eyeball.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 20,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyeball/eyeball_1.png",
+      "source_sha256": "786516c5c9a87015bfdeaac566938ca1ed7eb7099381b6700472500b1200811b",
+      "color": null,
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-amendoado-porcelana",
+      "name": "Amendoado • Porcelana",
+      "category": "eyes",
+      "path": "bust/eyes-amendoado-porcelana.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_1.png",
+      "source_sha256": "a16c35fa01d967747d0f3d61c301245335a124fae3d00615d8262cb27f1e623f",
+      "color": "#F1D5C3",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-amendoado-clara",
+      "name": "Amendoado • Clara",
+      "category": "eyes",
+      "path": "bust/eyes-amendoado-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_1.png",
+      "source_sha256": "a16c35fa01d967747d0f3d61c301245335a124fae3d00615d8262cb27f1e623f",
+      "color": "#E8C0A1",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-amendoado-bege",
+      "name": "Amendoado • Bege",
+      "category": "eyes",
+      "path": "bust/eyes-amendoado-bege.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_1.png",
+      "source_sha256": "a16c35fa01d967747d0f3d61c301245335a124fae3d00615d8262cb27f1e623f",
+      "color": "#D9AA85",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-amendoado-oliva",
+      "name": "Amendoado • Oliva",
+      "category": "eyes",
+      "path": "bust/eyes-amendoado-oliva.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_1.png",
+      "source_sha256": "a16c35fa01d967747d0f3d61c301245335a124fae3d00615d8262cb27f1e623f",
+      "color": "#C49C77",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-amendoado-morena-clara",
+      "name": "Amendoado • Morena clara",
+      "category": "eyes",
+      "path": "bust/eyes-amendoado-morena-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_1.png",
+      "source_sha256": "a16c35fa01d967747d0f3d61c301245335a124fae3d00615d8262cb27f1e623f",
+      "color": "#B58262",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-amendoado-morena",
+      "name": "Amendoado • Morena",
+      "category": "eyes",
+      "path": "bust/eyes-amendoado-morena.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_1.png",
+      "source_sha256": "a16c35fa01d967747d0f3d61c301245335a124fae3d00615d8262cb27f1e623f",
+      "color": "#996A4A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-amendoado-marrom",
+      "name": "Amendoado • Marrom",
+      "category": "eyes",
+      "path": "bust/eyes-amendoado-marrom.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_1.png",
+      "source_sha256": "a16c35fa01d967747d0f3d61c301245335a124fae3d00615d8262cb27f1e623f",
+      "color": "#784D34",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-amendoado-retinta",
+      "name": "Amendoado • Retinta",
+      "category": "eyes",
+      "path": "bust/eyes-amendoado-retinta.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_1.png",
+      "source_sha256": "a16c35fa01d967747d0f3d61c301245335a124fae3d00615d8262cb27f1e623f",
+      "color": "#563525",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-redondo-porcelana",
+      "name": "Redondo • Porcelana",
+      "category": "eyes",
+      "path": "bust/eyes-redondo-porcelana.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_2.png",
+      "source_sha256": "7d1fcd7d90e50aaa4eb7a43165f831d8304c5736fa9b60dbbb4cf573a2a53f7b",
+      "color": "#F1D5C3",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-redondo-clara",
+      "name": "Redondo • Clara",
+      "category": "eyes",
+      "path": "bust/eyes-redondo-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_2.png",
+      "source_sha256": "7d1fcd7d90e50aaa4eb7a43165f831d8304c5736fa9b60dbbb4cf573a2a53f7b",
+      "color": "#E8C0A1",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-redondo-bege",
+      "name": "Redondo • Bege",
+      "category": "eyes",
+      "path": "bust/eyes-redondo-bege.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_2.png",
+      "source_sha256": "7d1fcd7d90e50aaa4eb7a43165f831d8304c5736fa9b60dbbb4cf573a2a53f7b",
+      "color": "#D9AA85",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-redondo-oliva",
+      "name": "Redondo • Oliva",
+      "category": "eyes",
+      "path": "bust/eyes-redondo-oliva.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_2.png",
+      "source_sha256": "7d1fcd7d90e50aaa4eb7a43165f831d8304c5736fa9b60dbbb4cf573a2a53f7b",
+      "color": "#C49C77",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-redondo-morena-clara",
+      "name": "Redondo • Morena clara",
+      "category": "eyes",
+      "path": "bust/eyes-redondo-morena-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_2.png",
+      "source_sha256": "7d1fcd7d90e50aaa4eb7a43165f831d8304c5736fa9b60dbbb4cf573a2a53f7b",
+      "color": "#B58262",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-redondo-morena",
+      "name": "Redondo • Morena",
+      "category": "eyes",
+      "path": "bust/eyes-redondo-morena.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_2.png",
+      "source_sha256": "7d1fcd7d90e50aaa4eb7a43165f831d8304c5736fa9b60dbbb4cf573a2a53f7b",
+      "color": "#996A4A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-redondo-marrom",
+      "name": "Redondo • Marrom",
+      "category": "eyes",
+      "path": "bust/eyes-redondo-marrom.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_2.png",
+      "source_sha256": "7d1fcd7d90e50aaa4eb7a43165f831d8304c5736fa9b60dbbb4cf573a2a53f7b",
+      "color": "#784D34",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-redondo-retinta",
+      "name": "Redondo • Retinta",
+      "category": "eyes",
+      "path": "bust/eyes-redondo-retinta.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_2.png",
+      "source_sha256": "7d1fcd7d90e50aaa4eb7a43165f831d8304c5736fa9b60dbbb4cf573a2a53f7b",
+      "color": "#563525",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-grande-porcelana",
+      "name": "Grande • Porcelana",
+      "category": "eyes",
+      "path": "bust/eyes-grande-porcelana.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_3.png",
+      "source_sha256": "a547b02522f4ba3071d1f495d88b7337a29a15c25c0336ae2e53659c56d3bd65",
+      "color": "#F1D5C3",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-grande-clara",
+      "name": "Grande • Clara",
+      "category": "eyes",
+      "path": "bust/eyes-grande-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_3.png",
+      "source_sha256": "a547b02522f4ba3071d1f495d88b7337a29a15c25c0336ae2e53659c56d3bd65",
+      "color": "#E8C0A1",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-grande-bege",
+      "name": "Grande • Bege",
+      "category": "eyes",
+      "path": "bust/eyes-grande-bege.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_3.png",
+      "source_sha256": "a547b02522f4ba3071d1f495d88b7337a29a15c25c0336ae2e53659c56d3bd65",
+      "color": "#D9AA85",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-grande-oliva",
+      "name": "Grande • Oliva",
+      "category": "eyes",
+      "path": "bust/eyes-grande-oliva.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_3.png",
+      "source_sha256": "a547b02522f4ba3071d1f495d88b7337a29a15c25c0336ae2e53659c56d3bd65",
+      "color": "#C49C77",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-grande-morena-clara",
+      "name": "Grande • Morena clara",
+      "category": "eyes",
+      "path": "bust/eyes-grande-morena-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_3.png",
+      "source_sha256": "a547b02522f4ba3071d1f495d88b7337a29a15c25c0336ae2e53659c56d3bd65",
+      "color": "#B58262",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-grande-morena",
+      "name": "Grande • Morena",
+      "category": "eyes",
+      "path": "bust/eyes-grande-morena.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_3.png",
+      "source_sha256": "a547b02522f4ba3071d1f495d88b7337a29a15c25c0336ae2e53659c56d3bd65",
+      "color": "#996A4A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-grande-marrom",
+      "name": "Grande • Marrom",
+      "category": "eyes",
+      "path": "bust/eyes-grande-marrom.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_3.png",
+      "source_sha256": "a547b02522f4ba3071d1f495d88b7337a29a15c25c0336ae2e53659c56d3bd65",
+      "color": "#784D34",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-grande-retinta",
+      "name": "Grande • Retinta",
+      "category": "eyes",
+      "path": "bust/eyes-grande-retinta.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_3.png",
+      "source_sha256": "a547b02522f4ba3071d1f495d88b7337a29a15c25c0336ae2e53659c56d3bd65",
+      "color": "#563525",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-puxado-porcelana",
+      "name": "Puxado • Porcelana",
+      "category": "eyes",
+      "path": "bust/eyes-puxado-porcelana.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_4.png",
+      "source_sha256": "f3bd26fbf91069b868e28d4eb5556107c5c4f7beff289d63660cf3f0a9757c8e",
+      "color": "#F1D5C3",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-puxado-clara",
+      "name": "Puxado • Clara",
+      "category": "eyes",
+      "path": "bust/eyes-puxado-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_4.png",
+      "source_sha256": "f3bd26fbf91069b868e28d4eb5556107c5c4f7beff289d63660cf3f0a9757c8e",
+      "color": "#E8C0A1",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-puxado-bege",
+      "name": "Puxado • Bege",
+      "category": "eyes",
+      "path": "bust/eyes-puxado-bege.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_4.png",
+      "source_sha256": "f3bd26fbf91069b868e28d4eb5556107c5c4f7beff289d63660cf3f0a9757c8e",
+      "color": "#D9AA85",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-puxado-oliva",
+      "name": "Puxado • Oliva",
+      "category": "eyes",
+      "path": "bust/eyes-puxado-oliva.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_4.png",
+      "source_sha256": "f3bd26fbf91069b868e28d4eb5556107c5c4f7beff289d63660cf3f0a9757c8e",
+      "color": "#C49C77",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-puxado-morena-clara",
+      "name": "Puxado • Morena clara",
+      "category": "eyes",
+      "path": "bust/eyes-puxado-morena-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_4.png",
+      "source_sha256": "f3bd26fbf91069b868e28d4eb5556107c5c4f7beff289d63660cf3f0a9757c8e",
+      "color": "#B58262",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-puxado-morena",
+      "name": "Puxado • Morena",
+      "category": "eyes",
+      "path": "bust/eyes-puxado-morena.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_4.png",
+      "source_sha256": "f3bd26fbf91069b868e28d4eb5556107c5c4f7beff289d63660cf3f0a9757c8e",
+      "color": "#996A4A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-puxado-marrom",
+      "name": "Puxado • Marrom",
+      "category": "eyes",
+      "path": "bust/eyes-puxado-marrom.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_4.png",
+      "source_sha256": "f3bd26fbf91069b868e28d4eb5556107c5c4f7beff289d63660cf3f0a9757c8e",
+      "color": "#784D34",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-puxado-retinta",
+      "name": "Puxado • Retinta",
+      "category": "eyes",
+      "path": "bust/eyes-puxado-retinta.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_4.png",
+      "source_sha256": "f3bd26fbf91069b868e28d4eb5556107c5c4f7beff289d63660cf3f0a9757c8e",
+      "color": "#563525",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-caido-porcelana",
+      "name": "Caído • Porcelana",
+      "category": "eyes",
+      "path": "bust/eyes-caido-porcelana.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_5.png",
+      "source_sha256": "d21e2ececeb03f1a9bd68bf88423eb7930db23e7cd94e1e75dd7a49bc3b71bfa",
+      "color": "#F1D5C3",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-caido-clara",
+      "name": "Caído • Clara",
+      "category": "eyes",
+      "path": "bust/eyes-caido-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_5.png",
+      "source_sha256": "d21e2ececeb03f1a9bd68bf88423eb7930db23e7cd94e1e75dd7a49bc3b71bfa",
+      "color": "#E8C0A1",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-caido-bege",
+      "name": "Caído • Bege",
+      "category": "eyes",
+      "path": "bust/eyes-caido-bege.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_5.png",
+      "source_sha256": "d21e2ececeb03f1a9bd68bf88423eb7930db23e7cd94e1e75dd7a49bc3b71bfa",
+      "color": "#D9AA85",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-caido-oliva",
+      "name": "Caído • Oliva",
+      "category": "eyes",
+      "path": "bust/eyes-caido-oliva.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_5.png",
+      "source_sha256": "d21e2ececeb03f1a9bd68bf88423eb7930db23e7cd94e1e75dd7a49bc3b71bfa",
+      "color": "#C49C77",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-caido-morena-clara",
+      "name": "Caído • Morena clara",
+      "category": "eyes",
+      "path": "bust/eyes-caido-morena-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_5.png",
+      "source_sha256": "d21e2ececeb03f1a9bd68bf88423eb7930db23e7cd94e1e75dd7a49bc3b71bfa",
+      "color": "#B58262",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-caido-morena",
+      "name": "Caído • Morena",
+      "category": "eyes",
+      "path": "bust/eyes-caido-morena.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_5.png",
+      "source_sha256": "d21e2ececeb03f1a9bd68bf88423eb7930db23e7cd94e1e75dd7a49bc3b71bfa",
+      "color": "#996A4A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-caido-marrom",
+      "name": "Caído • Marrom",
+      "category": "eyes",
+      "path": "bust/eyes-caido-marrom.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_5.png",
+      "source_sha256": "d21e2ececeb03f1a9bd68bf88423eb7930db23e7cd94e1e75dd7a49bc3b71bfa",
+      "color": "#784D34",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-caido-retinta",
+      "name": "Caído • Retinta",
+      "category": "eyes",
+      "path": "bust/eyes-caido-retinta.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_5.png",
+      "source_sha256": "d21e2ececeb03f1a9bd68bf88423eb7930db23e7cd94e1e75dd7a49bc3b71bfa",
+      "color": "#563525",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-encapuzado-porcelana",
+      "name": "Encapuzado • Porcelana",
+      "category": "eyes",
+      "path": "bust/eyes-encapuzado-porcelana.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_6.png",
+      "source_sha256": "c328f5bdc0f651466958785731df7e5f75c40e37daa891507aa1c290d3528214",
+      "color": "#F1D5C3",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-encapuzado-clara",
+      "name": "Encapuzado • Clara",
+      "category": "eyes",
+      "path": "bust/eyes-encapuzado-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_6.png",
+      "source_sha256": "c328f5bdc0f651466958785731df7e5f75c40e37daa891507aa1c290d3528214",
+      "color": "#E8C0A1",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-encapuzado-bege",
+      "name": "Encapuzado • Bege",
+      "category": "eyes",
+      "path": "bust/eyes-encapuzado-bege.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_6.png",
+      "source_sha256": "c328f5bdc0f651466958785731df7e5f75c40e37daa891507aa1c290d3528214",
+      "color": "#D9AA85",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-encapuzado-oliva",
+      "name": "Encapuzado • Oliva",
+      "category": "eyes",
+      "path": "bust/eyes-encapuzado-oliva.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_6.png",
+      "source_sha256": "c328f5bdc0f651466958785731df7e5f75c40e37daa891507aa1c290d3528214",
+      "color": "#C49C77",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-encapuzado-morena-clara",
+      "name": "Encapuzado • Morena clara",
+      "category": "eyes",
+      "path": "bust/eyes-encapuzado-morena-clara.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_6.png",
+      "source_sha256": "c328f5bdc0f651466958785731df7e5f75c40e37daa891507aa1c290d3528214",
+      "color": "#B58262",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-encapuzado-morena",
+      "name": "Encapuzado • Morena",
+      "category": "eyes",
+      "path": "bust/eyes-encapuzado-morena.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_6.png",
+      "source_sha256": "c328f5bdc0f651466958785731df7e5f75c40e37daa891507aa1c290d3528214",
+      "color": "#996A4A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-encapuzado-marrom",
+      "name": "Encapuzado • Marrom",
+      "category": "eyes",
+      "path": "bust/eyes-encapuzado-marrom.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_6.png",
+      "source_sha256": "c328f5bdc0f651466958785731df7e5f75c40e37daa891507aa1c290d3528214",
+      "color": "#784D34",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "eyes-encapuzado-retinta",
+      "name": "Encapuzado • Retinta",
+      "category": "eyes",
+      "path": "bust/eyes-encapuzado-retinta.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 30,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyes/eyes_6.png",
+      "source_sha256": "c328f5bdc0f651466958785731df7e5f75c40e37daa891507aa1c290d3528214",
+      "color": "#563525",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-1-castanho-escuro",
+      "name": "Com brilho • Castanho-escuro",
+      "category": "iris",
+      "path": "bust/iris-iris-1-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_1.png",
+      "source_sha256": "02953fead154f1ae5a54402c63d10f02c35fb48543953fbbf9569b51ea3b42e0",
+      "color": "#55351F",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-1-castanho",
+      "name": "Com brilho • Castanho",
+      "category": "iris",
+      "path": "bust/iris-iris-1-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_1.png",
+      "source_sha256": "02953fead154f1ae5a54402c63d10f02c35fb48543953fbbf9569b51ea3b42e0",
+      "color": "#87582D",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-1-avela",
+      "name": "Com brilho • Avelã",
+      "category": "iris",
+      "path": "bust/iris-iris-1-avela.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_1.png",
+      "source_sha256": "02953fead154f1ae5a54402c63d10f02c35fb48543953fbbf9569b51ea3b42e0",
+      "color": "#9A8242",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-1-ambar",
+      "name": "Com brilho • Âmbar",
+      "category": "iris",
+      "path": "bust/iris-iris-1-ambar.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_1.png",
+      "source_sha256": "02953fead154f1ae5a54402c63d10f02c35fb48543953fbbf9569b51ea3b42e0",
+      "color": "#C48C2C",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-1-verde",
+      "name": "Com brilho • Verde",
+      "category": "iris",
+      "path": "bust/iris-iris-1-verde.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_1.png",
+      "source_sha256": "02953fead154f1ae5a54402c63d10f02c35fb48543953fbbf9569b51ea3b42e0",
+      "color": "#6F9E59",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-1-azul",
+      "name": "Com brilho • Azul",
+      "category": "iris",
+      "path": "bust/iris-iris-1-azul.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_1.png",
+      "source_sha256": "02953fead154f1ae5a54402c63d10f02c35fb48543953fbbf9569b51ea3b42e0",
+      "color": "#6B9BCC",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-1-cinza",
+      "name": "Com brilho • Cinza",
+      "category": "iris",
+      "path": "bust/iris-iris-1-cinza.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_1.png",
+      "source_sha256": "02953fead154f1ae5a54402c63d10f02c35fb48543953fbbf9569b51ea3b42e0",
+      "color": "#97A3AB",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-2-castanho-escuro",
+      "name": "Circular • Castanho-escuro",
+      "category": "iris",
+      "path": "bust/iris-iris-2-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_2.png",
+      "source_sha256": "aec92a4a403a8c25f22debdc4652fa9e543618f2b935de0d8b2d6a12dccae1fb",
+      "color": "#55351F",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-2-castanho",
+      "name": "Circular • Castanho",
+      "category": "iris",
+      "path": "bust/iris-iris-2-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_2.png",
+      "source_sha256": "aec92a4a403a8c25f22debdc4652fa9e543618f2b935de0d8b2d6a12dccae1fb",
+      "color": "#87582D",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-2-avela",
+      "name": "Circular • Avelã",
+      "category": "iris",
+      "path": "bust/iris-iris-2-avela.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_2.png",
+      "source_sha256": "aec92a4a403a8c25f22debdc4652fa9e543618f2b935de0d8b2d6a12dccae1fb",
+      "color": "#9A8242",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-2-ambar",
+      "name": "Circular • Âmbar",
+      "category": "iris",
+      "path": "bust/iris-iris-2-ambar.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_2.png",
+      "source_sha256": "aec92a4a403a8c25f22debdc4652fa9e543618f2b935de0d8b2d6a12dccae1fb",
+      "color": "#C48C2C",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-2-verde",
+      "name": "Circular • Verde",
+      "category": "iris",
+      "path": "bust/iris-iris-2-verde.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_2.png",
+      "source_sha256": "aec92a4a403a8c25f22debdc4652fa9e543618f2b935de0d8b2d6a12dccae1fb",
+      "color": "#6F9E59",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-2-azul",
+      "name": "Circular • Azul",
+      "category": "iris",
+      "path": "bust/iris-iris-2-azul.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_2.png",
+      "source_sha256": "aec92a4a403a8c25f22debdc4652fa9e543618f2b935de0d8b2d6a12dccae1fb",
+      "color": "#6B9BCC",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-2-cinza",
+      "name": "Circular • Cinza",
+      "category": "iris",
+      "path": "bust/iris-iris-2-cinza.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_2.png",
+      "source_sha256": "aec92a4a403a8c25f22debdc4652fa9e543618f2b935de0d8b2d6a12dccae1fb",
+      "color": "#97A3AB",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-3-castanho-escuro",
+      "name": "Pequena • Castanho-escuro",
+      "category": "iris",
+      "path": "bust/iris-iris-3-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_3.png",
+      "source_sha256": "7206bd29677b9f7db92c07fdce2c606edf7e3a3108a2422d6e8657f46488437d",
+      "color": "#55351F",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-3-castanho",
+      "name": "Pequena • Castanho",
+      "category": "iris",
+      "path": "bust/iris-iris-3-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_3.png",
+      "source_sha256": "7206bd29677b9f7db92c07fdce2c606edf7e3a3108a2422d6e8657f46488437d",
+      "color": "#87582D",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-3-avela",
+      "name": "Pequena • Avelã",
+      "category": "iris",
+      "path": "bust/iris-iris-3-avela.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_3.png",
+      "source_sha256": "7206bd29677b9f7db92c07fdce2c606edf7e3a3108a2422d6e8657f46488437d",
+      "color": "#9A8242",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-3-ambar",
+      "name": "Pequena • Âmbar",
+      "category": "iris",
+      "path": "bust/iris-iris-3-ambar.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_3.png",
+      "source_sha256": "7206bd29677b9f7db92c07fdce2c606edf7e3a3108a2422d6e8657f46488437d",
+      "color": "#C48C2C",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-3-verde",
+      "name": "Pequena • Verde",
+      "category": "iris",
+      "path": "bust/iris-iris-3-verde.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_3.png",
+      "source_sha256": "7206bd29677b9f7db92c07fdce2c606edf7e3a3108a2422d6e8657f46488437d",
+      "color": "#6F9E59",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-3-azul",
+      "name": "Pequena • Azul",
+      "category": "iris",
+      "path": "bust/iris-iris-3-azul.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_3.png",
+      "source_sha256": "7206bd29677b9f7db92c07fdce2c606edf7e3a3108a2422d6e8657f46488437d",
+      "color": "#6B9BCC",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-3-cinza",
+      "name": "Pequena • Cinza",
+      "category": "iris",
+      "path": "bust/iris-iris-3-cinza.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_3.png",
+      "source_sha256": "7206bd29677b9f7db92c07fdce2c606edf7e3a3108a2422d6e8657f46488437d",
+      "color": "#97A3AB",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-4-castanho-escuro",
+      "name": "Escura • Castanho-escuro",
+      "category": "iris",
+      "path": "bust/iris-iris-4-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_4.png",
+      "source_sha256": "2858cd4f7ab39ad52078c4a162beb2aa7a2c8d5eddef57133e42314b6bebdbda",
+      "color": "#55351F",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-4-castanho",
+      "name": "Escura • Castanho",
+      "category": "iris",
+      "path": "bust/iris-iris-4-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_4.png",
+      "source_sha256": "2858cd4f7ab39ad52078c4a162beb2aa7a2c8d5eddef57133e42314b6bebdbda",
+      "color": "#87582D",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-4-avela",
+      "name": "Escura • Avelã",
+      "category": "iris",
+      "path": "bust/iris-iris-4-avela.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_4.png",
+      "source_sha256": "2858cd4f7ab39ad52078c4a162beb2aa7a2c8d5eddef57133e42314b6bebdbda",
+      "color": "#9A8242",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-4-ambar",
+      "name": "Escura • Âmbar",
+      "category": "iris",
+      "path": "bust/iris-iris-4-ambar.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_4.png",
+      "source_sha256": "2858cd4f7ab39ad52078c4a162beb2aa7a2c8d5eddef57133e42314b6bebdbda",
+      "color": "#C48C2C",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-4-verde",
+      "name": "Escura • Verde",
+      "category": "iris",
+      "path": "bust/iris-iris-4-verde.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_4.png",
+      "source_sha256": "2858cd4f7ab39ad52078c4a162beb2aa7a2c8d5eddef57133e42314b6bebdbda",
+      "color": "#6F9E59",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-4-azul",
+      "name": "Escura • Azul",
+      "category": "iris",
+      "path": "bust/iris-iris-4-azul.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_4.png",
+      "source_sha256": "2858cd4f7ab39ad52078c4a162beb2aa7a2c8d5eddef57133e42314b6bebdbda",
+      "color": "#6B9BCC",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-4-cinza",
+      "name": "Escura • Cinza",
+      "category": "iris",
+      "path": "bust/iris-iris-4-cinza.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_4.png",
+      "source_sha256": "2858cd4f7ab39ad52078c4a162beb2aa7a2c8d5eddef57133e42314b6bebdbda",
+      "color": "#97A3AB",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-5-castanho-escuro",
+      "name": "Discreta • Castanho-escuro",
+      "category": "iris",
+      "path": "bust/iris-iris-5-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_5.png",
+      "source_sha256": "f0e85fab88064a4485932af7503fa3e238185adcf8e1326bc9b239d24933a505",
+      "color": "#55351F",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-5-castanho",
+      "name": "Discreta • Castanho",
+      "category": "iris",
+      "path": "bust/iris-iris-5-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_5.png",
+      "source_sha256": "f0e85fab88064a4485932af7503fa3e238185adcf8e1326bc9b239d24933a505",
+      "color": "#87582D",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-5-avela",
+      "name": "Discreta • Avelã",
+      "category": "iris",
+      "path": "bust/iris-iris-5-avela.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_5.png",
+      "source_sha256": "f0e85fab88064a4485932af7503fa3e238185adcf8e1326bc9b239d24933a505",
+      "color": "#9A8242",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-5-ambar",
+      "name": "Discreta • Âmbar",
+      "category": "iris",
+      "path": "bust/iris-iris-5-ambar.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_5.png",
+      "source_sha256": "f0e85fab88064a4485932af7503fa3e238185adcf8e1326bc9b239d24933a505",
+      "color": "#C48C2C",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-5-verde",
+      "name": "Discreta • Verde",
+      "category": "iris",
+      "path": "bust/iris-iris-5-verde.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_5.png",
+      "source_sha256": "f0e85fab88064a4485932af7503fa3e238185adcf8e1326bc9b239d24933a505",
+      "color": "#6F9E59",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-5-azul",
+      "name": "Discreta • Azul",
+      "category": "iris",
+      "path": "bust/iris-iris-5-azul.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_5.png",
+      "source_sha256": "f0e85fab88064a4485932af7503fa3e238185adcf8e1326bc9b239d24933a505",
+      "color": "#6B9BCC",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "iris-iris-5-cinza",
+      "name": "Discreta • Cinza",
+      "category": "iris",
+      "path": "bust/iris-iris-5-cinza.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 25,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "iris/iris_5.png",
+      "source_sha256": "f0e85fab88064a4485932af7503fa3e238185adcf8e1326bc9b239d24933a505",
+      "color": "#97A3AB",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-naturais-preto",
+      "name": "Naturais • Preto",
+      "category": "brows",
+      "path": "bust/brows-naturais-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_1.png",
+      "source_sha256": "b777a5a2888411dc51bf1860f66fb502205e55d7abdfe1adbbddbcff9408208e",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-naturais-castanho-escuro",
+      "name": "Naturais • Castanho-escuro",
+      "category": "brows",
+      "path": "bust/brows-naturais-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_1.png",
+      "source_sha256": "b777a5a2888411dc51bf1860f66fb502205e55d7abdfe1adbbddbcff9408208e",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-naturais-castanho",
+      "name": "Naturais • Castanho",
+      "category": "brows",
+      "path": "bust/brows-naturais-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_1.png",
+      "source_sha256": "b777a5a2888411dc51bf1860f66fb502205e55d7abdfe1adbbddbcff9408208e",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-naturais-mel",
+      "name": "Naturais • Mel",
+      "category": "brows",
+      "path": "bust/brows-naturais-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_1.png",
+      "source_sha256": "b777a5a2888411dc51bf1860f66fb502205e55d7abdfe1adbbddbcff9408208e",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-naturais-ruivo",
+      "name": "Naturais • Ruivo",
+      "category": "brows",
+      "path": "bust/brows-naturais-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_1.png",
+      "source_sha256": "b777a5a2888411dc51bf1860f66fb502205e55d7abdfe1adbbddbcff9408208e",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-naturais-loiro",
+      "name": "Naturais • Loiro",
+      "category": "brows",
+      "path": "bust/brows-naturais-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_1.png",
+      "source_sha256": "b777a5a2888411dc51bf1860f66fb502205e55d7abdfe1adbbddbcff9408208e",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-naturais-platinado",
+      "name": "Naturais • Platinado",
+      "category": "brows",
+      "path": "bust/brows-naturais-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_1.png",
+      "source_sha256": "b777a5a2888411dc51bf1860f66fb502205e55d7abdfe1adbbddbcff9408208e",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-naturais-grisalho",
+      "name": "Naturais • Grisalho",
+      "category": "brows",
+      "path": "bust/brows-naturais-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_1.png",
+      "source_sha256": "b777a5a2888411dc51bf1860f66fb502205e55d7abdfe1adbbddbcff9408208e",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-arqueadas-preto",
+      "name": "Arqueadas • Preto",
+      "category": "brows",
+      "path": "bust/brows-arqueadas-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_2.png",
+      "source_sha256": "a44dbaea758cddaf85d7f96b44aa413731ad38ef07a919d1e8fe0da710b86596",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-arqueadas-castanho-escuro",
+      "name": "Arqueadas • Castanho-escuro",
+      "category": "brows",
+      "path": "bust/brows-arqueadas-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_2.png",
+      "source_sha256": "a44dbaea758cddaf85d7f96b44aa413731ad38ef07a919d1e8fe0da710b86596",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-arqueadas-castanho",
+      "name": "Arqueadas • Castanho",
+      "category": "brows",
+      "path": "bust/brows-arqueadas-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_2.png",
+      "source_sha256": "a44dbaea758cddaf85d7f96b44aa413731ad38ef07a919d1e8fe0da710b86596",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-arqueadas-mel",
+      "name": "Arqueadas • Mel",
+      "category": "brows",
+      "path": "bust/brows-arqueadas-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_2.png",
+      "source_sha256": "a44dbaea758cddaf85d7f96b44aa413731ad38ef07a919d1e8fe0da710b86596",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-arqueadas-ruivo",
+      "name": "Arqueadas • Ruivo",
+      "category": "brows",
+      "path": "bust/brows-arqueadas-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_2.png",
+      "source_sha256": "a44dbaea758cddaf85d7f96b44aa413731ad38ef07a919d1e8fe0da710b86596",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-arqueadas-loiro",
+      "name": "Arqueadas • Loiro",
+      "category": "brows",
+      "path": "bust/brows-arqueadas-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_2.png",
+      "source_sha256": "a44dbaea758cddaf85d7f96b44aa413731ad38ef07a919d1e8fe0da710b86596",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-arqueadas-platinado",
+      "name": "Arqueadas • Platinado",
+      "category": "brows",
+      "path": "bust/brows-arqueadas-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_2.png",
+      "source_sha256": "a44dbaea758cddaf85d7f96b44aa413731ad38ef07a919d1e8fe0da710b86596",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-arqueadas-grisalho",
+      "name": "Arqueadas • Grisalho",
+      "category": "brows",
+      "path": "bust/brows-arqueadas-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_2.png",
+      "source_sha256": "a44dbaea758cddaf85d7f96b44aa413731ad38ef07a919d1e8fe0da710b86596",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-retas-preto",
+      "name": "Retas • Preto",
+      "category": "brows",
+      "path": "bust/brows-retas-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_3.png",
+      "source_sha256": "8c54553435e6bb8582a780db98af29f9f13064c01f90321388496eea85051685",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-retas-castanho-escuro",
+      "name": "Retas • Castanho-escuro",
+      "category": "brows",
+      "path": "bust/brows-retas-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_3.png",
+      "source_sha256": "8c54553435e6bb8582a780db98af29f9f13064c01f90321388496eea85051685",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-retas-castanho",
+      "name": "Retas • Castanho",
+      "category": "brows",
+      "path": "bust/brows-retas-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_3.png",
+      "source_sha256": "8c54553435e6bb8582a780db98af29f9f13064c01f90321388496eea85051685",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-retas-mel",
+      "name": "Retas • Mel",
+      "category": "brows",
+      "path": "bust/brows-retas-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_3.png",
+      "source_sha256": "8c54553435e6bb8582a780db98af29f9f13064c01f90321388496eea85051685",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-retas-ruivo",
+      "name": "Retas • Ruivo",
+      "category": "brows",
+      "path": "bust/brows-retas-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_3.png",
+      "source_sha256": "8c54553435e6bb8582a780db98af29f9f13064c01f90321388496eea85051685",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-retas-loiro",
+      "name": "Retas • Loiro",
+      "category": "brows",
+      "path": "bust/brows-retas-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_3.png",
+      "source_sha256": "8c54553435e6bb8582a780db98af29f9f13064c01f90321388496eea85051685",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-retas-platinado",
+      "name": "Retas • Platinado",
+      "category": "brows",
+      "path": "bust/brows-retas-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_3.png",
+      "source_sha256": "8c54553435e6bb8582a780db98af29f9f13064c01f90321388496eea85051685",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-retas-grisalho",
+      "name": "Retas • Grisalho",
+      "category": "brows",
+      "path": "bust/brows-retas-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_3.png",
+      "source_sha256": "8c54553435e6bb8582a780db98af29f9f13064c01f90321388496eea85051685",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-grossas-preto",
+      "name": "Grossas • Preto",
+      "category": "brows",
+      "path": "bust/brows-grossas-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_4.png",
+      "source_sha256": "c15eb034318cad0e839094538cd1d7e32ed6681b80f811588ceba17831eea2ea",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-grossas-castanho-escuro",
+      "name": "Grossas • Castanho-escuro",
+      "category": "brows",
+      "path": "bust/brows-grossas-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_4.png",
+      "source_sha256": "c15eb034318cad0e839094538cd1d7e32ed6681b80f811588ceba17831eea2ea",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-grossas-castanho",
+      "name": "Grossas • Castanho",
+      "category": "brows",
+      "path": "bust/brows-grossas-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_4.png",
+      "source_sha256": "c15eb034318cad0e839094538cd1d7e32ed6681b80f811588ceba17831eea2ea",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-grossas-mel",
+      "name": "Grossas • Mel",
+      "category": "brows",
+      "path": "bust/brows-grossas-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_4.png",
+      "source_sha256": "c15eb034318cad0e839094538cd1d7e32ed6681b80f811588ceba17831eea2ea",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-grossas-ruivo",
+      "name": "Grossas • Ruivo",
+      "category": "brows",
+      "path": "bust/brows-grossas-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_4.png",
+      "source_sha256": "c15eb034318cad0e839094538cd1d7e32ed6681b80f811588ceba17831eea2ea",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-grossas-loiro",
+      "name": "Grossas • Loiro",
+      "category": "brows",
+      "path": "bust/brows-grossas-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_4.png",
+      "source_sha256": "c15eb034318cad0e839094538cd1d7e32ed6681b80f811588ceba17831eea2ea",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-grossas-platinado",
+      "name": "Grossas • Platinado",
+      "category": "brows",
+      "path": "bust/brows-grossas-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_4.png",
+      "source_sha256": "c15eb034318cad0e839094538cd1d7e32ed6681b80f811588ceba17831eea2ea",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-grossas-grisalho",
+      "name": "Grossas • Grisalho",
+      "category": "brows",
+      "path": "bust/brows-grossas-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_4.png",
+      "source_sha256": "c15eb034318cad0e839094538cd1d7e32ed6681b80f811588ceba17831eea2ea",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-finas-preto",
+      "name": "Finas • Preto",
+      "category": "brows",
+      "path": "bust/brows-finas-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_5.png",
+      "source_sha256": "e34d878d5eccd12c7028eb41e42a26c5d4019ff12771a0377dd8ebab3f98b120",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-finas-castanho-escuro",
+      "name": "Finas • Castanho-escuro",
+      "category": "brows",
+      "path": "bust/brows-finas-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_5.png",
+      "source_sha256": "e34d878d5eccd12c7028eb41e42a26c5d4019ff12771a0377dd8ebab3f98b120",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-finas-castanho",
+      "name": "Finas • Castanho",
+      "category": "brows",
+      "path": "bust/brows-finas-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_5.png",
+      "source_sha256": "e34d878d5eccd12c7028eb41e42a26c5d4019ff12771a0377dd8ebab3f98b120",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-finas-mel",
+      "name": "Finas • Mel",
+      "category": "brows",
+      "path": "bust/brows-finas-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_5.png",
+      "source_sha256": "e34d878d5eccd12c7028eb41e42a26c5d4019ff12771a0377dd8ebab3f98b120",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-finas-ruivo",
+      "name": "Finas • Ruivo",
+      "category": "brows",
+      "path": "bust/brows-finas-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_5.png",
+      "source_sha256": "e34d878d5eccd12c7028eb41e42a26c5d4019ff12771a0377dd8ebab3f98b120",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-finas-loiro",
+      "name": "Finas • Loiro",
+      "category": "brows",
+      "path": "bust/brows-finas-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_5.png",
+      "source_sha256": "e34d878d5eccd12c7028eb41e42a26c5d4019ff12771a0377dd8ebab3f98b120",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-finas-platinado",
+      "name": "Finas • Platinado",
+      "category": "brows",
+      "path": "bust/brows-finas-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_5.png",
+      "source_sha256": "e34d878d5eccd12c7028eb41e42a26c5d4019ff12771a0377dd8ebab3f98b120",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-finas-grisalho",
+      "name": "Finas • Grisalho",
+      "category": "brows",
+      "path": "bust/brows-finas-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_5.png",
+      "source_sha256": "e34d878d5eccd12c7028eb41e42a26c5d4019ff12771a0377dd8ebab3f98b120",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-angulosas-preto",
+      "name": "Angulosas • Preto",
+      "category": "brows",
+      "path": "bust/brows-angulosas-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_6.png",
+      "source_sha256": "1f5a148c03fe0a6c8cf339c460b8c4d7055a1b5065bcb8e60bbdffba14331cbf",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-angulosas-castanho-escuro",
+      "name": "Angulosas • Castanho-escuro",
+      "category": "brows",
+      "path": "bust/brows-angulosas-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_6.png",
+      "source_sha256": "1f5a148c03fe0a6c8cf339c460b8c4d7055a1b5065bcb8e60bbdffba14331cbf",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-angulosas-castanho",
+      "name": "Angulosas • Castanho",
+      "category": "brows",
+      "path": "bust/brows-angulosas-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_6.png",
+      "source_sha256": "1f5a148c03fe0a6c8cf339c460b8c4d7055a1b5065bcb8e60bbdffba14331cbf",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-angulosas-mel",
+      "name": "Angulosas • Mel",
+      "category": "brows",
+      "path": "bust/brows-angulosas-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_6.png",
+      "source_sha256": "1f5a148c03fe0a6c8cf339c460b8c4d7055a1b5065bcb8e60bbdffba14331cbf",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-angulosas-ruivo",
+      "name": "Angulosas • Ruivo",
+      "category": "brows",
+      "path": "bust/brows-angulosas-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_6.png",
+      "source_sha256": "1f5a148c03fe0a6c8cf339c460b8c4d7055a1b5065bcb8e60bbdffba14331cbf",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-angulosas-loiro",
+      "name": "Angulosas • Loiro",
+      "category": "brows",
+      "path": "bust/brows-angulosas-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_6.png",
+      "source_sha256": "1f5a148c03fe0a6c8cf339c460b8c4d7055a1b5065bcb8e60bbdffba14331cbf",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-angulosas-platinado",
+      "name": "Angulosas • Platinado",
+      "category": "brows",
+      "path": "bust/brows-angulosas-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_6.png",
+      "source_sha256": "1f5a148c03fe0a6c8cf339c460b8c4d7055a1b5065bcb8e60bbdffba14331cbf",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-angulosas-grisalho",
+      "name": "Angulosas • Grisalho",
+      "category": "brows",
+      "path": "bust/brows-angulosas-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_6.png",
+      "source_sha256": "1f5a148c03fe0a6c8cf339c460b8c4d7055a1b5065bcb8e60bbdffba14331cbf",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-suaves-preto",
+      "name": "Suaves • Preto",
+      "category": "brows",
+      "path": "bust/brows-suaves-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_7.png",
+      "source_sha256": "f2bc2b29daf5e9d013bb0c1c7cf220d3fef100b630bdda598c8945b089211331",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-suaves-castanho-escuro",
+      "name": "Suaves • Castanho-escuro",
+      "category": "brows",
+      "path": "bust/brows-suaves-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_7.png",
+      "source_sha256": "f2bc2b29daf5e9d013bb0c1c7cf220d3fef100b630bdda598c8945b089211331",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-suaves-castanho",
+      "name": "Suaves • Castanho",
+      "category": "brows",
+      "path": "bust/brows-suaves-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_7.png",
+      "source_sha256": "f2bc2b29daf5e9d013bb0c1c7cf220d3fef100b630bdda598c8945b089211331",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-suaves-mel",
+      "name": "Suaves • Mel",
+      "category": "brows",
+      "path": "bust/brows-suaves-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_7.png",
+      "source_sha256": "f2bc2b29daf5e9d013bb0c1c7cf220d3fef100b630bdda598c8945b089211331",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-suaves-ruivo",
+      "name": "Suaves • Ruivo",
+      "category": "brows",
+      "path": "bust/brows-suaves-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_7.png",
+      "source_sha256": "f2bc2b29daf5e9d013bb0c1c7cf220d3fef100b630bdda598c8945b089211331",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-suaves-loiro",
+      "name": "Suaves • Loiro",
+      "category": "brows",
+      "path": "bust/brows-suaves-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_7.png",
+      "source_sha256": "f2bc2b29daf5e9d013bb0c1c7cf220d3fef100b630bdda598c8945b089211331",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-suaves-platinado",
+      "name": "Suaves • Platinado",
+      "category": "brows",
+      "path": "bust/brows-suaves-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_7.png",
+      "source_sha256": "f2bc2b29daf5e9d013bb0c1c7cf220d3fef100b630bdda598c8945b089211331",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "brows-suaves-grisalho",
+      "name": "Suaves • Grisalho",
+      "category": "brows",
+      "path": "bust/brows-suaves-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 40,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "eyebrow/eb_7.png",
+      "source_sha256": "f2bc2b29daf5e9d013bb0c1c7cf220d3fef100b630bdda598c8945b089211331",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-curto-preto",
+      "name": "Curto clássico • Preto",
+      "category": "hair",
+      "path": "bust/hair-curto-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_1.png",
+      "source_sha256": "34ca5f030370570a3629cb1ded5fcfefd86f7117bdd0f2ea88ac739223bfad3d",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-curto-castanho-escuro",
+      "name": "Curto clássico • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hair-curto-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_1.png",
+      "source_sha256": "34ca5f030370570a3629cb1ded5fcfefd86f7117bdd0f2ea88ac739223bfad3d",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-curto-castanho",
+      "name": "Curto clássico • Castanho",
+      "category": "hair",
+      "path": "bust/hair-curto-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_1.png",
+      "source_sha256": "34ca5f030370570a3629cb1ded5fcfefd86f7117bdd0f2ea88ac739223bfad3d",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-curto-mel",
+      "name": "Curto clássico • Mel",
+      "category": "hair",
+      "path": "bust/hair-curto-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_1.png",
+      "source_sha256": "34ca5f030370570a3629cb1ded5fcfefd86f7117bdd0f2ea88ac739223bfad3d",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-curto-ruivo",
+      "name": "Curto clássico • Ruivo",
+      "category": "hair",
+      "path": "bust/hair-curto-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_1.png",
+      "source_sha256": "34ca5f030370570a3629cb1ded5fcfefd86f7117bdd0f2ea88ac739223bfad3d",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-curto-loiro",
+      "name": "Curto clássico • Loiro",
+      "category": "hair",
+      "path": "bust/hair-curto-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_1.png",
+      "source_sha256": "34ca5f030370570a3629cb1ded5fcfefd86f7117bdd0f2ea88ac739223bfad3d",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-curto-platinado",
+      "name": "Curto clássico • Platinado",
+      "category": "hair",
+      "path": "bust/hair-curto-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_1.png",
+      "source_sha256": "34ca5f030370570a3629cb1ded5fcfefd86f7117bdd0f2ea88ac739223bfad3d",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-curto-grisalho",
+      "name": "Curto clássico • Grisalho",
+      "category": "hair",
+      "path": "bust/hair-curto-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_1.png",
+      "source_sha256": "34ca5f030370570a3629cb1ded5fcfefd86f7117bdd0f2ea88ac739223bfad3d",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-baguncado-preto",
+      "name": "Curto ondulado • Preto",
+      "category": "hair",
+      "path": "bust/hair-baguncado-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_11.png",
+      "source_sha256": "58f97b8e31d333ba3c23b61a892133aece79e46ac377c6b7e6dd4abb9971868d",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-baguncado-preto",
+      "name": "Curto ondulado • Preto",
+      "category": "hair",
+      "path": "bust/hairback-baguncado-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_11.png",
+      "source_sha256": "301e9ff21c666326ff03a5901e5685f354ce97cde24ed04c54f479fb51d880ec",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-baguncado-castanho-escuro",
+      "name": "Curto ondulado • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hair-baguncado-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_11.png",
+      "source_sha256": "58f97b8e31d333ba3c23b61a892133aece79e46ac377c6b7e6dd4abb9971868d",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-baguncado-castanho-escuro",
+      "name": "Curto ondulado • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hairback-baguncado-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_11.png",
+      "source_sha256": "301e9ff21c666326ff03a5901e5685f354ce97cde24ed04c54f479fb51d880ec",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-baguncado-castanho",
+      "name": "Curto ondulado • Castanho",
+      "category": "hair",
+      "path": "bust/hair-baguncado-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_11.png",
+      "source_sha256": "58f97b8e31d333ba3c23b61a892133aece79e46ac377c6b7e6dd4abb9971868d",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-baguncado-castanho",
+      "name": "Curto ondulado • Castanho",
+      "category": "hair",
+      "path": "bust/hairback-baguncado-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_11.png",
+      "source_sha256": "301e9ff21c666326ff03a5901e5685f354ce97cde24ed04c54f479fb51d880ec",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-baguncado-mel",
+      "name": "Curto ondulado • Mel",
+      "category": "hair",
+      "path": "bust/hair-baguncado-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_11.png",
+      "source_sha256": "58f97b8e31d333ba3c23b61a892133aece79e46ac377c6b7e6dd4abb9971868d",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-baguncado-mel",
+      "name": "Curto ondulado • Mel",
+      "category": "hair",
+      "path": "bust/hairback-baguncado-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_11.png",
+      "source_sha256": "301e9ff21c666326ff03a5901e5685f354ce97cde24ed04c54f479fb51d880ec",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-baguncado-ruivo",
+      "name": "Curto ondulado • Ruivo",
+      "category": "hair",
+      "path": "bust/hair-baguncado-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_11.png",
+      "source_sha256": "58f97b8e31d333ba3c23b61a892133aece79e46ac377c6b7e6dd4abb9971868d",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-baguncado-ruivo",
+      "name": "Curto ondulado • Ruivo",
+      "category": "hair",
+      "path": "bust/hairback-baguncado-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_11.png",
+      "source_sha256": "301e9ff21c666326ff03a5901e5685f354ce97cde24ed04c54f479fb51d880ec",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-baguncado-loiro",
+      "name": "Curto ondulado • Loiro",
+      "category": "hair",
+      "path": "bust/hair-baguncado-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_11.png",
+      "source_sha256": "58f97b8e31d333ba3c23b61a892133aece79e46ac377c6b7e6dd4abb9971868d",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-baguncado-loiro",
+      "name": "Curto ondulado • Loiro",
+      "category": "hair",
+      "path": "bust/hairback-baguncado-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_11.png",
+      "source_sha256": "301e9ff21c666326ff03a5901e5685f354ce97cde24ed04c54f479fb51d880ec",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-baguncado-platinado",
+      "name": "Curto ondulado • Platinado",
+      "category": "hair",
+      "path": "bust/hair-baguncado-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_11.png",
+      "source_sha256": "58f97b8e31d333ba3c23b61a892133aece79e46ac377c6b7e6dd4abb9971868d",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-baguncado-platinado",
+      "name": "Curto ondulado • Platinado",
+      "category": "hair",
+      "path": "bust/hairback-baguncado-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_11.png",
+      "source_sha256": "301e9ff21c666326ff03a5901e5685f354ce97cde24ed04c54f479fb51d880ec",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-baguncado-grisalho",
+      "name": "Curto ondulado • Grisalho",
+      "category": "hair",
+      "path": "bust/hair-baguncado-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_11.png",
+      "source_sha256": "58f97b8e31d333ba3c23b61a892133aece79e46ac377c6b7e6dd4abb9971868d",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-baguncado-grisalho",
+      "name": "Curto ondulado • Grisalho",
+      "category": "hair",
+      "path": "bust/hairback-baguncado-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_11.png",
+      "source_sha256": "301e9ff21c666326ff03a5901e5685f354ce97cde24ed04c54f479fb51d880ec",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-raspado-preto",
+      "name": "Raspado • Preto",
+      "category": "hair",
+      "path": "bust/hair-raspado-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_6.png",
+      "source_sha256": "1ea973b39e58f411eff4d586d1c9d38e5aeb8df70a47bce50fa0d1099c35c437",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-raspado-castanho-escuro",
+      "name": "Raspado • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hair-raspado-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_6.png",
+      "source_sha256": "1ea973b39e58f411eff4d586d1c9d38e5aeb8df70a47bce50fa0d1099c35c437",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-raspado-castanho",
+      "name": "Raspado • Castanho",
+      "category": "hair",
+      "path": "bust/hair-raspado-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_6.png",
+      "source_sha256": "1ea973b39e58f411eff4d586d1c9d38e5aeb8df70a47bce50fa0d1099c35c437",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-raspado-mel",
+      "name": "Raspado • Mel",
+      "category": "hair",
+      "path": "bust/hair-raspado-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_6.png",
+      "source_sha256": "1ea973b39e58f411eff4d586d1c9d38e5aeb8df70a47bce50fa0d1099c35c437",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-raspado-ruivo",
+      "name": "Raspado • Ruivo",
+      "category": "hair",
+      "path": "bust/hair-raspado-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_6.png",
+      "source_sha256": "1ea973b39e58f411eff4d586d1c9d38e5aeb8df70a47bce50fa0d1099c35c437",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-raspado-loiro",
+      "name": "Raspado • Loiro",
+      "category": "hair",
+      "path": "bust/hair-raspado-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_6.png",
+      "source_sha256": "1ea973b39e58f411eff4d586d1c9d38e5aeb8df70a47bce50fa0d1099c35c437",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-raspado-platinado",
+      "name": "Raspado • Platinado",
+      "category": "hair",
+      "path": "bust/hair-raspado-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_6.png",
+      "source_sha256": "1ea973b39e58f411eff4d586d1c9d38e5aeb8df70a47bce50fa0d1099c35c437",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-raspado-grisalho",
+      "name": "Raspado • Grisalho",
+      "category": "hair",
+      "path": "bust/hair-raspado-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_6.png",
+      "source_sha256": "1ea973b39e58f411eff4d586d1c9d38e5aeb8df70a47bce50fa0d1099c35c437",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-cacheado-preto",
+      "name": "Médio ondulado • Preto",
+      "category": "hair",
+      "path": "bust/hair-cacheado-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_3.png",
+      "source_sha256": "91b310bc2c3b79ac5208f9653353b1a7cea88d19f6aca88053e1ca257db8a633",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-cacheado-preto",
+      "name": "Médio ondulado • Preto",
+      "category": "hair",
+      "path": "bust/hairback-cacheado-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_3.png",
+      "source_sha256": "cd1ff46e1a2178ec524ded78c731acbabaefae5daa49d8be2181c29e0829979c",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-cacheado-castanho-escuro",
+      "name": "Médio ondulado • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hair-cacheado-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_3.png",
+      "source_sha256": "91b310bc2c3b79ac5208f9653353b1a7cea88d19f6aca88053e1ca257db8a633",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-cacheado-castanho-escuro",
+      "name": "Médio ondulado • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hairback-cacheado-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_3.png",
+      "source_sha256": "cd1ff46e1a2178ec524ded78c731acbabaefae5daa49d8be2181c29e0829979c",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-cacheado-castanho",
+      "name": "Médio ondulado • Castanho",
+      "category": "hair",
+      "path": "bust/hair-cacheado-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_3.png",
+      "source_sha256": "91b310bc2c3b79ac5208f9653353b1a7cea88d19f6aca88053e1ca257db8a633",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-cacheado-castanho",
+      "name": "Médio ondulado • Castanho",
+      "category": "hair",
+      "path": "bust/hairback-cacheado-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_3.png",
+      "source_sha256": "cd1ff46e1a2178ec524ded78c731acbabaefae5daa49d8be2181c29e0829979c",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-cacheado-mel",
+      "name": "Médio ondulado • Mel",
+      "category": "hair",
+      "path": "bust/hair-cacheado-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_3.png",
+      "source_sha256": "91b310bc2c3b79ac5208f9653353b1a7cea88d19f6aca88053e1ca257db8a633",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-cacheado-mel",
+      "name": "Médio ondulado • Mel",
+      "category": "hair",
+      "path": "bust/hairback-cacheado-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_3.png",
+      "source_sha256": "cd1ff46e1a2178ec524ded78c731acbabaefae5daa49d8be2181c29e0829979c",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-cacheado-ruivo",
+      "name": "Médio ondulado • Ruivo",
+      "category": "hair",
+      "path": "bust/hair-cacheado-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_3.png",
+      "source_sha256": "91b310bc2c3b79ac5208f9653353b1a7cea88d19f6aca88053e1ca257db8a633",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-cacheado-ruivo",
+      "name": "Médio ondulado • Ruivo",
+      "category": "hair",
+      "path": "bust/hairback-cacheado-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_3.png",
+      "source_sha256": "cd1ff46e1a2178ec524ded78c731acbabaefae5daa49d8be2181c29e0829979c",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-cacheado-loiro",
+      "name": "Médio ondulado • Loiro",
+      "category": "hair",
+      "path": "bust/hair-cacheado-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_3.png",
+      "source_sha256": "91b310bc2c3b79ac5208f9653353b1a7cea88d19f6aca88053e1ca257db8a633",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-cacheado-loiro",
+      "name": "Médio ondulado • Loiro",
+      "category": "hair",
+      "path": "bust/hairback-cacheado-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_3.png",
+      "source_sha256": "cd1ff46e1a2178ec524ded78c731acbabaefae5daa49d8be2181c29e0829979c",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-cacheado-platinado",
+      "name": "Médio ondulado • Platinado",
+      "category": "hair",
+      "path": "bust/hair-cacheado-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_3.png",
+      "source_sha256": "91b310bc2c3b79ac5208f9653353b1a7cea88d19f6aca88053e1ca257db8a633",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-cacheado-platinado",
+      "name": "Médio ondulado • Platinado",
+      "category": "hair",
+      "path": "bust/hairback-cacheado-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_3.png",
+      "source_sha256": "cd1ff46e1a2178ec524ded78c731acbabaefae5daa49d8be2181c29e0829979c",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-cacheado-grisalho",
+      "name": "Médio ondulado • Grisalho",
+      "category": "hair",
+      "path": "bust/hair-cacheado-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_3.png",
+      "source_sha256": "91b310bc2c3b79ac5208f9653353b1a7cea88d19f6aca88053e1ca257db8a633",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-cacheado-grisalho",
+      "name": "Médio ondulado • Grisalho",
+      "category": "hair",
+      "path": "bust/hairback-cacheado-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_3.png",
+      "source_sha256": "cd1ff46e1a2178ec524ded78c731acbabaefae5daa49d8be2181c29e0829979c",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-crespo-preto",
+      "name": "Longo volumoso • Preto",
+      "category": "hair",
+      "path": "bust/hair-crespo-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_10.png",
+      "source_sha256": "ef49b780867b27738a6cd05ac3263794497845e9c00ffdfa180ea65b3a322493",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-crespo-preto",
+      "name": "Longo volumoso • Preto",
+      "category": "hair",
+      "path": "bust/hairback-crespo-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_10.png",
+      "source_sha256": "94f858484b5371d3d18210700c339be5080e50c5446c34d2a3b165f8060ba919",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-crespo-castanho-escuro",
+      "name": "Longo volumoso • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hair-crespo-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_10.png",
+      "source_sha256": "ef49b780867b27738a6cd05ac3263794497845e9c00ffdfa180ea65b3a322493",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-crespo-castanho-escuro",
+      "name": "Longo volumoso • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hairback-crespo-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_10.png",
+      "source_sha256": "94f858484b5371d3d18210700c339be5080e50c5446c34d2a3b165f8060ba919",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-crespo-castanho",
+      "name": "Longo volumoso • Castanho",
+      "category": "hair",
+      "path": "bust/hair-crespo-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_10.png",
+      "source_sha256": "ef49b780867b27738a6cd05ac3263794497845e9c00ffdfa180ea65b3a322493",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-crespo-castanho",
+      "name": "Longo volumoso • Castanho",
+      "category": "hair",
+      "path": "bust/hairback-crespo-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_10.png",
+      "source_sha256": "94f858484b5371d3d18210700c339be5080e50c5446c34d2a3b165f8060ba919",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-crespo-mel",
+      "name": "Longo volumoso • Mel",
+      "category": "hair",
+      "path": "bust/hair-crespo-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_10.png",
+      "source_sha256": "ef49b780867b27738a6cd05ac3263794497845e9c00ffdfa180ea65b3a322493",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-crespo-mel",
+      "name": "Longo volumoso • Mel",
+      "category": "hair",
+      "path": "bust/hairback-crespo-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_10.png",
+      "source_sha256": "94f858484b5371d3d18210700c339be5080e50c5446c34d2a3b165f8060ba919",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-crespo-ruivo",
+      "name": "Longo volumoso • Ruivo",
+      "category": "hair",
+      "path": "bust/hair-crespo-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_10.png",
+      "source_sha256": "ef49b780867b27738a6cd05ac3263794497845e9c00ffdfa180ea65b3a322493",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-crespo-ruivo",
+      "name": "Longo volumoso • Ruivo",
+      "category": "hair",
+      "path": "bust/hairback-crespo-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_10.png",
+      "source_sha256": "94f858484b5371d3d18210700c339be5080e50c5446c34d2a3b165f8060ba919",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-crespo-loiro",
+      "name": "Longo volumoso • Loiro",
+      "category": "hair",
+      "path": "bust/hair-crespo-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_10.png",
+      "source_sha256": "ef49b780867b27738a6cd05ac3263794497845e9c00ffdfa180ea65b3a322493",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-crespo-loiro",
+      "name": "Longo volumoso • Loiro",
+      "category": "hair",
+      "path": "bust/hairback-crespo-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_10.png",
+      "source_sha256": "94f858484b5371d3d18210700c339be5080e50c5446c34d2a3b165f8060ba919",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-crespo-platinado",
+      "name": "Longo volumoso • Platinado",
+      "category": "hair",
+      "path": "bust/hair-crespo-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_10.png",
+      "source_sha256": "ef49b780867b27738a6cd05ac3263794497845e9c00ffdfa180ea65b3a322493",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-crespo-platinado",
+      "name": "Longo volumoso • Platinado",
+      "category": "hair",
+      "path": "bust/hairback-crespo-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_10.png",
+      "source_sha256": "94f858484b5371d3d18210700c339be5080e50c5446c34d2a3b165f8060ba919",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-crespo-grisalho",
+      "name": "Longo volumoso • Grisalho",
+      "category": "hair",
+      "path": "bust/hair-crespo-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_10.png",
+      "source_sha256": "ef49b780867b27738a6cd05ac3263794497845e9c00ffdfa180ea65b3a322493",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-crespo-grisalho",
+      "name": "Longo volumoso • Grisalho",
+      "category": "hair",
+      "path": "bust/hairback-crespo-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_10.png",
+      "source_sha256": "94f858484b5371d3d18210700c339be5080e50c5446c34d2a3b165f8060ba919",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-ondulado-preto",
+      "name": "Longo ondulado • Preto",
+      "category": "hair",
+      "path": "bust/hair-ondulado-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_8.png",
+      "source_sha256": "291f414d01c87613f1393aadfe67f1f8a232611c54f8b1735d11d17e9d87ca2e",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-ondulado-preto",
+      "name": "Longo ondulado • Preto",
+      "category": "hair",
+      "path": "bust/hairback-ondulado-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_8.png",
+      "source_sha256": "2962606e3d9f56e35ae44dac5c60c11f9497af17c36ed280d20ca2201575f698",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-ondulado-castanho-escuro",
+      "name": "Longo ondulado • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hair-ondulado-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_8.png",
+      "source_sha256": "291f414d01c87613f1393aadfe67f1f8a232611c54f8b1735d11d17e9d87ca2e",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-ondulado-castanho-escuro",
+      "name": "Longo ondulado • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hairback-ondulado-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_8.png",
+      "source_sha256": "2962606e3d9f56e35ae44dac5c60c11f9497af17c36ed280d20ca2201575f698",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-ondulado-castanho",
+      "name": "Longo ondulado • Castanho",
+      "category": "hair",
+      "path": "bust/hair-ondulado-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_8.png",
+      "source_sha256": "291f414d01c87613f1393aadfe67f1f8a232611c54f8b1735d11d17e9d87ca2e",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-ondulado-castanho",
+      "name": "Longo ondulado • Castanho",
+      "category": "hair",
+      "path": "bust/hairback-ondulado-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_8.png",
+      "source_sha256": "2962606e3d9f56e35ae44dac5c60c11f9497af17c36ed280d20ca2201575f698",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-ondulado-mel",
+      "name": "Longo ondulado • Mel",
+      "category": "hair",
+      "path": "bust/hair-ondulado-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_8.png",
+      "source_sha256": "291f414d01c87613f1393aadfe67f1f8a232611c54f8b1735d11d17e9d87ca2e",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-ondulado-mel",
+      "name": "Longo ondulado • Mel",
+      "category": "hair",
+      "path": "bust/hairback-ondulado-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_8.png",
+      "source_sha256": "2962606e3d9f56e35ae44dac5c60c11f9497af17c36ed280d20ca2201575f698",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-ondulado-ruivo",
+      "name": "Longo ondulado • Ruivo",
+      "category": "hair",
+      "path": "bust/hair-ondulado-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_8.png",
+      "source_sha256": "291f414d01c87613f1393aadfe67f1f8a232611c54f8b1735d11d17e9d87ca2e",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-ondulado-ruivo",
+      "name": "Longo ondulado • Ruivo",
+      "category": "hair",
+      "path": "bust/hairback-ondulado-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_8.png",
+      "source_sha256": "2962606e3d9f56e35ae44dac5c60c11f9497af17c36ed280d20ca2201575f698",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-ondulado-loiro",
+      "name": "Longo ondulado • Loiro",
+      "category": "hair",
+      "path": "bust/hair-ondulado-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_8.png",
+      "source_sha256": "291f414d01c87613f1393aadfe67f1f8a232611c54f8b1735d11d17e9d87ca2e",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-ondulado-loiro",
+      "name": "Longo ondulado • Loiro",
+      "category": "hair",
+      "path": "bust/hairback-ondulado-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_8.png",
+      "source_sha256": "2962606e3d9f56e35ae44dac5c60c11f9497af17c36ed280d20ca2201575f698",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-ondulado-platinado",
+      "name": "Longo ondulado • Platinado",
+      "category": "hair",
+      "path": "bust/hair-ondulado-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_8.png",
+      "source_sha256": "291f414d01c87613f1393aadfe67f1f8a232611c54f8b1735d11d17e9d87ca2e",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-ondulado-platinado",
+      "name": "Longo ondulado • Platinado",
+      "category": "hair",
+      "path": "bust/hairback-ondulado-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_8.png",
+      "source_sha256": "2962606e3d9f56e35ae44dac5c60c11f9497af17c36ed280d20ca2201575f698",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-ondulado-grisalho",
+      "name": "Longo ondulado • Grisalho",
+      "category": "hair",
+      "path": "bust/hair-ondulado-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_8.png",
+      "source_sha256": "291f414d01c87613f1393aadfe67f1f8a232611c54f8b1735d11d17e9d87ca2e",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-ondulado-grisalho",
+      "name": "Longo ondulado • Grisalho",
+      "category": "hair",
+      "path": "bust/hairback-ondulado-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_8.png",
+      "source_sha256": "2962606e3d9f56e35ae44dac5c60c11f9497af17c36ed280d20ca2201575f698",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-longo-preto",
+      "name": "Longo liso • Preto",
+      "category": "hair",
+      "path": "bust/hair-longo-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_7.png",
+      "source_sha256": "e61817e0e1fe80aed05cec24d4ada8e63fead0da16321c59721b2ba1d0e20893",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-longo-preto",
+      "name": "Longo liso • Preto",
+      "category": "hair",
+      "path": "bust/hairback-longo-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_7.png",
+      "source_sha256": "a1636f3957bc875d842f01a86398fc3529fd202a066c66f617a3bc63f13c7d02",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-longo-castanho-escuro",
+      "name": "Longo liso • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hair-longo-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_7.png",
+      "source_sha256": "e61817e0e1fe80aed05cec24d4ada8e63fead0da16321c59721b2ba1d0e20893",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-longo-castanho-escuro",
+      "name": "Longo liso • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hairback-longo-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_7.png",
+      "source_sha256": "a1636f3957bc875d842f01a86398fc3529fd202a066c66f617a3bc63f13c7d02",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-longo-castanho",
+      "name": "Longo liso • Castanho",
+      "category": "hair",
+      "path": "bust/hair-longo-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_7.png",
+      "source_sha256": "e61817e0e1fe80aed05cec24d4ada8e63fead0da16321c59721b2ba1d0e20893",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-longo-castanho",
+      "name": "Longo liso • Castanho",
+      "category": "hair",
+      "path": "bust/hairback-longo-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_7.png",
+      "source_sha256": "a1636f3957bc875d842f01a86398fc3529fd202a066c66f617a3bc63f13c7d02",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-longo-mel",
+      "name": "Longo liso • Mel",
+      "category": "hair",
+      "path": "bust/hair-longo-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_7.png",
+      "source_sha256": "e61817e0e1fe80aed05cec24d4ada8e63fead0da16321c59721b2ba1d0e20893",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-longo-mel",
+      "name": "Longo liso • Mel",
+      "category": "hair",
+      "path": "bust/hairback-longo-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_7.png",
+      "source_sha256": "a1636f3957bc875d842f01a86398fc3529fd202a066c66f617a3bc63f13c7d02",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-longo-ruivo",
+      "name": "Longo liso • Ruivo",
+      "category": "hair",
+      "path": "bust/hair-longo-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_7.png",
+      "source_sha256": "e61817e0e1fe80aed05cec24d4ada8e63fead0da16321c59721b2ba1d0e20893",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-longo-ruivo",
+      "name": "Longo liso • Ruivo",
+      "category": "hair",
+      "path": "bust/hairback-longo-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_7.png",
+      "source_sha256": "a1636f3957bc875d842f01a86398fc3529fd202a066c66f617a3bc63f13c7d02",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-longo-loiro",
+      "name": "Longo liso • Loiro",
+      "category": "hair",
+      "path": "bust/hair-longo-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_7.png",
+      "source_sha256": "e61817e0e1fe80aed05cec24d4ada8e63fead0da16321c59721b2ba1d0e20893",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-longo-loiro",
+      "name": "Longo liso • Loiro",
+      "category": "hair",
+      "path": "bust/hairback-longo-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_7.png",
+      "source_sha256": "a1636f3957bc875d842f01a86398fc3529fd202a066c66f617a3bc63f13c7d02",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-longo-platinado",
+      "name": "Longo liso • Platinado",
+      "category": "hair",
+      "path": "bust/hair-longo-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_7.png",
+      "source_sha256": "e61817e0e1fe80aed05cec24d4ada8e63fead0da16321c59721b2ba1d0e20893",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-longo-platinado",
+      "name": "Longo liso • Platinado",
+      "category": "hair",
+      "path": "bust/hairback-longo-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_7.png",
+      "source_sha256": "a1636f3957bc875d842f01a86398fc3529fd202a066c66f617a3bc63f13c7d02",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-longo-grisalho",
+      "name": "Longo liso • Grisalho",
+      "category": "hair",
+      "path": "bust/hair-longo-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_7.png",
+      "source_sha256": "e61817e0e1fe80aed05cec24d4ada8e63fead0da16321c59721b2ba1d0e20893",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-longo-grisalho",
+      "name": "Longo liso • Grisalho",
+      "category": "hair",
+      "path": "bust/hairback-longo-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_7.png",
+      "source_sha256": "a1636f3957bc875d842f01a86398fc3529fd202a066c66f617a3bc63f13c7d02",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-rabo-preto",
+      "name": "Curto lateral • Preto",
+      "category": "hair",
+      "path": "bust/hair-rabo-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_2.png",
+      "source_sha256": "5a6e8da346093bc4a25a8684535b57df2db6f509c188fff91b9476e359b30ebf",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-rabo-castanho-escuro",
+      "name": "Curto lateral • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hair-rabo-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_2.png",
+      "source_sha256": "5a6e8da346093bc4a25a8684535b57df2db6f509c188fff91b9476e359b30ebf",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-rabo-castanho",
+      "name": "Curto lateral • Castanho",
+      "category": "hair",
+      "path": "bust/hair-rabo-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_2.png",
+      "source_sha256": "5a6e8da346093bc4a25a8684535b57df2db6f509c188fff91b9476e359b30ebf",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-rabo-mel",
+      "name": "Curto lateral • Mel",
+      "category": "hair",
+      "path": "bust/hair-rabo-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_2.png",
+      "source_sha256": "5a6e8da346093bc4a25a8684535b57df2db6f509c188fff91b9476e359b30ebf",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-rabo-ruivo",
+      "name": "Curto lateral • Ruivo",
+      "category": "hair",
+      "path": "bust/hair-rabo-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_2.png",
+      "source_sha256": "5a6e8da346093bc4a25a8684535b57df2db6f509c188fff91b9476e359b30ebf",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-rabo-loiro",
+      "name": "Curto lateral • Loiro",
+      "category": "hair",
+      "path": "bust/hair-rabo-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_2.png",
+      "source_sha256": "5a6e8da346093bc4a25a8684535b57df2db6f509c188fff91b9476e359b30ebf",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-rabo-platinado",
+      "name": "Curto lateral • Platinado",
+      "category": "hair",
+      "path": "bust/hair-rabo-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_2.png",
+      "source_sha256": "5a6e8da346093bc4a25a8684535b57df2db6f509c188fff91b9476e359b30ebf",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-rabo-grisalho",
+      "name": "Curto lateral • Grisalho",
+      "category": "hair",
+      "path": "bust/hair-rabo-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_2.png",
+      "source_sha256": "5a6e8da346093bc4a25a8684535b57df2db6f509c188fff91b9476e359b30ebf",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-coque-preto",
+      "name": "Curto penteado • Preto",
+      "category": "hair",
+      "path": "bust/hair-coque-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_4.png",
+      "source_sha256": "5684941130b1f78f57d519f76badc4d64a5476264148bef9949cdb22e8f52250",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-coque-castanho-escuro",
+      "name": "Curto penteado • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hair-coque-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_4.png",
+      "source_sha256": "5684941130b1f78f57d519f76badc4d64a5476264148bef9949cdb22e8f52250",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-coque-castanho",
+      "name": "Curto penteado • Castanho",
+      "category": "hair",
+      "path": "bust/hair-coque-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_4.png",
+      "source_sha256": "5684941130b1f78f57d519f76badc4d64a5476264148bef9949cdb22e8f52250",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-coque-mel",
+      "name": "Curto penteado • Mel",
+      "category": "hair",
+      "path": "bust/hair-coque-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_4.png",
+      "source_sha256": "5684941130b1f78f57d519f76badc4d64a5476264148bef9949cdb22e8f52250",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-coque-ruivo",
+      "name": "Curto penteado • Ruivo",
+      "category": "hair",
+      "path": "bust/hair-coque-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_4.png",
+      "source_sha256": "5684941130b1f78f57d519f76badc4d64a5476264148bef9949cdb22e8f52250",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-coque-loiro",
+      "name": "Curto penteado • Loiro",
+      "category": "hair",
+      "path": "bust/hair-coque-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_4.png",
+      "source_sha256": "5684941130b1f78f57d519f76badc4d64a5476264148bef9949cdb22e8f52250",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-coque-platinado",
+      "name": "Curto penteado • Platinado",
+      "category": "hair",
+      "path": "bust/hair-coque-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_4.png",
+      "source_sha256": "5684941130b1f78f57d519f76badc4d64a5476264148bef9949cdb22e8f52250",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-coque-grisalho",
+      "name": "Curto penteado • Grisalho",
+      "category": "hair",
+      "path": "bust/hair-coque-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_4.png",
+      "source_sha256": "5684941130b1f78f57d519f76badc4d64a5476264148bef9949cdb22e8f52250",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-trancas-preto",
+      "name": "Laterais curtas • Preto",
+      "category": "hair",
+      "path": "bust/hair-trancas-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_5.png",
+      "source_sha256": "7d111e80191cb19fbb45740d8fb70ad124d58837a36791bb744d089174f6b336",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-trancas-castanho-escuro",
+      "name": "Laterais curtas • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hair-trancas-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_5.png",
+      "source_sha256": "7d111e80191cb19fbb45740d8fb70ad124d58837a36791bb744d089174f6b336",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-trancas-castanho",
+      "name": "Laterais curtas • Castanho",
+      "category": "hair",
+      "path": "bust/hair-trancas-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_5.png",
+      "source_sha256": "7d111e80191cb19fbb45740d8fb70ad124d58837a36791bb744d089174f6b336",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-trancas-mel",
+      "name": "Laterais curtas • Mel",
+      "category": "hair",
+      "path": "bust/hair-trancas-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_5.png",
+      "source_sha256": "7d111e80191cb19fbb45740d8fb70ad124d58837a36791bb744d089174f6b336",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-trancas-ruivo",
+      "name": "Laterais curtas • Ruivo",
+      "category": "hair",
+      "path": "bust/hair-trancas-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_5.png",
+      "source_sha256": "7d111e80191cb19fbb45740d8fb70ad124d58837a36791bb744d089174f6b336",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-trancas-loiro",
+      "name": "Laterais curtas • Loiro",
+      "category": "hair",
+      "path": "bust/hair-trancas-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_5.png",
+      "source_sha256": "7d111e80191cb19fbb45740d8fb70ad124d58837a36791bb744d089174f6b336",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-trancas-platinado",
+      "name": "Laterais curtas • Platinado",
+      "category": "hair",
+      "path": "bust/hair-trancas-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_5.png",
+      "source_sha256": "7d111e80191cb19fbb45740d8fb70ad124d58837a36791bb744d089174f6b336",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-trancas-grisalho",
+      "name": "Laterais curtas • Grisalho",
+      "category": "hair",
+      "path": "bust/hair-trancas-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_5.png",
+      "source_sha256": "7d111e80191cb19fbb45740d8fb70ad124d58837a36791bb744d089174f6b336",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-franja-preto",
+      "name": "Longo com franja • Preto",
+      "category": "hair",
+      "path": "bust/hair-franja-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_9.png",
+      "source_sha256": "73bc6b5fd4e1d59d306b26c2a5c0dc182f0cf417e1ae424b6c1452e2ef22e08a",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-franja-preto",
+      "name": "Longo com franja • Preto",
+      "category": "hair",
+      "path": "bust/hairback-franja-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_9.png",
+      "source_sha256": "0fe83a6382e3f44fc28ff1dde33b1de5a4b838a428724e95a5c29acb92aa8768",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-franja-castanho-escuro",
+      "name": "Longo com franja • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hair-franja-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_9.png",
+      "source_sha256": "73bc6b5fd4e1d59d306b26c2a5c0dc182f0cf417e1ae424b6c1452e2ef22e08a",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-franja-castanho-escuro",
+      "name": "Longo com franja • Castanho-escuro",
+      "category": "hair",
+      "path": "bust/hairback-franja-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_9.png",
+      "source_sha256": "0fe83a6382e3f44fc28ff1dde33b1de5a4b838a428724e95a5c29acb92aa8768",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-franja-castanho",
+      "name": "Longo com franja • Castanho",
+      "category": "hair",
+      "path": "bust/hair-franja-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_9.png",
+      "source_sha256": "73bc6b5fd4e1d59d306b26c2a5c0dc182f0cf417e1ae424b6c1452e2ef22e08a",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-franja-castanho",
+      "name": "Longo com franja • Castanho",
+      "category": "hair",
+      "path": "bust/hairback-franja-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_9.png",
+      "source_sha256": "0fe83a6382e3f44fc28ff1dde33b1de5a4b838a428724e95a5c29acb92aa8768",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-franja-mel",
+      "name": "Longo com franja • Mel",
+      "category": "hair",
+      "path": "bust/hair-franja-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_9.png",
+      "source_sha256": "73bc6b5fd4e1d59d306b26c2a5c0dc182f0cf417e1ae424b6c1452e2ef22e08a",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-franja-mel",
+      "name": "Longo com franja • Mel",
+      "category": "hair",
+      "path": "bust/hairback-franja-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_9.png",
+      "source_sha256": "0fe83a6382e3f44fc28ff1dde33b1de5a4b838a428724e95a5c29acb92aa8768",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-franja-ruivo",
+      "name": "Longo com franja • Ruivo",
+      "category": "hair",
+      "path": "bust/hair-franja-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_9.png",
+      "source_sha256": "73bc6b5fd4e1d59d306b26c2a5c0dc182f0cf417e1ae424b6c1452e2ef22e08a",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-franja-ruivo",
+      "name": "Longo com franja • Ruivo",
+      "category": "hair",
+      "path": "bust/hairback-franja-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_9.png",
+      "source_sha256": "0fe83a6382e3f44fc28ff1dde33b1de5a4b838a428724e95a5c29acb92aa8768",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-franja-loiro",
+      "name": "Longo com franja • Loiro",
+      "category": "hair",
+      "path": "bust/hair-franja-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_9.png",
+      "source_sha256": "73bc6b5fd4e1d59d306b26c2a5c0dc182f0cf417e1ae424b6c1452e2ef22e08a",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-franja-loiro",
+      "name": "Longo com franja • Loiro",
+      "category": "hair",
+      "path": "bust/hairback-franja-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_9.png",
+      "source_sha256": "0fe83a6382e3f44fc28ff1dde33b1de5a4b838a428724e95a5c29acb92aa8768",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-franja-platinado",
+      "name": "Longo com franja • Platinado",
+      "category": "hair",
+      "path": "bust/hair-franja-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_9.png",
+      "source_sha256": "73bc6b5fd4e1d59d306b26c2a5c0dc182f0cf417e1ae424b6c1452e2ef22e08a",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-franja-platinado",
+      "name": "Longo com franja • Platinado",
+      "category": "hair",
+      "path": "bust/hairback-franja-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_9.png",
+      "source_sha256": "0fe83a6382e3f44fc28ff1dde33b1de5a4b838a428724e95a5c29acb92aa8768",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hair-franja-grisalho",
+      "name": "Longo com franja • Grisalho",
+      "category": "hair",
+      "path": "bust/hair-franja-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 80,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair/hair_9.png",
+      "source_sha256": "73bc6b5fd4e1d59d306b26c2a5c0dc182f0cf417e1ae424b6c1452e2ef22e08a",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "hairback-franja-grisalho",
+      "name": "Longo com franja • Grisalho",
+      "category": "hair",
+      "path": "bust/hairback-franja-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 0,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "hair_back/hair_back_9.png",
+      "source_sha256": "0fe83a6382e3f44fc28ff1dde33b1de5a4b838a428724e95a5c29acb92aa8768",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "nose-nariz-1",
+      "name": "Nariz 1",
+      "category": "nose",
+      "path": "bust/nose-nariz-1.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 45,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "nose/nose_1.png",
+      "source_sha256": "378b24d51f31e798eb6fc1fd4f3621f59e4a86e8ece423b695fea261e0080444",
+      "color": "#705245",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "nose-nariz-2",
+      "name": "Nariz 2",
+      "category": "nose",
+      "path": "bust/nose-nariz-2.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 45,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "nose/nose_2.png",
+      "source_sha256": "76a051d0ae638ade3f1256d65914413bad7ecddfe6867e5d8032edb714c27dc4",
+      "color": "#705245",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "nose-nariz-3",
+      "name": "Nariz 3",
+      "category": "nose",
+      "path": "bust/nose-nariz-3.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 45,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "nose/nose_3.png",
+      "source_sha256": "cfc0af8c796738dbdfccb477054f2c4c85bea0d2a07b8f779851231b9c246016",
+      "color": "#705245",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "nose-nariz-4",
+      "name": "Nariz 4",
+      "category": "nose",
+      "path": "bust/nose-nariz-4.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 45,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "nose/nose_4.png",
+      "source_sha256": "3a3dc21dc77b6d00ec84fe242932968c0546a71550d6bd7a22a26aee1e54487f",
+      "color": "#705245",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "nose-nariz-5",
+      "name": "Nariz 5",
+      "category": "nose",
+      "path": "bust/nose-nariz-5.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 45,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "nose/nose_5.png",
+      "source_sha256": "44e0843b0f3c60f7ee6587749f22c5b8090bd7b648e7bfc2c95bb06e08cfff97",
+      "color": "#705245",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "nose-nariz-6",
+      "name": "Nariz 6",
+      "category": "nose",
+      "path": "bust/nose-nariz-6.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 45,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "nose/nose_6.png",
+      "source_sha256": "52bfab33617c15e0a20d33a87e829fb0db9b031fb31a389fcd0c38e787603b13",
+      "color": "#705245",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "nose-nariz-7",
+      "name": "Nariz 7",
+      "category": "nose",
+      "path": "bust/nose-nariz-7.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 45,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "nose/nose_7.png",
+      "source_sha256": "f4a45dd7dbf57a7df75eca7719e6a458632de09f81a80ed73e9e64d205ecfff3",
+      "color": "#705245",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "mouth-boca-1",
+      "name": "Boca 1",
+      "category": "mouth",
+      "path": "bust/mouth-boca-1.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 50,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "mouth/mouth_1.png",
+      "source_sha256": "713a95149dfc30daef0ec6b67442b7fc933b18fa91e7f01e26018ac07c2f9514",
+      "color": "#79514C",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "mouth-boca-2",
+      "name": "Boca 2",
+      "category": "mouth",
+      "path": "bust/mouth-boca-2.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 50,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "mouth/mouth_2.png",
+      "source_sha256": "112ededeaea41d009269d5efe789b549d28af2194208b4b2a2e7e096370fa8cd",
+      "color": "#79514C",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "mouth-boca-3",
+      "name": "Boca 3",
+      "category": "mouth",
+      "path": "bust/mouth-boca-3.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 50,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "mouth/mouth_3.png",
+      "source_sha256": "d352ee8e7eb9497502ac4a9d5632f0db3f0e8f5d63ed60fd9958d9439203285d",
+      "color": "#79514C",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "mouth-boca-4",
+      "name": "Boca 4",
+      "category": "mouth",
+      "path": "bust/mouth-boca-4.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 50,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "mouth/mouth_4.png",
+      "source_sha256": "f7ce82fcf37769d96856a5b886f73340cf4387039de68479dfa30d9b4a89b4b8",
+      "color": "#79514C",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "mouth-boca-5",
+      "name": "Boca 5",
+      "category": "mouth",
+      "path": "bust/mouth-boca-5.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 50,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "mouth/mouth_5.png",
+      "source_sha256": "0aad797c1a88dd14e3f3bc873ad530eb771a889c1d7699a6a71a18d8751725ec",
+      "color": "#79514C",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "mouth-boca-6",
+      "name": "Boca 6",
+      "category": "mouth",
+      "path": "bust/mouth-boca-6.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 50,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "mouth/mouth_6.png",
+      "source_sha256": "67630da10b22f7044459d8b18482eeb8abfe2d8c00535ab0c1b6007e8545b5e7",
+      "color": "#79514C",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "mouth-boca-7",
+      "name": "Boca 7",
+      "category": "mouth",
+      "path": "bust/mouth-boca-7.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 50,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "mouth/mouth_7.png",
+      "source_sha256": "62bf4ec96fc1750c523c2d87b08c9dd791c454f5e0846b5f3fd22dd14f450ff9",
+      "color": "#79514C",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "mouth-boca-8",
+      "name": "Boca 8",
+      "category": "mouth",
+      "path": "bust/mouth-boca-8.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 50,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "mouth/mouth_8.png",
+      "source_sha256": "9bdc8851318db558040667f40c32f5fba4fe443671ef5d0d04e82174baedefd3",
+      "color": "#79514C",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "mouth-boca-9",
+      "name": "Boca 9",
+      "category": "mouth",
+      "path": "bust/mouth-boca-9.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 50,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "mouth/mouth_9.png",
+      "source_sha256": "4b69de1842f4b543bc9b5eb51314252c9be36984aa8a7ad23292dbb7a5450cac",
+      "color": "#79514C",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "mouth-boca-10",
+      "name": "Boca 10",
+      "category": "mouth",
+      "path": "bust/mouth-boca-10.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 50,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "mouth/mouth_10.png",
+      "source_sha256": "d8d0494bc50144bbf333681872b81e02201a6320e44a74d3214c92a5ca7a4f2b",
+      "color": "#79514C",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "mouth-boca-11",
+      "name": "Boca 11",
+      "category": "mouth",
+      "path": "bust/mouth-boca-11.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 50,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "mouth/mouth_11.png",
+      "source_sha256": "e74e577512ebced4943cdbf8b2dfb44e6f83875d9e4f17e24c70b2e61ab5bb53",
+      "color": "#79514C",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "beard-bigode-preto",
+      "name": "Bigode • Preto",
+      "category": "beard",
+      "path": "bust/beard-bigode-preto.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 60,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "beard/beard_1.png",
+      "source_sha256": "4fd603e0bbb39f108f157d4168e80221b9dd507475b5a3d8f1bdc219cdba7783",
+      "color": "#211C1A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "beard-bigode-castanho-escuro",
+      "name": "Bigode • Castanho-escuro",
+      "category": "beard",
+      "path": "bust/beard-bigode-castanho-escuro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 60,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "beard/beard_1.png",
+      "source_sha256": "4fd603e0bbb39f108f157d4168e80221b9dd507475b5a3d8f1bdc219cdba7783",
+      "color": "#3B2A20",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "beard-bigode-castanho",
+      "name": "Bigode • Castanho",
+      "category": "beard",
+      "path": "bust/beard-bigode-castanho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 60,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "beard/beard_1.png",
+      "source_sha256": "4fd603e0bbb39f108f157d4168e80221b9dd507475b5a3d8f1bdc219cdba7783",
+      "color": "#5E3F2A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "beard-bigode-mel",
+      "name": "Bigode • Mel",
+      "category": "beard",
+      "path": "bust/beard-bigode-mel.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 60,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "beard/beard_1.png",
+      "source_sha256": "4fd603e0bbb39f108f157d4168e80221b9dd507475b5a3d8f1bdc219cdba7783",
+      "color": "#93683A",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "beard-bigode-ruivo",
+      "name": "Bigode • Ruivo",
+      "category": "beard",
+      "path": "bust/beard-bigode-ruivo.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 60,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "beard/beard_1.png",
+      "source_sha256": "4fd603e0bbb39f108f157d4168e80221b9dd507475b5a3d8f1bdc219cdba7783",
+      "color": "#8E3F22",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "beard-bigode-loiro",
+      "name": "Bigode • Loiro",
+      "category": "beard",
+      "path": "bust/beard-bigode-loiro.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 60,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "beard/beard_1.png",
+      "source_sha256": "4fd603e0bbb39f108f157d4168e80221b9dd507475b5a3d8f1bdc219cdba7783",
+      "color": "#C39A56",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "beard-bigode-platinado",
+      "name": "Bigode • Platinado",
+      "category": "beard",
+      "path": "bust/beard-bigode-platinado.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 60,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "beard/beard_1.png",
+      "source_sha256": "4fd603e0bbb39f108f157d4168e80221b9dd507475b5a3d8f1bdc219cdba7783",
+      "color": "#DED2B8",
+      "license": "CC0-1.0"
+    },
+    {
+      "id": "beard-bigode-grisalho",
+      "name": "Bigode • Grisalho",
+      "category": "beard",
+      "path": "bust/beard-bigode-grisalho.png",
+      "compatibility": [
+        "masculino",
+        "feminino"
+      ],
+      "layer": 60,
+      "origin": "https://n-erebus.itch.io/portrait-creator",
+      "source": "beard/beard_1.png",
+      "source_sha256": "4fd603e0bbb39f108f157d4168e80221b9dd507475b5a3d8f1bdc219cdba7783",
+      "color": "#8E8B87",
+      "license": "CC0-1.0"
+    }
+  ],
+  "options": {
+    "sex": [
+      {
+        "id": "masculino",
+        "name": "Masculino",
+        "thumbnail": "thumbnails/sex-masculino.png"
+      },
+      {
+        "id": "feminino",
+        "name": "Feminino",
+        "thumbnail": "thumbnails/sex-feminino.png"
+      }
+    ],
+    "face": [
+      {
+        "id": "rosto-1",
+        "name": "Oval",
+        "thumbnail": "thumbnails/face-rosto-1.png"
+      },
+      {
+        "id": "rosto-2",
+        "name": "Alongado",
+        "thumbnail": "thumbnails/face-rosto-2.png"
+      },
+      {
+        "id": "rosto-3",
+        "name": "Angular",
+        "thumbnail": "thumbnails/face-rosto-3.png"
+      },
+      {
+        "id": "rosto-4",
+        "name": "Suave",
+        "thumbnail": "thumbnails/face-rosto-4.png"
+      },
+      {
+        "id": "rosto-5",
+        "name": "Arredondado",
+        "thumbnail": "thumbnails/face-rosto-5.png"
+      },
+      {
+        "id": "rosto-6",
+        "name": "Estreito",
+        "thumbnail": "thumbnails/face-rosto-6.png"
+      }
+    ],
+    "skin": [
+      {
+        "id": "porcelana",
+        "name": "Porcelana",
+        "thumbnail": "thumbnails/skin-porcelana.png"
+      },
+      {
+        "id": "clara",
+        "name": "Clara",
+        "thumbnail": "thumbnails/skin-clara.png"
+      },
+      {
+        "id": "bege",
+        "name": "Bege",
+        "thumbnail": "thumbnails/skin-bege.png"
+      },
+      {
+        "id": "oliva",
+        "name": "Oliva",
+        "thumbnail": "thumbnails/skin-oliva.png"
+      },
+      {
+        "id": "morena-clara",
+        "name": "Morena clara",
+        "thumbnail": "thumbnails/skin-morena-clara.png"
+      },
+      {
+        "id": "morena",
+        "name": "Morena",
+        "thumbnail": "thumbnails/skin-morena.png"
+      },
+      {
+        "id": "marrom",
+        "name": "Marrom",
+        "thumbnail": "thumbnails/skin-marrom.png"
+      },
+      {
+        "id": "retinta",
+        "name": "Retinta",
+        "thumbnail": "thumbnails/skin-retinta.png"
+      }
+    ],
+    "hair": [
+      {
+        "id": "curto",
+        "name": "Curto clássico",
+        "thumbnail": "thumbnails/hair-curto.png"
+      },
+      {
+        "id": "baguncado",
+        "name": "Curto ondulado",
+        "thumbnail": "thumbnails/hair-baguncado.png"
+      },
+      {
+        "id": "raspado",
+        "name": "Raspado",
+        "thumbnail": "thumbnails/hair-raspado.png"
+      },
+      {
+        "id": "cacheado",
+        "name": "Médio ondulado",
+        "thumbnail": "thumbnails/hair-cacheado.png"
+      },
+      {
+        "id": "crespo",
+        "name": "Longo volumoso",
+        "thumbnail": "thumbnails/hair-crespo.png"
+      },
+      {
+        "id": "ondulado",
+        "name": "Longo ondulado",
+        "thumbnail": "thumbnails/hair-ondulado.png"
+      },
+      {
+        "id": "longo",
+        "name": "Longo liso",
+        "thumbnail": "thumbnails/hair-longo.png"
+      },
+      {
+        "id": "rabo",
+        "name": "Curto lateral",
+        "thumbnail": "thumbnails/hair-rabo.png"
+      },
+      {
+        "id": "coque",
+        "name": "Curto penteado",
+        "thumbnail": "thumbnails/hair-coque.png"
+      },
+      {
+        "id": "trancas",
+        "name": "Laterais curtas",
+        "thumbnail": "thumbnails/hair-trancas.png"
+      },
+      {
+        "id": "careca",
+        "name": "Sem cabelo",
+        "thumbnail": "thumbnails/hair-careca.png"
+      },
+      {
+        "id": "franja",
+        "name": "Longo com franja",
+        "thumbnail": "thumbnails/hair-franja.png"
+      }
+    ],
+    "hair_color": [
+      {
+        "id": "preto",
+        "name": "Preto",
+        "thumbnail": "thumbnails/hair_color-preto.png"
+      },
+      {
+        "id": "castanho-escuro",
+        "name": "Castanho-escuro",
+        "thumbnail": "thumbnails/hair_color-castanho-escuro.png"
+      },
+      {
+        "id": "castanho",
+        "name": "Castanho",
+        "thumbnail": "thumbnails/hair_color-castanho.png"
+      },
+      {
+        "id": "mel",
+        "name": "Mel",
+        "thumbnail": "thumbnails/hair_color-mel.png"
+      },
+      {
+        "id": "ruivo",
+        "name": "Ruivo",
+        "thumbnail": "thumbnails/hair_color-ruivo.png"
+      },
+      {
+        "id": "loiro",
+        "name": "Loiro",
+        "thumbnail": "thumbnails/hair_color-loiro.png"
+      },
+      {
+        "id": "platinado",
+        "name": "Platinado",
+        "thumbnail": "thumbnails/hair_color-platinado.png"
+      },
+      {
+        "id": "grisalho",
+        "name": "Grisalho",
+        "thumbnail": "thumbnails/hair_color-grisalho.png"
+      }
+    ],
+    "eyes": [
+      {
+        "id": "amendoado",
+        "name": "Amendoado",
+        "thumbnail": "thumbnails/eyes-amendoado.png"
+      },
+      {
+        "id": "redondo",
+        "name": "Redondo",
+        "thumbnail": "thumbnails/eyes-redondo.png"
+      },
+      {
+        "id": "grande",
+        "name": "Grande",
+        "thumbnail": "thumbnails/eyes-grande.png"
+      },
+      {
+        "id": "puxado",
+        "name": "Puxado",
+        "thumbnail": "thumbnails/eyes-puxado.png"
+      },
+      {
+        "id": "caido",
+        "name": "Caído",
+        "thumbnail": "thumbnails/eyes-caido.png"
+      },
+      {
+        "id": "encapuzado",
+        "name": "Encapuzado",
+        "thumbnail": "thumbnails/eyes-encapuzado.png"
+      }
+    ],
+    "iris": [
+      {
+        "id": "iris-1",
+        "name": "Com brilho",
+        "thumbnail": "thumbnails/iris-iris-1.png"
+      },
+      {
+        "id": "iris-2",
+        "name": "Circular",
+        "thumbnail": "thumbnails/iris-iris-2.png"
+      },
+      {
+        "id": "iris-3",
+        "name": "Pequena",
+        "thumbnail": "thumbnails/iris-iris-3.png"
+      },
+      {
+        "id": "iris-4",
+        "name": "Escura",
+        "thumbnail": "thumbnails/iris-iris-4.png"
+      },
+      {
+        "id": "iris-5",
+        "name": "Discreta",
+        "thumbnail": "thumbnails/iris-iris-5.png"
+      }
+    ],
+    "eye_color": [
+      {
+        "id": "castanho-escuro",
+        "name": "Castanho-escuro",
+        "thumbnail": "thumbnails/eye_color-castanho-escuro.png"
+      },
+      {
+        "id": "castanho",
+        "name": "Castanho",
+        "thumbnail": "thumbnails/eye_color-castanho.png"
+      },
+      {
+        "id": "avela",
+        "name": "Avelã",
+        "thumbnail": "thumbnails/eye_color-avela.png"
+      },
+      {
+        "id": "ambar",
+        "name": "Âmbar",
+        "thumbnail": "thumbnails/eye_color-ambar.png"
+      },
+      {
+        "id": "verde",
+        "name": "Verde",
+        "thumbnail": "thumbnails/eye_color-verde.png"
+      },
+      {
+        "id": "azul",
+        "name": "Azul",
+        "thumbnail": "thumbnails/eye_color-azul.png"
+      },
+      {
+        "id": "cinza",
+        "name": "Cinza",
+        "thumbnail": "thumbnails/eye_color-cinza.png"
+      }
+    ],
+    "brows": [
+      {
+        "id": "naturais",
+        "name": "Naturais",
+        "thumbnail": "thumbnails/brows-naturais.png"
+      },
+      {
+        "id": "arqueadas",
+        "name": "Arqueadas",
+        "thumbnail": "thumbnails/brows-arqueadas.png"
+      },
+      {
+        "id": "retas",
+        "name": "Retas",
+        "thumbnail": "thumbnails/brows-retas.png"
+      },
+      {
+        "id": "grossas",
+        "name": "Grossas",
+        "thumbnail": "thumbnails/brows-grossas.png"
+      },
+      {
+        "id": "finas",
+        "name": "Finas",
+        "thumbnail": "thumbnails/brows-finas.png"
+      },
+      {
+        "id": "angulosas",
+        "name": "Angulosas",
+        "thumbnail": "thumbnails/brows-angulosas.png"
+      },
+      {
+        "id": "suaves",
+        "name": "Suaves",
+        "thumbnail": "thumbnails/brows-suaves.png"
+      }
+    ],
+    "nose": [
+      {
+        "id": "nariz-1",
+        "name": "Nariz 1",
+        "thumbnail": "thumbnails/nose-nariz-1.png"
+      },
+      {
+        "id": "nariz-2",
+        "name": "Nariz 2",
+        "thumbnail": "thumbnails/nose-nariz-2.png"
+      },
+      {
+        "id": "nariz-3",
+        "name": "Nariz 3",
+        "thumbnail": "thumbnails/nose-nariz-3.png"
+      },
+      {
+        "id": "nariz-4",
+        "name": "Nariz 4",
+        "thumbnail": "thumbnails/nose-nariz-4.png"
+      },
+      {
+        "id": "nariz-5",
+        "name": "Nariz 5",
+        "thumbnail": "thumbnails/nose-nariz-5.png"
+      },
+      {
+        "id": "nariz-6",
+        "name": "Nariz 6",
+        "thumbnail": "thumbnails/nose-nariz-6.png"
+      },
+      {
+        "id": "nariz-7",
+        "name": "Nariz 7",
+        "thumbnail": "thumbnails/nose-nariz-7.png"
+      }
+    ],
+    "mouth": [
+      {
+        "id": "boca-1",
+        "name": "Boca 1",
+        "thumbnail": "thumbnails/mouth-boca-1.png"
+      },
+      {
+        "id": "boca-2",
+        "name": "Boca 2",
+        "thumbnail": "thumbnails/mouth-boca-2.png"
+      },
+      {
+        "id": "boca-3",
+        "name": "Boca 3",
+        "thumbnail": "thumbnails/mouth-boca-3.png"
+      },
+      {
+        "id": "boca-4",
+        "name": "Boca 4",
+        "thumbnail": "thumbnails/mouth-boca-4.png"
+      },
+      {
+        "id": "boca-5",
+        "name": "Boca 5",
+        "thumbnail": "thumbnails/mouth-boca-5.png"
+      },
+      {
+        "id": "boca-6",
+        "name": "Boca 6",
+        "thumbnail": "thumbnails/mouth-boca-6.png"
+      },
+      {
+        "id": "boca-7",
+        "name": "Boca 7",
+        "thumbnail": "thumbnails/mouth-boca-7.png"
+      },
+      {
+        "id": "boca-8",
+        "name": "Boca 8",
+        "thumbnail": "thumbnails/mouth-boca-8.png"
+      },
+      {
+        "id": "boca-9",
+        "name": "Boca 9",
+        "thumbnail": "thumbnails/mouth-boca-9.png"
+      },
+      {
+        "id": "boca-10",
+        "name": "Boca 10",
+        "thumbnail": "thumbnails/mouth-boca-10.png"
+      },
+      {
+        "id": "boca-11",
+        "name": "Boca 11",
+        "thumbnail": "thumbnails/mouth-boca-11.png"
+      }
+    ],
+    "beard": [
+      {
+        "id": "nenhuma",
+        "name": "Sem pelos faciais",
+        "thumbnail": "thumbnails/beard-nenhuma.png"
+      },
+      {
+        "id": "bigode",
+        "name": "Bigode",
+        "thumbnail": "thumbnails/beard-bigode.png"
+      }
+    ]
+  }
+}

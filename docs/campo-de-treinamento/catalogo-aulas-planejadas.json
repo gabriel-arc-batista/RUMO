@@ -1,0 +1,3929 @@
+{
+  "schema_version": 1,
+  "catalog_id": "rumo-curriculo-ti-9-editais",
+  "catalog_version": "0.1.0-planejamento",
+  "researched_at": "2026-10-11",
+  "publication_status": "planejamento",
+  "description": "Famílias e sugestões de aulas, não PDFs publicados. Inventário detalhado dos programas em programas-9-concursos.json. Famílias não certificam equivalência de itens.",
+  "families": [
+    {
+      "id": "ger.portugues",
+      "name": "Português e redação",
+      "area": "Formação geral",
+      "source_candidates": [
+        {
+          "exam_id": "bb-2022-001-ti",
+          "discipline_id": "bb-2022-001-ti:disciplina:01",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:01",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:01",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:01",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:01",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:01",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:01",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:02",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:01",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ger.portugues:aula:01",
+          "title": "Interpretação e gêneros textuais",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.portugues:aula:02",
+          "title": "Semântica, coesão e reescrita",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.portugues:aula:03",
+          "title": "Ortografia, acentuação e classes de palavras",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.portugues:aula:04",
+          "title": "Sintaxe, concordância, regência, crase e colocação",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.portugues:aula:05",
+          "title": "Pontuação",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.portugues:aula:06",
+          "title": "Redação oficial e discursiva",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ger.literatura",
+      "name": "Literatura nacional",
+      "area": "Formação geral",
+      "source_candidates": [
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:01",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ger.literatura:aula:01",
+          "title": "Contexto histórico e movimentos literários cobrados",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.literatura:aula:02",
+          "title": "Autores, obras e leitura literária conforme o programa",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ger.ingles",
+      "name": "Inglês instrumental",
+      "area": "Formação geral",
+      "source_candidates": [
+        {
+          "exam_id": "bb-2022-001-ti",
+          "discipline_id": "bb-2022-001-ti:disciplina:02",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:02",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:02",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:02",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:03",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ger.ingles:aula:01",
+          "title": "Estratégias de leitura e vocabulário",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.ingles:aula:02",
+          "title": "Gramática e relações entre ideias",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.ingles:aula:03",
+          "title": "Prática comentada com textos originais de TI",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ger.matematica",
+      "name": "Matemática",
+      "area": "Formação geral",
+      "source_candidates": [
+        {
+          "exam_id": "bb-2022-001-ti",
+          "discipline_id": "bb-2022-001-ti:disciplina:03",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:02",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:02",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ger.matematica:aula:01",
+          "title": "Números, operações, medidas e problemas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.matematica:aula:02",
+          "title": "Conjuntos, funções e progressões",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.matematica:aula:03",
+          "title": "Matrizes, determinantes e sistemas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.matematica:aula:04",
+          "title": "Geometria básica e relações entre grandezas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ger.logica",
+      "name": "Raciocínio lógico",
+      "area": "Formação geral",
+      "source_candidates": [
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:02",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:04",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:03",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:02",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:02",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ger.logica:aula:01",
+          "title": "Proposições e conectivos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.logica:aula:02",
+          "title": "Equivalências, argumentos e inferências",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.logica:aula:03",
+          "title": "Contagem e resolução de problemas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ger.estatistica",
+      "name": "Probabilidade e estatística",
+      "area": "Formação geral",
+      "source_candidates": [
+        {
+          "exam_id": "bb-2022-001-ti",
+          "discipline_id": "bb-2022-001-ti:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:04",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:03",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:02",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ger.estatistica:aula:01",
+          "title": "Amostras, variáveis, tabelas e gráficos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.estatistica:aula:02",
+          "title": "Medidas de posição e dispersão",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.estatistica:aula:03",
+          "title": "Probabilidade, independência e Bayes",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.estatistica:aula:04",
+          "title": "Distribuições discretas e contínuas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.estatistica:aula:05",
+          "title": "Inferência e testes de hipóteses",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.estatistica:aula:06",
+          "title": "Correlação e regressão simples e múltipla",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ger.mat-financeira",
+      "name": "Matemática financeira",
+      "area": "Formação geral",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:03",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ger.mat-financeira:aula:01",
+          "title": "Valor do dinheiro e juros simples e compostos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.mat-financeira:aula:02",
+          "title": "Taxas e equivalência de capitais",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.mat-financeira:aula:03",
+          "title": "Descontos, amortização e séries conforme edital",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ger.bancarios",
+      "name": "Sistema financeiro e conhecimentos bancários",
+      "area": "Formação geral",
+      "source_candidates": [
+        {
+          "exam_id": "bb-2022-001-ti",
+          "discipline_id": "bb-2022-001-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ger.bancarios:aula:01",
+          "title": "Sistema Financeiro Nacional e instituições",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.bancarios:aula:02",
+          "title": "Produtos, crédito, garantias e mercados",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.bancarios:aula:03",
+          "title": "Moeda, câmbio e política monetária",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.bancarios:aula:04",
+          "title": "Regulação, compliance, consumidor e políticas do BB",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.bancarios:aula:05",
+          "title": "ASG e responsabilidade socioambiental",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ger.fintech",
+      "name": "Atualidades do mercado financeiro",
+      "area": "Formação geral",
+      "source_candidates": [
+        {
+          "exam_id": "bb-2022-001-ti",
+          "discipline_id": "bb-2022-001-ti:disciplina:04",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ger.fintech:aula:01",
+          "title": "Bancos digitais, fintechs e open finance",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.fintech:aula:02",
+          "title": "Pagamentos, Pix e arranjos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.fintech:aula:03",
+          "title": "Criptoativos, transformação digital e modelos de negócio",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ger.atualidades",
+      "name": "Atualidades e repertório discursivo",
+      "area": "Formação geral",
+      "source_candidates": [
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:04",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ger.atualidades:aula:01",
+          "title": "Leitura crítica de temas brasileiros e internacionais",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.atualidades:aula:02",
+          "title": "Tecnologia, sociedade, economia e sustentabilidade",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.atualidades:aula:03",
+          "title": "Construção de argumentos e atualização datada",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ger.etica",
+      "name": "Ética, compliance e responsabilidade",
+      "area": "Formação geral",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ger.etica:aula:01",
+          "title": "Ética pública e organizacional",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.etica:aula:02",
+          "title": "Prevenção à lavagem de dinheiro e anticorrupção",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.etica:aula:03",
+          "title": "Conduta, assédio, sigilo e responsabilidade socioambiental",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.etica:aula:04",
+          "title": "Políticas institucionais da Caixa conforme edital",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ger.comportamentos-digitais",
+      "name": "Comportamentos e competências digitais",
+      "area": "Formação geral",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ger.comportamentos-digitais:aula:01",
+          "title": "Mentalidade, aprendizagem contínua e intraempreendedorismo",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.comportamentos-digitais:aula:02",
+          "title": "Colaboração, comunicação e inteligência emocional",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.comportamentos-digitais:aula:03",
+          "title": "Liderança, experiência do cliente, OKR e produtividade",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ger.comportamentos-digitais:aula:04",
+          "title": "ODS, pensamento computacional e trabalho remoto",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "dir.administrativo",
+      "name": "Direito administrativo e administração pública",
+      "area": "Direito e setor público",
+      "source_candidates": [
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:02",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:03",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:03",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "dir.administrativo:aula:01",
+          "title": "Organização e princípios da administração",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dir.administrativo:aula:02",
+          "title": "Poderes e atos administrativos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dir.administrativo:aula:03",
+          "title": "Agentes, serviços, controle e responsabilidade do Estado",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dir.administrativo:aula:04",
+          "title": "Regimes e leis específicas conforme edital",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dir.administrativo:aula:05",
+          "title": "Processo administrativo, transparência e LINDB",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dir.administrativo:aula:06",
+          "title": "Licitações e contratos no recorte da edição",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "dir.constitucional",
+      "name": "Direito constitucional",
+      "area": "Direito e setor público",
+      "source_candidates": [
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:04",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:04",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "dir.constitucional:aula:01",
+          "title": "Constituição, princípios e direitos fundamentais",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dir.constitucional:aula:02",
+          "title": "Organização do Estado e administração pública",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dir.constitucional:aula:03",
+          "title": "Poderes e funções essenciais à Justiça",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dir.constitucional:aula:04",
+          "title": "Controle de constitucionalidade",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dir.constitucional:aula:05",
+          "title": "Tributação, orçamento e políticas públicas quando previstos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "dir.protecao-dados",
+      "name": "Privacidade, LGPD e legislação digital",
+      "area": "Direito e setor público",
+      "source_candidates": [
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:03",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "dir.protecao-dados:aula:01",
+          "title": "Fundamentos, bases e direitos na LGPD",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dir.protecao-dados:aula:02",
+          "title": "Agentes, governança, segurança e tratamento de dados",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dir.protecao-dados:aula:03",
+          "title": "Marco Civil e delitos informáticos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dir.protecao-dados:aula:04",
+          "title": "Propriedade intelectual, provedores e direitos digitais",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dir.protecao-dados:aula:05",
+          "title": "Políticas de segurança e decretos indicados em cada edital",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "setor.economia",
+      "name": "Macroeconomia e microeconomia",
+      "area": "Direito e setor público",
+      "source_candidates": [
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:04",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "setor.economia:aula:01",
+          "title": "Contas nacionais e agregados",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "setor.economia:aula:02",
+          "title": "Moeda, bancos e política monetária",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "setor.economia:aula:03",
+          "title": "Política fiscal, inflação e economia aberta conforme edital",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "setor.economia:aula:04",
+          "title": "Escolha do consumidor, oferta e demanda",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "setor.economia:aula:05",
+          "title": "Elasticidades e equilíbrio",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "setor.afo",
+      "name": "Finanças públicas e AFO",
+      "area": "Direito e setor público",
+      "source_candidates": [
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:01",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "setor.afo:aula:01",
+          "title": "Funções do Estado e finanças públicas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "setor.afo:aula:02",
+          "title": "Receitas e despesas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "setor.afo:aula:03",
+          "title": "PPA, LDO, LOA e processo orçamentário",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "setor.afo:aula:04",
+          "title": "Execução, empenho, liquidação, pagamento e restos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "setor.afo:aula:05",
+          "title": "LRF e sistemas federais conforme edital",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "setor.gov-digital",
+      "name": "Transformação e governo digital",
+      "area": "Direito e setor público",
+      "source_candidates": [
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "setor.gov-digital:aula:01",
+          "title": "Fundamentos, estratégia e maturidade digital",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "setor.gov-digital:aula:02",
+          "title": "Serviços públicos digitais e Lei 14.129 no recorte cobrado",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "setor.gov-digital:aula:03",
+          "title": "ePING, eMAG e interoperabilidade",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "setor.gov-digital:aula:04",
+          "title": "Indicadores OCDE e GTMI 2022",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "setor.gov-digital:aula:05",
+          "title": "SIAFI e Tesouro Direto no contexto do programa",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "setor.pdpj",
+      "name": "Plataforma Digital do Poder Judiciário",
+      "area": "Direito e setor público",
+      "source_candidates": [
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:03",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:04",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "setor.pdpj:aula:01",
+          "title": "Arquitetura e integração da PDPJ-Br",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "setor.pdpj:aula:02",
+          "title": "Serviços, APIs e implantação",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "setor.pdpj:aula:03",
+          "title": "Resoluções e portarias CNJ previstas no edital",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "setor.pdpj:aula:04",
+          "title": "Segurança e governança próprias do Judiciário",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.fundamentos",
+      "name": "Fundamentos de computação",
+      "area": "Computação e infraestrutura",
+      "source_candidates": [
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:03",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.fundamentos:aula:01",
+          "title": "Dados, informação, sistemas e processamento",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.fundamentos:aula:02",
+          "title": "Sistemas de numeração e aritmética",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.fundamentos:aula:03",
+          "title": "Hardware, processador, memória, barramentos e entrada/saída",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.algoritmos",
+      "name": "Algoritmos e estruturas de dados",
+      "area": "Desenvolvimento",
+      "source_candidates": [
+        {
+          "exam_id": "bb-2022-001-ti",
+          "discipline_id": "bb-2022-001-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:04",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.algoritmos:aula:01",
+          "title": "Lógica, fluxogramas, controle e funções",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.algoritmos:aula:02",
+          "title": "Recursão, depuração e complexidade",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.algoritmos:aula:03",
+          "title": "Listas, pilhas, filas e árvores",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.algoritmos:aula:04",
+          "title": "Busca, ordenação e organização de arquivos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.oo",
+      "name": "Orientação a objetos e modelagem",
+      "area": "Desenvolvimento",
+      "source_candidates": [
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:04",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.oo:aula:01",
+          "title": "Classes, objetos, encapsulamento, herança e polimorfismo",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.oo:aula:02",
+          "title": "UML, casos de uso e diagramas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.oo:aula:03",
+          "title": "Coesão, acoplamento, SOLID e GRASP",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.python",
+      "name": "Python e ecossistema de dados",
+      "area": "Desenvolvimento",
+      "source_candidates": [
+        {
+          "exam_id": "bb-2022-001-ti",
+          "discipline_id": "bb-2022-001-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:12",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.python:aula:01",
+          "title": "Sintaxe, coleções, funções e módulos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.python:aula:02",
+          "title": "Programação e testes em Python",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.python:aula:03",
+          "title": "NumPy, Pandas e manipulação de dados",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.python:aula:04",
+          "title": "SciPy, Matplotlib e scikit-learn conforme edital",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.python:aula:05",
+          "title": "Versões cobradas e diferenças de comportamento",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.java",
+      "name": "Java e ecossistema JVM",
+      "area": "Desenvolvimento",
+      "source_candidates": [
+        {
+          "exam_id": "bb-2022-001-ti",
+          "discipline_id": "bb-2022-001-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:03",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.java:aula:01",
+          "title": "Linguagem, JVM e orientação a objetos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.java:aula:02",
+          "title": "Coleções, exceções e concorrência",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.java:aula:03",
+          "title": "Java SE 11 e Java 21: trilhas por edital",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.java:aula:04",
+          "title": "Java EE 8, persistência e APIs",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.java:aula:05",
+          "title": "Spring, Spring Boot, Spring Cloud e MicroProfile",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.web",
+      "name": "Desenvolvimento web",
+      "area": "Desenvolvimento",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.web:aula:01",
+          "title": "HTML, CSS, JavaScript e DOM",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.web:aula:02",
+          "title": "TypeScript e Angular nas versões cobradas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.web:aula:03",
+          "title": "AJAX, JSON, XML e XSLT",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.web:aula:04",
+          "title": "React e demais frameworks indicados",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.web:aula:05",
+          "title": "WebSockets, SPA e ferramentas de build",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.web:aula:06",
+          "title": "PHP, JSP e portais quando previstos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.linguagens-complementares",
+      "name": "Outras linguagens e plataformas",
+      "area": "Desenvolvimento",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.linguagens-complementares:aula:01",
+          "title": "C e C++ nos recortes e versões do programa",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.linguagens-complementares:aula:02",
+          "title": "C# e .NET",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.linguagens-complementares:aula:03",
+          "title": "Rust e bibliotecas indicadas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.linguagens-complementares:aula:04",
+          "title": "R, Scala, Ruby e shell conforme edital",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.linguagens-complementares:aula:05",
+          "title": "COBOL e plataformas legadas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.linguagens-complementares:aula:06",
+          "title": "Power Platform, Plone e Liferay",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.mobile",
+      "name": "Desenvolvimento de aplicativos móveis",
+      "area": "Desenvolvimento",
+      "source_candidates": [
+        {
+          "exam_id": "bb-2022-001-ti",
+          "discipline_id": "bb-2022-001-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.mobile:aula:01",
+          "title": "Arquitetura e particularidades mobile",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.mobile:aula:02",
+          "title": "Android, Java e Kotlin",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.mobile:aula:03",
+          "title": "Swift, Objective-C e ferramentas iOS",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.mobile:aula:04",
+          "title": "React Native, Flutter e Ionic conforme edital",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.mobile:aula:05",
+          "title": "Versões SDK e ferramentas cobradas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.embarcados",
+      "name": "Sistemas embarcados",
+      "area": "Computação e infraestrutura",
+      "source_candidates": [
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.embarcados:aula:01",
+          "title": "Plataformas e restrições de sistemas embarcados",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.embarcados:aula:02",
+          "title": "C17, C++17, Rust e Python no programa",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.embarcados:aula:03",
+          "title": "Qt6, OpenSSL3 e libcurl",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.embarcados:aula:04",
+          "title": "Linux embarcado, kernel, rootfs, drivers e Windows",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.embarcados:aula:05",
+          "title": "Testes, build e manutenção",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.requisitos",
+      "name": "Engenharia de requisitos e produto",
+      "area": "Engenharia e arquitetura",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.requisitos:aula:01",
+          "title": "Elicitação, especificação e rastreabilidade",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.requisitos:aula:02",
+          "title": "Histórias, casos de uso e critérios de aceitação",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.requisitos:aula:03",
+          "title": "Backlog, MVP, priorização e dívida técnica",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.requisitos:aula:04",
+          "title": "Estimativas, pontos de função e story points",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.requisitos:aula:05",
+          "title": "Privacidade e segurança desde o projeto",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.ux",
+      "name": "UX, UI e acessibilidade",
+      "area": "Engenharia e arquitetura",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.ux:aula:01",
+          "title": "Pesquisa, usabilidade e design de interação",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.ux:aula:02",
+          "title": "Prototipação e experiência do usuário",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.ux:aula:03",
+          "title": "Acessibilidade, responsividade e eMAG",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.ux:aula:04",
+          "title": "Testes A/B e decisões orientadas a evidências",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.processos-software",
+      "name": "Processos e qualidade de software",
+      "area": "Engenharia e arquitetura",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:03",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.processos-software:aula:01",
+          "title": "Ciclos de vida, UP e processos estruturados",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.processos-software:aula:02",
+          "title": "Qualidade, métricas e análise estática/dinâmica",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.processos-software:aula:03",
+          "title": "CMMI e MPS.BR nas edições cobradas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.processos-software:aula:04",
+          "title": "Documentação técnica e de usuário",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.agilidade",
+      "name": "Agilidade e desenvolvimento de produto",
+      "area": "Engenharia e arquitetura",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:11",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.agilidade:aula:01",
+          "title": "Scrum e Kanban",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.agilidade:aula:02",
+          "title": "XP, Lean e melhoria contínua",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.agilidade:aula:03",
+          "title": "SAFe, Nexus e escalonamento",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.agilidade:aula:04",
+          "title": "User stories, estimativas e priorização",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.agilidade:aula:05",
+          "title": "Gestão de produtos e equipes",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.testes",
+      "name": "Testes de software",
+      "area": "Engenharia e arquitetura",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.testes:aula:01",
+          "title": "Níveis e técnicas de teste",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.testes:aula:02",
+          "title": "Planejamento, cobertura, mocks e stubs",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.testes:aula:03",
+          "title": "TDD, BDD e princípio FIRST",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.testes:aula:04",
+          "title": "Testes automatizados e ferramentas por edital",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.arquitetura",
+      "name": "Arquitetura e projeto de sistemas",
+      "area": "Engenharia e arquitetura",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:04",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:03",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.arquitetura:aula:01",
+          "title": "Camadas, cliente-servidor e arquiteturas distribuídas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.arquitetura:aula:02",
+          "title": "Padrões GoF, DDD e arquitetura hexagonal",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.arquitetura:aula:03",
+          "title": "Microsserviços, eventos, SAGA e CQRS",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.arquitetura:aula:04",
+          "title": "C4, ArchiMate e documentação de decisões",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.arquitetura:aula:05",
+          "title": "Referência, antipadrões e trade-offs",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.arquitetura:aula:06",
+          "title": "Transações distribuídas e consistência",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.apis-integracao",
+      "name": "APIs e integração",
+      "area": "Engenharia e arquitetura",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:03",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.apis-integracao:aula:01",
+          "title": "HTTP, REST e desenho de APIs",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.apis-integracao:aula:02",
+          "title": "SOAP, WSDL, UDDI e XML",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.apis-integracao:aula:03",
+          "title": "GraphQL e gRPC",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.apis-integracao:aula:04",
+          "title": "Mensageria, AMQP, MQTT, Kafka e filas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.apis-integracao:aula:05",
+          "title": "Sincronização, eventos e consistência eventual",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.resiliencia",
+      "name": "Escalabilidade, desempenho e resiliência",
+      "area": "Engenharia e arquitetura",
+      "source_candidates": [
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.resiliencia:aula:01",
+          "title": "Caches, proxies, DNS e balanceamento",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.resiliencia:aula:02",
+          "title": "Disponibilidade, tolerância a falhas e recuperação",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.resiliencia:aula:03",
+          "title": "Circuit breaker, fallback e contingência",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.resiliencia:aula:04",
+          "title": "Observabilidade, logs, métricas e monitoração",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.configuracao",
+      "name": "Configuração e colaboração em software",
+      "area": "Operação e entrega",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.configuracao:aula:01",
+          "title": "Git, branches, Gitflow, mono e multirepositórios",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.configuracao:aula:02",
+          "title": "Versionamento semântico, builds e releases",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.configuracao:aula:03",
+          "title": "Maven, NPM e mudanças de esquema",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.configuracao:aula:04",
+          "title": "Licenças, revisão de código e comunidade",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.configuracao:aula:05",
+          "title": "Gerência de configuração e sustentação",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.devops",
+      "name": "DevOps e DevSecOps",
+      "area": "Operação e entrega",
+      "source_candidates": [
+        {
+          "exam_id": "bb-2022-001-ti",
+          "discipline_id": "bb-2022-001-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:03",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.devops:aula:01",
+          "title": "CI/CD e automação de entrega",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.devops:aula:02",
+          "title": "Feature flags, deploy canário e A/B",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.devops:aula:03",
+          "title": "Segurança na esteira: SAST, DAST e SCA",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.devops:aula:04",
+          "title": "Infraestrutura como código, Ansible e Puppet",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.devops:aula:05",
+          "title": "Scripts e automação operacional",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.containers",
+      "name": "Contêineres e orquestração",
+      "area": "Operação e entrega",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.containers:aula:01",
+          "title": "Imagens, Docker e padrão OCI",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.containers:aula:02",
+          "title": "Kubernetes e OpenShift",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.containers:aula:03",
+          "title": "Redes, volumes, implantação e boas práticas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.containers:aula:04",
+          "title": "Segurança e operação de contêineres",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.nuvem",
+      "name": "Computação em nuvem",
+      "area": "Computação e infraestrutura",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:11",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.nuvem:aula:01",
+          "title": "IaaS, PaaS, SaaS e modelos de implantação",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.nuvem:aula:02",
+          "title": "Elasticidade, custo e migração",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.nuvem:aula:03",
+          "title": "12 fatores e aplicações cloud-native",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.nuvem:aula:04",
+          "title": "Serverless, governança e segurança",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.sistemas-operacionais",
+      "name": "Sistemas operacionais e administração",
+      "area": "Computação e infraestrutura",
+      "source_candidates": [
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.sistemas-operacionais:aula:01",
+          "title": "Processos, memória, entrada/saída e arquivos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.sistemas-operacionais:aula:02",
+          "title": "Administração Linux e Windows Server",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.sistemas-operacionais:aula:03",
+          "title": "Usuários, permissões, serviços e redes",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.sistemas-operacionais:aula:04",
+          "title": "Windows10, SUSE15 e z/OS quando cobrados",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.sistemas-operacionais:aula:05",
+          "title": "Virtualização, backup, restore e armazenamento",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.sistemas-operacionais:aula:06",
+          "title": "Servidores de aplicação Tomcat e JBoss",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.redes",
+      "name": "Redes e infraestrutura de comunicação",
+      "area": "Computação e infraestrutura",
+      "source_candidates": [
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.redes:aula:01",
+          "title": "Modelos OSI/TCP-IP e topologias",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.redes:aula:02",
+          "title": "Ethernet, switches, roteadores e wireless",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.redes:aula:03",
+          "title": "IP, sub-redes, roteamento, NAT, VPN e DNS",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.redes:aula:04",
+          "title": "LAN, WAN, SDN e protocolos de serviços",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.redes:aula:05",
+          "title": "Operação e diagnóstico conforme programa",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "dados.modelagem",
+      "name": "Banco de dados e modelagem",
+      "area": "Dados e inteligência artificial",
+      "source_candidates": [
+        {
+          "exam_id": "bb-2022-001-ti",
+          "discipline_id": "bb-2022-001-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "dados.modelagem:aula:01",
+          "title": "Fundamentos e arquitetura de SGBDs",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.modelagem:aula:02",
+          "title": "Modelo relacional, MER e DER",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.modelagem:aula:03",
+          "title": "Normalização e projeto",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.modelagem:aula:04",
+          "title": "Modelos multidimensionais e não relacionais",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.modelagem:aula:05",
+          "title": "Mapeamento objeto-relacional",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "dados.sql",
+      "name": "SQL e bancos relacionais",
+      "area": "Dados e inteligência artificial",
+      "source_candidates": [
+        {
+          "exam_id": "bb-2022-001-ti",
+          "discipline_id": "bb-2022-001-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "dados.sql:aula:01",
+          "title": "Definição, consulta e manipulação em SQL",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.sql:aula:02",
+          "title": "Joins, agrupamentos, subconsultas e transações",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.sql:aula:03",
+          "title": "Índices e otimização",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.sql:aula:04",
+          "title": "PostgreSQL, MySQL, Oracle e SQL Server no edital",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.sql:aula:05",
+          "title": "PL/SQL, administração e evolução de esquemas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "dados.nosql",
+      "name": "NoSQL e dados distribuídos",
+      "area": "Dados e inteligência artificial",
+      "source_candidates": [
+        {
+          "exam_id": "bb-2022-001-ti",
+          "discipline_id": "bb-2022-001-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "dados.nosql:aula:01",
+          "title": "Documentos, chave-valor, colunas e grafos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.nosql:aula:02",
+          "title": "MongoDB e outros produtos previstos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.nosql:aula:03",
+          "title": "Consistência, distribuição e indexação",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "dados.bi",
+      "name": "BI, engenharia de dados e Big Data",
+      "area": "Dados e inteligência artificial",
+      "source_candidates": [
+        {
+          "exam_id": "bb-2022-001-ti",
+          "discipline_id": "bb-2022-001-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:12",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "dados.bi:aula:01",
+          "title": "ETL/ELT, ingestão e preparação",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.bi:aula:02",
+          "title": "Data warehouse, mart, lake e mesh",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.bi:aula:03",
+          "title": "Modelagem dimensional, OLAP e BI",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.bi:aula:04",
+          "title": "Batch, streaming e MapReduce",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.bi:aula:05",
+          "title": "Big Data, mineração, visualização e ERP",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "dados.governanca",
+      "name": "Gestão e governança de dados",
+      "area": "Dados e inteligência artificial",
+      "source_candidates": [
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:11",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "dados.governanca:aula:01",
+          "title": "Qualidade, arquitetura e ciclo de vida",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.governanca:aula:02",
+          "title": "DAMA-DMBOK, metadados e MDM",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.governanca:aula:03",
+          "title": "Ontologias, informação e governança",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.governanca:aula:04",
+          "title": "ECM, documentos eletrônicos e e-Arq",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.governanca:aula:05",
+          "title": "Ética, privacidade e segurança de dados",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "dados.ia",
+      "name": "Inteligência artificial e aprendizado de máquina",
+      "area": "Dados e inteligência artificial",
+      "source_candidates": [
+        {
+          "exam_id": "bb-2022-001-ti",
+          "discipline_id": "bb-2022-001-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:12",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "dados.ia:aula:01",
+          "title": "Problemas, dados, treino e avaliação",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.ia:aula:02",
+          "title": "Aprendizagem supervisionada e não supervisionada",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.ia:aula:03",
+          "title": "Deep learning e redes neurais",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.ia:aula:04",
+          "title": "PLN, chatbots e modelos de linguagem no programa",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.ia:aula:05",
+          "title": "TensorFlow, PyTorch e bibliotecas conforme edital",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.ia:aula:06",
+          "title": "Explicabilidade, vieses, ética e governança",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "dados.mlops",
+      "name": "MLOps e ciclo de vida de modelos",
+      "area": "Dados e inteligência artificial",
+      "source_candidates": [
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "dados.mlops:aula:01",
+          "title": "Versionamento de dados, código e modelos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.mlops:aula:02",
+          "title": "Treinamento, implantação e monitoramento",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "dados.mlops:aula:03",
+          "title": "Automação, qualidade e governança de IA",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "ti.blockchain",
+      "name": "Blockchain e DLT",
+      "area": "Engenharia e arquitetura",
+      "source_candidates": [
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "ti.blockchain:aula:01",
+          "title": "Livro-razão distribuído e consenso",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "ti.blockchain:aula:02",
+          "title": "Aplicações, limitações e diferenças de arquitetura",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "seg.fundamentos",
+      "name": "Fundamentos e gestão da segurança",
+      "area": "Segurança",
+      "source_candidates": [
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "seg.fundamentos:aula:01",
+          "title": "Confidencialidade, integridade e disponibilidade",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "seg.fundamentos:aula:02",
+          "title": "Ameaças, vulnerabilidades, risco e controles",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "seg.fundamentos:aula:03",
+          "title": "Políticas, incidentes, continuidade e recuperação",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "seg.fundamentos:aula:04",
+          "title": "Segurança de redes, nuvem e contêineres",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "seg.identidade",
+      "name": "Identidade e acesso",
+      "area": "Segurança",
+      "source_candidates": [
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "seg.identidade:aula:01",
+          "title": "Autenticação, autorização, MFA e SSO",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "seg.identidade:aula:02",
+          "title": "OAuth2, JWT, OIDC e SAML",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "seg.identidade:aula:03",
+          "title": "Active Directory e federação",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "seg.identidade:aula:04",
+          "title": "Segredos, privilégios e zero trust",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "seg.criptografia",
+      "name": "Criptografia e certificação",
+      "area": "Segurança",
+      "source_candidates": [
+        {
+          "exam_id": "ufabc-2023-tecnico-ti",
+          "discipline_id": "ufabc-2023-tecnico-ti:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "seg.criptografia:aula:01",
+          "title": "Criptografia simétrica, assimétrica e hashes",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "seg.criptografia:aula:02",
+          "title": "Assinatura, certificados e ICP-Brasil",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "seg.criptografia:aula:03",
+          "title": "TLS, mTLS e dados em trânsito/repouso",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "seg.criptografia:aula:04",
+          "title": "Chaves e aplicação segura",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "seg.normas",
+      "name": "Normas e frameworks de segurança",
+      "area": "Segurança",
+      "source_candidates": [
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "seg.normas:aula:01",
+          "title": "ISO27001/27002: diferenças entre edições cobradas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "seg.normas:aula:02",
+          "title": "ISO15408 e avaliação de segurança",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "seg.normas:aula:03",
+          "title": "NIST CSF, SP800-53 e SSDF",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "seg.normas:aula:04",
+          "title": "CIS Controls e privacidade",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "seg.normas:aula:05",
+          "title": "ISO22301/27005 e demais normas quando explicitamente previstas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "seg.appsec",
+      "name": "Segurança de aplicações",
+      "area": "Segurança",
+      "source_candidates": [
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "seg.appsec:aula:01",
+          "title": "OWASP, ataques e desenvolvimento seguro",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "seg.appsec:aula:02",
+          "title": "Privacidade e segurança por padrão",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "seg.appsec:aula:03",
+          "title": "SAMM, BSIMM, SDL e cadeia de suprimentos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "seg.appsec:aula:04",
+          "title": "SAST, DAST, SCA e resposta a vulnerabilidades",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "gestao.governanca-ti",
+      "name": "Governança e estratégia de TI",
+      "area": "Gestão de TI e negócio",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "gestao.governanca-ti:aula:01",
+          "title": "Governança, estratégia, PETI e PDTI",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.governanca-ti:aula:02",
+          "title": "COBIT5 e COBIT2019 em trilhas distintas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.governanca-ti:aula:03",
+          "title": "ISO38500, indicadores e alinhamento ao negócio",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.governanca-ti:aula:04",
+          "title": "BSC, SWOT, PDCA, GUT e riscos",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.governanca-ti:aula:05",
+          "title": "Governança de dados e relacionamento com usuários",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "gestao.servicos",
+      "name": "Gestão de serviços de TI",
+      "area": "Gestão de TI e negócio",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "bacen-2024-ti",
+          "discipline_id": "bacen-2024-ti:disciplina:11",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "gestao.servicos:aula:01",
+          "title": "Conceitos de serviço, valor e acordos de nível",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.servicos:aula:02",
+          "title": "ITILv3: estrutura e processos do recorte histórico",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.servicos:aula:03",
+          "title": "ITIL4: sistema de valor, práticas e melhoria",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.servicos:aula:04",
+          "title": "Operação, sustentação e relacionamento",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "gestao.projetos",
+      "name": "Projetos, equipes e produtos",
+      "area": "Gestão de TI e negócio",
+      "source_candidates": [
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "gestao.projetos:aula:01",
+          "title": "Projetos, programas, portfólios e PMBOK",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.projetos:aula:02",
+          "title": "Edições, princípios e áreas quando cobradas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.projetos:aula:03",
+          "title": "Escopo, restrições, risco, custo e priorização",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.projetos:aula:04",
+          "title": "Equipes, liderança, comunicação e feedback",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "gestao.negocios",
+      "name": "Análise de negócios e processos",
+      "area": "Gestão de TI e negócio",
+      "source_candidates": [
+        {
+          "exam_id": "caixa-2024-tbn-ti",
+          "discipline_id": "caixa-2024-tbn-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "serpro-2023-tecnologia",
+          "discipline_id": "serpro-2023-tecnologia:disciplina:09",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "dataprev-2024-desenvolvimento",
+          "discipline_id": "dataprev-2024-desenvolvimento:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:05",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "tse-2024-analista-ti",
+          "discipline_id": "tse-2024-analista-ti:disciplina:10",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:08",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "gestao.negocios:aula:01",
+          "title": "BABOK e análise de negócios conforme edital",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.negocios:aula:02",
+          "title": "BPMN, workflow, modelagem e redesenho",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.negocios:aula:03",
+          "title": "Arquitetura corporativa e canvas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.negocios:aula:04",
+          "title": "Design thinking, protótipos e serviços",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.negocios:aula:05",
+          "title": "BPMS, low-code, no-code e GIS",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "gestao.contratacoes",
+      "name": "Contratações e aquisição de TI",
+      "area": "Gestão de TI e negócio",
+      "source_candidates": [
+        {
+          "exam_id": "stn-2024-transformacao-digital",
+          "discipline_id": "stn-2024-transformacao-digital:disciplina:07",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        },
+        {
+          "exam_id": "senado-2022-analise-sistemas",
+          "discipline_id": "senado-2022-analise-sistemas:disciplina:06",
+          "mapping_status": "candidato-a-revisao-item-a-item"
+        }
+      ],
+      "coverage_status": "nao-auditada",
+      "suggested_lessons": [
+        {
+          "id": "gestao.contratacoes:aula:01",
+          "title": "Planejamento, estudos, TR e fiscalização",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.contratacoes:aula:02",
+          "title": "Leis e instruções da edição: trilhas históricas separadas",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.contratacoes:aula:03",
+          "title": "SISP, IN94/2022 e requisitos institucionais",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.contratacoes:aula:04",
+          "title": "UST, pontos de função, esforço e resultado",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        },
+        {
+          "id": "gestao.contratacoes:aula:05",
+          "title": "Construir ou comprar, ROI, TCO e prova de conceito",
+          "status": "planejada",
+          "resource": null,
+          "review": null
+        }
+      ]
+    }
+  ]
+}

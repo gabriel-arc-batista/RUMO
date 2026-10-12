@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import appearance as A
 from app import App
 from core import Store
-from customizer import Swatch
+from customizer import Swatch, AssetChoice
 from theme import THEME_NAMES
 from ui import LOOK_CACHE, MotionButton, Portrait, CharacterView
 
@@ -35,7 +35,7 @@ def main():
 
         def controls(widget):
             for child in widget.winfo_children():
-                if isinstance(child, (MotionButton, Swatch)):
+                if isinstance(child, (MotionButton, Swatch, AssetChoice)):
                     yield child
                 yield from controls(child)
 
@@ -54,7 +54,8 @@ def main():
             next(
                 w
                 for w in controls(win)
-                if isinstance(w, MotionButton) and w.cget("text") == label
+                if (isinstance(w, MotionButton) and w.cget("text") == label)
+                or (isinstance(w, AssetChoice) and w.label == label)
             ).command()
             pump()
 
@@ -68,8 +69,15 @@ def main():
                 win = app.customize_character()
                 pump()
                 assert app.customize_character() is win
-                for widget in list(controls(win)):
-                    if isinstance(widget, Swatch) or widget.role == "Chip.TButton":
+                for index, (field, _, options) in enumerate(A.FIELDS):
+                    win.character_categories.current(index)
+                    win.character_categories.event_generate("<<ComboboxSelected>>")
+                    pump()
+                    choices = [
+                        w for w in controls(win) if isinstance(w, (Swatch, AssetChoice))
+                    ]
+                    assert len(choices) == len(options)
+                    for widget in choices:
                         widget.command()
                         pump()
                 check_visible_images(root)
@@ -80,18 +88,48 @@ def main():
                 win = app.customize_character()
                 pump()
                 click(win, "Feminino")
+                win.character_name.set("Aurora")
                 click(win, "Salvar aparência")
                 assert app.character_look()["sex"] == "feminino"
+                assert store.rpg.profile(plan)["name"] == "Aurora"
                 saved = app.character_look()
                 win = app.customize_character()
                 pump()
+                win.character_name.set("Nome cancelado")
                 click(win, "Restaurar padrão")
                 click(win, "Cancelar")
+                assert store.rpg.profile(plan)["name"] == "Aurora"
                 assert app.character_look() == saved
                 assert len([k for k in app.images if "/look/" in k]) <= LOOK_CACHE
             assert store.stats(plan) == before
             assert app.journey.character(plan).xp == 0
             assert not errors, errors
+            # Exercise many looks and report bounded resident memory/image buffers.
+            import psutil
+            from unittest.mock import patch
+
+            rss_before = psutil.Process().memory_info().rss
+            with (
+                patch(
+                    "socket.create_connection",
+                    side_effect=AssertionError("Network forbidden"),
+                ),
+                patch(
+                    "urllib.request.urlopen",
+                    side_effect=AssertionError("Network forbidden"),
+                ),
+            ):
+                win = app.customize_character()
+                pump()
+                for _ in range(120):
+                    click(win, "Aleatório")
+                check_visible_images(root)
+                click(win, "Cancelar")
+            rss_after = psutil.Process().memory_info().rss
+            assert len([k for k in app.images if "/look/" in k]) <= LOOK_CACHE
+            print(
+                f"Memory after browsing: {rss_after/1024**2:.1f} MiB RSS; delta {max(0,rss_after-rss_before)/1024**2:.1f} MiB; LRU <= {LOOK_CACHE} images."
+            )
             store.db.close()
             reopened = Store(Path(folder) / "appearance.sqlite3")
             assert reopened.pref(A.PREFERENCE) == saved

@@ -21,3 +21,7 @@ backups/
 *.p12
 .vscode/
 .idea/
+# Local connector metadata is not part of the application.
+supabase/.temp/
+supabase/linked-project.json
+.vercel/
