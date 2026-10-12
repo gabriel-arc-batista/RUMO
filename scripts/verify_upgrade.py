@@ -132,7 +132,7 @@ def self_test():
         finally:
             old.close()
             new.close()
-    print("Synthetic v5→v6 upgrade preserves existing records.")
+    print("Synthetic v5 -> v6 upgrade preserves existing records.")
 
 
 def prepare(database, baseline):
