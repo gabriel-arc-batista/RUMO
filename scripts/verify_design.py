@@ -23,6 +23,21 @@ def pump(root, seconds=0.75):
         time.sleep(0.01)
 
 
+def wait_opaque(root, window, timeout=10):
+    """Wait for the actual reveal result, allowing slow Windows CI frames."""
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
+        root.update()
+        if float(window.attributes("-alpha")) == 1:
+            return
+        time.sleep(0.01)
+    assert float(window.attributes("-alpha")) == 1, (
+        "Window reveal did not finish",
+        window.title(),
+        window.attributes("-alpha"),
+    )
+
+
 def descendants(widget):
     for child in widget.winfo_children():
         yield child
@@ -35,7 +50,7 @@ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as folder:
     errors = []
     root.report_callback_exception = lambda kind, value, tb: errors.append(str(value))
     pump(root)
-    assert float(root.attributes("-alpha")) == 1
+    wait_opaque(root, root)
     assert tkfont.Font(root, family="Inter").actual("family") == "Inter"
     # Current surfaces are quiet cards; numbers use text stats, without a
     # decorative entrance animation. Validate the actual rendered structure.
@@ -114,7 +129,7 @@ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as folder:
     app.open_clock()
     pump(root)
     win = next(w for w in root.winfo_children() if isinstance(w, tk.Toplevel))
-    assert float(win.attributes("-alpha")) == 1
+    wait_opaque(root, win)
     win.destroy()
     subject = app.store.one(
         "SELECT * FROM subjects WHERE plan_id=? LIMIT 1", (app.plan,)
@@ -144,7 +159,7 @@ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as folder:
     if sys.platform.startswith("linux"):
         assert first_alpha == 1  # Linux native windows remain opaque.
     pump(root)
-    assert float(clock.attributes("-alpha")) == 1
+    wait_opaque(root, clock)
     app.clock.discard()
     clock.destroy()
     pump(root)

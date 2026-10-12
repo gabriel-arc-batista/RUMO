@@ -22,12 +22,12 @@ jobs:
           python -m unittest discover -s tests -v
           python scripts/verify_upgrade.py self-test
           python scripts/verify_sync_gui.py
+          python scripts/verify_design.py
           python scripts/verify_rpg_gui.py
           python scripts/verify_rpg_dialogs.py
           python scripts/verify_appearance_gui.py
           python scripts/verify_gui.py
           python scripts/verify_modern_ui.py
-          python scripts/verify_design.py
           python scripts/verify_subtopic_clicks.py
           python scripts/verify_performance.py
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
