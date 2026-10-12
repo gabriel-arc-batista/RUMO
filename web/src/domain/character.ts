@@ -33,6 +33,22 @@ export const DEFAULT_LOOK: Look = {
 
 const BACK_STYLES = new Set(["baguncado", "cacheado", "crespo", "ondulado", "longo", "franja"]);
 
+const SAFE = /^[a-z0-9-]{1,40}$/;
+
+/** Aparência vinda do app: só valores seguros; o que faltar usa o padrão. */
+export function lookFrom(raw: Record<string, string> | null | undefined): Look {
+  const look = { ...DEFAULT_LOOK };
+  if (!raw) return look;
+  for (const key of Object.keys(DEFAULT_LOOK) as (keyof Look)[]) {
+    const value = raw[key];
+    if (typeof value === "string" && SAFE.test(value)) look[key] = value;
+  }
+  return look;
+}
+
+/** Miniatura real do item equipado (assets/character/items/96). */
+export const itemThumb = (id: string) => (/^[a-z0-9_]{1,48}$/.test(id) ? `/character/items/${id}.png` : null);
+
 export function portraitLayers(look: Look = DEFAULT_LOOK): string[] {
   const back = BACK_STYLES.has(look.hair) ? [`hairback-${look.hair}-${look.hair_color}`] : [];
   const front = [

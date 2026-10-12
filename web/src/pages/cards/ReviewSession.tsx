@@ -157,6 +157,7 @@ function Review({
 
   return (
     <div className="page review-page">
+      <h1 className="sr-only">Revisão de flashcards</h1>
       <div className="arena-bar">
         <button type="button" className="btn ghost sm" onClick={() => (done.length ? setEnding(true) : navigate("/flashcards"))}>
           <ArrowLeft size={16} aria-hidden="true" /> Encerrar

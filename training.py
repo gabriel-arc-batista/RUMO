@@ -281,6 +281,13 @@ class TrainingService:
         )
         return row["n"], row["c"]
 
+    def reading_versions(self, lesson_id):
+        return self.sync_service.reading_versions(lesson_id)
+
+    def carry_reading(self, lesson_id, version, pages, chosen):
+        self.check(lesson_id, version)
+        return self.sync_service.carry_reading(lesson_id, version, pages, chosen)
+
     @staticmethod
     def check(lesson_id, version):
         if not valid_id(lesson_id) or not valid_version(version):

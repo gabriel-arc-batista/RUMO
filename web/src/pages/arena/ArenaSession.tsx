@@ -143,6 +143,9 @@ function ArenaSession() {
   const status = attempt?.result?.status;
   return (
     <div className="page arena-page">
+      <h1 className="sr-only">
+        Arena: questão {index + 1} de {questions.length}
+      </h1>
       <div className="arena-bar">
         <button type="button" className="btn ghost sm" onClick={() => (sessionAttempts.length ? setLeaving(true) : navigate("/arena"))}>
           <ArrowLeft size={16} aria-hidden="true" /> Sair
@@ -208,7 +211,13 @@ function ArenaSession() {
                 <p className="result-title row">
                   {status === "correct" ? <Check size={20} aria-hidden="true" /> : status === "annulled" ? <CircleSlash size={20} aria-hidden="true" /> : <X size={20} aria-hidden="true" />}
                   {status === "correct" ? "Você acertou." : status === "annulled" ? "Questão anulada: não conta como acerto nem erro." : "Não foi desta vez."}
-                  {prefs.rpgEffects && status === "correct" && <span className="rpg-line">Golpe certeiro.</span>}
+                  {prefs.rpgEffects && status === "correct" && (
+                    <span className="rpg-line">
+                      {history.some((h) => h.version === question.version && h.result?.status === "correct")
+                        ? "Golpe certeiro."
+                        : "Vitória: primeira vez que você vence esta questão."}
+                    </span>
+                  )}
                   {prefs.rpgEffects && status === "incorrect" && <span className="rpg-line">Todo erro aqui é treino para a prova.</span>}
                 </p>
                 {attempt.result?.comment ? (

@@ -646,6 +646,11 @@ class App:
         self.refresh()
         self.root.after(500, self.tick)
         self.motion.reveal(self.root)
+        # Conta opcional: só reconecta se a pessoa escolheu "manter conectado".
+        if self.store.path.with_name("study-sync-login.json").exists():
+            from screen_account import schedule_background_sync
+
+            self.root.after(3000, lambda: schedule_background_sync(self))
         try:
             self.store.auto_backup()
         except Exception as e:
@@ -4580,6 +4585,8 @@ class App:
             self.clock.pause()
         if getattr(self, "_study_auto_retry", None):
             self.root.after_cancel(self._study_auto_retry)
+        if getattr(self, "_study_background", None):
+            self.root.after_cancel(self._study_background)
         self.store.close()
         self.root.destroy()
 

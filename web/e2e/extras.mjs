@@ -1,6 +1,6 @@
 // Cenários extras contra o serviço real: favoritos/marcadores, nota de questão,
 // sessão registrada + nível, conflito entre dois dispositivos e isolamento entre contas.
-import { chromium } from "playwright-core";
+import { chromium, firefox, webkit } from "playwright-core";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
 import { mkdirSync } from "node:fs";
@@ -15,7 +15,11 @@ const check = (name, ok, detail = "") => {
 };
 const sql = (q) => execFileSync("docker", ["exec", "-i", "rumo-webtest-db", "psql", "-U", "postgres", "-At"], { input: q }).toString().trim();
 
-const browser = await chromium.launch({ executablePath: process.env.CHROME ?? "/usr/bin/google-chrome", headless: true });
+// BROWSER=firefox|webkit usa os navegadores do Playwright; padrão: Google Chrome do sistema.
+const engine = { firefox, webkit }[process.env.BROWSER ?? ""];
+const browser = engine
+  ? await engine.launch({ headless: true })
+  : await chromium.launch({ executablePath: process.env.CHROME ?? "/usr/bin/google-chrome", headless: true });
 const errors = [];
 async function device(email, create) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, locale: "pt-BR" });

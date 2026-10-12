@@ -7,12 +7,15 @@ import tkinter as tk
 from tkinter import filedialog, ttk
 
 from desktop_sync import (
+    note_server_features,
     capture_new_sessions,
+    capture_profile_and_cycle,
     export_workspace,
     import_remote_sessions,
     service_for,
     workspace_for,
 )
+import token_store
 from sync_client import SupabaseTransport, SyncWorkspace, SyncError
 from study_sync import StudySync
 from service_config import PUBLIC_KEY, SERVICE_URL
@@ -79,7 +82,14 @@ def render(app):
         text="Compartilhar novas ações de estudo com esta conta",
         variable=consent,
     )
-    consent_button.pack(anchor="w", pady=12)
+    consent_button.pack(anchor="w", pady=(12, 4))
+    login_file = app.store.path.with_name("study-sync-login.json")
+    remember = tk.BooleanVar(value=login_file.exists())
+    ttk.Checkbutton(
+        panel,
+        text="Manter conectado neste computador (guarda só o token de renovação; Sair apaga)",
+        variable=remember,
+    ).pack(anchor="w", pady=(0, 12))
     actions = ttk.Frame(panel)
     actions.pack(fill="x", pady=4)
     mailbox = queue.Queue()
@@ -91,9 +101,15 @@ def render(app):
     def run(action):
         if busy[0]:
             return
+        if action == "restore":
+            stored = token_store.load(login_file)
+            if not stored or not workspace.account_id:
+                return
         if action == "login" and not consent.get():
             status.set("Marque a opção de compartilhar novas ações antes de conectar.")
             return
+        if action == "logout":
+            token_store.clear(login_file)
         if action != "logout":
             if workspace._meta("session_baseline") is None:
                 with workspace.db:
@@ -109,10 +125,14 @@ def render(app):
                         ),
                     )
             capture_new_sessions(app.store)
+            # Aparência/equipados e ciclo vão ao site como retrato somente leitura.
+            capture_profile_and_cycle(app.store, getattr(app, "plan", None))
         values = {key: value.get() for key, value in fields.items()}
         fields["password"].set("")
         busy[0] = True
-        status.set("Conectando…" if action == "login" else LABELS["syncing"])
+        status.set(
+            "Conectando…" if action in ("login", "restore") else LABELS["syncing"]
+        )
         path = app.store.path.with_name("study-sync.sqlite3")
         transport = getattr(app, "study_transport", None)
 
@@ -122,6 +142,14 @@ def render(app):
                 local = SyncWorkspace(path)
                 StudySync(local)
                 client = transport
+                if action == "restore":
+                    client = SupabaseTransport(values["url"], values["key"])
+                    client.refresh_token = stored
+                    client.refresh()
+                    if client.account_id != local.account_id:
+                        raise ValueError(
+                            "O login salvo é de outra conta. Entre novamente."
+                        )
                 if action == "login":
                     client = SupabaseTransport(values["url"], values["key"])
                     client.login(values["email"], values["password"])
@@ -139,6 +167,7 @@ def render(app):
                     mailbox.put((None, "offline", None))
                 else:
                     result = local.sync(client)
+                    note_server_features(local, client)
                     mailbox.put((client, result, None))
             except Exception as exc:
                 # Do not display response bodies or credentials in errors.
@@ -168,10 +197,20 @@ def render(app):
         busy[0] = False
         app.study_transport = client
         workspace.status = state
+        # Guarda o token mais recente (o serviço gira o refresh token a cada uso).
+        try:
+            if client is not None and remember.get() and client.refresh_token:
+                token_store.save(login_file, client.refresh_token)
+            elif not remember.get():
+                token_store.clear(login_file)
+        except (OSError, ValueError):
+            status.set("Não foi possível guardar o login neste computador.")
         status.set(error or LABELS[state])
         if not error:
             # Projection sees committed worker changes through its own connection.
             service_for(app.store)
+            if client is not None:
+                capture_profile_and_cycle(app.store, getattr(app, "plan", None))
             try:
                 waiting = import_remote_sessions(app.store)
             except (ValueError, SyncError) as exc:
@@ -425,3 +464,96 @@ def render(app):
     if getattr(app, "_study_auto_retry", None):
         app.root.after_cancel(app._study_auto_retry)
     app._study_auto_retry = app.root.after(60000, auto_retry)
+    # Login lembrado: reconecta em segundo plano ao abrir a tela, sem pedir senha.
+    if (
+        getattr(app, "study_transport", None) is None
+        and not busy[0]
+        and login_file.exists()
+    ):
+        run("restore")
+
+
+def background_sync(app, action="sync"):
+    """Sincroniza sem a tela de conta: reconexão ao abrir (login lembrado) e
+    nova tentativa periódica. Rede numa thread; Store/GUI só na thread principal."""
+    busy = getattr(app, "study_network_busy", None)
+    if busy is None:
+        busy = [False]
+        app.study_network_busy = busy
+    if busy[0]:
+        return
+    workspace = workspace_for(app.store)
+    login_file = app.store.path.with_name("study-sync-login.json")
+    transport = getattr(app, "study_transport", None)
+    stored = token_store.load(login_file) if action == "restore" else None
+    if (
+        action == "restore" and (not stored or not workspace.account_id or transport)
+    ) or (action == "sync" and transport is None):
+        return
+    capture_new_sessions(app.store)
+    capture_profile_and_cycle(app.store, getattr(app, "plan", None))
+    url = workspace._meta("service_url") or SERVICE_URL
+    key = workspace._meta("service_key") or PUBLIC_KEY
+    path = app.store.path.with_name("study-sync.sqlite3")
+    mailbox = queue.Queue()
+    busy[0] = True
+
+    def work():
+        local = None
+        try:
+            local = SyncWorkspace(path)
+            StudySync(local)
+            client = transport
+            if action == "restore":
+                client = SupabaseTransport(url, key)
+                client.refresh_token = stored
+                client.refresh()
+                if client.account_id != local.account_id:
+                    raise SyncError("account_mismatch")
+            result = local.sync(client)
+            note_server_features(local, client)
+            mailbox.put((client, result, None))
+        except Exception as exc:
+            mailbox.put((transport, "error", getattr(exc, "code", None) or "error"))
+        finally:
+            if local:
+                local.close()
+
+    def poll():
+        try:
+            client, state, error = mailbox.get_nowait()
+        except queue.Empty:
+            app.root.after(200, poll)
+            return
+        busy[0] = False
+        workspace.status = state
+        if error == "account_mismatch":
+            token_store.clear(login_file)
+        if client is None:
+            return
+        app.study_transport = client
+        try:
+            if login_file.exists() and client.refresh_token:
+                token_store.save(login_file, client.refresh_token)
+        except (OSError, ValueError):
+            pass
+        if not error:
+            service_for(app.store)
+            try:
+                import_remote_sessions(app.store)
+            except (ValueError, SyncError):
+                pass
+
+    threading.Thread(target=work, daemon=True).start()
+    app.root.after(200, poll)
+
+
+def schedule_background_sync(app):
+    """Reconecta o login lembrado ao abrir e tenta de novo a cada minuto."""
+    background_sync(app, "restore")
+
+    def again():
+        background_sync(app, "sync")
+        app._study_background = app.root.after(60000, again)
+
+    app._study_background = app.root.after(60000, again)

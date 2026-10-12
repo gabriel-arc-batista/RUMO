@@ -36,8 +36,15 @@ Frontend do Claude em `web/`; contrato e serviço do Codex em `docs/integration/
 
 ## Limites reais
 
-- Esta rodada de validação usou um gateway nginx no lugar do gateway do Supabase, sem SMTP, confirmação por e-mail nem chaves hospedadas.
 - O catálogo real está vazio. Só há conteúdo de EXEMPLO identificado; os PDFs de exemplo usam `resource.url` porque o SQL reserva `pdf_url` a aulas revisadas.
-- Aparência, ciclo, inventário e metas do app não sincronizam: o site mostra o retrato padrão e diz isso.
-- Fórmulas aparecem como texto em fonte matemática, sem motor LaTeX.
-- Testado só no Chrome (Linux). Firefox, Safari, Windows, leitores de tela e celulares físicos não foram testados.
+- Aparência, nome, equipados e ciclo vêm do app (migração 009) e são somente leitura no site; inventário completo, compras e metas continuam locais. Sem a 009 no serviço, o site mostra o retrato padrão e diz isso.
+- Testado em Chrome e Firefox (Linux). WebKit/Safari não rodou neste computador por falta de bibliotecas do sistema (exige `sudo`); Windows, leitor de tela real e celulares físicos não foram testados. Auditoria automática axe-core (WCAG A/AA) sem apontamentos nas dez telas principais.
+- Os e-mails de confirmação e recuperação foram testados com SMTP local (Mailpit); no Supabase hospedado os modelos padrão estão em inglês e devem ser traduzidos em Auth → Email Templates.
+
+## Adições de 12/10 (tarde)
+
+- **Fórmulas** em LaTeX (`$$…$$`) renderizadas com KaTeX, carregado só quando há fórmula, com MathML para leitores de tela e `trust:false`; LaTeX inválido aparece como texto.
+- **Personagem do app** no site: retrato com a aparência real, nome, itens equipados (miniaturas e nomes do catálogo do app) e vitórias.
+- **Ciclo do app** como contexto no Início ("No ciclo do aplicativo, agora: …"): se a matéria/assunto existe no catálogo, a aula e as questões sugeridas vêm dele, sem impor agenda.
+- **Vitórias**: primeira vez que você vence uma questão aparece como "Vitória"; repetir não soma.
+- **Trazer marcações** de outra versão da aula, só com confirmação e páginas editáveis.

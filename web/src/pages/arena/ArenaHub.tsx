@@ -8,7 +8,7 @@ import { lastAttempt, MODES, readFilters, realMetadata, selectQuestions, toParam
 
 export default function ArenaHub() {
   const catalog = useCatalog();
-  const { sync } = useRumo();
+  const { sync, progress } = useRumo();
   const [params, setParams] = useSearchParams();
   const f = readFilters(params);
   const p = sync?.projection;
@@ -146,6 +146,10 @@ export default function ArenaHub() {
         <div className="stat">
           <span className="value">{attempts.filter((a) => a.result?.status === "correct").length}</span>
           <span className="label">acertos</span>
+        </div>
+        <div className="stat">
+          <span className="value">{progress?.victories ?? 0}</span>
+          <span className="label">vitórias (questões vencidas)</span>
         </div>
         <div className="stat">
           <span className="value">{wrongNow}</span>

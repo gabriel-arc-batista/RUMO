@@ -37,3 +37,5 @@ Conta vinculada não pode ser trocada silenciosamente. Upload legado exige sele�
 PDFs pessoais e demais dados fora do contrato não são enviados. Cada evento tem
 UUID e CAS; conflito preserva original. Backups antigos não apagam dados remotos;
 exportar workspace separadamente. Logout impede rede mas mantém pendências locais.
+
+Conta opcional — login lembrado (12/10/2026): desligado por padrão. Quando a pessoa marca "Manter conectado neste computador", `token_store.py` guarda apenas o refresh token em `study-sync-login.json` ao lado da base: cifrado com DPAPI do usuário no Windows (CryptProtectData, sem diálogo); arquivo 0600 nos demais sistemas. Senha e access token nunca são gravados. "Sair", desmarcar a opção ou login de outra conta apagam o arquivo; falha de rede não apaga. O arquivo não entra em backups, exportação do workspace nem pacotes. Perfil/ciclo enviados ao serviço (009) contêm só identificadores de aparência/itens, nome e nomes de matérias/assuntos do ciclo; o SQL recusa campos extras e valores fora do padrão.

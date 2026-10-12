@@ -202,3 +202,9 @@ Frontend entregue pelo Claude e congelado após correções: 31 unitários, tipo
 - A CI foi **aprovada**: 173 testes (um ignorado), verificações nativas, 31 testes do frontend com build, executável (0,75 s, 49,2 MiB, sem rede), instalador e ZIP sem arquivos privados.
 - Artefato baixado e hashes conferidos. Anexos montados em `dist/release-2.0.0/` (fora do Git) (instalador, ZIP Windows, tar.gz Linux já validado e sem arquivos proibidos, `SHA256SUMS.txt` único). Instalador `e01411a5…`, ZIP `aafee1b0…`, tar.gz `98c362c6…`.
 - Documentos de status atualizados no working tree (README, `.agents/README.md`, `docs/integration/VALIDATION.md` e `RELEASE_CHECKS.md`), **sem commit**: o modo automático bloqueou commit/push/tag como "deploy de produção". Falta, com autorização do usuário: commit desses quatro arquivos, push, tag `v2.0.0` e `gh release create` com os quatro anexos.
+
+## Opcionais e adiados implementados (Claude, 12/10/2026 tarde)
+
+- O usuário pediu tudo que estava opcional, não feito ou adiado. Feito: migração 009 (perfil/aparência/equipados e ciclo do app → site; vitórias sem XP), login lembrado opcional no desktop (`token_store.py`), trazer marcações entre versões (app e site, só com confirmação), KaTeX, e-mail de confirmação/recuperação testado (Mailpit), Firefox, auditoria axe-core e carga local. Não feito: WebKit (falta `sudo` para bibliotecas), leitor de tela real, conteúdo editorial real (precisa de revisão humana), troca SM-2→FSRS (decisão documentada, mudaria a agenda de quem já revisa).
+- Produção continua com 001–008 e o site antigo publicado; a release v2.0.0 (pacotes em `dist/release-2.0.0/`) ainda não foi publicada. Publicar exige autorização explícita (o modo automático bloqueia push/tag/deploy).
+- Disco do usuário ~1 GB livre: removi navegadores de teste depois de usar; Mailpit (49 MB) ficou como imagem Docker.

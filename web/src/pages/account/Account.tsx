@@ -2,7 +2,8 @@ import { LogOut, RefreshCw } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SyncPanel, syncLabel } from "../../components/Sync";
-import { Confirm, ExampleTag, Portrait, ProgressBar, Segmented } from "../../components/ui";
+import { Confirm, EquippedItems, ExampleTag, Portrait, ProgressBar, Segmented } from "../../components/ui";
+import { useCharacter } from "../../service/useCharacter";
 import { siteXp } from "../../domain/describe";
 import { compactDuration, relativeDay } from "../../lib/format";
 import type { Prefs } from "../../lib/prefs";
@@ -14,16 +15,19 @@ const SHARED = [
   "Respostas da Arena e o resultado calculado pelo serviço",
   "Cartões pessoais e o histórico de revisões",
   "Sessões de estudo registradas aqui com o cronômetro",
+  "Do aplicativo para o site: aparência, nome e itens equipados do personagem",
+  "Do aplicativo para o site: o ciclo de estudos atual, só para consulta",
 ];
 
 const NOT_SHARED = [
-  "Ciclo de estudos, edital e metas do aplicativo",
-  "Inventário, equipamentos e aparência do personagem",
-  "Histórico antigo do aplicativo e seus PDFs pessoais",
+  "Edital, metas e edição do ciclo (o ciclo só é exibido)",
+  "Inventário completo, compras e moedas gastas",
+  "Histórico antigo do aplicativo (só o que você escolher) e PDFs pessoais",
 ];
 
 export default function AccountPage() {
   const { account, backend, sync, prefs, setPrefs, syncNow, progress } = useRumo();
+  const character = useCharacter();
   const navigate = useNavigate();
   const [leaving, setLeaving] = useState(false);
   const [panel, setPanel] = useState(false);
@@ -54,13 +58,18 @@ export default function AccountPage() {
         <section className="surface stack" aria-labelledby="viajante">
           <div className="row" style={{ gap: "var(--s4)" }}>
             <span data-decor>
-              <Portrait size={72} />
+              <Portrait size={72} look={character.look} />
             </span>
-            <div className="stack" style={{ gap: 2 }}>
+            <div className="stack" style={{ gap: 4 }}>
               <h2 id="viajante" className="display-name">
-                Viajante
+                {character.name}
               </h2>
-              <span className="small muted">Aparência padrão: a do aplicativo ainda não é sincronizada.</span>
+              <span className="small muted">
+                {character.synced
+                  ? "Aparência e equipamentos vindos do aplicativo."
+                  : "Aparência padrão: conecte o aplicativo à mesma conta para ver a sua."}
+              </span>
+              <EquippedItems ids={character.equipped} max={8} />
             </div>
           </div>
           {progress ? (
@@ -80,6 +89,10 @@ export default function AccountPage() {
                   <span className="value">{progress.coins}</span>
                   <span className="label">moedas ganhas</span>
                 </div>
+                <div className="stat">
+                  <span className="value">{progress.victories ?? 0}</span>
+                  <span className="label">vitórias na Arena</span>
+                </div>
               </div>
               <ProgressBar value={progress.xp} max={progress.xp_next} label={`XP no nível ${progress.level}`} />
             </div>
@@ -87,7 +100,7 @@ export default function AccountPage() {
             <p className="small muted">O nível aparece depois da primeira sincronização.</p>
           )}
           <p className="xs faint">
-            Calculado pelo serviço a partir das sessões sincronizadas (site e aplicativo conectado): um XP por minuto líquido, como no aplicativo. Ler, repetir questões ou revisar sem sessão registrada não gera XP. Inventário e compras continuam no aplicativo.
+            Calculado pelo serviço a partir das sessões sincronizadas (site e aplicativo conectado): um XP por minuto líquido, como no aplicativo. Ler, repetir questões ou revisar sem sessão registrada não gera XP. Vitórias contam questões diferentes vencidas ao menos uma vez; repetir não soma nem dá XP. Inventário e compras continuam no aplicativo.
           </p>
           {pendingSessions > 0 && <p className="small">{pendingSessions} sessão(ões) aguardando o serviço.</p>}
           {sessions.length > 0 && (

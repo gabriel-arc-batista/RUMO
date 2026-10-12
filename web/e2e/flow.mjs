@@ -1,5 +1,5 @@
 // Fluxo ponta a ponta no Google Chrome real (modo EXEMPLO), com capturas.
-import { chromium } from "playwright-core";
+import { chromium, firefox, webkit } from "playwright-core";
 import { fileURLToPath } from "node:url";
 import { mkdirSync } from "node:fs";
 
@@ -13,7 +13,11 @@ const check = (name, ok, detail = "") => {
   console.log(`${ok ? "ok  " : "FALHA"} ${name}${detail ? ` — ${detail}` : ""}`);
 };
 
-const browser = await chromium.launch({ executablePath: process.env.CHROME ?? "/usr/bin/google-chrome", headless: true });
+// BROWSER=firefox|webkit usa os navegadores do Playwright; padrão: Google Chrome do sistema.
+const engine = { firefox, webkit }[process.env.BROWSER ?? ""];
+const browser = engine
+  ? await engine.launch({ headless: true })
+  : await chromium.launch({ executablePath: process.env.CHROME ?? "/usr/bin/google-chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, locale: "pt-BR", deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 const errors = [];

@@ -1,8 +1,9 @@
 import { BookOpen, Layers, Swords } from "lucide-react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { ExampleTag, Portrait, ProgressBar } from "../components/ui";
-import { isComplete, readPages, type ReadingState } from "../domain/projection";
+import { EquippedItems, ExampleTag, Portrait, ProgressBar } from "../components/ui";
+import { useCharacter } from "../service/useCharacter";
+import { isComplete, readPages, type Projection, type ReadingState } from "../domain/projection";
 import type { Catalog, Lesson } from "../domain/types";
 import { plural } from "../lib/format";
 import { useCatalog, useRumo } from "../service/store";
@@ -15,6 +16,20 @@ function greeting(date = new Date()) {
 
 function topicName(catalog: Catalog, id: string | undefined) {
   return catalog.topics.find((t) => t.id === id)?.name;
+}
+
+const fold = (s: string) => s.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().trim();
+
+/** Próximo bloco do ciclo do app e, se houver, a matéria/assunto equivalentes no catálogo. */
+function cycleContext(catalog: Catalog, cycle: NonNullable<Projection["cycle"]> | null | undefined) {
+  if (!cycle || !cycle.items.length) return null;
+  const next = cycle.items[cycle.position] ?? cycle.items.find((i) => !i.done);
+  if (!next) return { next: null, plan: cycle.plan_name, subjectId: undefined, topicId: undefined };
+  const subject = catalog.subjects.find((s) => fold(s.name) === fold(next.subject));
+  const topic = next.topic
+    ? catalog.topics.find((t) => fold(t.name) === fold(next.topic!) && (!subject || t.subjectId === subject.id))
+    : undefined;
+  return { next, plan: cycle.plan_name, subjectId: subject?.id ?? topic?.subjectId, topicId: topic?.id };
 }
 
 interface Resume {
@@ -63,6 +78,7 @@ function ResumeRow({
 export function Home() {
   const catalog = useCatalog();
   const { sync, progress } = useRumo();
+  const character = useCharacter();
   const cards = useCardViews();
   const p = sync?.projection;
 
@@ -88,12 +104,20 @@ export function Home() {
   // Assunto atual: o da última aula aberta ou, sem ela, o da última resposta na Arena.
   const lastAttempt = p ? [...p.attempts.values()].sort((a, b) => (b.at > a.at ? 1 : -1))[0] : undefined;
   const attemptTopic = lastAttempt && catalog.questions.find((q) => q.id === lastAttempt.questionId)?.topicIds[0];
-  const topicId = resume?.lesson.topicIds[0] ?? attemptTopic;
+  // O ciclo do app dá contexto (sem impor agenda): se o próximo bloco existe no catálogo, ele orienta.
+  const ctx = p ? cycleContext(catalog, p.cycle) : null;
+  const inProgress = resume && !resume.complete;
+  const topicId = ctx?.topicId ?? resume?.lesson.topicIds[0] ?? attemptTopic;
   const topicQuestions = topicId ? catalog.questions.filter((q) => q.topicIds.includes(topicId)) : [];
 
   const due = cards?.views.filter((v) => v.status === "vencido").length ?? 0;
   const fresh = cards?.views.filter((v) => v.status === "novo").length ?? 0;
-  const firstAvailable = catalog.lessons.find((l) => l.status === "disponivel");
+  const cycleLesson = ctx?.subjectId
+    ? catalog.lessons.find(
+        (l) => l.status === "disponivel" && l.subjectId === ctx.subjectId && (!ctx.topicId || l.topicIds.includes(ctx.topicId)),
+      )
+    : undefined;
+  const firstAvailable = cycleLesson ?? catalog.lessons.find((l) => l.status === "disponivel");
 
   const rows: ReactNode[] = [];
   let gold = true;
@@ -116,7 +140,7 @@ export function Home() {
         example={resume.lesson.example}
       />,
     );
-  } else if (resume) {
+  } else if (resume && !cycleLesson) {
     rows.push(
       <ResumeRow
         key="aula"
@@ -127,6 +151,19 @@ export function Home() {
         primary={takeGold()}
         to="/campo"
         example={resume.lesson.example}
+      />,
+    );
+  } else if (cycleLesson && !inProgress) {
+    rows.push(
+      <ResumeRow
+        key="aula"
+        icon={<BookOpen size={20} />}
+        title={cycleLesson.title}
+        detail={ctx?.topicId ? "Aula do assunto que vem agora no seu ciclo." : "Aula da matéria que vem agora no seu ciclo."}
+        action="Abrir aula"
+        primary={takeGold()}
+        to={`/campo/aula/${encodeURIComponent(cycleLesson.id)}`}
+        example={cycleLesson.example}
       />,
     );
   } else if (firstAvailable) {
@@ -143,7 +180,23 @@ export function Home() {
     );
   }
 
-  if (topicId && topicQuestions.length) {
+  // Ciclo só com matéria (sem assunto): sugere as questões da matéria inteira.
+  const cycleSubjectQuestions =
+    ctx?.subjectId && !ctx.topicId ? catalog.questions.filter((q) => q.subjectId === ctx.subjectId) : [];
+  if (cycleSubjectQuestions.length) {
+    rows.push(
+      <ResumeRow
+        key="arena"
+        icon={<Swords size={20} />}
+        title={`Questões de ${catalog.subjects.find((s) => s.id === ctx!.subjectId)?.name}`}
+        detail={`${plural(cycleSubjectQuestions.length, "questão", "questões")} da matéria que vem agora no seu ciclo.`}
+        action="Resolver questões"
+        primary={takeGold()}
+        to={`/arena/sessao?materia=${encodeURIComponent(ctx!.subjectId!)}`}
+        example={cycleSubjectQuestions.some((q) => q.example)}
+      />,
+    );
+  } else if (topicId && topicQuestions.length) {
     rows.push(
       <ResumeRow
         key="arena"
@@ -201,6 +254,18 @@ export function Home() {
             </div>
           </div>
 
+          {ctx?.next && (
+            <p className="cycle-line">
+              <span className="muted">No ciclo do aplicativo{ctx.plan ? ` (${ctx.plan})` : ""}, agora:</span>{" "}
+              <strong>{ctx.next.subject}</strong>
+              {ctx.next.topic ? ` — ${ctx.next.topic}` : ""}
+              <span className="muted">
+                {" "}
+                · {ctx.next.target_minutes} min de {ctx.next.category.toLowerCase()}
+              </span>
+            </p>
+          )}
+
           {sync && sync.conflicts.length > 0 && (
             <p className="notice warning">Há {plural(sync.conflicts.length, "alteração", "alterações")} em conflito com outro dispositivo. Abra a sincronização no topo para escolher o que fica.</p>
           )}
@@ -223,9 +288,9 @@ export function Home() {
         </section>
 
         <aside className="home-character surface" data-decor aria-label="Seu viajante">
-          <Portrait size={88} />
+          <Portrait size={88} look={character.look} />
           <div className="stack" style={{ gap: 4, alignItems: "center", textAlign: "center" }}>
-            <span className="name">Viajante</span>
+            <span className="name">{character.name}</span>
             <span className="small muted">{progress ? `Nível ${progress.level}` : "Progresso ao sincronizar"}</span>
           </div>
           {progress && (
@@ -236,6 +301,12 @@ export function Home() {
               </span>
             </div>
           )}
+          <EquippedItems ids={character.equipped} />
+          {progress?.victories ? (
+            <span className="xs muted">
+              {progress.victories} {progress.victories === 1 ? "vitória" : "vitórias"} na Arena
+            </span>
+          ) : null}
           <Link to="/conta" className="btn ghost sm">
             Ver progresso
           </Link>

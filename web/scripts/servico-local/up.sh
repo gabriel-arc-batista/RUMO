@@ -8,7 +8,16 @@ ROOT=$(cd "$S/../../.." && pwd)
 NET=rumo-webtest
 SECRET=rumo-disposable-web-test-secret-32-bytes-long
 docker network create $NET >/dev/null 2>&1 || true
-docker rm -f rumo-webtest-db rumo-webtest-auth rumo-webtest-rest rumo-webtest-gw >/dev/null 2>&1 || true
+docker rm -f rumo-webtest-db rumo-webtest-auth rumo-webtest-rest rumo-webtest-gw rumo-webtest-mail >/dev/null 2>&1 || true
+# MAIL=1: e-mail real de teste (Mailpit) para confirmação de cadastro e recuperação de senha.
+MAIL_ENV=(-e GOTRUE_MAILER_AUTOCONFIRM=true)
+if [ "${MAIL:-0}" = "1" ]; then
+  docker run -d --name rumo-webtest-mail --network $NET -p 127.0.0.1:8025:8025 axllent/mailpit:v1.27.0 >/dev/null
+  MAIL_ENV=(-e GOTRUE_MAILER_AUTOCONFIRM=false -e GOTRUE_SMTP_HOST=rumo-webtest-mail -e GOTRUE_SMTP_PORT=1025
+    -e GOTRUE_SMTP_USER=teste -e GOTRUE_SMTP_PASS=teste -e GOTRUE_SMTP_ADMIN_EMAIL=nao-responda@example.invalid
+    -e GOTRUE_SMTP_SENDER_NAME=RUMO -e GOTRUE_MAILER_URLPATHS_CONFIRMATION=/auth/v1/verify
+    -e GOTRUE_MAILER_URLPATHS_RECOVERY=/auth/v1/verify -e GOTRUE_RATE_LIMIT_EMAIL_SENT=1000)
+fi
 
 docker run -d --name rumo-webtest-db --network $NET -e POSTGRES_PASSWORD=temporary-test-only postgres:17.6 >/dev/null
 for i in $(seq 60); do docker exec rumo-webtest-db pg_isready -U postgres >/dev/null 2>&1 && break; sleep 1; done
@@ -23,7 +32,7 @@ docker run -d --name rumo-webtest-auth --network $NET \
   -e "GOTRUE_DB_DATABASE_URL=postgres://postgres:temporary-test-only@rumo-webtest-db:5432/postgres?search_path=auth" \
   -e GOTRUE_DB_NAMESPACE=auth -e GOTRUE_JWT_SECRET=$SECRET -e GOTRUE_JWT_AUD=authenticated \
   -e GOTRUE_JWT_DEFAULT_GROUP_NAME=authenticated -e GOTRUE_JWT_ADMIN_ROLES=service_role \
-  -e GOTRUE_EXTERNAL_EMAIL_ENABLED=true -e GOTRUE_MAILER_AUTOCONFIRM=true -e GOTRUE_DISABLE_SIGNUP=false \
+  -e GOTRUE_EXTERNAL_EMAIL_ENABLED=true "${MAIL_ENV[@]}" -e GOTRUE_DISABLE_SIGNUP=false \
   supabase/gotrue:v2.177.0 >/dev/null
 for i in $(seq 60); do docker exec rumo-webtest-db psql -U postgres -tAc "select to_regclass('auth.users')" | grep -q users && break; sleep 1; done
 

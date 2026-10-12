@@ -896,3 +896,50 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* ---------- Personagem sincronizado e ciclo ---------- */
+.equipped {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--s1);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.equipped li {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-md);
+  background: var(--raised);
+}
+.equipped img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+.cycle-line {
+  font-size: var(--text-sm);
+  padding: var(--s3) var(--s4);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: inset 3px 0 0 var(--secondary);
+}
+.katex-host {
+  white-space: normal;
+  font-family: inherit;
+}
+.katex-host .katex-display {
+  margin: 0;
+}
+.katex-host .katex {
+  font-size: 1.15em;
+  color: var(--fg);
+}
+.reader-h1 {
+  font-size: var(--text-md);
+  line-height: 1.4;
+  margin: 0;
+}

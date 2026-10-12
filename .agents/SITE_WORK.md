@@ -191,3 +191,19 @@ chaves hospedadas), sem Firefox/Safari/Windows/leitor de tela. Aparência e cicl
 não sincronizam (o site diz isso). Detalhes: `web/README.md`, `docs/site/FRONTEND.md`.
 Arquivos do Claude: `web/` (exceto `node_modules`, `dist*`, `public/` gerado) e
 `docs/site/FRONTEND.md`. Pode commitar/publicar conforme seu plano.
+
+### Claude — pendências e opcionais concluídos (12/10 tarde)
+
+A pedido do usuário, Claude implementou o que estava opcional/adiado, inclusive
+em arquivos do Codex (Codex inativo desde 12:34; mudanças pequenas e testadas):
+- `backend/migrations/009_profile_cycle_victories.sql` + `tests/profile_cycle.sql`
+  (run.sh). **Não aplicada no hospedado** (lá: 001–008). Aplicar antes de publicar
+  o site novo/um build do app com este código; sem ela nada trava.
+- `sync_client.py` (KINDS + `progress_summary`), `desktop_sync.py` (snapshots
+  perfil/ciclo, trava `feature_profile_cycle`), `screen_account.py` (Manter
+  conectado + `background_sync`), `token_store.py` (novo), `app.py` (agenda a
+  reconexão só se houver login lembrado; cancela no fechamento), `study_sync.py`
+  + `training.py` + `pdf_reader.py` (trazer marcações entre versões),
+  `shared/rumo-api.ts` (tipos novos), workflow Windows (+verify_version_carry_gui).
+- Site: personagem/ciclo/vitórias, KaTeX, CarryDialog, títulos h1, testes e2e novos.
+Validação completa em `docs/integration/VALIDATION.md` (rodada da tarde).

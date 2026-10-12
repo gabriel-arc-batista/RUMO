@@ -4,6 +4,7 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useRumo } from "../service/store";
 import { useDueCount } from "../pages/cards/useCards";
 import { SyncPanel, SyncPill } from "./Sync";
+import { useCharacter } from "../service/useCharacter";
 import { ExampleTag, Portrait, ProgressBar } from "./ui";
 
 const AREAS = [
@@ -17,6 +18,7 @@ export function Shell() {
   const { prefs, setPrefs, backend, toasts, closeToast, account, progress } = useRumo();
   const [panel, setPanel] = useState(false);
   const due = useDueCount();
+  const character = useCharacter();
   const location = useLocation();
   const focus = prefs.focus;
 
@@ -52,10 +54,10 @@ export function Shell() {
           </NavLink>
         </nav>
         <div className="sidebar-foot" data-decor>
-          <NavLink to="/conta" className="char-card" aria-label="Seu viajante: ver progresso">
-            <Portrait size={40} />
+          <NavLink to="/conta" className="char-card" aria-label={`${character.name}: ver progresso`}>
+            <Portrait size={40} look={character.look} />
             <span className="hide-rail stack grow" style={{ gap: 4 }}>
-              <span className="name">Viajante</span>
+              <span className="name truncate">{character.name}</span>
               {progress ? (
                 <>
                   <span className="xs muted tabular">

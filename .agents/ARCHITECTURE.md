@@ -126,3 +126,5 @@ reconstrói o estado a partir dos eventos aceitos + fila; correção, agenda, XP
 nível vêm de `result`/`progress_summary`, nunca recalculados no navegador. Leitor
 pdf.js com render preguiçoso e camada de texto; "Li esta página" por página e na
 barra fixa; posição separada da leitura. Decisões em `docs/site/FRONTEND.md`.
+
+Migração 009 e app (12/10, Claude): `push_events` virou adaptador que valida `profile.character`/`cycle.snapshot` e delega o resto a `push_events_core` na mesma transação; `progress_summary` traz aparência, nome, equipados e vitórias. Desktop: `desktop_sync.capture_profile_and_cycle` envia retratos só quando mudam e só após `note_server_features` confirmar a 009; `screen_account.background_sync` reconecta o login lembrado (`token_store.py`) ao abrir e repete a cada minuto. `StudySync.carry_reading` e o aviso do leitor trazem marcações de outra versão apenas com confirmação. Site: `useCharacter`, contexto do ciclo no Início, `Formula` (KaTeX sob demanda), `CarryDialog`.

@@ -17,6 +17,8 @@ KINDS = frozenset(
         "card.save",
         "card.review",
         "study.session",
+        "profile.character",
+        "cycle.snapshot",
     )
 )
 MAX_RESPONSE = 16 * 1024 * 1024
@@ -528,6 +530,9 @@ class SupabaseTransport:
                 self._call("/auth/v1/logout", {})
         finally:
             self.access_token = self.refresh_token = self.account_id = None
+
+    def progress_summary(self):
+        return self._call("/rest/v1/rpc/progress_summary", {})
 
     def push_events(self, events):
         if len(events) > 100:

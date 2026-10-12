@@ -130,6 +130,7 @@ class Reader(tk.Frame):
     def build(self):
         self.top_bar()
         self.update_banner()
+        self.carry_banner()
         self.tool_bar()
         reading_bar = ttk.Frame(self)
         reading_bar.pack(fill="x", pady=(0, 8))
@@ -189,6 +190,79 @@ class Reader(tk.Frame):
         self.session.pack(side="right")
         self.app.clock_listeners.append(self.refresh_session)
         self.refresh_session()
+
+    def carry_banner(self):
+        """Oferece trazer marcações de uma versão anterior (nunca automático)."""
+        try:
+            versions = self.service.reading_versions(self.lesson["id"])
+        except (AttributeError, ValueError):
+            return
+        older = {v: pages for v, pages in versions.items() if v != self.version}
+        current = versions.get(self.version, [])
+        if not older or current:
+            return
+        source, pages = max(older.items(), key=lambda item: len(item[1]))
+        p = self.app.motion.palette
+        strip = tk.Frame(self, bg=p["info_bg"])
+        strip.pack(fill="x", pady=(0, 8))
+        wrapping(
+            label(
+                strip,
+                self.app,
+                f"Você marcou {len(pages)} páginas como lidas na versão {source}. "
+                "Esta versão começa sem marcações; você pode trazê-las depois de conferir.",
+                size=9,
+                bg=p["info_bg"],
+            )
+        ).pack(side="left", fill="x", expand=True, padx=12, pady=8)
+        MotionButton(
+            strip,
+            text="Trazer marcações",
+            command=lambda: self.carry_dialog(source, pages, strip),
+        ).pack(side="right", padx=12, pady=6)
+
+    def carry_dialog(self, source, pages, strip):
+        from app import messagebox
+
+        dialog = tk.Toplevel(self.app.root)
+        dialog.title("Trazer marcações da versão anterior")
+        dialog.transient(self.app.root)
+        frame = ttk.Frame(dialog, padding=16)
+        frame.pack(fill="both", expand=True)
+        ttk.Label(
+            frame,
+            text=(
+                f"Páginas lidas na versão {source}. As páginas da versão {self.version} "
+                "podem ter mudado: mantenha só as que correspondem ao mesmo conteúdo."
+            ),
+            wraplength=460,
+        ).pack(anchor="w")
+        value = tk.StringVar(value=page_ranges(pages))
+        ttk.Entry(frame, textvariable=value, width=52).pack(fill="x", pady=10)
+        ttk.Label(frame, text="Ex.: 1-8, 10, 12-14", style="Muted.TLabel").pack(
+            anchor="w"
+        )
+
+        def confirm():
+            try:
+                chosen = parse_ranges(value.get(), self.pdf.count)
+                marked = self.service.carry_reading(
+                    self.lesson["id"], self.version, self.pdf.count, chosen
+                )
+            except (ValueError, OSError) as exc:
+                messagebox.showerror("Marcações não trazidas", str(exc), parent=dialog)
+                return
+            dialog.destroy()
+            strip.destroy()
+            self.refresh_reading()
+            self.app.notify(f"{len(marked)} páginas marcadas nesta versão.")
+
+        buttons = ttk.Frame(frame)
+        buttons.pack(fill="x", pady=(12, 0))
+        ttk.Button(buttons, text="Cancelar", command=dialog.destroy).pack(side="right")
+        ttk.Button(buttons, text="Marcar estas páginas", command=confirm).pack(
+            side="right", padx=8
+        )
 
     def update_banner(self):
         resource = self.lesson.get("resource") or {}
@@ -902,3 +976,38 @@ def unavailable(parent, app):
         "O leitor usa o pacote pypdfium2. Instale-o (pip install pypdfium2) ou use o "
         "executável do RUMO, que já o inclui. Suas notas e o progresso continuam salvos.",
     )
+
+
+def page_ranges(pages):
+    """[1,2,3,5] -> "1-3, 5"."""
+    parts, start, previous = [], None, None
+    for page in sorted(set(pages)):
+        if start is None:
+            start = previous = page
+        elif page == previous + 1:
+            previous = page
+        else:
+            parts.append(f"{start}-{previous}" if start != previous else str(start))
+            start = previous = page
+    if start is not None:
+        parts.append(f"{start}-{previous}" if start != previous else str(start))
+    return ", ".join(parts)
+
+
+def parse_ranges(text, limit):
+    """ "1-3, 5" -> [1,2,3,5]; recusa páginas fora de 1..limit."""
+    chosen = set()
+    for part in (text or "").replace(";", ",").split(","):
+        part = part.strip()
+        if not part:
+            continue
+        bounds = part.split("-")
+        if len(bounds) > 2 or not all(b.strip().isdigit() for b in bounds):
+            raise ValueError(f"Intervalo inválido: {part}")
+        first, last = int(bounds[0]), int(bounds[-1])
+        if not 1 <= first <= last <= limit:
+            raise ValueError(f"Páginas fora desta versão (1 a {limit}): {part}")
+        chosen.update(range(first, last + 1))
+    if not chosen:
+        raise ValueError("Informe ao menos uma página.")
+    return sorted(chosen)

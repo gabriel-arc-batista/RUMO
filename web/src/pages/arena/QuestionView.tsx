@@ -1,6 +1,7 @@
 import { Check, CircleSlash, X } from "lucide-react";
 import type { ReactNode } from "react";
 import type { AttemptState } from "../../domain/projection";
+import { Formula } from "./Formula";
 import type { Block, Question } from "../../domain/types";
 
 /** Trechos entre crases viram <code>; o resto continua texto simples. */
@@ -19,12 +20,7 @@ export function Statement({ blocks }: { blocks: Block[] }) {
               <code>{b.text}</code>
             </pre>
           );
-        if (b.kind === "formula")
-          return (
-            <p key={i} className="formula" role="math" aria-label={b.text}>
-              {b.text}
-            </p>
-          );
+        if (b.kind === "formula") return <Formula key={i} text={b.text} />;
         if (b.kind === "image")
           return (
             <figure key={i} className="statement-figure">

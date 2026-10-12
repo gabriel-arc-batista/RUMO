@@ -13,3 +13,4 @@ for migration in "$root"/migrations/*.sql; do
  docker exec -i "$container" psql -h 127.0.0.1 -U postgres -v ON_ERROR_STOP=1 < "$migration"
 done
 docker exec -i "$container" psql -h 127.0.0.1 -U postgres -v ON_ERROR_STOP=1 < "$root/tests/integration.sql"
+docker exec -i "$container" psql -U postgres -v ON_ERROR_STOP=1 < "$root/tests/profile_cycle.sql"

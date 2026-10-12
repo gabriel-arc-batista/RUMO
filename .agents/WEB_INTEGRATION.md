@@ -62,3 +62,6 @@ web e aguardar handoff. Não há site publicado ainda.
 
 ## Revisão integrada e publicação — 12/10/2026
 Frontend entregue pelo Claude e congelado após correções: 31 unitários, tipos/build, Chrome serviço real40/40+16/16 e bridge desktop↔site aprovados. GitHub main recebeu caa7302. Site https://rumo-estudos.vercel.app publicado na Vercel Hobby e validado por HTTPS com conta temporária: login, catálogos vazios, cartão remoto em outro contexto, reload/logout; cleanup confirmado users0/events0. Supabase RUMO permanece Free sem plano pago/SMTP externo. CI Windows38266129648 encontrou SQLite aberto no teardownTraining; corrigir e repetir antes de release. Nenhum banco pessoal usado. Estes resultados substituem os status pendentes anteriores relativos ao frontend/deploy.
+
+## Claude, 12/10 tarde — opcionais/adiados implementados
+Migração 009 (perfil, ciclo, vitórias) pronta e testada localmente, não aplicada no hospedado. Login lembrado opcional no desktop (DPAPI/0600), correspondência explícita entre versões no app e no site, KaTeX, e-mail testado com Mailpit, Firefox, axe-core e carga local. Detalhes em `.agents/SITE_WORK.md` e `docs/integration/VALIDATION.md`. Publicação (009 no hospedado, deploy do site, nova release) aguarda autorização do usuário.

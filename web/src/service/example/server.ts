@@ -36,6 +36,8 @@ const REQUIRED: Record<string, string[]> = {
   "card.save": ["deck_id", "front", "back", "explanation", "source", "lesson_id", "question_id", "suspended", "deleted"],
   "card.review": ["card_id", "version", "rating", "session_id"],
   "study.session": ["plan_id", "subject_id", "topic_id", "day", "category", "elapsed", "lesson_id", "lesson_version"],
+  "profile.character": ["name", "look", "equipped"],
+  "cycle.snapshot": ["plan_name", "position", "items"],
 };
 const CATEGORIES = ["Teoria", "Questões", "Revisão", "Simulado"];
 const VERSION = /^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$/;
@@ -84,7 +86,26 @@ export class ExampleServer {
     }
     let level = 1;
     while (50 * level * (level + 1) <= xp) level += 1;
-    return { level, xp: xp - 50 * (level - 1) * level, xp_next: 100 * level, coins, look: null };
+    const profile = entities["profile.character|profile:character"]?.payload as
+      | { name: string; look: Record<string, string>; equipped: string[] }
+      | undefined;
+    // Vitórias: questões (id+versão) distintas com ao menos um acerto (009).
+    const events = await getAll<ServerEvent>(db, "events");
+    const victories = new Set(
+      events
+        .filter((e) => e.kind === "arena.attempt" && (e.result as { status?: string } | null)?.status === "correct")
+        .map((e) => `${(e.payload as { question_id: string }).question_id}@${(e.payload as { version: string }).version}`),
+    ).size;
+    return {
+      level,
+      xp: xp - 50 * (level - 1) * level,
+      xp_next: 100 * level,
+      coins,
+      look: profile?.look ?? null,
+      name: profile?.name ?? null,
+      equipped: profile?.equipped ?? [],
+      victories,
+    };
   }
 
   async push(batch: Envelope[]): Promise<{ id: string; sequence: number }[]> {
@@ -186,6 +207,27 @@ export class ExampleServer {
         return null;
       case "card.review":
         return this.review(e.payload, entities, schedules);
+      case "profile.character": {
+        // Mesmas regras de 009_profile_cycle_victories.sql.
+        const { name, look, equipped } = e.payload;
+        const lookOk = Object.entries(look ?? {}).every(([k, v]) => /^[a-z_]{1,24}$/.test(k) && /^[a-z0-9-]{1,40}$/.test(String(v)));
+        const itemsOk = Array.isArray(equipped) && equipped.length <= 20 && equipped.every((i) => /^[a-z0-9_]{1,48}$/.test(i));
+        if (e.entity_id !== "profile:character" || !name?.trim() || name.length > 60 || !lookOk || !itemsOk) throw new ExampleError("invalid_event");
+        return null;
+      }
+      case "cycle.snapshot": {
+        const { items, position } = e.payload;
+        const ok =
+          e.entity_id === "cycle:current" &&
+          Array.isArray(items) &&
+          items.length <= 80 &&
+          Number.isInteger(position) &&
+          position >= 0 &&
+          position <= items.length &&
+          items.every((i) => i.subject && CATEGORIES.includes(i.category) && i.target_minutes >= 1 && i.target_minutes <= 600 && typeof i.done === "boolean");
+        if (!ok) throw new ExampleError("invalid_event");
+        return null;
+      }
       case "study.session":
         if (!CATEGORIES.includes(e.payload.category)) throw new ExampleError("invalid_event");
         if (e.payload.elapsed < 0 || e.payload.elapsed > 86_400) throw new ExampleError("invalid_event");

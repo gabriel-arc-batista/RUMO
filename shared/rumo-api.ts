@@ -11,12 +11,18 @@ export interface Payloads {
   'card.save': CardPayload;
   'card.review': {card_id:string;version:string;rating:Rating;session_id:string};
   'study.session': {plan_id:string;subject_id:string;topic_id:string|null;day:string;category:string;elapsed:number;lesson_id:string|null;lesson_version:string|null};
+  /** Desktop → site (009): aparência, nome e IDs equipados; entidade "profile:character". */
+  'profile.character': {name:string;look:Record<string,string>;equipped:string[]};
+  /** Desktop → site (009): retrato somente leitura do ciclo ativo; entidade "cycle:current". */
+  'cycle.snapshot': {plan_name:string;position:number;items:CycleItem[]};
 }
+export interface CycleItem {subject:string;topic:string|null;category:'Teoria'|'Questões'|'Revisão'|'Simulado';target_minutes:number;done:boolean}
 export type EventKind = keyof Payloads;
 export type EventEnvelope = { [K in EventKind]: {id:string;device_id:string;kind:K;entity_id:string;base_revision:number;payload:Payloads[K]} }[EventKind];
 export type EventResult = {status?: 'correct'|'incorrect'|'annulled'; answer?:string; comment?:string; interval_days?:number; repetitions?:number; ease?:number; due_at?:string; xp?:number; coins?:number};
 export type ServerEvent = EventEnvelope & {sequence:number;revision:number;received_at:string;result?:EventResult|null};
-export interface ProgressSummary {level:number;xp:number;xp_next:number;coins:number;look:null}
+/** victories: questões (id+versão) distintas com acerto confirmado; não altera XP (009). */
+export interface ProgressSummary {level:number;xp:number;xp_next:number;coins:number;look:Record<string,string>|null;name?:string|null;equipped?:string[];victories?:number}
 
 export function validatePublicKey(value:string):void {
   if(!value || /[\x00-\x1f]/.test(value) || value.startsWith('sb_secret_')) throw new Error('Use somente a chave pública do serviço');

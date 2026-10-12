@@ -34,6 +34,12 @@ Nunca use a chave `service_role` no site.
 | `npm run build:servico` / `npm run preview:servico` | Build apontando para essa pilha e servidor na porta 4175 |
 | `npm run e2e:servico` | Fluxo completo + cenários extras (favoritos/marcadores, nota de questão, sessão e nível, conflito entre dois dispositivos, isolamento entre contas, sair e entrar) contra o serviço real local |
 | `python3 e2e/desktop_check.py` + `node e2e/desktop-para-site.mjs <email>` | Usa o cliente de sincronização do desktop (Codex) para conferir o que o site gravou e devolver ações ao site |
+| `MAIL=1 npm run servico:up` + `node e2e/email.mjs` | Pilha com SMTP de teste (Mailpit em http://localhost:8025): confirmação de cadastro e recuperação de senha seguindo os links recebidos |
+| `node e2e/versao.mjs` | Publica uma versão nova de uma aula de exemplo na pilha local e confere que as marcações só vêm por "Trazer marcações" |
+| `python3 e2e/desktop_profile.py` + `node e2e/desktop-perfil-no-site.mjs <email>` | O app real envia aparência, nome e ciclo; o site mostra e conta a vitória |
+| `node e2e/a11y.mjs` | Auditoria axe-core (WCAG A/AA) das dez telas principais (modo exemplo, porta 4173) |
+| `node e2e/carga.mjs` | Carga só na pilha local: 40 contas, lotes em paralelo e reenvios; confere duplicatas e isolamento |
+| `BROWSER=firefox npm run e2e` | Os fluxos `flow.mjs`/`extras.mjs` no Firefox do Playwright (`npx playwright-core install firefox`) |
 | `npm run servico:down` | Remove a pilha local |
 
 Os testes no navegador usam `playwright-core` com o Chrome do sistema (`CHROME=/caminho` para outro). Capturas ficam em `e2e/.shots/` (não versionar).
@@ -57,4 +63,4 @@ src/styles/     tokens Norte Dourado (mesmos valores de theme.py) e estilos por 
 
 ## Terceiros
 
-React, React Router, supabase-js (MIT), pdf.js (Apache-2.0), Lucide (ISC). Fontes Inter e Poppins (OFL) e retratos CC0 de N. Erebus vêm de `../assets` (ver `THIRD_PARTY_ASSETS.md`). Os PDFs de exemplo são gerados por `scripts/make-example-pdfs.mjs` e dizem em toda página que não são aulas.
+React, React Router, supabase-js (MIT), pdf.js (Apache-2.0), Lucide (ISC), KaTeX (MIT; fórmulas, carregado sob demanda). Fontes Inter e Poppins (OFL) e retratos CC0 de N. Erebus vêm de `../assets` (ver `THIRD_PARTY_ASSETS.md`). Os PDFs de exemplo são gerados por `scripts/make-example-pdfs.mjs` e dizem em toda página que não são aulas.

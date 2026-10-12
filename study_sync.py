@@ -215,6 +215,31 @@ class StudySync:
             completed=set(range(1, pages + 1)).issubset(read),
         )
 
+    def reading_versions(self, lesson_id):
+        """Páginas lidas em cada versão da aula (histórico preservado por versão)."""
+        versions = {}
+        for event in self.visible_events():
+            p = event["payload"]
+            if event["kind"] != "reading.page" or p.get("lesson_id") != lesson_id:
+                continue
+            pages = versions.setdefault(p["version"], set())
+            (pages.add if p["read"] else pages.discard)(p["page"])
+        return {version: sorted(pages) for version, pages in versions.items() if pages}
+
+    def carry_reading(self, lesson_id, target, pages, chosen):
+        """Marca na versão ``target`` só as páginas escolhidas pela pessoa.
+
+        Nunca é automático: a correspondência entre versões é confirmada na tela.
+        Marcações da versão anterior continuam como estão (histórico preservado).
+        """
+        done = set(self.reading(lesson_id, target, pages)["read_pages"])
+        marked = []
+        for page in sorted(set(chosen)):
+            if type(page) is int and 1 <= page <= pages and page not in done:
+                self.read_page(lesson_id, target, page, pages, True)
+                marked.append(page)
+        return marked
+
     def read_page(self, lesson_id, version, page, pages, read, base_revision=None):
         self._page(page, pages)
         if type(read) is not bool:

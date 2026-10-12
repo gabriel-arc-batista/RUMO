@@ -147,3 +147,102 @@ def import_remote_sessions(store):
         finally:
             store._applying_sync = False
     return waiting
+
+
+CATEGORIES = ("Teoria", "Questões", "Revisão", "Simulado")
+
+
+def _latest_payload(workspace, kind, entity_id):
+    """Last payload known for the entity, including actions still queued."""
+    import json
+
+    current = workspace.entity(kind, entity_id)
+    payload = current["payload"] if current else None
+    for row in workspace.db.execute(
+        "SELECT envelope FROM outbox WHERE status IN ('local','pending','sent') ORDER BY rowid"
+    ):
+        event = json.loads(row[0])
+        if event["kind"] == kind and event["entity_id"] == entity_id:
+            payload = event["payload"]
+    return payload
+
+
+def character_snapshot(store, plan):
+    """Appearance, name and equipped item IDs only; no inventory or purchases."""
+    from appearance import PREFERENCE, normalize
+
+    look = {
+        key: str(value) for key, value in normalize(store.pref(PREFERENCE, {})).items()
+    }
+    row = store.one("SELECT name FROM rpg_characters WHERE plan_id=?", (plan,))
+    name = ((row or {}).get("name") or "Viajante").strip()[:60] or "Viajante"
+    equipped = sorted(
+        r["item_id"]
+        for r in store.rows(
+            "SELECT item_id FROM rpg_inventory WHERE plan_id=? AND equipped=1", (plan,)
+        )
+    )[:20]
+    return {"name": name, "look": look, "equipped": equipped}
+
+
+def cycle_snapshot(store, plan):
+    """Read-only picture of the active cycle for the site; never edited remotely."""
+    plan_row = store.one("SELECT name FROM plans WHERE id=?", (plan,))
+    cycle = store.current_cycle(plan)
+    items = []
+    if cycle:
+        for block in store.cycle_blocks(cycle)[:80]:
+            items.append(
+                {
+                    "subject": str(block["subject"])[:120] or "Matéria",
+                    "topic": str(block["topic"])[:200] if block["topic"] else None,
+                    "category": (
+                        block["category"]
+                        if block["category"] in CATEGORIES
+                        else "Teoria"
+                    ),
+                    "target_minutes": max(1, min(600, round(block["target"] / 60))),
+                    "done": block["state"] == "Concluído",
+                }
+            )
+    position = min(int(cycle["position"] or 0), len(items)) if cycle else 0
+    name = str((plan_row or {}).get("name") or "")[:120]
+    return {"plan_name": name, "position": position, "items": items}
+
+
+FEATURE_KEY = "feature_profile_cycle"
+
+
+def note_server_features(workspace, transport):
+    """Marca se o serviço já aceita perfil/ciclo (migração 009); falha não bloqueia."""
+    try:
+        summary = transport.progress_summary()
+    except Exception:  # noqa: BLE001 - recurso opcional; a sincronização já terminou
+        return False
+    supported = isinstance(summary, dict) and "victories" in summary
+    with workspace.db:
+        workspace.db.execute(
+            "INSERT OR REPLACE INTO metadata VALUES(?,?)",
+            (FEATURE_KEY, "1" if supported else "0"),
+        )
+    return supported
+
+
+def capture_profile_and_cycle(store, plan):
+    """Queue character/cycle snapshots only when they changed (bound accounts only).
+
+    Só depois de confirmar que o serviço tem a migração 009: um serviço antigo
+    recusaria o lote inteiro e travaria a sincronização das outras ações.
+    """
+    if getattr(store, "_applying_sync", False) or not plan:
+        return
+    workspace = workspace_for(store)
+    if not workspace.account_id or workspace._meta(FEATURE_KEY) != "1":
+        return
+    service = service_for(store)
+    for kind, entity_id, payload in (
+        ("profile.character", "profile:character", character_snapshot(store, plan)),
+        ("cycle.snapshot", "cycle:current", cycle_snapshot(store, plan)),
+    ):
+        if _latest_payload(workspace, kind, entity_id) != payload:
+            service._enqueue(kind, entity_id, payload)

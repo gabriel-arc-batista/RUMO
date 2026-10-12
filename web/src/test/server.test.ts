@@ -76,6 +76,34 @@ describe("servidor de exemplo segue as regras do serviço", () => {
     ]);
     const [event] = await server.pull(0);
     expect(event.result).toEqual({ xp: 150, coins: 15 });
-    expect(await server.progressSummary()).toEqual({ level: 2, xp: 50, xp_next: 200, coins: 15, look: null });
+    expect(await server.progressSummary()).toMatchObject({ level: 2, xp: 50, xp_next: 200, coins: 15, look: null, victories: 0 });
+  });
+});
+
+describe("perfil, ciclo e vitórias (migração 009)", () => {
+  const event = (kind: string, entity_id: string, payload: object, base = 0): Envelope => ({
+    id: uuid(),
+    device_id: device,
+    kind,
+    entity_id,
+    base_revision: base,
+    payload,
+  }) as unknown as Envelope;
+
+  it("vitória conta questões distintas; repetir acerto não soma nem dá XP", async () => {
+    const { server } = testBackend();
+    await server.push([attempt("exemplo.q.fk", "certo"), attempt("exemplo.q.fk", "certo"), attempt("exemplo.q.3fn", "a"), attempt("exemplo.q.anulada", "errado")]);
+    const summary = await server.progressSummary();
+    expect(summary.victories).toBe(1);
+    expect(summary.xp).toBe(0);
+  });
+
+  it("aceita perfil e ciclo válidos e recusa conteúdo livre", async () => {
+    const { server } = testBackend();
+    await server.push([event("profile.character", "profile:character", { name: "Viajante", look: { hair: "longo" }, equipped: ["rusty_sword"] })]);
+    expect((await server.progressSummary()).look).toEqual({ hair: "longo" });
+    await expect(server.push([event("profile.character", "profile:character", { name: "X", look: { hair: "<b>" }, equipped: [] }, 1)])).rejects.toMatchObject({ code: "invalid_event" });
+    await server.push([event("cycle.snapshot", "cycle:current", { plan_name: "Plano", position: 0, items: [{ subject: "Bancos de dados", topic: null, category: "Teoria", target_minutes: 45, done: false }] })]);
+    await expect(server.push([event("cycle.snapshot", "cycle:current", { plan_name: "Plano", position: 5, items: [] }, 1)])).rejects.toMatchObject({ code: "invalid_event" });
   });
 });

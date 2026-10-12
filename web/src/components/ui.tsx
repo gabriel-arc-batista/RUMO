@@ -1,6 +1,7 @@
 import { AlertTriangle, CloudOff, Inbox, RotateCw } from "lucide-react";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
-import { portraitLayers, type Look } from "../domain/character";
+import { itemThumb, portraitLayers, type Look } from "../domain/character";
+import { ITEM_NAMES } from "../domain/items";
 
 export function ExampleTag({ title = "Dado de exemplo: não é conteúdo publicado nem revisado." }: { title?: string }) {
   return (
@@ -14,7 +15,16 @@ export function Portrait({ size = 40, look }: { size?: number; look?: Look }) {
   return (
     <span className="portrait" style={{ width: size, height: size }} aria-hidden="true">
       {portraitLayers(look).map((src) => (
-        <img key={src} src={src} alt="" loading="lazy" decoding="async" />
+        <img
+          key={src}
+          src={src}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          onError={(e) => {
+            e.currentTarget.style.visibility = "hidden";
+          }}
+        />
       ))}
     </span>
   );
@@ -293,5 +303,26 @@ export function ProgressBar({ value, max, label, tone }: { value: number; max: n
     >
       <span style={{ width: `${pct}%` }} />
     </div>
+  );
+}
+
+/** Itens equipados no app (miniaturas reais), com nome em texto para leitores de tela. */
+export function EquippedItems({ ids, max = 4 }: { ids: string[]; max?: number }) {
+  const shown = ids.slice(0, max);
+  if (!shown.length) return null;
+  return (
+    <ul className="equipped" aria-label="Equipado no aplicativo">
+      {shown.map((id) => {
+        const src = itemThumb(id);
+        const name = ITEM_NAMES[id] ?? id.replace(/_/g, " ");
+        return (
+          <li key={id} title={name}>
+            {src && <img src={src} alt="" width={32} height={32} loading="lazy" />}
+            <span className="sr-only">{name}</span>
+          </li>
+        );
+      })}
+      {ids.length > max && <li className="more xs muted">+{ids.length - max}</li>}
+    </ul>
   );
 }

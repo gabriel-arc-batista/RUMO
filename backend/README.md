@@ -57,3 +57,15 @@ Limites de validação: não foi usado o gateway/Kong, SMTP, configuração hosp
 A migração 008 fixa `search_path` do trigger editorial e indexa as três referências de chaves estrangeiras reportadas pelos Advisors. Arquivos 001–007 já aplicados foram congelados; mudanças novas entram somente em nova migração.
 
 `backend/tests/run_hosted.py` é um teste HTTPS explícito: recebe `RUMO_HOSTED_URL`, `RUMO_HOSTED_PUBLIC_KEY` e `RUMO_HOSTED_ADMIN_KEY` somente do ambiente do processo, cria duas contas temporárias confirmadas, testa senha/refresh/logout/RPC/isolamento/CAS e remove as contas no `finally`. Não imprime chaves/tokens/senhas e recusa redirecionamentos para impedir envio de credenciais a outra origem. Cria somente eventos privados temporários, nunca fixtures editoriais ou PDFs na produção. Caso a exclusão falhe, mostra apenas IDs de contas para repetir a limpeza. Não executar sem autorização para criar/remover contas de teste no projeto escolhido. Não altera plano, assinatura, cobrança, organização ou configuração Auth.
+
+## Migração 009 (Claude)
+
+`009_profile_cycle_victories.sql` renomeia a implementação de `push_events` para
+`rumo_private.push_events_core` (sem acesso direto de `authenticated`) e cria um
+adaptador SECURITY DEFINER que valida `profile.character` e `cycle.snapshot`
+(campos exatos, identificadores sem texto livre, tamanhos máximos) e repassa os
+demais tipos à função anterior na mesma transação. `progress_summary` acrescenta
+`look`, `name`, `equipped` e `victories`. Testes em `tests/profile_cycle.sql`
+(idempotência, CAS, recusa de campos extras/valores inseguros, lote misto atômico,
+vitórias sem duplicar, anulada fora, isolamento). Aplicada só em bancos
+descartáveis nesta etapa: o projeto hospedado continua em 008 até aplicação explícita.

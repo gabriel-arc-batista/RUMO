@@ -6,6 +6,8 @@ import { EmptyState, ErrorState, ExampleTag, Loading, OfflineState, ProgressBar 
 import { isComplete, readingKey, type NoteState } from "../../domain/projection";
 import type { Lesson, OutlineItem } from "../../domain/types";
 import { uuid } from "../../lib/ids";
+import { pageRanges, parseRanges } from "../../lib/ranges";
+import { CarryDialog } from "./CarryDialog";
 import { entity } from "../../service/contract";
 import { useCatalog, useRumo } from "../../service/store";
 import { CardEditor, type CardDraft } from "../cards/CardEditor";
@@ -85,6 +87,19 @@ function ReaderView({ lesson }: { lesson: Lesson }) {
     return selected;
   }, [reading, savingMarks]);
   const complete = isComplete(reading, lesson.pages);
+  // Outra versão desta aula com páginas lidas: nada é herdado sem confirmação.
+  const older = useMemo(() => {
+    if (!p || readSet.size) return null;
+    let best: { version: string; pages: number[] } | null = null;
+    for (const state of p.reading.values()) {
+      if (state.lessonId !== lesson.id || state.version === lesson.version) continue;
+      const read = [...state.marks.entries()].filter(([, m]) => m.read).map(([n]) => n);
+      if (read.length && (!best || read.length > best.pages.length)) best = { version: state.version, pages: read };
+    }
+    return best;
+  }, [p, lesson, readSet.size]);
+  const [carry, setCarry] = useState<null | { version: string; pages: number[] }>(null);
+  const [carryHidden, setCarryHidden] = useState(false);
   const mismatch = Boolean(doc && lesson.pages && doc.numPages !== lesson.pages);
 
   // Carrega o PDF e as dimensões de cada página (para reservar o espaço certo).
@@ -349,9 +364,9 @@ function ReaderView({ lesson }: { lesson: Lesson }) {
           <ArrowLeft size={18} aria-hidden="true" />
         </Link>
         <div className="reader-title grow">
-          <span className="truncate title" title={lesson.title}>
+          <h1 className="truncate title reader-h1" title={lesson.title}>
             {lesson.title}
-          </span>
+          </h1>
           <span className="xs muted truncate">
             {topicName(catalog, lesson.topicIds[0])} · {lesson.versionLabel} {lesson.example && <ExampleTag />}
           </span>
@@ -447,6 +462,20 @@ function ReaderView({ lesson }: { lesson: Lesson }) {
         <p className="notice warning reader-notice">
           Este PDF tem {doc!.numPages} páginas, mas o catálogo informa {lesson.pages}. As marcações seguem o catálogo; avise quem publica o conteúdo.
         </p>
+      )}
+      {older && !carryHidden && (
+        <div className="notice reader-notice" role="status">
+          <span className="grow">
+            Você marcou {older.pages.length} páginas como lidas na versão {older.version}. Esta versão começa sem marcações; você pode trazê-las depois
+            de conferir.
+          </span>
+          <button className="btn sm" type="button" onClick={() => setCarry(older)}>
+            Trazer marcações
+          </button>
+          <button className="btn ghost sm" type="button" onClick={() => setCarryHidden(true)}>
+            Agora não
+          </button>
+        </div>
       )}
       {resumeOffer && (
         <div className="notice reader-notice" role="status">
@@ -551,6 +580,21 @@ function ReaderView({ lesson }: { lesson: Lesson }) {
         </div>
       </footer>
 
+      {carry && (
+        <CarryDialog
+          source={carry.version}
+          target={lesson.version}
+          initial={pageRanges(carry.pages)}
+          limit={lesson.pages ?? pages}
+          parse={parseRanges}
+          onCancel={() => setCarry(null)}
+          onConfirm={(chosen) => {
+            for (const page of chosen) if (!readSet.has(page)) toggle(page, true);
+            setCarry(null);
+            toast(`${chosen.length} ${chosen.length === 1 ? "página marcada" : "páginas marcadas"} nesta versão.`);
+          }}
+        />
+      )}
       {cardDraft && <CardEditor draft={cardDraft} title="Criar flashcard da nota" onClose={() => setCardDraft(null)} />}
     </div>
   );

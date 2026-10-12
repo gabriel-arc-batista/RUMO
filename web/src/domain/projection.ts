@@ -80,6 +80,10 @@ export interface Projection {
   cards: Map<string, PersonalCardState>;
   reviews: ReviewState[];
   sessions: Map<string, SessionState>;
+  /** Aparência, nome e equipados enviados pelo app (somente leitura no site). */
+  profile: Payloads["profile.character"] | null;
+  /** Retrato do ciclo ativo do app (somente leitura no site). */
+  cycle: (Payloads["cycle.snapshot"] & { at: string }) | null;
 }
 
 export interface PendingEvent {
@@ -100,6 +104,8 @@ function emptyProjection(): Projection {
     cards: new Map(),
     reviews: [],
     sessions: new Map(),
+    profile: null,
+    cycle: null,
   };
 }
 
@@ -167,6 +173,12 @@ function apply(p: Projection, e: Envelope, at: string, origin: Origin, result: u
       });
       break;
     }
+    case "profile.character":
+      p.profile = e.payload;
+      break;
+    case "cycle.snapshot":
+      p.cycle = { ...e.payload, at };
+      break;
     case "study.session":
       p.sessions.set(e.entity_id, {
         id: e.entity_id,

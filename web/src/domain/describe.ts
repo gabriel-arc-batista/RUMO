@@ -24,6 +24,10 @@ export function describeEvent(e: Envelope, catalog: Catalog | null): string {
       return "Revisão de cartão";
     case "study.session":
       return `Sessão de estudo (${Math.round(e.payload.elapsed / 60)} min)`;
+    case "profile.character":
+      return "Aparência do personagem";
+    case "cycle.snapshot":
+      return "Ciclo de estudos do aplicativo";
   }
 }
 

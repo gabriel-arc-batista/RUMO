@@ -212,7 +212,7 @@ const questions: Question[] = [
     subjectId: "subject.estruturas-dados",
     topicIds: ["topic.ed.complexidade"],
     examIds: ["serpro-2023-tecnologia", "tse-2024-analista-ti"],
-    text: "Considere a recorrência do merge sort:\n\n$$T(n) = 2·T(n/2) + Θ(n)$$\n\nQual é a sua solução assintótica?",
+    text: "Considere a recorrência do merge sort:\n\n$$T(n) = 2\\,T\\left(\\frac{n}{2}\\right) + \\Theta(n)$$\n\nQual é a sua solução assintótica?",
     options: [
       { id: "a", text: "Θ(n)" },
       { id: "b", text: "Θ(n log n)" },
