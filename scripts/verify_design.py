@@ -65,7 +65,19 @@ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as folder:
         if isinstance(w, tk.Label)
         and str(w.cget("text")).startswith("Nenhum estudo registrado ainda.")
     )
-    assert empty_text.winfo_reqwidth() <= empty_text.master.winfo_width()
+    for geometry in ("1366x768+0+0", "1000x650+0+0"):
+        root.geometry(geometry)
+        pump(root)
+        assert empty_text.winfo_reqwidth() <= empty_text.master.winfo_width(), dict(
+            geometry=root.geometry(),
+            scaling=root.tk.call("tk", "scaling"),
+            required=empty_text.winfo_reqwidth(),
+            actual=empty_text.winfo_width(),
+            parent=empty_text.master.winfo_width(),
+            wraplength=empty_text.cget("wraplength"),
+        )
+    root.geometry("1366x768+0+0")
+    pump(root)
     subject = app.store.one(
         "SELECT id FROM subjects WHERE plan_id=? LIMIT 1", (app.plan,)
     )

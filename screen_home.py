@@ -257,13 +257,26 @@ def today_line(app):
     if not app.store.one(
         "SELECT COUNT(*) n FROM sessions WHERE plan_id=?", (app.plan,)
     )["n"]:
-        label(
-            app.content,
+        paragraph = tk.Frame(app.content, bg=app.bg)
+        paragraph.pack(fill="x", pady=(0, 24), padx=4)
+        message = label(
+            paragraph,
             app,
             "Nenhum estudo registrado ainda. Seu tempo, suas questões e seu aproveitamento aparecem aqui a partir do primeiro.",
             size=10,
             tone="muted",
-        ).pack(anchor="w", pady=(0, 24), padx=4)
+            wraplength=640,
+        )
+        message.pack(fill="x")
+
+        def fit_paragraph(event):
+            width = max(1, event.width - 8)
+            if int(float(message.cget("wraplength"))) != width:
+                message.configure(wraplength=width)
+
+        # A dedicated parent owns the callback and supplies the actual available
+        # width, avoiding label geometry feedback and callbacks on stale pages.
+        paragraph.bind("<Configure>", fit_paragraph)
         return
     stats = [
         (compact_duration(day["elapsed"]), "hoje"),
