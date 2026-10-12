@@ -77,3 +77,14 @@ Serviço hospedado: migrações 001–008 aplicadas e validadas; Auth/RPC HTTPS,
 isolamento entre duas contas e auditoria sem findings. Após limpeza, zero
 usuários/eventos de teste. Esse resultado não significa que o site ou os
 artefatos da release foram publicados. Frontend final e CI Windows pendentes.
+
+## CI Windows e publicação — 12/10/2026
+
+Execução https://github.com/gabriel-arc-batista/RUMO/actions/runs/38270993314
+(commit 692a616) aprovada: 173 testes Python (um ignorado), verificações nativas,
+`npm ci`/tipos/31 testes/build do frontend, build PyInstaller + Inno Setup,
+executável isolado (0,75 s, 49,2 MiB RSS, sem sockets), instalação e
+desinstalação por usuário sem tocar dados de produção, nomes/ícones/hashes e
+recusa de arquivos privados no ZIP. Os anexos da release v2.0.0 vêm desse artefato
+e do tar.gz Linux validado localmente; `SHA256SUMS.txt` reúne os quatro arquivos.
+Binários sem assinatura digital. Site: https://rumo-estudos.vercel.app.

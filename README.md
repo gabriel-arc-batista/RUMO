@@ -153,6 +153,7 @@ As dependências, fontes e demais materiais de terceiros mantêm seus próprios 
 
 O build nativo gera `dist/RUMO-linux-portatil.tar.gz`. Extraia o arquivo e execute `RUMO/RUMO`; preserve a pasta `_internal` junto ao executável. O banco permanece no diretório de dados do usuário. Para testes isolados, configure `RUMO_DATA` para uma pasta temporária.
 
-A entrega 2.0.0 está em validação final: pacote Linux e serviço de conta foram
-verificados; revisão do frontend, CI Windows e publicação ainda estão pendentes.
+A entrega 2.0.0 foi validada no pacote Linux e na execução Windows do GitHub
+Actions (executável, instalador, ZIP portátil e hashes), com o serviço de conta
+hospedado e o site em https://rumo-estudos.vercel.app.
 Veja [as evidências e os limites](docs/integration/VALIDATION.md).

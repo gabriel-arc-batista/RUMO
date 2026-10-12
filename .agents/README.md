@@ -1,6 +1,6 @@
 # Contexto para continuidade
 
-Versão preparada: **2.0.0**, em 12/10/2026. Tk 8.6 e SQLite esquema 6; Python 3.13 no workflow Windows, build Linux validado com Python 3.14.4. Conta e serviço são opcionais: o desktop preserva o funcionamento local/offline. Serviço Supabase hospedado validado com migrações 001–008 e duas contas temporárias, removidas após os testes. Frontend em finalização/revisão; CI Windows e publicação da release/site ainda pendentes. Consulte `docs/integration/VALIDATION.md` antes de declarar conclusão. O produto atende concursos e objetivos de aprendizagem em geral; os planos BACEN incluídos são referências iniciais.
+Versão preparada: **2.0.0**, em 12/10/2026. Tk 8.6 e SQLite esquema 6; Python 3.13 no workflow Windows, build Linux validado com Python 3.14.4. Conta e serviço são opcionais: o desktop preserva o funcionamento local/offline. Serviço Supabase hospedado validado com migrações 001–008 e duas contas temporárias, removidas após os testes. Site publicado em https://rumo-estudos.vercel.app (Vercel Hobby); CI Windows 38270993314 aprovada (173 testes, 31 do frontend, executável e instalador). Release v2.0.0 com instalador, ZIP Windows, tar.gz Linux e SHA256SUMS. Limites em `docs/integration/VALIDATION.md`. O produto atende concursos e objetivos de aprendizagem em geral; os planos BACEN incluídos são referências iniciais.
 
 ## Produto e decisões aceitas
 
