@@ -73,7 +73,7 @@ with tempfile.TemporaryDirectory() as folder:
         "chart_group_limit": 60,
         "isolated_data": True,
     }
-    store.db.close()
+    store.close()
 (project / "validation/performance-report.json").write_text(
     json.dumps(report, indent=2), encoding="utf-8"
 )

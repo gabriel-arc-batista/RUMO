@@ -80,8 +80,20 @@ class TrainingTests(unittest.TestCase):
         self.service = TrainingService(self.store, self.content)
 
     def tearDown(self):
-        self.store.db.close()
+        self.store.close()
         self.tmp.cleanup()
+
+    def test_store_close_releases_owned_sync_connection(self):
+        from desktop_sync import service_for
+
+        service = service_for(self.store)
+        workspace = service.workspace
+        self.store.close()
+        self.store.close()  # Explicit teardown can safely repeat closure.
+        with self.assertRaises(sqlite3.ProgrammingError):
+            workspace.db.execute("SELECT 1")
+        with self.assertRaises(sqlite3.ProgrammingError):
+            self.store.db.execute("SELECT 1")
 
     def lesson(self):
         return next(l for l in self.service.library() if l["id"] == LESSON)
@@ -359,7 +371,7 @@ class TrainingTests(unittest.TestCase):
             self.assertEqual(upgraded.one("SELECT name FROM plans")["name"], "Antigo")
             upgraded.db.execute("SELECT * FROM training_notes").fetchall()
         finally:
-            upgraded.db.close()
+            upgraded.close()
         self.assertTrue(
             list(self.root.glob("pre-campo-*.sqlite3")), "cópia antes da migração"
         )

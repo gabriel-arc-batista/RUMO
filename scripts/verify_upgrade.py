@@ -125,7 +125,7 @@ def self_test():
         finally:
             baseline.close()
         store = Store(legacy)
-        store.db.close()
+        store.close()
         old, new = reader(before), reader(legacy)
         try:
             preserved_records(old, new, table_counts(old))

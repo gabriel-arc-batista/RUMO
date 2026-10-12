@@ -9,18 +9,12 @@
 - `scripts/verify_sync_gui.py`: Tk real Linux, base e PDF de teste temporários; configurações sem conta, checkbox do leitor, última página sem conclusão automática, todas páginas concluem, desmarcação desfaz, nenhum XP/sessão por leitura.
 - Black nos Python alterados; TypeScript compartilhado `tsc --noEmit --strict --lib es2022,dom`; Bandit nos quatro módulos novos revisado (consultas parametrizadas, sem alertas após simplificação); arquivos rastreados sem padrões conhecidos de segredos.
 
-Serviço RUMO hospedado recebeu migrações 001–008 e passou Auth/RPC HTTPS com duas contas temporárias; dados de teste removidos (zero usuários/eventos após limpeza). Auditoria de segurança Supabase sem findings após 008. Não houve uso do banco pessoal,
-teste final do browser hospedado, build Windows desta versão ou teste de carga
-remoto. Browser em modo exemplo abriu login/início/Campo/Arena/Flashcards/conta sem pageerror;
-tipos/build frontend passaram; os testes foram adicionados pelo Claude e estão sendo revistos na integração final.
-O frontend ainda precisa alinhar os itens em `.agents/SITE_WORK.md` antes
-que a integração final possa ser declarada pronta. Backups antigos continuam no
-formato canônico; dados da conta/fila têm exportação separada.
+Serviço RUMO hospedado recebeu migrações 001–008 e passou Auth/RPC HTTPS com duas contas temporárias. Auditoria de segurança sem findings após 008; três índices ainda sem uso no catálogo vazio foram preservados.
 
-Pacote Linux 2.0.0: 171 testes sem falhas (um ignorado), migração temporária v5→v6
-e GUI de conta/leitura aprovadas. Executável abre/fecha com base temporária
-integra no esquema 6 e sem variáveis do runtime de desenvolvimento. Documentos,
-licenças e ausência de bancos/credenciais no tar conferidos. Os detalhes ficam
-em `RELEASE_CHECKS.md`. CI Windows, revisão integrada final do frontend e
-publicação do site/release ainda pendentes; nenhuma destas etapas é presumida
-aprovada pela validação do serviço.
+Frontend final: 31 testes unitários, typecheck e build aprovados; Chrome com serviço local real passou 40 verificações de fluxo e 16 extras. Bridge Python↔site validou leitura, marcador, sessão/XP, tentativa, nota e agenda de revisão. Revisão corrigiu persistência da fila antes do envio, substituição atômica de conflitos, transporte vinculado à conta, cronômetro por conta com recuperação pausada e agenda preservada entre versões.
+
+Site publicado em https://rumo-estudos.vercel.app no plano Hobby gratuito. Smoke HTTPS no endereço público passou login, três catálogos vazios, criação de cartão pessoal, persistência em contexto independente, reload e logout. Contas temporárias removidas: consulta confirmou zero usuários e eventos. Nenhum conteúdo editorial de exemplo publicado. Entrega de e-mail/SMTP e recuperação por e-mail não foram testadas.
+
+Pacote Linux 2.0.0: 171 testes sem falhas (um ignorado), migração temporária v5→v6, GUI de conta/leitura e abertura isolada do executável com esquema 6 íntegro. Nenhum banco pessoal utilizado. Backups v1–v6 e exportação separada da conta preservados. Teste de carga remoto não realizado.
+
+CI Windows inicial 38266129648 detectou conexões SQLite abertas no encerramento de testes de Training (WinError32). Correção e nova execução pendentes; instalador/release Windows ainda não declarados aprovados. Detalhes de empacotamento em RELEASE_CHECKS.md.

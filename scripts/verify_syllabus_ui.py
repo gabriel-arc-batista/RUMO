@@ -185,5 +185,5 @@ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as folder:
         json.dumps(report, indent=2), encoding="utf-8"
     )
     print(json.dumps(report))
-    store.db.close()
+    store.close()
     root.destroy()

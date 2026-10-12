@@ -195,7 +195,7 @@ def main():
             app.navigate(page)
             root.update()
         root.destroy()
-        store.db.close()
+        store.close()
         assert not errors, errors
     print("Native RPG integration passed with isolated synthetic data.")
 

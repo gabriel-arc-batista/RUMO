@@ -193,6 +193,17 @@ class Store:
         self.rpg = RPGService(self)
         self.rpg.sync()
 
+    def close(self):
+        """Close all connections owned by this Store, including its lazy workspace.
+
+        Training/sync services borrow these connections; callers should use this
+        method rather than closing only the canonical database.
+        """
+        workspace = getattr(self, "study_workspace", None)
+        if workspace is not None:
+            workspace.close()
+        self.db.close()
+
     def rows(self, sql, args=()):
         return [dict(r) for r in self.db.execute(sql, args)]
 

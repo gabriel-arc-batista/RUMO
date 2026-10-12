@@ -203,7 +203,7 @@ def main():
                 )
         finally:
             root.destroy()
-            store.db.close()
+            store.close()
 
 
 if __name__ == "__main__":

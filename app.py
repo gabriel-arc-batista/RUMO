@@ -4577,11 +4577,9 @@ class App:
             ):
                 return
             self.clock.pause()
-        self.store.db.close()
         if getattr(self, "_study_auto_retry", None):
             self.root.after_cancel(self._study_auto_retry)
-        if getattr(self.store, "study_workspace", None):
-            self.store.study_workspace.close()
+        self.store.close()
         self.root.destroy()
 
 

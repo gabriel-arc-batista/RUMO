@@ -59,3 +59,6 @@ por padrão, serviço avançado oculto, GUI temporária sem rede aprovou default
 CLI Supabase conectado e configpull em pasta temporária; Vercel usuário
 chessrex39-max plano Hobby confirmado viaAPI. Claude ainda trabalha: preservar
 web e aguardar handoff. Não há site publicado ainda.
+
+## Revisão integrada e publicação — 12/10/2026
+Frontend entregue pelo Claude e congelado após correções: 31 unitários, tipos/build, Chrome serviço real40/40+16/16 e bridge desktop↔site aprovados. GitHub main recebeu caa7302. Site https://rumo-estudos.vercel.app publicado na Vercel Hobby e validado por HTTPS com conta temporária: login, catálogos vazios, cartão remoto em outro contexto, reload/logout; cleanup confirmado users0/events0. Supabase RUMO permanece Free sem plano pago/SMTP externo. CI Windows38266129648 encontrou SQLite aberto no teardownTraining; corrigir e repetir antes de release. Nenhum banco pessoal usado. Estes resultados substituem os status pendentes anteriores relativos ao frontend/deploy.

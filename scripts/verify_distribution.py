@@ -143,7 +143,7 @@ try:
         }
     )
     store.set_pref("theme", "Claro")
-    store.db.close()
+    store.close()
     restart = subprocess.Popen([str(executable)], env=env, cwd=tmp.name)
     processes.append(restart)
     hwnd, _ = await_main(restart)
@@ -155,7 +155,7 @@ try:
         and store.stats(pid)["elapsed"] == 2700
         and store.pref("theme") == "Claro"
     )
-    store.db.close()
+    store.close()
     # Exercise first-run migration with the real packaged executable, in isolation.
     upgrade_base = Path(tmp.name) / "upgrade-data"
     previous = upgrade_base / "previous-installation"

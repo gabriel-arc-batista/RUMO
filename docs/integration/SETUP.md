@@ -1,6 +1,6 @@
 # Execução e publicação da integração
 
-Serviço gratuito RUMO criado em Supabase, organização autorizada pelo usuário. Origem: `https://dfxzxnrttppoonywfzwd.supabase.co`. Migrações 001–008 aplicadas e Auth/RPC HTTPS validados com contas temporárias removidas. URL do site preparada: `https://rumo-estudos.vercel.app`; conferir o deployment antes de anunciar publicação.
+Serviço gratuito RUMO criado em Supabase, organização autorizada pelo usuário. Origem: `https://dfxzxnrttppoonywfzwd.supabase.co`. Migrações 001–008 aplicadas e Auth/RPC HTTPS validados com contas temporárias removidas. Site publicado: `https://rumo-estudos.vercel.app`, plano Hobby gratuito, smoke de login/persistência/logout aprovado. Consulte `DEPLOYMENT.md` antes de futuras migrações: os identificadores MCP diferem dos prefixos locais.
 
 1. Ler CONTRACT.md e backend/README.md. Desenvolvimento sem conta continua por `python app.py`.
 2. Para validar banco isolado: `bash backend/tests/run.sh`. Para fluxo Python integrado: `RUMO_POSTGRES_TEST=1 python -m unittest discover -s tests -p test_sync_integration.py -v`. Docker usa somente banco descartável.

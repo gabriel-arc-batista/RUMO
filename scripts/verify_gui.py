@@ -355,7 +355,7 @@ count = store.stats(app.plan)["count"]
 store.delete_session(r["id"])
 store.restore(backup)
 assert store.stats(app.plan)["count"] == count
-store.db.close()
+store.close()
 reopened = Store(Path(tmp.name) / "gui.sqlite3")
 assert reopened.stats(app.plan)["count"] == count
 reopened.db.close()

@@ -178,5 +178,5 @@ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as folder:
         Path(__file__).resolve().parents[1] / "validation/subtopic-clicks-report.json"
     ).write_text(json.dumps(report, indent=2), encoding="utf-8")
     print(json.dumps(report))
-    store.db.close()
+    store.close()
     root.destroy()

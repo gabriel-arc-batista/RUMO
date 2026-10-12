@@ -130,7 +130,7 @@ def main():
             print(
                 f"Memory after browsing: {rss_after/1024**2:.1f} MiB RSS; delta {max(0,rss_after-rss_before)/1024**2:.1f} MiB; LRU <= {LOOK_CACHE} images."
             )
-            store.db.close()
+            store.close()
             reopened = Store(Path(folder) / "appearance.sqlite3")
             assert reopened.pref(A.PREFERENCE) == saved
             reopened.db.close()
