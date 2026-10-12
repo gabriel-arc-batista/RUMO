@@ -233,9 +233,9 @@ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as folder:
         "idle_animation_callbacks": 0,
         "errors": errors,
     }
-    (Path(__file__).resolve().parents[1] / "validation/design-report.json").write_text(
-        json.dumps(report, indent=2), encoding="utf-8"
-    )
+    report_path = Path(__file__).resolve().parents[1] / "validation/design-report.json"
+    report_path.parent.mkdir(exist_ok=True)
+    report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
     print(json.dumps(report))
     app.store.close()
     root.destroy()
