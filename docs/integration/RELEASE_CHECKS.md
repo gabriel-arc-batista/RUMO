@@ -88,3 +88,15 @@ desinstalação por usuário sem tocar dados de produção, nomes/ícones/hashes
 recusa de arquivos privados no ZIP. Os anexos da release v2.0.0 vêm desse artefato
 e do tar.gz Linux validado localmente; `SHA256SUMS.txt` reúne os quatro arquivos.
 Binários sem assinatura digital. Site: https://rumo-estudos.vercel.app.
+
+## Publicação 2.1.0 — 12/10/2026
+
+Migração 009 aplicada no projeto hospedado (registro 20261012183530), advisors de
+segurança sem apontamentos e `push_events_core` sem execução por `authenticated`/`anon`.
+Site publicado na Vercel a partir de um export limpo do commit (sem arquivos não
+versionados) e verificado em produção sem criar contas. CI Windows 38292229940
+(commit 7847046) aprovada: 179 testes, verificações nativas, frontend, executável
+(0,97 s, 49,2 MiB, sem sockets), instalação/desinstalação e pacote limpo. Linux:
+build com 179 testes, 2.119 arquivos sem itens proibidos e abertura isolada com
+esquema 6 íntegro. Release v2.1.0 com quatro anexos e SHA256SUMS. Modelos de e-mail
+do Auth não puderam ser traduzidos: o plano gratuito exige SMTP próprio para editá-los.

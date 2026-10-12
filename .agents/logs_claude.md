@@ -208,3 +208,8 @@ Frontend entregue pelo Claude e congelado após correções: 31 unitários, tipo
 - O usuário pediu tudo que estava opcional, não feito ou adiado. Feito: migração 009 (perfil/aparência/equipados e ciclo do app → site; vitórias sem XP), login lembrado opcional no desktop (`token_store.py`), trazer marcações entre versões (app e site, só com confirmação), KaTeX, e-mail de confirmação/recuperação testado (Mailpit), Firefox, auditoria axe-core e carga local. Não feito: WebKit (falta `sudo` para bibliotecas), leitor de tela real, conteúdo editorial real (precisa de revisão humana), troca SM-2→FSRS (decisão documentada, mudaria a agenda de quem já revisa).
 - Produção continua com 001–008 e o site antigo publicado; a release v2.0.0 (pacotes em `dist/release-2.0.0/`) ainda não foi publicada. Publicar exige autorização explícita (o modo automático bloqueia push/tag/deploy).
 - Disco do usuário ~1 GB livre: removi navegadores de teste depois de usar; Mailpit (49 MB) ficou como imagem Docker.
+
+## Publicação 2.1.0 (Claude, 12/10/2026 16:00)
+
+- Migração 009 aplicada no Supabase hospedado; site novo publicado na Vercel (export limpo, `vercel deploy --prod --scope arcanjo4`); CI Windows 38292229940 aprovada; build Linux validado; release v2.1.0 publicada como latest (https://github.com/gabriel-arc-batista/RUMO/releases/tag/v2.1.0). Pacotes locais em `dist/release-2.1.0/`.
+- Não feito: tradução dos e-mails do Auth (plano gratuito exige SMTP próprio; precisa de conta em provedor como Resend/Brevo). O modo automático às vezes bloqueia push/deploy; com autorização explícita do usuário funcionou ao tentar de novo.
