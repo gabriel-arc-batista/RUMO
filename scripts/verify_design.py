@@ -13,7 +13,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app import App, SECTIONS
 from core import Store
-from ui import MetricCard
+from ui_kit import Card, Stat
 
 
 def pump(root, seconds=0.75):
@@ -21,6 +21,12 @@ def pump(root, seconds=0.75):
     while time.monotonic() < finish:
         root.update()
         time.sleep(0.01)
+
+
+def descendants(widget):
+    for child in widget.winfo_children():
+        yield child
+        yield from descendants(child)
 
 
 with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as folder:
@@ -31,21 +37,54 @@ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as folder:
     pump(root)
     assert float(root.attributes("-alpha")) == 1
     assert tkfont.Font(root, family="Inter").actual("family") == "Inter"
-    # Check bounded progress and eventual completion; slow CI may skip intermediate frames.
+    # Current surfaces are quiet cards; numbers use text stats, without a
+    # decorative entrance animation. Validate the actual rendered structure.
     app.navigate("Início")
-    root.update_idletasks()
-    pump(root, 0.08)
-    fresh = [
-        w
-        for frame in app.content.winfo_children()
-        for w in frame.winfo_children()
-        if isinstance(w, MetricCard)
-    ]
-    assert fresh and all(0 <= w.intro <= 1 for w in fresh), [w.intro for w in fresh]
     pump(root)
-    assert all(w.intro == 1 for w in fresh)
-    assert app.sidebar.winfo_ismapped() and app.sidebar.winfo_width() == 230
-    assert app.scroll.winfo_x() >= 230
+    cards = [w for w in descendants(app.content) if isinstance(w, Card)]
+    stats = [w for w in descendants(app.content) if isinstance(w, Stat)]
+    assert cards
+    empty_text = next(
+        w
+        for w in descendants(app.content)
+        if isinstance(w, tk.Label)
+        and str(w.cget("text")).startswith("Nenhum estudo registrado ainda.")
+    )
+    assert empty_text.winfo_reqwidth() <= empty_text.master.winfo_width()
+    subject = app.store.one(
+        "SELECT id FROM subjects WHERE plan_id=? LIMIT 1", (app.plan,)
+    )
+    topic = app.store.one(
+        "SELECT id FROM topics WHERE subject_id=? LIMIT 1", (subject["id"],)
+    )
+    app.store.save_session(
+        dict(
+            plan_id=app.plan,
+            subject_id=subject["id"],
+            topic_id=topic["id"],
+            day=app.today().isoformat(),
+            category="Teoria",
+            target=60,
+            elapsed=60,
+            correct=0,
+            wrong=0,
+            blank=0,
+        )
+    )
+    app.refresh()
+    pump(root)
+    cards = [w for w in descendants(app.content) if isinstance(w, Card)]
+    stats = [w for w in descendants(app.content) if isinstance(w, Stat)]
+    assert cards and stats
+    assert all(w.winfo_width() > 1 and w.body.winfo_width() > 1 for w in cards)
+    for stat in stats:
+        for text in stat.winfo_children():
+            assert text.winfo_reqwidth() <= stat.winfo_width(), (
+                text.cget("text"),
+                stat.winfo_width(),
+            )
+    assert app.sidebar.winfo_ismapped() and app.sidebar.winfo_width() == 224
+    assert app.scroll.winfo_x() >= 224
     app.toggle_sidebar()
     pump(root)
     assert not app.sidebar.winfo_ismapped()
@@ -63,32 +102,15 @@ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as folder:
     button.event_generate("<Leave>")
     pump(root)
     assert button.current.lower() == resting.lower()
-    card = next(
-        w
-        for frame in app.content.winfo_children()
-        for w in frame.winfo_children()
-        if isinstance(w, MetricCard)
-    )
-    for frame in app.content.winfo_children():
-        for metric in frame.winfo_children():
-            if not isinstance(metric, MetricCard):
-                continue
-            value = next(
-                i
-                for i in metric.find_all()
-                if metric.type(i) == "text"
-                and metric.itemcget(i, "text") == str(metric.value)
-            )
-            assert metric.bbox(value)[2] <= metric.winfo_width() - 16, (
-                metric.value,
-                metric.bbox(value),
-            )
+    card = cards[0]
+    fill = card.itemcget(card.find_withtag("fill")[0], "fill")
     card.event_generate("<Enter>")
     pump(root)
-    assert card.hover == 1
+    assert card.itemcget(card.find_withtag("fill")[0], "fill") == fill
+    assert card not in app.motion.jobs
     card.event_generate("<Leave>")
     pump(root)
-    assert card.hover == 0
+    assert card.itemcget(card.find_withtag("fill")[0], "fill") == fill
     app.open_clock()
     pump(root)
     win = next(w for w in root.winfo_children() if isinstance(w, tk.Toplevel))
@@ -131,9 +153,12 @@ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as folder:
     win = next(w for w in root.winfo_children() if isinstance(w, tk.Toplevel))
     win.destroy()
     pump(root)
-    for section in SECTIONS:
-        app.navigate(section)
-        root.update()
+    # Warm both lazy screen content and shared image caches before measuring
+    # repeated navigation; the account screen also opens its owned workspace.
+    for _ in range(2):
+        for section in SECTIONS:
+            app.navigate(section)
+            root.update()
     gc.collect()
     before = psutil.Process().memory_info().rss
     for _ in range(4):
@@ -167,11 +192,11 @@ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as folder:
     assert not app.motion.jobs and not errors, (app.motion.jobs, errors)
     report = {
         "hover_transitions": True,
-        "cards_hover": True,
+        "quiet_cards_stable_hover": True,
         "window_reveal_completed": True,
         "destroy_during_animation": True,
         "inter_loaded": True,
-        "card_entrance_completed": True,
+        "current_cards_and_stats_rendered": True,
         "persistent_collapsible_sidebar": True,
         "clock_reveal_completed": True,
         "navigation_memory_growth_mb": round(growth / 1024**2, 2),

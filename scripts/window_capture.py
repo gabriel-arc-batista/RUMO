@@ -73,3 +73,30 @@ def capture_window(hwnd, path):
         gdi.DeleteObject(bitmap)
         gdi.DeleteDC(memory)
         user.ReleaseDC(hwnd, dc)
+
+
+def capture_tk_window(window, path):
+    """Capture only this Tk window on Windows or X11."""
+    import os
+
+    if os.name == "nt":
+        parent = ctypes.windll.user32.GetParent
+        parent.argtypes = [ctypes.c_void_p]
+        parent.restype = ctypes.c_void_p
+        capture_window(parent(window.winfo_id()), path)
+        return
+    from Xlib import X, display
+
+    connection = display.Display()
+    try:
+        wid = int(window.wm_frame(), 16) if window.wm_frame() else window.winfo_id()
+        native = connection.create_resource_object("window", wid)
+        geometry = native.get_geometry()
+        raw = native.get_image(
+            0, 0, geometry.width, geometry.height, X.ZPixmap, 0xFFFFFFFF
+        )
+        Image.frombytes(
+            "RGB", (geometry.width, geometry.height), raw.data, "raw", "BGRX"
+        ).save(path)
+    finally:
+        connection.close()

@@ -14,7 +14,7 @@ import app as app_module
 from app import App, SECTIONS, Form
 from unittest.mock import patch
 from core import Store, uid
-from window_capture import capture_window
+from window_capture import capture_tk_window
 import psutil
 
 out = Path(__file__).resolve().parents[1] / "validation"
@@ -50,10 +50,7 @@ def pump():
 
 
 def native_snap(window, path):
-    get_parent = ctypes.windll.user32.GetParent
-    get_parent.argtypes = [ctypes.c_void_p]
-    get_parent.restype = ctypes.c_void_p
-    capture_window(get_parent(window.winfo_id()), path)
+    capture_tk_window(window, path)
 
 
 def snap(name):
@@ -92,7 +89,7 @@ def click(label, window=root):
 pump()
 snap("inicio-vazio-escuro.png")
 # Open form through the same button used by users, create new entities in form.
-click("Registrar")
+click("Registrar estudo")
 win = form("Registro de estudo")
 entries = [w for w in descendants(win) if isinstance(w, tk.ttk.Entry)]
 # Use returned form to exercise the callback itself and all data validation.

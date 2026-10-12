@@ -1,6 +1,7 @@
 """Regression: real arrow/name clicks must keep the surrounding list alive."""
 
 import ctypes
+import os
 import gc
 import json
 import sys
@@ -14,7 +15,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app import App
 from core import Store
 
-ctypes.windll.shcore.SetProcessDpiAwareness(1)
+if os.name == "nt":
+    ctypes.windll.shcore.SetProcessDpiAwareness(1)
 
 
 def pump(root, seconds=0.15):

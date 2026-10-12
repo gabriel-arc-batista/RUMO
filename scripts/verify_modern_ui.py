@@ -1,6 +1,7 @@
 """Exercise the new controls in an isolated database; capture only our windows."""
 
 import ctypes
+import os
 import json
 import sys
 import tempfile
@@ -15,9 +16,11 @@ from app import App, Form
 from core import Store
 from components import SearchSelect, CompletionBox
 from ui import MotionButton
-from window_capture import capture_window
+from ui_kit import Segmented
+from window_capture import capture_tk_window
 
-ctypes.windll.shcore.SetProcessDpiAwareness(1)
+if os.name == "nt":
+    ctypes.windll.shcore.SetProcessDpiAwareness(1)
 output = Path(__file__).resolve().parents[1] / "validation"
 captured = []
 
@@ -46,10 +49,7 @@ def pump(root, seconds=0.5):
 
 def snap(window, name):
     pump(window._root())
-    parent = ctypes.windll.user32.GetParent
-    parent.argtypes = [ctypes.c_void_p]
-    parent.restype = ctypes.c_void_p
-    capture_window(parent(window.winfo_id()), output / name)
+    capture_tk_window(window, output / name)
 
 
 def button(window, label):
@@ -84,7 +84,14 @@ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as folder:
     assert next_topic(store, blocks[0]["subject_id"])["id"] != first["id"]
     app.navigate("Metas e conquistas")
     pump(root)
-    button(root, "Adicionar meta").invoke()
+    button(root, "Usar a meta do nível: 3 h e 30 questões").invoke()
+    pump(root)
+    goal = store.one(
+        "SELECT hours,questions FROM goals WHERE plan_id=? AND subject_id IS NULL",
+        (app.plan,),
+    )
+    assert goal == {"hours": 3, "questions": 30}
+    button(root, "Tornar principal").invoke()
     pump(root)
     assert store.pref("main_goal_" + app.plan)["name"]
     app.preferences()
@@ -203,7 +210,20 @@ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as folder:
         app.navigate(section)
         snap(root, name)
     for level in ["Intermediário", "Avançado", "Iniciante"]:
-        button(root, level).invoke()
+        selector = next(
+            w
+            for w in descendants(root)
+            if isinstance(w, Segmented)
+            and any(option[0] == level for option in w.options)
+        )
+        index = next(
+            i for i, option in enumerate(selector.options) if option[0] == level
+        )
+        selector.event_generate(
+            "<Button-1>",
+            x=4 + sum(selector.widths[:index]) + selector.widths[index] // 2,
+            y=10,
+        )
         pump(root)
         assert store.pref("challenge_level_" + app.plan) == level
     root.geometry("1000x650+0+0")
