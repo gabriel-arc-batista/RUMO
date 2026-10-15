@@ -4,9 +4,11 @@ import { Link, useLocation, useNavigate, useSearchParams } from "react-router-do
 import { StudyTimer, useStudyTimer } from "../../components/StudyTimer";
 import { Confirm, EmptyState, ExampleTag, ProgressBar } from "../../components/ui";
 import { attemptsFor, isFavorite, type AttemptState } from "../../domain/projection";
+import { practiceStatistics, sessionSubject } from "../../domain/practice";
 import type { Question } from "../../domain/types";
 import { compactDuration, plural } from "../../lib/format";
 import { uuid } from "../../lib/ids";
+import { SingleAction } from "../../lib/singleAction";
 import { entity } from "../../service/contract";
 import { useCatalog, useRumo } from "../../service/store";
 import { CardEditor, type CardDraft } from "../cards/CardEditor";
@@ -22,7 +24,7 @@ export default function ArenaSessionRoute() {
 
 function ArenaSession() {
   const catalog = useCatalog();
-  const { sync, enqueue, prefs, online } = useRumo();
+  const { sync, enqueue, prefs, online, toast } = useRumo();
   const [params] = useSearchParams();
   const navigate = useNavigate();
   const filters = readFilters(params);
@@ -41,6 +43,7 @@ function ArenaSession() {
   const [noteText, setNoteText] = useState("");
   const timer = useStudyTimer(`arena.${params.toString()}`);
   const sessionStart = useRef(timer.sessionId);
+  const actions = useRef(new SingleAction());
   const confirmRef = useRef<HTMLButtonElement>(null);
   const resultRef = useRef<HTMLDivElement>(null);
 
@@ -72,14 +75,17 @@ function ArenaSession() {
 
   const confirm = async () => {
     if (!selected || !question) return;
-    const id = uuid();
-    setAttemptIds((m) => ({ ...m, [question.id]: id }));
-    await enqueue(
-      "arena.attempt",
-      id,
-      { question_id: question.id, version: question.version, answer: selected, session_id: timer.sessionId },
-      id,
-    );
+    try {
+      await actions.current.run(`${timer.sessionId}:${question.id}`, async (id) => {
+        await enqueue(
+          "arena.attempt", id,
+          { question_id: question.id, version: question.version, answer: selected, session_id: timer.sessionId }, id,
+        );
+        setAttemptIds((m) => ({ ...m, [question.id]: id }));
+      });
+    } catch {
+      toast("Não foi possível guardar a resposta. Tente confirmar novamente.", "error");
+    }
   };
 
   const next = () => {
@@ -129,7 +135,7 @@ function ArenaSession() {
         attempts={sessionAttempts}
         total={questions.length}
         questions={questions}
-        timer={<StudyTimer timer={timer} category="Questões" subjectId={questions[0].subjectId} topicId={filters.topic || null} />}
+        timer={<StudyTimer timer={timer} category={filters.mode === "simulado" ? "Simulado" : "Questões"} subjectId={sessionSubject(questions.map((q) => q.subjectId))} topicId={filters.topic || null} />}
         registered={p?.sessions.get(sessionStart.current)?.payload.elapsed ?? null}
         elapsed={timer.elapsed}
         onCard={(q, a) => setCardDraft(errorDraft(q, a))}
@@ -158,7 +164,7 @@ function ArenaSession() {
         </div>
         {prefs.arenaTimer && (
           <div data-decor>
-            <StudyTimer timer={timer} category="Questões" subjectId={question.subjectId} topicId={filters.topic || null} compact />
+            <StudyTimer timer={timer} category={filters.mode === "simulado" ? "Simulado" : "Questões"} subjectId={sessionSubject(questions.map((q) => q.subjectId))} topicId={filters.topic || null} compact />
           </div>
         )}
       </div>
@@ -311,6 +317,11 @@ function Summary({
   closeCard: () => void;
   filters: string;
 }) {
+  const catalog = useCatalog();
+  const stats = practiceStatistics(attempts.map((a) => {
+    const q = questions.find((q) => q.id === a.questionId);
+    return { id: a.id, subjectId: q?.subjectId ?? null, topicIds: q?.topicIds ?? [], outcome: a.result?.status ?? "pending" };
+  }));
   const correct = attempts.filter((a) => a.result?.status === "correct").length;
   const wrong = attempts.filter((a) => a.result?.status === "incorrect");
   const annulled = attempts.filter((a) => a.result?.status === "annulled").length;
@@ -356,6 +367,13 @@ function Summary({
             <span className="label">tempo registrado</span>
           </div>
         </div>
+        {stats.subjects.size > 1 && (
+          <table>
+            <caption>Resultados por matéria</caption>
+            <thead><tr><th scope="col">Matéria</th><th scope="col">Acertos</th><th scope="col">Erros</th><th scope="col">Pendentes</th></tr></thead>
+            <tbody>{[...stats.subjects].map(([id, count]) => <tr key={id}><th scope="row">{catalog.subjects.find((s) => s.id === id)?.name ?? "Sem classificação"}</th><td>{count.correct}</td><td>{count.incorrect}</td><td>{count.pending}</td></tr>)}</tbody>
+          </table>
+        )}
         <p className="small muted">
           Isto descreve esta sessão, não o seu domínio do assunto. Com poucas questões, um número alto ou baixo diz pouco; o histórico ao longo dos dias diz mais.
         </p>

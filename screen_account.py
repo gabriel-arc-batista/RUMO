@@ -379,7 +379,14 @@ def render(app):
         if not waiting:
             status.set("Todas as sessões já estão associadas.")
             return
-        event = waiting[0]
+        event = next(
+            (e for e in waiting if e["payload"]["subject_id"] != "misto"), None
+        )
+        if event is None:
+            status.set(
+                "Sessões mistas preservadas no workspace. A integração por conteúdo ainda precisa de associações individuais; consulte os resultados por matéria no site."
+            )
+            return
         chooser = tk.Toplevel(app.root)
         chooser.title("Associar sessão a um assunto")
         ttk.Label(

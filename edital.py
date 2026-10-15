@@ -400,6 +400,21 @@ def render_edital(app, tooltip, dialogs):
         wrapping(label(detail, app, topic["name"], size=15, weight="bold")).pack(
             fill="x", pady=(6, 0)
         )
+        if not branch and not topic["done"]:
+            from pedagogy import recommendations
+
+            guidance = next(
+                (
+                    r
+                    for r in recommendations(app.store, topic["subject_id"])
+                    if r["topic"]["id"] == topic["id"]
+                ),
+                None,
+            )
+            if guidance:
+                wrapping(
+                    label(detail, app, guidance["reason"], size=9, tone="muted")
+                ).pack(fill="x", pady=(10, 0))
         state = (
             f"{topic['completed']} de {topic['total']} subassuntos concluídos"
             if branch
@@ -494,7 +509,10 @@ def render_edital(app, tooltip, dialogs):
             height=40,
             command=lambda: app.session_form(dict(start)),
         ).pack(side="left", padx=(8, 0))
+        from pedagogy_ui import edit_dependencies
+
         menu = [
+            ("Conhecimentos anteriores", lambda: edit_dependencies(app, topic)),
             ("Materiais e links", lambda: app.materials(topic)),
             ("Editar assunto", lambda: app.topic_form(topic)),
             None,

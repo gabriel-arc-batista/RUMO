@@ -1,0 +1,710 @@
+{
+  "version": 1,
+  "source": "Edital BACEN 2024 retificado; curadoria pedagógica, sem bloquear acesso",
+  "relations": [
+    {
+      "before": [
+        "Língua Portuguesa",
+        "5.1 Emprego das classes de palavras"
+      ],
+      "after": [
+        "Língua Portuguesa",
+        "5.5 Concordância verbal e nominal"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Língua Portuguesa",
+        "5.1 Emprego das classes de palavras"
+      ],
+      "after": [
+        "Língua Portuguesa",
+        "5.6 Regência verbal e nominal"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Língua Portuguesa",
+        "5.6 Regência verbal e nominal"
+      ],
+      "after": [
+        "Língua Portuguesa",
+        "5.7 Emprego do sinal indicativo de crase"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Língua Portuguesa",
+        "5.2 Relações de coordenação entre orações e entre termos da oração"
+      ],
+      "after": [
+        "Língua Portuguesa",
+        "5.4 Emprego dos sinais de pontuação"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Língua Portuguesa",
+        "5.3 Relações de subordinação entre orações e entre termos da oração"
+      ],
+      "after": [
+        "Língua Portuguesa",
+        "6.3 Reorganização da estrutura de orações e de períodos do texto"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Noções De Lógica E Estatística",
+        "1.1 Estruturas lógicas"
+      ],
+      "after": [
+        "Noções De Lógica E Estatística",
+        "1.3 Lógica sentencial (ou proposicional)"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Noções De Lógica E Estatística",
+        "10.3.1 Proposições simples e compostas"
+      ],
+      "after": [
+        "Noções De Lógica E Estatística",
+        "10.3.2 Tabelas -verdade"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Noções De Lógica E Estatística",
+        "10.3.2 Tabelas -verdade"
+      ],
+      "after": [
+        "Noções De Lógica E Estatística",
+        "10.3.3 Equivalências"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Noções De Lógica E Estatística",
+        "10.3.3 Equivalências"
+      ],
+      "after": [
+        "Noções De Lógica E Estatística",
+        "10.3.4 Leis de Morgan; problemas"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Noções De Lógica E Estatística",
+        "2.1 População e amostra"
+      ],
+      "after": [
+        "Noções De Lógica E Estatística",
+        "2.2 Histogramas e curvas de frequência"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Noções De Lógica E Estatística",
+        "2.1 População e amostra"
+      ],
+      "after": [
+        "Noções De Lógica E Estatística",
+        "2.3 Medidas de posição: média, moda, mediana e separatrizes"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Noções De Lógica E Estatística",
+        "2.3 Medidas de posição: média, moda, mediana e separatrizes"
+      ],
+      "after": [
+        "Noções De Lógica E Estatística",
+        "2.4 Medidas de dispersão absoluta e relativa"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Noções De Lógica E Estatística",
+        "2.5 Probabilidade condicional, independência"
+      ],
+      "after": [
+        "Noções De Lógica E Estatística",
+        "2.6 Variável aleatória e funções de distribuição"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Direito Administrativo",
+        "1.1 Administração direta e indireta"
+      ],
+      "after": [
+        "Direito Administrativo",
+        "3.2 Autarquias, a gências reguladoras, agências executivas, fundações públicas, empresas públicas, sociedades de economia mista"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Direito Administrativo",
+        "2.1 Espécies de poder: hierárquico, disciplinar, regulamentar, de polícia e normativo"
+      ],
+      "after": [
+        "Direito Administrativo",
+        "2.2 Uso e abuso do poder"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Direito Administrativo",
+        "4.1 Conceito, requisitos e atributos"
+      ],
+      "after": [
+        "Direito Administrativo",
+        "4.3 Anulação, revogação e convalidação"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Direito Administrativo",
+        "5.1.1 Disposições preliminares"
+      ],
+      "after": [
+        "Direito Administrativo",
+        "5.1.2 Provimento, vacância, remoção, redistribuição e substituição"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Direito Administrativo",
+        "5.1.4 Regime disciplinar"
+      ],
+      "after": [
+        "Direito Administrativo",
+        "5.1.6 Processo administrativo disciplinar"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Fundamentos De Macroeconomia E Microeconomia",
+        "Microeconomia — 2.1 Curvas de indiferença"
+      ],
+      "after": [
+        "Fundamentos De Macroeconomia E Microeconomia",
+        "Microeconomia — 2.3 Equilíbrio do consumidor"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Fundamentos De Macroeconomia E Microeconomia",
+        "Microeconomia — 2.2 Restrição orçamentária"
+      ],
+      "after": [
+        "Fundamentos De Macroeconomia E Microeconomia",
+        "Microeconomia — 2.3 Equilíbrio do consumidor"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Fundamentos De Macroeconomia E Microeconomia",
+        "Microeconomia — 2.3 Equilíbrio do consumidor"
+      ],
+      "after": [
+        "Fundamentos De Macroeconomia E Microeconomia",
+        "Microeconomia — 2.4 Efeitos preço, renda e substituição"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Fundamentos De Macroeconomia E Microeconomia",
+        "Microeconomia — 2.5 Curva de demanda"
+      ],
+      "after": [
+        "Fundamentos De Macroeconomia E Microeconomia",
+        "Microeconomia — 2.6 Elasticidade da demanda"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Fundamentos De Macroeconomia E Microeconomia",
+        "Macroeconomia — 2 Agregados monetários"
+      ],
+      "after": [
+        "Fundamentos De Macroeconomia E Microeconomia",
+        "Macroeconomia — 3 Multiplicador monetário, criação e destruição de moeda"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Fundamentos De Macroeconomia E Microeconomia",
+        "Macroeconomia — 3 Multiplicador monetário, criação e destruição de moeda"
+      ],
+      "after": [
+        "Fundamentos De Macroeconomia E Microeconomia",
+        "Macroeconomia — 4 Contas do sistema monetário"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Engenharia De Software",
+        "1 Arquitetura de sistemas web: protocolo HTTP, HTTP/2, gRPC, WebSockets, TLS, servidores proxy, cache, DNS, balanceamento de carga, tolerância a falhas e escalabilidade em sistemas web"
+      ],
+      "after": [
+        "Engenharia De Software",
+        "8 RESTful e GraphQL"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Engenharia De Software",
+        "12 Python e Java"
+      ],
+      "after": [
+        "Engenharia De Software",
+        "7 Programação assíncrona"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Engenharia De Software",
+        "5 Arquiteturas em camadas, baseada em serviços, microsserviços (orquestração de serviços e API gateway), orientação a eventos, cliente-servidor, serverless"
+      ],
+      "after": [
+        "Engenharia De Software",
+        "13 Transações distribuídas"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Infraestrutura Em Ti",
+        "10 Conceitos de LAN, WAN e SDN"
+      ],
+      "after": [
+        "Infraestrutura Em Ti",
+        "3 Serviços de Rede Microsoft Windows Server: DNS, DHCP, Radius, Autenticação, C ertificados, Active Directory (AD)"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Infraestrutura Em Ti",
+        "10 Conceitos de LAN, WAN e SDN"
+      ],
+      "after": [
+        "Infraestrutura Em Ti",
+        "5 Protocolos da camada de aplicação, como Simple Mail Transfer Protocol (SMTP), Hypertext Transfer Protocol (HTTP), Hypertext Transfer Protocol (HTTPS), SSL/TLS, Lightweight Directory Access Protocol (LDAP), Network File System (NFS), Se rver Message Block (SMB)"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Infraestrutura Em Ti",
+        "9 Administração e operação de sistemas operacionais Microsoft Windows Server e Linux"
+      ],
+      "after": [
+        "Infraestrutura Em Ti",
+        "8 Administração e gerenciamento de ambientes de virtualização"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Infraestrutura Em Ti",
+        "8 Administração e gerenciamento de ambientes de virtualização"
+      ],
+      "after": [
+        "Infraestrutura Em Ti",
+        "2 Docker, Kubernetes: boas práticas para infraestrutura e orquestração de containers"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Infraestrutura Em Ti",
+        "9 Administração e operação de sistemas operacionais Microsoft Windows Server e Linux"
+      ],
+      "after": [
+        "Infraestrutura Em Ti",
+        "1 Conceitos de infraestrutura como código e automação de infraestrutura de TI"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Infraestrutura Em Ti",
+        "1 Conceitos de infraestrutura como código e automação de infraestrutura de TI"
+      ],
+      "after": [
+        "Infraestrutura Em Ti",
+        "11 Conceitos e ferramentas de orquestração e automação de infraestrutura: Puppet, Ansible"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Infraestrutura Em Ti",
+        "4 Monitoração, observabilidade e análise de sistemas em produção por meio do uso de ferramentas de monitoramento e logging, como o Nagios, Prometheus, Grafana, Elasticsearch, Kibana, Application Performance Monitoring (A PM), entre outras"
+      ],
+      "after": [
+        "Infraestrutura Em Ti",
+        "6 Tolerância a falhas e continuidade de operação"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Ciência De Dados",
+        "1 Aprendizado de Máquina"
+      ],
+      "after": [
+        "Ciência De Dados",
+        "8 Redes Neurais"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Ciência De Dados",
+        "8 Redes Neurais"
+      ],
+      "after": [
+        "Ciência De Dados",
+        "2 Deep learning"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Ciência De Dados",
+        "1 Aprendizado de Máquina"
+      ],
+      "after": [
+        "Ciência De Dados",
+        "9 MLOps: Gestão de código, treinamento, implantação, monitoramento e versionamento de modelos, automação do ciclo de produção"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Ciência De Dados",
+        "2 Deep learning"
+      ],
+      "after": [
+        "Ciência De Dados",
+        "7 Grandes Modelos de Linguagem (LLM), IA Generativa"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Segurança Da Informação",
+        "1 Gestão de Identidades e Acesso: Autenticação e Autoriza ção, Single Sign-On (SSO), Security Assertion Markup Language (SAML), OAuth2 e OpenId Connect"
+      ],
+      "after": [
+        "Segurança Da Informação",
+        "5 Múltiplos Fatores de Autenticação (MFA)"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Segurança Da Informação",
+        "3 Principais tipos de ataques e vulnerabilidades"
+      ],
+      "after": [
+        "Segurança Da Informação",
+        "8 Tratamento de Incidentes Cibernéticos"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Segurança Da Informação",
+        "9 Assinat ura e certificação digital, criptografia e proteção de dados em trânsito e em repouso"
+      ],
+      "after": [
+        "Segurança Da Informação",
+        "4 Controles e testes de segurança para aplicações Web e Web Services"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Infraestrutura Em Ti",
+        "10 Conceitos de LAN, WAN e SDN"
+      ],
+      "after": [
+        "Segurança Da Informação",
+        "6 Soluções para Segurança da Informação: Firewall, Intrusion Detection System (IDS), Intrusion Prevention System (IPS), Security Information and Event Management (SIEM), Proxy, Identity Access Management (IAM), Privi leged Access Management (PAM), Antivírus, Antispam"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Engenharia De Software",
+        "1 Arquitetura de sistemas web: protocolo HTTP, HTTP/2, gRPC, WebSockets, TLS, servidores proxy, cache, DNS, balanceamento de carga, tolerância a falhas e escalabilidade em sistemas web"
+      ],
+      "after": [
+        "Segurança Da Informação",
+        "4 Controles e testes de segurança para aplicações Web e Web Services"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Noções De Lógica E Estatística",
+        "2.6 Variável aleatória e funções de distribuição"
+      ],
+      "after": [
+        "Ciência De Dados",
+        "1 Aprendizado de Máquina"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Gestão Em Ti",
+        "1 Kanban"
+      ],
+      "after": [
+        "Gestão Em Ti",
+        "2 Scrum"
+      ],
+      "kind": "parallel"
+    },
+    {
+      "before": [
+        "Engenharia De Software",
+        "HTTP e HTTP/2"
+      ],
+      "after": [
+        "Engenharia De Software",
+        "gRPC"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Engenharia De Software",
+        "HTTP e HTTP/2"
+      ],
+      "after": [
+        "Engenharia De Software",
+        "WebSockets"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Engenharia De Software",
+        "HTTP e HTTP/2"
+      ],
+      "after": [
+        "Engenharia De Software",
+        "Recursos, verbos HTTP e códigos de resposta"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Engenharia De Software",
+        "Cliente-servidor"
+      ],
+      "after": [
+        "Engenharia De Software",
+        "Arquitetura baseada em serviços"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Engenharia De Software",
+        "Arquitetura baseada em serviços"
+      ],
+      "after": [
+        "Engenharia De Software",
+        "Microsserviços e orquestração"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Engenharia De Software",
+        "Recursos, verbos HTTP e códigos de resposta"
+      ],
+      "after": [
+        "Engenharia De Software",
+        "Microsserviços e orquestração"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Engenharia De Software",
+        "Microsserviços e orquestração"
+      ],
+      "after": [
+        "Engenharia De Software",
+        "API gateway"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Infraestrutura Em Ti",
+        "Docker: imagens, containers e Dockerfile"
+      ],
+      "after": [
+        "Infraestrutura Em Ti",
+        "Docker: redes e volumes"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Infraestrutura Em Ti",
+        "Docker: imagens, containers e Dockerfile"
+      ],
+      "after": [
+        "Infraestrutura Em Ti",
+        "Kubernetes: pods e deployments"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Infraestrutura Em Ti",
+        "Kubernetes: pods e deployments"
+      ],
+      "after": [
+        "Infraestrutura Em Ti",
+        "Kubernetes: services e ingress"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Bancos De Dados",
+        "SELECT, WHERE e ORDER BY"
+      ],
+      "after": [
+        "Bancos De Dados",
+        "INNER, LEFT, RIGHT e FULL JOIN"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Bancos De Dados",
+        "SELECT, WHERE e ORDER BY"
+      ],
+      "after": [
+        "Bancos De Dados",
+        "GROUP BY, HAVING e agregações"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Bancos De Dados",
+        "SELECT, WHERE e ORDER BY"
+      ],
+      "after": [
+        "Bancos De Dados",
+        "Subconsultas e operações de conjuntos"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Bancos De Dados",
+        "Subconsultas e operações de conjuntos"
+      ],
+      "after": [
+        "Bancos De Dados",
+        "CTEs e consultas recursivas"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Bancos De Dados",
+        "GROUP BY, HAVING e agregações"
+      ],
+      "after": [
+        "Bancos De Dados",
+        "Funções de janela"
+      ],
+      "kind": "essential"
+    },
+    {
+      "before": [
+        "Bancos De Dados",
+        "Modelo lógico relacional e chaves"
+      ],
+      "after": [
+        "Bancos De Dados",
+        "SELECT, WHERE e ORDER BY"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Bancos De Dados",
+        "Modelo conceitual e entidade-relacionamento"
+      ],
+      "after": [
+        "Bancos De Dados",
+        "Entidades, atributos e relacionamentos"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Bancos De Dados",
+        "Entidades, atributos e relacionamentos"
+      ],
+      "after": [
+        "Bancos De Dados",
+        "Modelo lógico relacional e chaves"
+      ],
+      "kind": "recommended"
+    },
+    {
+      "before": [
+        "Bancos De Dados",
+        "Modelagem dimensional: fatos e dimensões"
+      ],
+      "after": [
+        "Bancos De Dados",
+        "Data warehouse e integração de dados"
+      ],
+      "kind": "recommended"
+    }
+  ]
+}

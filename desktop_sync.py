@@ -118,6 +118,11 @@ def import_remote_sessions(store):
     waiting = []
     for event in latest.values():
         p = event["payload"]
+        if p["subject_id"] == "misto":
+            # Keep the full event in the workspace until item-level mappings are
+            # available. Assigning it to one subject would falsify statistics.
+            waiting.append(event)
+            continue
         key = "session_mapping:" + json.dumps(
             [p["plan_id"], p["subject_id"], p["topic_id"]]
         )

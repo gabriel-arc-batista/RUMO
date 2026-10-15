@@ -48,6 +48,38 @@ class DesktopSyncTests(unittest.TestCase):
         v.update(changes)
         return self.store.save_session(v)
 
+    def test_mixed_session_is_preserved_without_assigning_first_subject(self):
+        from desktop_sync import import_remote_sessions
+
+        event = dict(
+            id=str(uuid.uuid4()),
+            sequence=1,
+            revision=1,
+            device_id=str(uuid.uuid4()),
+            base_revision=0,
+            kind="study.session",
+            entity_id="mixed-test",
+            received_at="2026-10-15T12:00:00Z",
+            payload=dict(
+                plan_id="site",
+                subject_id="misto",
+                topic_id=None,
+                day="2026-10-15",
+                category="Questões",
+                elapsed=600,
+                lesson_id=None,
+                lesson_version=None,
+            ),
+        )
+        self.workspace.apply_pull([event])
+        waiting = import_remote_sessions(self.store)
+        self.assertEqual(len(waiting), 1)
+        self.assertIsNone(
+            self.store.one("SELECT id FROM sessions WHERE id='mixed-test'")
+        )
+        self.assertEqual(len(self.workspace.events()), 1)
+        self.assertEqual(self.store.stats(self.plan)["correct"], 0)
+
     def test_binding_does_not_send_history_or_personal_pdfs(self):
         sid = self.session()
         self.service.read_page("lesson", "1", 1, 2, True)

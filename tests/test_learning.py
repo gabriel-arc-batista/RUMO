@@ -45,6 +45,22 @@ class LearningTests(unittest.TestCase):
             list(reversed(names)),
         )
 
+    def test_web_architecture_before_tools_and_design(self):
+        names = ["12 Python e Java", "11 Git", "6 UX", "1 Arquitetura web", "5 Camadas"]
+        topics = [{"name": n, "subject_id": "s"} for n in names]
+        self.assertEqual(
+            [t["name"] for t in ordered(topics, {"s": "Engenharia De Software"})],
+            ["1 Arquitetura web", "5 Camadas", "12 Python e Java", "11 Git", "6 UX"],
+        )
+
+    def test_basics_before_consumer_theory(self):
+        names = ["Microeconomia — 2.1 Curvas", "Microeconomia — 1.1 Preços"]
+        topics = [{"name": n, "subject_id": "s"} for n in names]
+        self.assertEqual(
+            [t["name"] for t in ordered(topics, {"s": "Fundamentos"})],
+            list(reversed(names)),
+        )
+
     def test_cycle_is_idempotent_and_preserves_history(self):
         old = self.store.put("cycles", {"plan_id": self.plan, "name": "Anterior"})
         cycle = create_starter_cycle(self.store, self.plan)

@@ -2288,7 +2288,7 @@ class App:
 
     def study_block(self, b, cycle):
         topic = b["topic_id"]
-        if self.store.pref("starter_cycle_" + self.plan) == cycle["id"] and not topic:
+        if not topic:
             from learning import next_topic
 
             next_item = next_topic(self.store, b["subject_id"])

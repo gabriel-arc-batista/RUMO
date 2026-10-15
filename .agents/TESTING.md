@@ -66,3 +66,13 @@ exemplo) e, com Docker, `npm run servico:up` + `build:servico` + `preview:servic
 desktop. Não substitui teste no Supabase hospedado nem em outros navegadores.
 
 Adições de 12/10 (tarde): `tests/test_sync_extras.py` (snapshots de perfil/ciclo, trava sem 009, transporte explícito entre versões, intervalos de páginas, token_store com DPAPI no Windows/0600 no Linux) e `scripts/verify_version_carry_gui.py` (leitor nativo: aviso, diálogo editável, versão anterior preservada, sem XP; incluído no workflow Windows). Backend: `backend/tests/profile_cycle.sql` roda em `backend/tests/run.sh`. Site: `npm test` (36), `MAIL=1 npm run servico:up` + `node e2e/email.mjs` (confirmação/recuperação com Mailpit), `node e2e/versao.mjs`, `python3 web/e2e/desktop_profile.py` + `node e2e/desktop-perfil-no-site.mjs <email>`, `node e2e/a11y.mjs` (axe-core), `node e2e/carga.mjs` (só pilha local) e `BROWSER=firefox` nos fluxos `flow.mjs`/`extras.mjs`.
+
+Estrutura pedagógica (15/10/2026): `tests/test_pedagogy.py` cobre grafo, ciclos,
+relações entre disciplinas, retomada, backups e lacunas do BACEN TI.
+`tests/test_editorial.py` cobre duplicatas, revisão invalidada, lote atômico,
+edições preservadas e recusa de base de outro domínio. `verify_pedagogy_gui.py`
+usa só dados temporários e verifica navegação Campo/árvore, acesso fora da ordem
+e editor de relações, sem XP/sessões. Frontend acrescenta regressões de paginação
+acima de 1.000 itens, repetição de resposta, conteúdo estudado e estatística mista.
+`test_sync_desktop` mantém sessões mistas preservadas no workspace. Isso não
+valida a integração individual dos resultados mistos ao Store, ainda pendente.

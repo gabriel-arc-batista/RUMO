@@ -128,3 +128,22 @@ pdf.js com render preguiçoso e camada de texto; "Li esta página" por página e
 barra fixa; posição separada da leitura. Decisões em `docs/site/FRONTEND.md`.
 
 Migração 009 e app (12/10, Claude): `push_events` virou adaptador que valida `profile.character`/`cycle.snapshot` e delega o resto a `push_events_core` na mesma transação; `progress_summary` traz aparência, nome, equipados e vitórias. Desktop: `desktop_sync.capture_profile_and_cycle` envia retratos só quando mudam e só após `note_server_features` confirmar a 009; `screen_account.background_sync` reconecta o login lembrado (`token_store.py`) ao abrir e repete a cada minuto. `StudySync.carry_reading` e o aviso do leitor trazem marcações de outra versão apenas com confirmação. Site: `useCharacter`, contexto do ciclo no Início, `Formula` (KaTeX sob demanda), `CarryDialog`.
+
+## Estrutura pedagógica — 15/10/2026
+
+`pedagogy.py` usa preferências `learning_graph_<plan>` para relações locais
+essential/recommended/parallel entre IDs existentes, com validação sem ciclos.
+`assets/bacen-pedagogy.json` oferece 64 relações padrão por correspondência exata
+única de títulos; não altera o edital ou cria conteúdo. `pedagogy_ui.py` edita
+relações pelo menu do assunto. `learning.next_topic` orienta blocos sem assunto
+fixado; `screen_training` apresenta a próxima sugestão do ciclo e `edital` mostra
+os conhecimentos anteriores. Não bloqueia estudo nem concede XP.
+
+`editorial.py` e `scripts/editorial.py` são preparação administrativa local em
+SQLite separado, com rascunhos/edições/auditoria. Manifesto preparado não significa
+publicado; retirada local não significa retirada remota. Não há migração canônica.
+Web pagina catálogos, protege respostas contra repetição e oferece filtros de
+conteúdo com leitura concluída. Sessões `subject_id=misto` permanecem no workspace
+sem importação para uma única matéria. Limites, diagnóstico e continuação em
+`docs/pedagogia/IMPLEMENTACAO.md` e `CONTRATO_EVOLUCAO.md`; não anunciar integração
+nativa de Arena/cartões ou sincronização do grafo como concluída.

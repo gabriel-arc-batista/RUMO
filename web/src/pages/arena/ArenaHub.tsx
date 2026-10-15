@@ -56,7 +56,7 @@ export default function ArenaHub() {
             </select>
           </div>
           <div className="field">
-            <label htmlFor="assunto">Assunto</label>
+            <label htmlFor="assunto">Assunto ou subassunto</label>
             <select id="assunto" className="select" value={f.topic} onChange={(e) => update({ topic: e.target.value })}>
               <option value="">Todos os assuntos</option>
               {topics

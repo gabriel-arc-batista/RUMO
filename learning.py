@@ -31,21 +31,25 @@ SUBJECTS = [
     "Contabilidade De Instituições Financeiras Padrão Cosif (Plano Contábil Das Instituições Do Sistema Financeiro Nacional)",
     "Atualidades",
 ]
+# Fundamentals first, then application, then specialised or advanced topics.
+# Entries are official item numbers; "1.3" ranks one sub-item on its own.
 ROOTS = {
-    "Noções De Lógica E Estatística": [1, 10, 2],
+    "Noções De Lógica E Estatística": ["1.1", "1.3", "1.2", 1, 10, 2],
     "Direito Administrativo": [1, 3, 2, 4, 5, 7, 8, 9, 6, 10, 11],
-    "Microeconomia": [1, 5, 2, 3, 4, 6, 7],
+    "Microeconomia": [1, 2, 3, 5, 6, 4, 7],
     "Macroeconomia": [1, 8, 6, 2, 4, 5, 7, 3],
     "Estatística E Econometria": [1, 2, 3, 4, 7, 5, 6],
-    "Finanças": [1, 6, 5, 8, 3, 4, 2, 7],
-    "Engenharia De Software": [12, 11, 4, 10, 6, 1, 5, 8, 9, 7, 13, 2, 3, 14],
-    "Bancos De Dados": [2, 1, 3, 4],
-    "Infraestrutura Em Ti": [9, 10, 5, 3, 8, 7, 1, 11, 2, 4, 6],
+    "Finanças": [1, 6, 5, 3, 4, 2, 8, 7],
+    "Engenharia De Software": [1, 5, 9, 8, 12, 10, 4, 11, 2, 3, 7, 13, 14, 6],
+    "Bancos De Dados": [1, 2, 3, 4],
+    "Infraestrutura Em Ti": [10, 5, 9, 3, 8, 2, 7, 1, 11, 4, 6],
     "Segurança Da Informação": [2, 9, 1, 5, 3, 6, 4, 7, 8, 10],
-    "Ciência De Dados": [5, 4, 6, 1, 8, 2, 3, 7, 9, 10],
+    "Ciência De Dados": [5, 4, 1, 6, 8, 2, 3, 7, 9, 10],
     "Gestão Em Ti": [1, 2, 4, 3],
     "Língua Portuguesa": [3, 5, 4, 1, 2, 6],
 }
+# Study-guide items that introduce their siblings.
+FIRST = {"diferenca entre execucao sequencial, concorrente e assincrona"}
 PROGRAMMING = {
     "python": [
         "tipos",
@@ -87,7 +91,7 @@ def subject_key(name):
 
 def ordered(topics, subject_names):
     ranks = {
-        norm(name): {code: i for i, code in enumerate(codes)}
+        norm(name): {str(code): i for i, code in enumerate(codes)}
         for name, codes in ROOTS.items()
     }
 
@@ -96,24 +100,19 @@ def ordered(topics, subject_names):
         name = norm(t["name"])
         subject = subject_names.get(t["subject_id"], "")
         if name.startswith(("microeconomia", "macroeconomia")):
-            number = int(re.search(r"\d+", name)[0])
+            # Fundamentos: microeconomia (1.1 before 2.x), then macroeconomia.
+            numbers = [int(n) for n in re.findall(r"\d+", name)[:2]]
             rank = 0 if name.startswith("microeconomia") else 1
-            return subject_key(subject), (
-                0,
-                rank,
-                (0 if number == 2 else 1) if rank == 0 else number,
-                index,
-            )
+            return subject_key(subject), (0, rank, *numbers, index)
         official = re.match(r"^(\d+)(?:\.(\d+))?", name)
         if official:
             code = int(official[1])
             sub = int(official[2] or 0)
-            return subject_key(subject), (
-                0,
-                ranks.get(norm(subject), {}).get(code, code),
-                sub,
-                index,
-            )
+            order = ranks.get(norm(subject), {})
+            rank = order.get(f"{code}.{sub}", order.get(str(code), len(order) + code))
+            return subject_key(subject), (0, rank, sub, index)
+        if name in FIRST:
+            return subject_key(subject), (0, -1, 0, index)
         language = (
             0 if name.startswith("python:") else 1 if name.startswith("java:") else -1
         )
@@ -138,7 +137,6 @@ def next_topic(store, subject):
     names = {
         subject: store.one("SELECT name FROM subjects WHERE id=?", (subject,))["name"]
     }
-    leaves = [r for r in ordered(rows, names) if r["id"] not in parent_ids]
     # Respect parent prerequisites: iterate the actual hierarchy, not a flat list.
     children = {}
     for row in ordered(rows, names):
@@ -156,7 +154,18 @@ def next_topic(store, subject):
     for row in ordered(rows, names):
         if row["parent_id"] not in ids:
             visit(row)
-    return next((r for r in result if not r["done"]), result[0] if result else None)
+    from pedagogy import recommendations
+
+    guidance = {r["topic"]["id"]: r for r in recommendations(store, subject)}
+    pending = [r for r in result if not r["done"]]
+    if not pending:
+        return None
+
+    def priority(row):
+        missing = guidance[row["id"]]["missing"]
+        return sum(e["kind"] == "essential" for e in missing), len(missing)
+
+    return min(pending, key=priority)
 
 
 def create_starter_cycle(store, plan, minutes=25):

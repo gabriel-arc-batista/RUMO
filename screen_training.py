@@ -84,6 +84,7 @@ class TrainingScreen(tk.Frame):
         self.lessons = self.service.library()
         self.bind("<Destroy>", self.cleanup, add="+")
         self.header()
+        self.learning_strip()
         self.status_line()
         self.continue_strip()
         self.body()
@@ -132,6 +133,61 @@ class TrainingScreen(tk.Frame):
             text="Conteúdo",
             icon="library",
         ).pack(side="right")
+
+    def learning_strip(self):
+        """The theory tree remains useful while editorial materials are pending."""
+        from learning import next_topic
+        from pedagogy import recommendations
+
+        cycle = self.app.store.current_cycle(self.app.plan)
+        blocks = self.app.store.cycle_blocks(cycle) if cycle else []
+        if not blocks:
+            return
+        block = next((b for b in blocks if not b.get("state")), None)
+        if not block:
+            return
+        topic = (
+            self.app.store.one(
+                "SELECT * FROM topics WHERE id=? AND archived=0", (block["topic_id"],)
+            )
+            if block["topic_id"]
+            else next_topic(self.app.store, block["subject_id"])
+        )
+        if not topic:
+            return
+        guidance = next(
+            (
+                r
+                for r in recommendations(self.app.store, block["subject_id"])
+                if r["topic"]["id"] == topic["id"]
+            ),
+            {"reason": "Conteúdo escolhido para este bloco do ciclo."},
+        )
+        strip = tk.Frame(self, bg=self.app.bg)
+        strip.pack(fill="x", pady=(0, 12))
+        wrapping(
+            label(
+                strip,
+                self.app,
+                "Próximo no ciclo: " + topic["name"],
+                size=10,
+                weight="bold",
+            )
+        ).pack(fill="x")
+        wrapping(label(strip, self.app, guidance["reason"], size=9, tone="muted")).pack(
+            fill="x", pady=(4, 6)
+        )
+
+        def open_trail():
+            self.app.edital_selected = topic["id"]
+            self.app.navigate("Edital e assuntos")
+
+        MotionButton(
+            strip,
+            text="Consultar trilha de aprendizagem",
+            icon="book-open",
+            command=open_trail,
+        ).pack(anchor="w")
 
     def exam_name(self, exam):
         return f"{exam['organization']} {exam['edition_year']} · {exam['role']}"

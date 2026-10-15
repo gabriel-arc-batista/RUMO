@@ -116,6 +116,10 @@ def validate_preferences(rows: list[dict]) -> None:
             raise ValueError("Nível de desafio inválido no backup.")
         if key == LOOK_PREFERENCE and not validate_look(value):
             raise ValueError("Aparência do personagem inválida no backup.")
+        if key.startswith("learning_graph_"):
+            from pedagogy import validate_graph
+
+            validate_graph(value)
         if key == "training_source":
             validate_training_source(value)
         if key == "training_exam" and (not isinstance(value, str) or len(value) > 160):

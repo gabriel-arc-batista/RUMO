@@ -10,6 +10,8 @@ import type { Card, Catalog, Deck, Exam, Lesson, Question, Subject, Topic } from
 import type { Account, Auth, Backend } from "./backend";
 import type { Envelope, ServerEvent } from "./contract";
 
+import { collectPages } from "./pagination";
+
 type Row = Record<string, unknown>;
 
 const str = (v: unknown, fallback = "") => (typeof v === "string" ? v : fallback);
@@ -91,9 +93,7 @@ class SupabaseAuth implements Auth {
 }
 
 async function optionalTable(client: SupabaseClient, table: string): Promise<Row[]> {
-  const { data, error } = await client.from(table).select("*");
-  if (error) return [];
-  return (data ?? []) as Row[];
+  return collectPages<Row>((from, to) => client.from(table).select("*").order("id").range(from, to));
 }
 
 const version = (v: unknown) => (v == null ? "" : String(v));
@@ -219,17 +219,15 @@ export function createSupabaseBackend(url: string, publicKey: string): Backend {
     auth,
     async loadCatalog(): Promise<Catalog> {
       const [lessons, questions, cards, subjects, topics, exams, decks] = await Promise.all([
-        client.from("rumo_lessons").select("*"),
-        client.from("rumo_questions").select("*"),
-        client.from("rumo_cards").select("*"),
+        collectPages<Row>((from, to) => client.from("rumo_lessons").select("*").order("catalog_revision").range(from, to)),
+        collectPages<Row>((from, to) => client.from("rumo_questions").select("*").order("catalog_revision").range(from, to)),
+        collectPages<Row>((from, to) => client.from("rumo_cards").select("*").order("catalog_revision").range(from, to)),
         optionalTable(client, "rumo_subjects"),
         optionalTable(client, "rumo_topics"),
         optionalTable(client, "rumo_exams"),
         optionalTable(client, "rumo_decks"),
       ]);
-      const failed = [lessons, questions, cards].find((r) => r.error);
-      if (failed?.error) throw failed.error;
-      const mappedCards = latest((cards.data ?? []) as Row[], mapCard);
+      const mappedCards = latest(cards, mapCard);
       const mappedDecks: Deck[] = latest(decks, (d) => ({
         id: str(d.id),
         title: str(d.title),
@@ -257,8 +255,8 @@ export function createSupabaseBackend(url: string, publicKey: string): Backend {
           (t) => ({ id: str(t.id), subjectId: str(t.subject_id), parentId: str(t.parent_id) || null, name: str(t.name) }) as Topic,
         ),
         exams: exams.map((e) => ({ id: str(e.id), name: str(e.name) }) as Exam),
-        lessons: latest((lessons.data ?? []) as Row[], mapLesson),
-        questions: latest((questions.data ?? []) as Row[], mapQuestion),
+        lessons: latest(lessons, mapLesson),
+        questions: latest(questions, mapQuestion),
         decks: mappedDecks,
         cards: mappedCards,
       };

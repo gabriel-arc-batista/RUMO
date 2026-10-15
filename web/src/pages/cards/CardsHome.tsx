@@ -2,9 +2,11 @@ import { ArrowUpDown, Layers, MoreHorizontal, Plus, Search } from "lucide-react"
 import { useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { EmptyState, ExampleTag, Loading, Menu, Segmented } from "../../components/ui";
+import { studiedTopics, topicScope } from "../../domain/learning";
+import { cardClassification } from "../../domain/practice";
 import type { Catalog, Deck } from "../../domain/types";
 import { plural } from "../../lib/format";
-import { useCatalog } from "../../service/store";
+import { useCatalog, useRumo } from "../../service/store";
 import { subjectName, topicName } from "../campo/lessons";
 import { CardEditor } from "./CardEditor";
 import { CardRow } from "./CardRow";
@@ -33,6 +35,7 @@ function deckMatches(catalog: Catalog, deck: Deck, subject: string, topic: strin
 
 export default function CardsHome() {
   const catalog = useCatalog();
+  const { sync } = useRumo();
   const data = useCardViews();
   const [params, setParams] = useSearchParams();
   const [creating, setCreating] = useState(false);
@@ -52,16 +55,25 @@ export default function CardsHome() {
   const decks = data?.decks ?? [];
   const views = data?.views ?? [];
   const deckById = useMemo(() => new Map(decks.map((d) => [d.id, d])), [decks]);
+  const studied = studiedTopics(catalog, sync?.projection);
+  const scope = topic ? topicScope(catalog, topic) : null;
+  const onlyStudied = params.get("estudados") === "1";
   const filteredCards = views.filter((v) => {
-    const deck = deckById.get(v.card.deckId);
-    if (subject && deck?.subjectId !== subject) return false;
-    if (topic && deck?.topicId !== topic) return false;
+    const classification = cardClassification(v.card, catalog, decks);
+    if (subject && classification.subjectId !== subject) return false;
+    if (scope && !classification.topicIds.some((id) => scope.has(id))) return false;
+    if (onlyStudied && (!classification.topicIds.length || !classification.topicIds.every((id) => studied.has(id)))) return false;
     if (q && !fold(`${v.card.front} ${v.card.back}`).includes(fold(q))) return false;
     if (view === "pessoais") return v.card.personal;
     if (view === "suspensos") return v.status === "suspenso";
     return true;
   });
-  const shownDecks = decks.filter((d) => deckMatches(catalog, d, subject, topic) && (!q || fold(d.title).includes(fold(q))));
+  const shownDecks = decks.filter((d) =>
+    ((subject || topic || onlyStudied) ? filteredCards.some((v) => v.card.deckId === d.id) : deckMatches(catalog, d, subject, topic))
+    && (!q || fold(d.title).includes(fold(q))));
+  const reviewParams = new URLSearchParams(params);
+  const freshParams = new URLSearchParams(params);
+  freshParams.set("novos", "1");
   const due = views.filter((v) => v.status === "vencido").length;
   const fresh = views.filter((v) => v.status === "novo").length;
 
@@ -100,12 +112,12 @@ export default function CardsHome() {
           </p>
         </div>
         {due > 0 ? (
-          <Link to="/flashcards/revisar" className="btn primary lg">
+          <Link to={`/flashcards/revisar?${reviewParams}`} className="btn primary lg">
             <Layers size={18} aria-hidden="true" /> Revisar {due > 20 ? "20 agora" : "agora"}
           </Link>
         ) : (
           fresh > 0 && (
-            <Link to="/flashcards/revisar?novos=1" className="btn">
+            <Link to={`/flashcards/revisar?${freshParams}`} className="btn">
               Estudar cartões novos
             </Link>
           )
@@ -137,6 +149,11 @@ export default function CardsHome() {
             ))}
         </select>
       </div>
+
+      <label className="row small">
+        <input type="checkbox" checked={onlyStudied} onChange={(e) => set("estudados", e.target.checked ? "1" : "")} />
+        Só assuntos com uma aula atual marcada integralmente como lida
+      </label>
 
       <Segmented<View>
         label="Mostrar"

@@ -3,10 +3,12 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { StudyTimer, useStudyTimer } from "../../components/StudyTimer";
 import { Confirm, EmptyState, ExampleTag, Loading, ProgressBar } from "../../components/ui";
+import { cardClassification, sessionSubject } from "../../domain/practice";
 import type { ReviewResult } from "../../domain/types";
 import { plural } from "../../lib/format";
-import { uuid } from "../../lib/ids";
-import { useRumo } from "../../service/store";
+import { SingleAction } from "../../lib/singleAction";
+import { useCatalog, useRumo } from "../../service/store";
+import { studiedTopics, topicScope } from "../../domain/learning";
 import { useCardViews, type CardView } from "./useCards";
 
 const RATINGS = [
@@ -21,9 +23,19 @@ const SESSION_SIZE = 20;
 export default function ReviewSession() {
   const data = useCardViews();
   const [params] = useSearchParams();
+  const catalog = useCatalog();
+  const { sync } = useRumo();
   if (!data) return <div className="page"><Loading /></div>;
   const deckSubject = (deckId: string) => data.decks.find((d) => d.id === deckId)?.subjectId ?? null;
-  return <Review key={params.toString()} views={data.views} deckId={params.get("deck")} fresh={params.get("novos") === "1"} deckSubject={deckSubject} />;
+  const studied = studiedTopics(catalog, sync?.projection);
+  const scope = params.get("assunto") ? topicScope(catalog, params.get("assunto")!) : null;
+  const views = data.views.filter((view) => {
+    const c = cardClassification(view.card, catalog, data.decks);
+    if (params.get("materia") && c.subjectId !== params.get("materia")) return false;
+    if (scope && !c.topicIds.some((id) => scope.has(id))) return false;
+    return params.get("estudados") !== "1" || (c.topicIds.length > 0 && c.topicIds.every((id) => studied.has(id)));
+  });
+  return <Review key={params.toString()} views={views} deckId={params.get("deck")} fresh={params.get("novos") === "1"} deckSubject={deckSubject} />;
 }
 
 function Review({
@@ -37,7 +49,7 @@ function Review({
   fresh: boolean;
   deckSubject: (deckId: string) => string | null;
 }) {
-  const { enqueue, sync, prefs } = useRumo();
+  const { enqueue, sync, prefs, toast } = useRumo();
   const navigate = useNavigate();
   // Fila fixada ao abrir: vencidos primeiro (os mais antigos antes); novos só se pedidos.
   const [queue] = useState(() => {
@@ -53,23 +65,28 @@ function Review({
   const [ending, setEnding] = useState(false);
   const [finished, setFinished] = useState(false);
   const timer = useStudyTimer(`revisao.${deckId ?? "todos"}`);
+  const actions = useRef(new SingleAction());
   const revealRef = useRef<HTMLButtonElement>(null);
   const backRef = useRef<HTMLDivElement>(null);
   const card = queue[index];
-  // Matéria da sessão: a do deck revisado (ou do primeiro cartão da fila).
-  const subjectId = (queue[0] && deckSubject(queue[0].deckId)) || "geral";
+  const subjectId = sessionSubject(queue.map((c) => deckSubject(c.deckId)));
 
   const rate = useCallback(
     async (rating: 1 | 2 | 3 | 4) => {
       if (!card || !revealed) return;
-      const reviewId = uuid();
-      setDone((d) => [...d, { cardId: card.id, reviewId, rating }]);
-      await enqueue("card.review", reviewId, { card_id: card.id, version: card.version, rating, session_id: timer.sessionId }, reviewId);
-      setRevealed(false);
-      if (index + 1 < queue.length) setIndex(index + 1);
-      else setFinished(true);
+      try {
+        await actions.current.run(`${timer.sessionId}:${card.id}:${index}`, async (reviewId) => {
+          await enqueue("card.review", reviewId, { card_id: card.id, version: card.version, rating, session_id: timer.sessionId }, reviewId);
+          setDone((d) => [...d, { cardId: card.id, reviewId, rating }]);
+          setRevealed(false);
+          if (index + 1 < queue.length) setIndex(index + 1);
+          else setFinished(true);
+        });
+      } catch {
+        toast("Não foi possível guardar a revisão. Avalie novamente para tentar salvar.", "error");
+      }
     },
-    [card, revealed, enqueue, timer.sessionId, index, queue.length],
+    [card, revealed, enqueue, toast, timer.sessionId, index, queue.length],
   );
 
   useEffect(() => {
