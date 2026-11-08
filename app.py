@@ -63,6 +63,8 @@ SECTIONS = [
     "Edital e assuntos",
     "Campo de Treinamento",
     "Leitor",
+    "Arena",
+    "Flashcards",
     "Revisões",
     "Simulados",
     "Jornada",
@@ -85,6 +87,8 @@ PAGES = {
     "Jornada": "page_journey",
     "Campo de Treinamento": "page_training",
     "Leitor": "page_reader",
+    "Arena": "page_arena",
+    "Flashcards": "page_cards",
 }
 FIXED_PAGES = {"Edital e assuntos", "Campo de Treinamento", "Leitor"}
 # Pages without their own navigation entry highlight a parent entry.
@@ -97,6 +101,8 @@ NAV = [
             ("Ciclo de estudos", "repeat"),
             ("Edital e assuntos", "book-open"),
             ("Campo de Treinamento", "library"),
+            ("Arena", "target"),
+            ("Flashcards", "swatch-book"),
             ("Revisões", "brain"),
             ("Simulados", "swords"),
         ],
@@ -117,6 +123,8 @@ SUBTITLES = {
     "Edital e assuntos": "Transforme o conteúdo do edital em um caminho claro.",
     "Campo de Treinamento": "Aulas em PDF para ler e estudar, também sem internet.",
     "Leitor": "",
+    "Arena": "Questões para treinar e refazer o que errou.",
+    "Flashcards": "Cartões para lembrar no dia certo, também sem conta.",
     "Revisões": "Tente lembrar antes de consultar o material.",
     "Estatísticas": "Veja como seu esforço se transforma em resultado.",
     "Histórico": "Cada sessão faz parte da sua trajetória.",
@@ -1632,6 +1640,42 @@ class App:
 
             self._training = TrainingService(self.store, self.content_manager)
         return self._training
+
+    @property
+    def arena(self):
+        if getattr(self, "_arena", None) is None:
+            from arena import Arena
+
+            self._arena = Arena(self.store)
+        return self._arena
+
+    @property
+    def cards(self):
+        if getattr(self, "_cards", None) is None:
+            from cards import Cards
+            from desktop_sync import service_for
+
+            self._cards = Cards(service_for(self.store))
+        return self._cards
+
+    def after_arena_session(self, session_id):
+        """Same confirmation and character refresh as any recorded study."""
+        values = self.store.one("SELECT * FROM sessions WHERE id=?", (session_id,))
+        subject = self.store.one(
+            "SELECT name FROM subjects WHERE id=?", (values["subject_id"],)
+        )
+        self.session_saved(values, subject["name"] if subject else "")
+        self.refresh_character_card()
+
+    def page_arena(self):
+        from screen_arena import render
+
+        render(self)
+
+    def page_cards(self):
+        from screen_cards import render
+
+        render(self)
 
     def reset_content(self):
         """Rebuild the provider after the content source changed."""
