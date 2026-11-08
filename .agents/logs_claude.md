@@ -2,7 +2,7 @@
 
 Memória de trabalho do Claude neste projeto. **Leia este arquivo inteiro antes de qualquer tarefa** e atualize-o ao final de cada etapa: seção "Onde paramos", "Histórico" (uma linha por rodada) e "Preferências do usuário" quando ele disser algo novo. Escreva fatos verificados, com data. O usuário não quer reexplicar contexto a cada sessão.
 
-Última atualização: 12/10/2026 02:27.
+Última atualização: 08/11/2026 (esteira multiagente, esquema v7).
 
 ## 1. O projeto em poucas linhas
 
@@ -25,6 +25,7 @@ Memória de trabalho do Claude neste projeto. **Leia este arquivo inteiro antes 
 - Skills de design: `frontend-design` (em `.claude/skills`) e **Impeccable** (em `~/.agents/skills/impeccable`, instalada para o Codex; tem `scripts/impeccable context` e `reference/craft-floor.md`). São web; aplicar os princípios ao Tk e dizer isso.
 - **Codex em paralelo (11/10 15:58):** não deixar de fazer nenhuma parte por ser "do Codex". Se ele estiver editando o arquivo necessário (mtime recente, aviso em `docs/RUMO_HANDOFF.md` ou `.agents/CHARACTER_WORK.md`), **esperar ele terminar** e então fazer.
 - Quer temas de **três cores** (fundo, principal, companheira); o original é preto + ouro + verdete.
+- **Ordem do edital = gradual de verdade** (12/10): fundamentos primeiro (ex.: arquitetura web/HTTP antes de Git, GoF/GRASP e UX). Ficou bravo com a ordem anterior de `learning.ROOTS`. Antes de mexer em ordem pedagógica, pense como professor e mostre a árvore resultante.
 
 ## 3. Direção de design (decidida e implementada)
 
@@ -213,3 +214,14 @@ Frontend entregue pelo Claude e congelado após correções: 31 unitários, tipo
 
 - Migração 009 aplicada no Supabase hospedado; site novo publicado na Vercel (export limpo, `vercel deploy --prod --scope arcanjo4`); CI Windows 38292229940 aprovada; build Linux validado; release v2.1.0 publicada como latest (https://github.com/gabriel-arc-batista/RUMO/releases/tag/v2.1.0). Pacotes locais em `dist/release-2.1.0/`.
 - Não feito: tradução dos e-mails do Auth (plano gratuito exige SMTP próprio; precisa de conta em provedor como Resend/Brevo). O modo automático às vezes bloqueia push/deploy; com autorização explícita do usuário funcionou ao tentar de novo.
+
+## Ordem gradual do edital (Claude, 12/10/2026)
+
+- Usuário reclamou: Engenharia de Software começava por Python/Git/GoF/UX. A ordem vem de `learning.ROOTS` (só exibição/`next_topic`; nomes, IDs e banco intactos). Refeita: ES 1→5→9→8→12→10→4→11→2→3→7→13→14→6; BD 1–4; Infra redes→protocolos→SO→serviços→virtualização→containers→nuvem→IaC→Ansible→monitoração→tolerância; Ciência de Dados ML antes de tipos; Micro (E&F) mercados/jogos antes de equilíbrio geral; Finanças renda fixa→curvas→carteiras→CAPM→eficiência→risco→ESG; Fundamentos: Micro 1.1 antes de 2.x (antes estava invertido); Lógica 1.1→1.3→1.2. `ROOTS` aceita "c.s" para ordenar um subitem; `FIRST` põe um item-guia na frente (assíncrona). 2 testes novos em `tests/test_learning.py`; 181 testes, só `test_appearance` falha no `.venv` por falta de Pillow (não relacionado). Conferido em cópia somente leitura da base. Sem commit.
+
+## Orquestração de outras IAs (Claude, 08/11/2026)
+
+- O usuário quer que eu **coordene** três agentes nos terminais do Orca e **audite** o trabalho deles: agy (Antigravity, Claude Sonnet 4.6), DeepSeek V4.1 Flash e GLM-5.3 Flash (opencode, gratuitos). Canal validado com os três: `orca orchestration worker-start --terminal <handle> --worktree current --spec …`, relatório por `worker_done`. Texto cru via `orca terminal send` é recusado; cada agente precisa da autorização do usuário no próprio terminal.
+- Prioridade decidida pelo usuário: **terminar o app primeiro** (Arena e flashcards nativos, telas restantes Ciclo/Histórico/Configurações/registro, cronômetro, Windows) e só depois o "game" (mapa etc., que ainda não existe; vai ser pequeno). Divisão prevista: agy = lógica da Arena; DeepSeek = tela da Arena; GLM = tela de flashcards; eu = especificação/contrato, `app.py`, auditoria e integração. Próximo passo: auditoria do app (passo 0) e especificação.
+- **08/11 (tarde):** criei `.agents/CONVENTIONS.md` (camadas, SOLID, enxuto, checklist de vazamentos) e `.agents/PIPELINE.md` (esteira, donos de arquivos); `AGENTS.md` aponta para eles; tarefas em `.agents/tasks/`. Corrigi vazamento de conexões em `tests/test_study_sync.py`. Implementei o **esquema v7** (Arena: `arena_schema.py`, migração `pre-arena-*`, backups v1–v7 com regra única de grupos de extensão, gancho `arena_attempts` em `save_session`) + `tests/test_arena_schema.py`; 197 testes ok com `-W error::ResourceWarning`. Despachei: agy → `arena-logic`, DeepSeek → `arena-ui`, GLM → `cards` (o terminal aberto do GLM deu `agent_readiness: timeout` duas vezes; a 3ª tentativa abriu worker GLM estruturado novo, `--keep-open`). Run Orca `run_3f2f667f67d1`. Nada commitado. Falta: auditar as três entregas e ligar `app.arena`, `app.cards`, `app.after_arena_session` e navegação no `app.py`.
+- **08/11 (fim do ciclo 1):** Arena e Flashcards nativos prontos e no menu Estudo. agy entregou `arena.py` reprovado (8 defeitos) → reescrito por mim (421 linhas) com testes de regressão; DeepSeek fez as telas da Arena (aprovadas com 4 correções minhas) e parou por cota do opencode; agy terminou o layout. GLM deixou flashcards pela metade (cota) → terminei (testes nunca rodados, botões cortados, editor). Extraí `ui_kit.field/status_line`. 278 testes. Capturas em `validation/arena-2026-11-08/`. **Opencode gratuito sem cota** (DeepSeek/GLM): dispatches abandonados. Nada commitado: aguardando ok do usuário.
