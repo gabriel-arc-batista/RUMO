@@ -34,6 +34,7 @@ class StudyTests(unittest.TestCase):
 
     def test_schedule_and_retry(self):
         db = sqlite3.connect(":memory:")
+        self.addCleanup(db.close)
         projection = StudyProjection(db)
         event = dict(
             id="review-1",
@@ -117,7 +118,9 @@ class StudyTests(unittest.TestCase):
             workspace.db.close()
 
     def test_version_continuity_and_server_result(self):
-        projection = StudyProjection(sqlite3.connect(":memory:"))
+        db = sqlite3.connect(":memory:")
+        self.addCleanup(db.close)
+        projection = StudyProjection(db)
         for sequence, version in enumerate(("1", "2"), 1):
             projection.apply_event(
                 dict(

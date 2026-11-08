@@ -11,6 +11,7 @@ from security import validate_preferences, validate_relationships
 from rpg_schema import RPG_TABLES
 from rpg_validation import validate_rpg
 from training_schema import TRAINING_TABLES, valid_id, valid_version, validate_training
+from arena_schema import ARENA_TABLES, validate_arena
 
 
 def validate_backup(path, schema, tables):
@@ -18,31 +19,25 @@ def validate_backup(path, schema, tables):
     if (
         not isinstance(data.get("format"), str)
         or not 1 <= len(data["format"]) <= 64
-        or data.get("version") not in [1, 2, 3, 4, 5, 6]
+        or data.get("version") not in [1, 2, 3, 4, 5, 6, 7]
     ):
         raise ValueError("Formato ou versão de backup inválidos.")
-    legacy = set(tables) - set(RPG_TABLES) - set(TRAINING_TABLES)
-    expected = (
-        legacy
-        if data["version"] <= 3
-        else legacy | set(RPG_TABLES) if data["version"] <= 5 else set(tables)
-    )
-    # Some manually downgraded snapshots retain extension tables; require all or none.
-    present = set(data["tables"])
-    if data["version"] <= 5 and set(TRAINING_TABLES) <= present:
-        present -= set(TRAINING_TABLES)
-        expected -= set(TRAINING_TABLES)
-        full = set(tables) - set(TRAINING_TABLES)
-    else:
-        full = set(tables)
-    if present not in (expected, full):
+    # Extension groups newer than the backup may be retained by manually
+    # downgraded snapshots; each one must be present entirely or not at all.
+    extensions = ((RPG_TABLES, 3), (TRAINING_TABLES, 5), (ARENA_TABLES, 6))
+    present, newer = set(data["tables"]), set()
+    for group, newest in extensions:
+        if data["version"] <= newest:
+            newer |= set(group)
+            if newest > 3 and set(group) <= present:
+                present -= set(group)
+    expected = set(tables) - newer
+    if present not in (expected, set(tables) - (newer - set(RPG_TABLES))):
         raise ValueError("Tabelas de backup inválidas.")
-    if data["version"] <= 3:
-        for name in RPG_TABLES:
-            data["tables"].setdefault(name, [])
-    if data["version"] <= 5:
-        for name in TRAINING_TABLES:
-            data["tables"].setdefault(name, [])
+    for group, newest in extensions:
+        if data["version"] <= newest:
+            for name in group:
+                data["tables"].setdefault(name, [])
     if data["version"] == 1:
         for row in data["tables"]["sessions"]:
             row.setdefault("pauses", "[]")
@@ -51,7 +46,7 @@ def validate_backup(path, schema, tables):
         for row in data["tables"]["topics"]:
             row.setdefault("notes", "")
         data["version"] = 3
-    data["version"] = 6
+    data["version"] = 7
     test = sqlite3.connect(":memory:")
     test.execute("PRAGMA foreign_keys=ON")
     test.executescript(schema)
@@ -82,6 +77,7 @@ def validate_backup(path, schema, tables):
         validate_relationships(data["tables"])
         validate_rpg(data["tables"])
         validate_training(data["tables"])
+        validate_arena(data["tables"])
         for row in data["tables"]["active"]:
             active = json.loads(row["value"])
             if not isinstance(active, dict) or not {
@@ -228,6 +224,7 @@ def read_backup(path, tables):
                 for t in tables
                 if (version >= 4 or t not in RPG_TABLES)
                 and (version >= 6 or t not in TRAINING_TABLES)
+                and (version >= 7 or t not in ARENA_TABLES)
             ]
             if any(objects.get(t) != "table" for t in required) or any(
                 v in ("view", "trigger") for v in objects.values()

@@ -14,6 +14,7 @@ from pathlib import Path
 from security import csv_cell
 from rpg_schema import RPG_SCHEMA, RPG_TABLES
 from training_schema import TRAINING_SCHEMA, TRAINING_TABLES
+from arena_schema import ARENA_SCHEMA, ARENA_TABLES, insert_attempts
 
 COLORS = ["#D6B467", "#B6914A", "#E8CC91", "#A78956", "#F1DEAD", "#786541"]
 TABLES = (
@@ -35,6 +36,7 @@ TABLES = (
     ]
     + RPG_TABLES
     + TRAINING_TABLES
+    + ARENA_TABLES
 )
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS preferences(key TEXT PRIMARY KEY,value TEXT NOT NULL);
@@ -58,7 +60,7 @@ CREATE INDEX IF NOT EXISTS ix_topics_subject ON topics(subject_id);
 CREATE INDEX IF NOT EXISTS ix_reviews_due ON reviews(due,state);
 ALTER TABLE sessions ADD COLUMN pauses TEXT NOT NULL DEFAULT '[]';
 PRAGMA user_version=3;
-""" + RPG_SCHEMA + TRAINING_SCHEMA
+""" + RPG_SCHEMA + TRAINING_SCHEMA + ARENA_SCHEMA
 
 
 def uid():
@@ -108,7 +110,7 @@ class Store:
         self.db = sqlite3.connect(self.path)
         self.db.row_factory = sqlite3.Row
         version = self.db.execute("PRAGMA user_version").fetchone()[0]
-        if version > 6:
+        if version > 7:
             self.db.close()
             raise ValueError(
                 "A base foi criada por uma versão mais nova do RUMO — Estudos. Atualize o aplicativo."
@@ -188,10 +190,30 @@ class Store:
                 self.db.rollback()
                 self.db.close()
                 raise
+        if 1 <= version <= 6:
+            self._upgrade_to_arena(copy=version == 6)
         from rpg import RPGService
 
         self.rpg = RPGService(self)
         self.rpg.sync()
+
+    def _upgrade_to_arena(self, copy):
+        """v7 only adds the empty Arena tables; v6 bases keep a copy first."""
+        if copy:
+            backup = self.path.parent / (
+                "pre-arena-" + datetime.now().strftime("%Y%m%d-%H%M%S%f") + ".sqlite3"
+            )
+            destination = sqlite3.connect(backup)
+            try:
+                self.db.backup(destination)
+            finally:
+                destination.close()
+        try:
+            self.db.executescript("BEGIN IMMEDIATE;" + ARENA_SCHEMA + "COMMIT;")
+        except Exception:
+            self.db.rollback()
+            self.db.close()
+            raise
 
     def close(self):
         """Close all connections owned by this Store, including its lazy workspace.
@@ -416,6 +438,7 @@ class Store:
         # The lesson read in the Campo de Treinamento is context, not a new session.
         context = dict(context or {})
         lesson = {k: context.pop(k, None) for k in ("lesson_id", "lesson_version")}
+        attempts = context.pop("arena_attempts", ())
         with self.db:
             sid = self.put("sessions", v)
             if shift_pending and old and old["day"] != v["day"]:
@@ -462,6 +485,7 @@ class Store:
             if finish_active:
                 self.db.execute("DELETE FROM active")
             self.link_lesson(sid, lesson)
+            insert_attempts(self.db, sid, attempts)
             self.rpg.session_saved(sid, old is None, context or None)
         # Optional workspace is separate from backup/schema contracts. Capture
         # after canonical commit; account sync can repair missing queue writes.
@@ -867,7 +891,7 @@ class Store:
     def snapshot(self):
         return {
             "format": "RUMO",
-            "version": 6,
+            "version": 7,
             "created": datetime.now().isoformat(),
             "tables": {t: self.rows(f"SELECT * FROM {t}") for t in TABLES},
         }

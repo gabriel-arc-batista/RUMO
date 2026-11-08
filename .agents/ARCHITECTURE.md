@@ -147,3 +147,21 @@ conteúdo com leitura concluída. Sessões `subject_id=misto` permanecem no work
 sem importação para uma única matéria. Limites, diagnóstico e continuação em
 `docs/pedagogia/IMPLEMENTACAO.md` e `CONTRATO_EVOLUCAO.md`; não anunciar integração
 nativa de Arena/cartões ou sincronização do grafo como concluída.
+
+## Arena nativa — esquema v7 (Claude, 08/11/2026)
+
+`arena_schema.py` acrescenta `arena_questions` (banco local por matéria/assunto, origem
+pessoal ou pacote, `status` ativa/anulada/retirada, `fingerprint` contra repetição,
+`UNIQUE(external_id, version)`) e `arena_attempts` (`session_id` com `ON DELETE CASCADE`).
+Uma rodada da Arena é uma sessão comum de "Questões": `save_session(..., context=
+{"arena_attempts": [...]})` grava as tentativas na mesma transação via `insert_attempts`
+(id `<sessão>:<questão>`, idempotente) e retira a chave antes do RPG; XP só pela sessão.
+Bases v1–v6 migram aditivamente; v6 recebe cópia `pre-arena-*` (v1–v5 já copiam em
+`pre-campo-*`). `validate_backup` aceita v1–v7; grupos de extensão mais novos que o
+backup (RPG ≤3, Campo ≤5, Arena ≤6) entram vazios ou, em snapshots rebaixados, inteiros.
+Domínio em `arena.py`, telas em `screen_arena.py`/`arena_ui.py`; flashcards nativos em
+`cards.py`/`screen_cards.py` sobre a área de trabalho opcional (sem conta = eventos `local`).
+`cards.py` guarda a hora das revisões locais em `card_review_log` (no `study-sync.sqlite3`)
+porque a fila não tem data; a agenda junta servidor + log sem contar o mesmo evento duas
+vezes. Revisar cartões não cria sessão nem XP. Campos de formulário temáticos:
+`ui_kit.field` (Entry ou Text) e `ui_kit.status_line`.

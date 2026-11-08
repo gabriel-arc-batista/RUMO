@@ -10,6 +10,7 @@ from pathlib import Path
 from backups import validate_backup
 from rpg_schema import RPG_TABLES
 from training_schema import TRAINING_TABLES
+from arena_schema import ARENA_TABLES
 
 
 @contextmanager
@@ -62,7 +63,8 @@ def migrate_existing_data(base, target, schema, tables):
                 }
             finally:
                 reader.close()
-            if not (set(tables) - set(RPG_TABLES) - set(TRAINING_TABLES)) <= objects:
+            legacy = set(tables) - set(RPG_TABLES) - set(TRAINING_TABLES)
+            if not (legacy - set(ARENA_TABLES)) <= objects:
                 continue
             validate_backup(source, schema, tables)
         except (ValueError, OSError, sqlite3.Error) as error:

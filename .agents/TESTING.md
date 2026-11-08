@@ -76,3 +76,11 @@ e editor de relações, sem XP/sessões. Frontend acrescenta regressões de pagi
 acima de 1.000 itens, repetição de resposta, conteúdo estudado e estatística mista.
 `test_sync_desktop` mantém sessões mistas preservadas no workspace. Isso não
 valida a integração individual dos resultados mistos ao Store, ainda pendente.
+
+## Arena e flashcards nativos (08/11/2026)
+`tests/test_arena_schema.py` (v7: tentativas na transação da sessão, idempotência, cascata,
+backup v7/v6, migração com `pre-arena-*`), `tests/test_arena.py` (inclui
+`ArenaAuditRegressionTests`), `tests/test_screen_arena.py` e `tests/test_cards.py` (domínio +
+telas com Tk real). Rode sempre com `-W error::ResourceWarning`. Prévia visual com base
+temporária: `validation/arena-2026-11-08/preview.sh` (Arena) e `cards_preview.py`, que
+exigem `python-xlib`/Pillow para o Python 3.14 do sistema (instalados fora do repositório).
