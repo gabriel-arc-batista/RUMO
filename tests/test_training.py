@@ -20,6 +20,7 @@ from training_content import (
     RemoteProvider,
     normalize_source,
 )
+from arena_schema import ARENA_SCHEMA
 from training_schema import TRAINING_SCHEMA, TRAINING_TABLES
 
 FIXTURE = Path(__file__).parent / "fixtures" / "campo-teste"
@@ -335,7 +336,7 @@ class TrainingTests(unittest.TestCase):
         path = self.root / "b.json"
         self.store.export(path)
         data = json.loads(path.read_text(encoding="utf-8"))
-        self.assertEqual(data["version"], 6)
+        self.assertEqual(data["version"], 7)
         with self.store.db:
             self.store.db.execute("DELETE FROM training_notes")
         self.store.restore(path)
@@ -358,7 +359,7 @@ class TrainingTests(unittest.TestCase):
     def test_v5_database_upgrades_without_losing_data(self):
         old = self.root / "v5.sqlite3"
         connection = sqlite3.connect(old)
-        connection.executescript(SCHEMA.replace(TRAINING_SCHEMA, ""))
+        connection.executescript(SCHEMA.replace(TRAINING_SCHEMA + ARENA_SCHEMA, ""))
         connection.execute("INSERT INTO plans(id,name) VALUES('p','Antigo')")
         connection.commit()
         self.assertEqual(connection.execute("PRAGMA user_version").fetchone()[0], 5)
@@ -366,7 +367,7 @@ class TrainingTests(unittest.TestCase):
         upgraded = Store(old)
         try:
             self.assertEqual(
-                upgraded.db.execute("PRAGMA user_version").fetchone()[0], 6
+                upgraded.db.execute("PRAGMA user_version").fetchone()[0], 7
             )
             self.assertEqual(upgraded.one("SELECT name FROM plans")["name"], "Antigo")
             upgraded.db.execute("SELECT * FROM training_notes").fetchall()
