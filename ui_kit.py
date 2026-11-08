@@ -59,6 +59,37 @@ def wrapping(widget, margin=4, minimum=120):
     return widget
 
 
+def field(parent, app, lines=0, **kwargs):
+    """Themed text input: an Entry, or a word-wrapped Text with `lines` rows."""
+    p = palette(app)
+    style = dict(
+        bg=p["raised"],
+        fg=p["fg"],
+        insertbackground=p["fg"],
+        relief="flat",
+        highlightthickness=1,
+        highlightbackground=p["border"],
+        highlightcolor=p["accent"],
+        font=ui_font(parent, size=10),
+    )
+    if lines:
+        return tk.Text(
+            parent, height=lines, wrap="word", padx=8, pady=6, **style, **kwargs
+        )
+    return tk.Entry(parent, **style, **kwargs)
+
+
+def status_line(parent, app, side=None):
+    """Packed message label; returns show(text, tone="error")."""
+    widget = label(parent, app, "", size=9, tone="error")
+    widget.pack(side=side) if side else widget.pack(anchor="w", pady=(6, 0))
+
+    def show(text, tone="error"):
+        widget.configure(text=text, fg=palette(app).get(tone, tone))
+
+    return show
+
+
 class Surface(tk.Frame):
     """A quiet region: one fill, no border. Elevation is declared once."""
 
